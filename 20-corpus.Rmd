@@ -1,0 +1,6 @@
+# (PART) CORPUS BUILDING {-}
+
+The objectives of this part is to present a set of corpora that has been elaborated for the analysis of news.  
+
+
+

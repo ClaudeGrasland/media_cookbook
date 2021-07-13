@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Corpus mediacloud | The media cookbook</title>
+  <meta name="description" content="A reminder of some experiments made in 2021" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Corpus mediacloud | The media cookbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A reminder of some experiments made in 2021" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Corpus mediacloud | The media cookbook" />
+  
+  <meta name="twitter:description" content="A reminder of some experiments made in 2021" />
+  
+
+<meta name="author" content="Claude Grasland" />
+
+
+<meta name="date" content="2021-07-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="20-corpus.html"/>
+
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">Data Mining:  <em>C. Grasland (2021)</em></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="00-object.html"><a href="00-object.html"><i class="fa fa-check"></i><b>1</b> INTRODUCTION</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="00-object.html"><a href="00-object.html#a-short-example"><i class="fa fa-check"></i><b>1.1</b> A short example</a></li>
+<li class="chapter" data-level="1.2" data-path="00-object.html"><a href="00-object.html#the-choice-of-the-topic"><i class="fa fa-check"></i><b>1.2</b> The choice of the topic</a></li>
+<li class="chapter" data-level="1.3" data-path="00-object.html"><a href="00-object.html#the-formulation-of-hypothesis"><i class="fa fa-check"></i><b>1.3</b> The formulation of hypothesis</a></li>
+<li class="chapter" data-level="1.4" data-path="00-object.html"><a href="00-object.html#the-field-of-investigation"><i class="fa fa-check"></i><b>1.4</b> The field of investigation</a></li>
+<li class="chapter" data-level="1.5" data-path="00-object.html"><a href="00-object.html#the-choice-of-the-methods"><i class="fa fa-check"></i><b>1.5</b> The choice of the methods</a></li>
+</ul></li>
+<li class="part"><span><b>I DATA ACQUISITION</b></span></li>
+<li class="chapter" data-level="2" data-path="10-data.html"><a href="10-data.html"><i class="fa fa-check"></i><b>2</b> Data sources</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="10-data.html"><a href="10-data.html#minimum-requirement"><i class="fa fa-check"></i><b>2.1</b> Minimum requirement</a></li>
+<li class="chapter" data-level="2.2" data-path="10-data.html"><a href="10-data.html#mediacloud"><i class="fa fa-check"></i><b>2.2</b> Mediacloud</a></li>
+<li class="chapter" data-level="2.3" data-path="10-data.html"><a href="10-data.html#factiva"><i class="fa fa-check"></i><b>2.3</b> Factiva</a></li>
+<li class="chapter" data-level="2.4" data-path="10-data.html"><a href="10-data.html#europresse"><i class="fa fa-check"></i><b>2.4</b> Europresse</a></li>
+<li class="chapter" data-level="2.5" data-path="10-data.html"><a href="10-data.html#others"><i class="fa fa-check"></i><b>2.5</b> Others</a></li>
+</ul></li>
+<li class="part"><span><b>II CORPUS BUILDING</b></span></li>
+<li class="chapter" data-level="3" data-path="20-corpus.html"><a href="20-corpus.html"><i class="fa fa-check"></i><b>3</b> Corpus mediacloud</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="20-corpus.html"><a href="20-corpus.html#the-media-cloud-database"><i class="fa fa-check"></i><b>3.1</b> The Media Cloud database</a></li>
+<li class="chapter" data-level="3.2" data-path="20-corpus.html"><a href="20-corpus.html#how-to-extract-data-from-mediacloud"><i class="fa fa-check"></i><b>3.2</b> How to extract data from mediacloud ?</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="20-corpus.html"><a href="20-corpus.html#selection-of-media-with-source-manager"><i class="fa fa-check"></i><b>3.2.1</b> Selection of media with source manager</a></li>
+<li class="chapter" data-level="3.2.2" data-path="20-corpus.html"><a href="20-corpus.html#checking-the-stability-through-time"><i class="fa fa-check"></i><b>3.2.2</b> Checking the stability through time</a></li>
+<li class="chapter" data-level="3.2.3" data-path="20-corpus.html"><a href="20-corpus.html#selection-of-news-specifically-related-to-a-topic-option"><i class="fa fa-check"></i><b>3.2.3</b> Selection of news specifically related to a topic (option)</a></li>
+<li class="chapter" data-level="3.2.4" data-path="20-corpus.html"><a href="20-corpus.html#download-and-storage-of-news"><i class="fa fa-check"></i><b>3.2.4</b> Download and storage of news</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="20-corpus.html"><a href="20-corpus.html#how-to-import-and-export-mediacloud-data-to-r"><i class="fa fa-check"></i><b>3.3</b> How to import and export mediacloud data to R</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="20-corpus.html"><a href="20-corpus.html#transformation-in-quanteda-format."><i class="fa fa-check"></i><b>3.3.1</b> Transformation in quanteda format.</a></li>
+<li class="chapter" data-level="3.3.2" data-path="20-corpus.html"><a href="20-corpus.html#storage-of-the-quanteda-object"><i class="fa fa-check"></i><b>3.3.2</b> Storage of the quanteda object</a></li>
+<li class="chapter" data-level="3.3.3" data-path="20-corpus.html"><a href="20-corpus.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.3.3</b> Backtransformation of quanteda to data.table or tibble</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The media cookbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c22_corpus_mediacloud" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Corpus mediacloud</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="20-corpus.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code></pre></div>
+<pre><code>Package version: 3.0.0
+Unicode version: 13.0
+ICU version: 69.1</code></pre>
+<pre><code>Parallel computing: 8 of 8 threads used.</code></pre>
+<pre><code>See https://quanteda.io for tutorials and examples.</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="20-corpus.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2"><a href="20-corpus.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-3"><a href="20-corpus.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb5-4"><a href="20-corpus.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb5-5"><a href="20-corpus.html#cb5-5" aria-hidden="true" tabindex="-1"></a>datapath<span class="ot">&lt;-</span> <span class="st">&quot;data&quot;</span></span></code></pre></div>
+<div id="the-media-cloud-database" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> The Media Cloud database</h2>
+<p>(tbd : presentation of the MediaCloud project)</p>
+<p>Mediacloud can be freely used by researchers. All you have to do is to create an account at the following adress :</p>
+<p><a href="https://explorer.mediacloud.org" class="uri">https://explorer.mediacloud.org</a></p>
+</div>
+<div id="how-to-extract-data-from-mediacloud" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> How to extract data from mediacloud ?</h2>
+<p>You have different ways to get title of news. We will focus here on a simple example of data obtained through the mediacloud interface. We suppose that you want to extract news from the Tunisian newspapers speaking from Europe.</p>
+<div id="selection-of-media-with-source-manager" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Selection of media with source manager</h3>
+<p>We use the application called <em>Source Manager</em> and we introduce a research by collection which is the most convenient to explore what is available in a country. In our example, the target country is Tunisia and we have three collections that are propsed :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="20-corpus.html#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/mc_source_001.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/mc_source_001.png" width="1228" /></p>
+<p>We have selected the collection named “Tunisia National” because we are interested in the most important newspapers of the country.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="20-corpus.html#cb7-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/mc_source_002.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/mc_source_002.png" width="1208" />
+The buble graphic on the right indicates immediately the media that has produced the highest number of news, but it is wise to explore in more details the list on the left which indicates for each media the statting date of data collection.</p>
+<p>When a media appears interesting, we click on its name to obtain a brief summary of the metadata. For example, in the case of <em>L’économiste Maghrebin</em> the metadata indicates :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="20-corpus.html#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/mc_source_003.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/mc_source_003.png" width="1195" /></p>
+<p>The media looks promising, but before to go further, it can be better to have a look at the website of the media to have a more concrete idea of the content if we don’t know in advance what it is about in terms of content, what is the ideological orientation, etc.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="20-corpus.html#cb9-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/ecomag.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/ecomag.png" width="1013" /></p>
+<p>Here we can see that this is an ecnomic journal, published in french, with news organized in concentric geographic circles (Nation &gt; Maghreb &gt; Africa &gt; World) which is precisely what we are looking for in the IMAGEUN project. We will further complete the informations about this, but before to do that we have to check in more details if the production of the media is regular through time with another tool offered by mediacloud, the explorer.</p>
+</div>
+<div id="checking-the-stability-through-time" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Checking the stability through time</h3>
+<p>We have clicked on <em>search in explorer</em> on the metadata page of the Source Manager and obtain a news interfacce where we modify the date to cover the full period of collection of the media (or our period of interest). In the research field, we let the search term <code>*</code> which indicates a research on all news.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="20-corpus.html#cb10-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/mc_explo_001.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/mc_explo_001.png" width="1344" /></p>
+<p>Below your request, you obtain a graphic entitled <em>Attention Over Time</em> with the distribution of the number of news published per day which help you to verify if the distribution of news is regular through time. You just have to modify the type of graphic in order to visualize <em>Story Count</em> and you can choose the time span you want (day, week or month) for the evaluation of the regularity of news flow. In our example, we notice that at daily level they are some brief period of break in 2019, but the flow is reasonnabely regular with approximatively 5 news per day at the beginning and 10 to 20 in the final period. We also notice a classical week cycle with a decrease of news published during the week-end.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="20-corpus.html#cb11-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/mc_explo_002.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/mc_explo_002.png" width="1344" /></p>
+<p>Going down, you will find a news panel entitled <em>Total Attention</em> which gives you the total number of stories found. In our example, we have a total of 13626 stories produced by our media over the period.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="20-corpus.html#cb12-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/mc003.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/mc003.png" width="553" /></p>
+</div>
+<div id="selection-of-news-specifically-related-to-a-topic-option" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Selection of news specifically related to a topic (option)</h3>
+<p>You can eventually use Mediacloud to check the number of news produced about a specific topic, for example Europe or European Union or EU. The request shouldbe put in lower case with "" for compounds. Detailed explanation are available in the <img src="https://mediacloud.org/support/query-guide" alt="query guide" />.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="20-corpus.html#cb13-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/mc_explo_003.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/mc_explo_003.png" width="1338" />
+This time you can use the graphic option <em>Stories percentage</em> rather than <em>Story count</em> if you want to viusalize the salience of the topic through time.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="20-corpus.html#cb14-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/mc_explo_004.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/mc_explo_004.png" width="1331" /></p>
+<p>In our example, we have 369 news that appears to be related to our request about Europe or EU with a relatively regular pattern at month level of 1 to 3 % of news and exceptionaly 5 to 7 %.</p>
+</div>
+<div id="download-and-storage-of-news" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Download and storage of news</h3>
+<p>According to your selection (all news or a specific topic) you will download more or less title. Here, me make the choice to get all news, which means that we have to repeat the original request with <code>*</code>.</p>
+<p>Finally, by clicking on the button <em>Download all story URLS</em>, you can get a .csv file that you can easily load in your favorite programming language.</p>
+</div>
+</div>
+<div id="how-to-import-and-export-mediacloud-data-to-r" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> How to import and export mediacloud data to R</h2>
+<p>In the case of R, you can easily use the simple program below to import a csv file extracted from mediacloud at the data and transform the result firstly in a classical <code>data.frame</code>object.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="20-corpus.html#cb15-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file =</span>(<span class="st">&quot;data/corpora/TUN/-all-story-urls-20210713153555.csv&quot;</span>),</span>
+<span id="cb15-2"><a href="20-corpus.html#cb15-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,</span>
+<span id="cb15-3"><a href="20-corpus.html#cb15-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">header=</span>T,</span>
+<span id="cb15-4"><a href="20-corpus.html#cb15-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
+<span id="cb15-5"><a href="20-corpus.html#cb15-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb15-6"><a href="20-corpus.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code># A tibble: 6 x 10
+  stories_id publish_date  title   url    language ap_syndicated themes media_id
+       &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;     &lt;int&gt;
+1  719049395 2017-11-03 0… Univer… http:… fr       False         &quot;&quot;       623820
+2  719049401 2017-11-03 0… Cyrine… http:… fr       False         &quot;&quot;       623820
+3  719049385 2017-11-03 0… Santé … http:… fr       False         &quot;&quot;       623820
+4  719049416 2017-11-03 0… Düssel… http:… fr       False         &quot;&quot;       623820
+5  719457836 2017-11-04 0… Etude:… http:… fr       False         &quot;&quot;       623820
+6  719457840 2017-11-04 0… Réconc… http:… fr       False         &quot;&quot;       623820
+# … with 2 more variables: media_name &lt;chr&gt;, media_url &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="20-corpus.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div>
+<pre><code>&#39;data.frame&#39;:   13623 obs. of  10 variables:
+ $ stories_id   : int  719049395 719049401 719049385 719049416 719457836 719457840 719457843 719457851 719489735 720908005 ...
+ $ publish_date : chr  &quot;2017-11-03 06:59:58&quot; &quot;2017-11-03 06:15:37&quot; &quot;2017-11-03 07:32:40&quot; &quot;2017-11-03 04:36:14&quot; ...
+ $ title        : chr  &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; &quot;Cyrine Ben Hassine élue présidente de l’ATUGE France (2017-2018)&quot; &quot;Santé : pour une nouvelle relation médecin-patient&quot; &quot;Düsseldorf : 250 visiteurs professionnels et 8 exposants tunisiens au salon Medica 2017&quot; ...
+ $ url          : chr  &quot;http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-sa&quot;| __truncated__ ...
+ $ language     : chr  &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; ...
+ $ ap_syndicated: chr  &quot;False&quot; &quot;False&quot; &quot;False&quot; &quot;False&quot; ...
+ $ themes       : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+ $ media_id     : int  623820 623820 623820 623820 623820 623820 623820 623820 623820 623820 ...
+ $ media_name   : chr  &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; ...
+ $ media_url    : chr  &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; ...</code></pre>
+<div id="transformation-in-quanteda-format." class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Transformation in quanteda format.</h3>
+<p>Currently, the size of the file (unzipped) is equal to 4 Mb. But we can observe that a lot of information are the same for all news and should not necessarily be kept. We can We propose therefore another form of storage based on <code>quanteda</code> format.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="20-corpus.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Quanteda corpus</span></span>
+<span id="cb19-2"><a href="20-corpus.html#cb19-2" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus</span>(df<span class="sc">$</span>title)</span>
+<span id="cb19-3"><a href="20-corpus.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="20-corpus.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Add id</span></span>
+<span id="cb19-5"><a href="20-corpus.html#cb19-5" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>id<span class="ot">&lt;-</span>df<span class="sc">$</span>stories_id</span>
+<span id="cb19-6"><a href="20-corpus.html#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="20-corpus.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Add source code</span></span>
+<span id="cb19-8"><a href="20-corpus.html#cb19-8" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>source<span class="ot">&lt;-</span><span class="st">&quot;ecomag&quot;</span></span>
+<span id="cb19-9"><a href="20-corpus.html#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="20-corpus.html#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Add date</span></span>
+<span id="cb19-11"><a href="20-corpus.html#cb19-11" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>date<span class="ot">&lt;-</span>df<span class="sc">$</span>publish_date</span>
+<span id="cb19-12"><a href="20-corpus.html#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="20-corpus.html#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># add language</span></span>
+<span id="cb19-14"><a href="20-corpus.html#cb19-14" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>lang<span class="ot">&lt;-</span><span class="st">&quot;fr&quot;</span></span>
+<span id="cb19-15"><a href="20-corpus.html#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="20-corpus.html#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co"># add_url</span></span>
+<span id="cb19-17"><a href="20-corpus.html#cb19-17" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>url<span class="ot">&lt;-</span>df<span class="sc">$</span>url</span>
+<span id="cb19-18"><a href="20-corpus.html#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="20-corpus.html#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-20"><a href="20-corpus.html#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Add global meta</span></span>
+<span id="cb19-21"><a href="20-corpus.html#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_source&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Media Cloud &quot;</span></span>
+<span id="cb19-22"><a href="20-corpus.html#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_time&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Download the 2021-07-13&quot;</span></span>
+<span id="cb19-23"><a href="20-corpus.html#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_author&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Elaborated by Claude Grasland&quot;</span></span>
+<span id="cb19-24"><a href="20-corpus.html#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;project&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;ANR-DFG Project IMAGEUN&quot;</span></span>
+<span id="cb19-25"><a href="20-corpus.html#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(qd)</span></code></pre></div>
+<pre><code> &#39;corpus&#39; Named chr [1:13623] &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; ...
+ - attr(*, &quot;names&quot;)= chr [1:13623] &quot;text1&quot; &quot;text2&quot; &quot;text3&quot; &quot;text4&quot; ...
+ - attr(*, &quot;docvars&quot;)=&#39;data.frame&#39;: 13623 obs. of  8 variables:
+  ..$ docname_: chr [1:13623] &quot;text1&quot; &quot;text2&quot; &quot;text3&quot; &quot;text4&quot; ...
+  ..$ docid_  : Factor w/ 13623 levels &quot;text1&quot;,&quot;text2&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+  ..$ segid_  : int [1:13623] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ id      : int [1:13623] 719049395 719049401 719049385 719049416 719457836 719457840 719457843 719457851 719489735 720908005 ...
+  ..$ source  : chr [1:13623] &quot;ecomag&quot; &quot;ecomag&quot; &quot;ecomag&quot; &quot;ecomag&quot; ...
+  ..$ date    : chr [1:13623] &quot;2017-11-03 06:59:58&quot; &quot;2017-11-03 06:15:37&quot; &quot;2017-11-03 07:32:40&quot; &quot;2017-11-03 04:36:14&quot; ...
+  ..$ lang    : chr [1:13623] &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; ...
+  ..$ url     : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-sa&quot;| __truncated__ ...
+ - attr(*, &quot;meta&quot;)=List of 3
+  ..$ system:List of 5
+  .. ..$ package-version:Classes &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
+  .. .. ..$ : int [1:3] 3 0 0
+  .. ..$ r-version      :Classes &#39;R_system_version&#39;, &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
+  .. .. ..$ : int [1:3] 4 0 2
+  .. ..$ system         : Named chr [1:3] &quot;Darwin&quot; &quot;x86_64&quot; &quot;claudegrasland1&quot;
+  .. .. ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;sysname&quot; &quot;machine&quot; &quot;user&quot;
+  .. ..$ directory      : chr &quot;/Users/claudegrasland1/git/media_cookbook&quot;
+  .. ..$ created        : Date[1:1], format: &quot;2021-07-13&quot;
+  ..$ object:List of 2
+  .. ..$ unit   : chr &quot;documents&quot;
+  .. ..$ summary:List of 2
+  .. .. ..$ hash: chr(0) 
+  .. .. ..$ data: NULL
+  ..$ user  :List of 4
+  .. ..$ meta_source: chr &quot;Media Cloud &quot;
+  .. ..$ meta_time  : chr &quot;Download the 2021-07-13&quot;
+  .. ..$ meta_author: chr &quot;Elaborated by Claude Grasland&quot;
+  .. ..$ project    : chr &quot;ANR-DFG Project IMAGEUN&quot;</code></pre>
+<p>We have created a quanteda object with a lot of information stored in various fields. The structure of the object is the following one</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="20-corpus.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(qd)</span></code></pre></div>
+<pre><code> &#39;corpus&#39; Named chr [1:13623] &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; ...
+ - attr(*, &quot;names&quot;)= chr [1:13623] &quot;text1&quot; &quot;text2&quot; &quot;text3&quot; &quot;text4&quot; ...
+ - attr(*, &quot;docvars&quot;)=&#39;data.frame&#39;: 13623 obs. of  8 variables:
+  ..$ docname_: chr [1:13623] &quot;text1&quot; &quot;text2&quot; &quot;text3&quot; &quot;text4&quot; ...
+  ..$ docid_  : Factor w/ 13623 levels &quot;text1&quot;,&quot;text2&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+  ..$ segid_  : int [1:13623] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ id      : int [1:13623] 719049395 719049401 719049385 719049416 719457836 719457840 719457843 719457851 719489735 720908005 ...
+  ..$ source  : chr [1:13623] &quot;ecomag&quot; &quot;ecomag&quot; &quot;ecomag&quot; &quot;ecomag&quot; ...
+  ..$ date    : chr [1:13623] &quot;2017-11-03 06:59:58&quot; &quot;2017-11-03 06:15:37&quot; &quot;2017-11-03 07:32:40&quot; &quot;2017-11-03 04:36:14&quot; ...
+  ..$ lang    : chr [1:13623] &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; ...
+  ..$ url     : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-sa&quot;| __truncated__ ...
+ - attr(*, &quot;meta&quot;)=List of 3
+  ..$ system:List of 5
+  .. ..$ package-version:Classes &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
+  .. .. ..$ : int [1:3] 3 0 0
+  .. ..$ r-version      :Classes &#39;R_system_version&#39;, &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
+  .. .. ..$ : int [1:3] 4 0 2
+  .. ..$ system         : Named chr [1:3] &quot;Darwin&quot; &quot;x86_64&quot; &quot;claudegrasland1&quot;
+  .. .. ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;sysname&quot; &quot;machine&quot; &quot;user&quot;
+  .. ..$ directory      : chr &quot;/Users/claudegrasland1/git/media_cookbook&quot;
+  .. ..$ created        : Date[1:1], format: &quot;2021-07-13&quot;
+  ..$ object:List of 2
+  .. ..$ unit   : chr &quot;documents&quot;
+  .. ..$ summary:List of 2
+  .. .. ..$ hash: chr(0) 
+  .. .. ..$ data: NULL
+  ..$ user  :List of 4
+  .. ..$ meta_source: chr &quot;Media Cloud &quot;
+  .. ..$ meta_time  : chr &quot;Download the 2021-07-13&quot;
+  .. ..$ meta_author: chr &quot;Elaborated by Claude Grasland&quot;
+  .. ..$ project    : chr &quot;ANR-DFG Project IMAGEUN&quot;</code></pre>
+<p>We can look at the first titles with <em>head()</em></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="20-corpus.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(qd,<span class="dv">3</span>))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">text1</td>
+<td align="left">Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar</td>
+</tr>
+<tr class="even">
+<td align="left">text2</td>
+<td align="left">Cyrine Ben Hassine élue présidente de l’ATUGE France (2017-2018)</td>
+</tr>
+<tr class="odd">
+<td align="left">text3</td>
+<td align="left">Santé : pour une nouvelle relation médecin-patient</td>
+</tr>
+</tbody>
+</table>
+<p>We can get meta information on each stories with <em>summary()</em></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="20-corpus.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code># A tibble: 3 x 9
+  Text  Types Tokens Sentences      id source date     lang  url                
+  &lt;chr&gt; &lt;int&gt;  &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;              
+1 text1    13     13         1  7.19e8 ecomag 2017-11… fr    http://www.leconom…
+2 text2    11     11         1  7.19e8 ecomag 2017-11… fr    http://www.leconom…
+3 text3     7      7         1  7.19e8 ecomag 2017-11… fr    http://www.leconom…</code></pre>
+<p>We can get meta information about the full document</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="20-corpus.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd)</span></code></pre></div>
+<pre><code>$meta_source
+[1] &quot;Media Cloud &quot;
+
+$meta_time
+[1] &quot;Download the 2021-07-13&quot;
+
+$meta_author
+[1] &quot;Elaborated by Claude Grasland&quot;
+
+$project
+[1] &quot;ANR-DFG Project IMAGEUN&quot;</code></pre>
+</div>
+<div id="storage-of-the-quanteda-object" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Storage of the quanteda object</h3>
+<p>We can finally save the object in .Rdata format in a directory dedicated to our quanteda files. It can be usefull to give some information in the name of the file</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="20-corpus.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;data/corpora/TUN/qd_ecomag_titles.Rdata&quot;</span>)</span></code></pre></div>
+<p>We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.43Mb which means a division by 8 as compared to the initial .csv file downloaded from Media Cloud.</p>
+</div>
+<div id="backtransformation-of-quanteda-to-data.table-or-tibble" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Backtransformation of quanteda to data.table or tibble</h3>
+<p>In the following steps, we will make an intensive use of quanteda, but sometimes it can be usefull to export the results in a more practical format or to use other packages. For this reasons, it is important to know that the <code>tidytext</code>package can easily transform quanteda object in tibbles which are more classical and easy to manage</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="20-corpus.html#cb29-1" aria-hidden="true" tabindex="-1"></a>td <span class="ot">&lt;-</span> <span class="fu">tidy</span>(qd)</span></code></pre></div>
+<pre><code>Warning: &#39;texts.corpus&#39; is deprecated.
+Use &#39;as.character&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="20-corpus.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(td)</span></code></pre></div>
+<pre><code># A tibble: 6 x 6
+  text                          id source date     lang  url                    
+  &lt;chr&gt;                      &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;                  
+1 Université: projet de f…  7.19e8 ecomag 2017-11… fr    http://www.leconomiste…
+2 Cyrine Ben Hassine élue…  7.19e8 ecomag 2017-11… fr    http://www.leconomiste…
+3 Santé : pour une nouvel…  7.19e8 ecomag 2017-11… fr    http://www.leconomiste…
+4 Düsseldorf : 250 visite…  7.19e8 ecomag 2017-11… fr    http://www.leconomiste…
+5 Etude: 68% des dirigean…  7.19e8 ecomag 2017-11… fr    http://www.leconomiste…
+6 Réconciliation            7.19e8 ecomag 2017-11… fr    http://www.leconomiste…</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="20-corpus.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(td)</span></code></pre></div>
+<pre><code>tibble [13,623 × 6] (S3: tbl_df/tbl/data.frame)
+ $ text  : chr [1:13623] &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; &quot;Cyrine Ben Hassine élue présidente de l’ATUGE France (2017-2018)&quot; &quot;Santé : pour une nouvelle relation médecin-patient&quot; &quot;Düsseldorf : 250 visiteurs professionnels et 8 exposants tunisiens au salon Medica 2017&quot; ...
+ $ id    : int [1:13623] 719049395 719049401 719049385 719049416 719457836 719457840 719457843 719457851 719489735 720908005 ...
+ $ source: chr [1:13623] &quot;ecomag&quot; &quot;ecomag&quot; &quot;ecomag&quot; &quot;ecomag&quot; ...
+ $ date  : chr [1:13623] &quot;2017-11-03 06:59:58&quot; &quot;2017-11-03 06:15:37&quot; &quot;2017-11-03 07:32:40&quot; &quot;2017-11-03 04:36:14&quot; ...
+ $ lang  : chr [1:13623] &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; ...
+ $ url   : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-sa&quot;| __truncated__ ...</code></pre>
+
+</div>
+</div>
+</div>
+<script src="js/tidyverse.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="20-corpus.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ClaudeGrasland/media_cookbook/blob/master/21-corpus-mediacloud.Rmd",
+"text": "Source"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
