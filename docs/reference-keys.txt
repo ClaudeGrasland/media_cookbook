@@ -1,9 +1,3 @@
-c0_object
-a-short-example
-the-choice-of-the-topic
-the-formulation-of-hypothesis
-the-field-of-investigation
-the-choice-of-the-methods
 c11_data_sources
 minimum-requirement
 mediacloud

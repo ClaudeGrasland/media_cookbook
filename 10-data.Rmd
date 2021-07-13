@@ -1,4 +1,0 @@
-# (PART) DATA ACQUISITION {-}
-
-The objectives of this part is to discuss the different procedures of data collection
-

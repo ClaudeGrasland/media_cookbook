@@ -12,7 +12,7 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./index.html">Data Mining:  <em>C. Grasland (2021)</em></a></li>
+        <li><a href="./index.html">The Media Cookbook  <em>C. Grasland (2021)</em></a></li>
     sharing:
       twitter: no
       github: no
