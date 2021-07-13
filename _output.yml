@@ -1,0 +1,23 @@
+bookdown::gitbook:
+  dev: svglite
+  highlight: kate
+  css: css/tidyverse.css
+  self_contained: false
+  df_print: tibble
+  split_by: rmd
+  download: ["epub", "pdf"]
+  includes:
+    after_body: js/custom_javascript.html
+  config:
+    toc:
+      collapse: section
+      before: |
+        <li><a href="./index.html">Data Mining:  <em>C. Grasland (2021)</em></a></li>
+    sharing:
+      twitter: no
+      github: no
+      facebook: no
+      weibo: no
+      instapper: no
+      vk: no
+
