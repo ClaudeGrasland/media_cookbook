@@ -33,7 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="22-mediacloud_to_quanteda.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,6 +53,10 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
 
 
 <style type="text/css">
@@ -166,6 +170,34 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.3.2</b> Backtransformation of quanteda to data.table or tibble</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>4</b> Geonetworks</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#geotags"><i class="fa fa-check"></i><b>4.1</b> Geotags</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-corpus"><i class="fa fa-check"></i><b>4.1.1</b> Select corpus</a></li>
+<li class="chapter" data-level="4.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize"><i class="fa fa-check"></i><b>4.1.2</b> Tokenize</a></li>
+<li class="chapter" data-level="4.1.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#identify-geotags"><i class="fa fa-check"></i><b>4.1.3</b> identify geotags</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercubes"><i class="fa fa-check"></i><b>4.2</b> Hypercubes</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#load-data"><i class="fa fa-check"></i><b>4.2.1</b> Load data</a></li>
+<li class="chapter" data-level="4.2.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercube-function"><i class="fa fa-check"></i><b>4.2.2</b> Hypercube Function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#build-hypercube"><i class="fa fa-check"></i><b>4.2.3</b> Build hypercube</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#linkages"><i class="fa fa-check"></i><b>4.3</b> Linkages</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-links"><i class="fa fa-check"></i><b>4.3.1</b> Select links</a></li>
+<li class="chapter" data-level="4.3.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#create-interaction-matrix"><i class="fa fa-check"></i><b>4.3.2</b> Create interaction matrix</a></li>
+<li class="chapter" data-level="4.3.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#estimate-random-model"><i class="fa fa-check"></i><b>4.3.3</b> Estimate random model</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#visualization"><i class="fa fa-check"></i><b>4.4</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#function"><i class="fa fa-check"></i><b>4.4.1</b> Function</a></li>
+<li class="chapter" data-level="4.4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network"><i class="fa fa-check"></i><b>4.4.2</b> Raw network</a></li>
+<li class="chapter" data-level="4.4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network-without-tunisia"><i class="fa fa-check"></i><b>4.4.3</b> Raw network without Tunisia</a></li>
+<li class="chapter" data-level="4.4.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#preferential-links"><i class="fa fa-check"></i><b>4.4.4</b> Preferential links</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -189,7 +221,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <pre><code>Package version: 3.0.0
 Unicode version: 13.0
 ICU version: 69.1</code></pre>
-<pre><code>Parallel computing: 4 of 4 threads used.</code></pre>
+<pre><code>Parallel computing: 8 of 8 threads used.</code></pre>
 <pre><code>See https://quanteda.io for tutorials and examples.</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="21-corpus-mediacloud.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb5-2"><a href="21-corpus-mediacloud.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -206,30 +238,30 @@ ICU version: 69.1</code></pre>
 <div id="selection-of-media-with-source-manager" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Selection of media with source manager</h2>
 <p>We use the application called <em>Source Manager</em> and we introduce a research by collection which is the most convenient to explore what is available in a country. In our example, the target country is Tunisia and we have three collections that are propsed :</p>
-<p><img src="pics/mc_source_001.png" /><!-- --></p>
+<p><img src="pics/mc_source_001.png" width="1228" /></p>
 <p>We have selected the collection named “Tunisia National” because we are interested in the most important newspapers of the country.</p>
-<p><img src="pics/mc_source_002.png" /><!-- -->
+<p><img src="pics/mc_source_002.png" width="1208" />
 The buble graphic on the right indicates immediately the media that has produced the highest number of news, but it is wise to explore in more details the list on the left which indicates for each media the statting date of data collection.</p>
 <p>When a media appears interesting, we click on its name to obtain a brief summary of the metadata. For example, in the case of <em>L’économiste Maghrebin</em> the metadata indicates :</p>
-<p><img src="pics/mc_source_003.png" /><!-- --></p>
+<p><img src="pics/mc_source_003.png" width="1195" /></p>
 <p>The media looks promising, but before to go further, it can be better to have a look at the website of the media to have a more concrete idea of the content if we don’t know in advance what it is about in terms of content, what is the ideological orientation, etc.</p>
-<p><img src="pics/ecomag.png" /><!-- --></p>
+<p><img src="pics/ecomag.png" width="1013" /></p>
 <p>Here we can see that this is an ecnomic journal, published in french, with news organized in concentric geographic circles (Nation &gt; Maghreb &gt; Africa &gt; World) which is precisely what we are looking for in the IMAGEUN project. We will further complete the informations about this, but before to do that we have to check in more details if the production of the media is regular through time with another tool offered by mediacloud, the explorer.</p>
 </div>
 <div id="checking-the-stability-through-time" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Checking the stability through time</h2>
 <p>We have clicked on <em>search in explorer</em> on the metadata page of the Source Manager and obtain a news interfacce where we modify the date to cover the full period of collection of the media (or our period of interest). In the research field, we let the search term <code>*</code> which indicates a research on all news.</p>
-<p><img src="pics/mc_explo_001.png" /><!-- --></p>
+<p><img src="pics/mc_explo_001.png" width="1344" /></p>
 <p>Below your request, you obtain a graphic entitled <em>Attention Over Time</em> with the distribution of the number of news published per day which help you to verify if the distribution of news is regular through time. You just have to modify the type of graphic in order to visualize <em>Story Count</em> and you can choose the time span you want (day, week or month) for the evaluation of the regularity of news flow. In our example, we notice that at daily level they are some brief period of break in 2019, but the flow is reasonnabely regular with approximatively 5 news per day at the beginning and 10 to 20 in the final period. We also notice a classical week cycle with a decrease of news published during the week-end.</p>
-<p><img src="pics/mc_explo_002.png" /><!-- --></p>
+<p><img src="pics/mc_explo_002.png" width="1344" /></p>
 <p>Going down, you will find a news panel entitled <em>Total Attention</em> which gives you the total number of stories found. In our example, we have a total of 13626 stories produced by our media over the period.</p>
 </div>
 <div id="selection-of-news-specifically-related-to-a-topic-option" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Selection of news specifically related to a topic (option)</h2>
 <p>You can eventually use Mediacloud to check the number of news produced about a specific topic, for example Europe or European Union or EU. The request shouldbe put in lower case with "" for compounds. Detailed explanation are available in the <a href="https://mediacloud.org/support/query-guide">query guide</a>.</p>
-<p><img src="pics/mc_explo_003.png" /><!-- -->
+<p><img src="pics/mc_explo_003.png" width="1338" />
 This time you can use the graphic option <em>Stories percentage</em> rather than <em>Story count</em> if you want to viusalize the salience of the topic through time.</p>
-<p><img src="pics/mc_explo_004.png" /><!-- --></p>
+<p><img src="pics/mc_explo_004.png" width="1331" /></p>
 <p>In our example, we have 369 news that appears to be related to our request about Europe or EU with a relatively regular pattern at month level of 1 to 3 % of news and exceptionaly 5 to 7 %.</p>
 </div>
 <div id="download-and-storage-of-news" class="section level2" number="2.4">

@@ -47,7 +47,7 @@ Looking in more details, we discover also some problems of encoding in news like
 
 ```{r}
 paste(dt[12, 3])
-kable((dt[550,3]))
+kable((dt[12,3]))
 ```
 
 
@@ -108,12 +108,19 @@ We can introduce othr cleaning procedures here or keep it for later analysis
 
 ## Transformation in quanteda format
 
-We propose  a storage based on `quanteda` format by just transforming the data that has been produced by readtext. 
+We propose  a storage based on `quanteda` format by just transforming the data that has been produced by readtext. We keep only the name of the source and the date of publication. 
 
 ```{r create quanteda, echo=T}
 
 # Create Quanteda corpus
 qd<-corpus(df)
+
+# Select docvar fields and rename media
+qd$date <-as.Date(qd$publish_date)
+qd$source <-"fr_TUN_ecomag"
+docvars(qd)<-docvars(qd)[,c("source","date")]
+
+
 
 
 # Add global meta
@@ -141,7 +148,7 @@ kable(head(qd,3))
 We can get meta information on each stories with *summary()*
 
 ```{r, echo=TRUE}
-summary(qd,3)
+summary(head(qd,3))
 ```
 
 We can get meta information about the full document
@@ -157,10 +164,10 @@ meta(qd)
 We can finally save the object in .Rdata format in a directory dedicated to our quanteda files. It can be usefull to give some information in the name of the file
 
 ```{r, echo=TRUE}
-saveRDS(qd,"data/corpora/TUN/qd_ecomag_titles.Rdata")
+saveRDS(qd,"data/corpora/TUN/fr_TUN_ecomag.Rdata")
 ```
 
-We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.43Mb which means a division by 8 as compared to the initial .csv file downloaded from Media Cloud.
+We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.6 Mb which means a division by 6 as compared to the initial .csv file downloaded from Media Cloud.
 
 ### Backtransformation of quanteda to data.table or tibble
 

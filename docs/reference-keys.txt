@@ -1,3 +1,4 @@
+tab:unnamed-chunk-30
 introduction
 c21_mediacloud
 selection-of-media-with-source-manager
@@ -14,3 +15,21 @@ other-cleaning-actions
 transformation-in-quanteda-format
 storage-of-the-quanteda-object
 backtransformation-of-quanteda-to-data.table-or-tibble
+c31_geonetworks
+geotags
+select-corpus
+tokenize
+identify-geotags
+hypercubes
+load-data
+hypercube-function
+build-hypercube
+linkages
+select-links
+create-interaction-matrix
+estimate-random-model
+visualization
+function
+raw-network
+raw-network-without-tunisia
+preferential-links

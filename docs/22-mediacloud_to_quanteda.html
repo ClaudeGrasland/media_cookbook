@@ -32,8 +32,8 @@
   
   
 <link rel="prev" href="21-corpus-mediacloud.html"/>
-
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<link rel="next" href="31_geonetworks.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,6 +53,10 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
 
 
 <style type="text/css">
@@ -166,6 +170,34 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.3.2</b> Backtransformation of quanteda to data.table or tibble</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>4</b> Geonetworks</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#geotags"><i class="fa fa-check"></i><b>4.1</b> Geotags</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-corpus"><i class="fa fa-check"></i><b>4.1.1</b> Select corpus</a></li>
+<li class="chapter" data-level="4.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize"><i class="fa fa-check"></i><b>4.1.2</b> Tokenize</a></li>
+<li class="chapter" data-level="4.1.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#identify-geotags"><i class="fa fa-check"></i><b>4.1.3</b> identify geotags</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercubes"><i class="fa fa-check"></i><b>4.2</b> Hypercubes</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#load-data"><i class="fa fa-check"></i><b>4.2.1</b> Load data</a></li>
+<li class="chapter" data-level="4.2.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercube-function"><i class="fa fa-check"></i><b>4.2.2</b> Hypercube Function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#build-hypercube"><i class="fa fa-check"></i><b>4.2.3</b> Build hypercube</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#linkages"><i class="fa fa-check"></i><b>4.3</b> Linkages</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-links"><i class="fa fa-check"></i><b>4.3.1</b> Select links</a></li>
+<li class="chapter" data-level="4.3.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#create-interaction-matrix"><i class="fa fa-check"></i><b>4.3.2</b> Create interaction matrix</a></li>
+<li class="chapter" data-level="4.3.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#estimate-random-model"><i class="fa fa-check"></i><b>4.3.3</b> Estimate random model</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#visualization"><i class="fa fa-check"></i><b>4.4</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#function"><i class="fa fa-check"></i><b>4.4.1</b> Function</a></li>
+<li class="chapter" data-level="4.4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network"><i class="fa fa-check"></i><b>4.4.2</b> Raw network</a></li>
+<li class="chapter" data-level="4.4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network-without-tunisia"><i class="fa fa-check"></i><b>4.4.3</b> Raw network without Tunisia</a></li>
+<li class="chapter" data-level="4.4.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#preferential-links"><i class="fa fa-check"></i><b>4.4.4</b> Preferential links</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -261,7 +293,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>Looking in more details, we discover also some problems of encoding in news like in the following example where the text of the news appears differently if we apply the standard functions <code>paste()</code> o0 the specialized function r <code>knitr::kable</code> for printing.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="22-mediacloud_to_quanteda.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(dt[<span class="dv">12</span>, <span class="dv">3</span>])</span></code></pre></div>
 <pre><code>[1] &quot;Noureddine Bhiri: &amp;#171;&amp;#160;Nous soutenons le PLF relatif à la protection des forces armées&amp;#160;&amp;#187;&quot;</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="22-mediacloud_to_quanteda.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>((dt[<span class="dv">550</span>,<span class="dv">3</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="22-mediacloud_to_quanteda.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>((dt[<span class="dv">12</span>,<span class="dv">3</span>]))</span></code></pre></div>
 <table>
 <colgroup>
 <col width="100%" />
@@ -273,7 +305,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Khemaies Jehinaoui: “La Tunisie compte accueillir 20.000 étudiants africains”</td>
+<td align="left">Noureddine Bhiri: « Nous soutenons le PLF relatif à la protection des forces armées »</td>
 </tr>
 </tbody>
 </table>
@@ -325,41 +357,42 @@ code span.wa { color: #bf0303; } /* Warning */
 </div>
 <div id="transformation-in-quanteda-format" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Transformation in quanteda format</h2>
-<p>We propose a storage based on <code>quanteda</code> format by just transforming the data that has been produced by readtext.</p>
+<p>We propose a storage based on <code>quanteda</code> format by just transforming the data that has been produced by readtext. We keep only the name of the source and the date of publication.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="22-mediacloud_to_quanteda.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Quanteda corpus</span></span>
 <span id="cb17-2"><a href="22-mediacloud_to_quanteda.html#cb17-2" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus</span>(df)</span>
 <span id="cb17-3"><a href="22-mediacloud_to_quanteda.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="22-mediacloud_to_quanteda.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="22-mediacloud_to_quanteda.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add global meta</span></span>
-<span id="cb17-6"><a href="22-mediacloud_to_quanteda.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_source&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Media Cloud &quot;</span></span>
-<span id="cb17-7"><a href="22-mediacloud_to_quanteda.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_time&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Download the 2021-07-13&quot;</span></span>
-<span id="cb17-8"><a href="22-mediacloud_to_quanteda.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_author&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Elaborated by Claude Grasland&quot;</span></span>
-<span id="cb17-9"><a href="22-mediacloud_to_quanteda.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;project&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;ANR-DFG Project IMAGEUN&quot;</span></span></code></pre></div>
+<span id="cb17-4"><a href="22-mediacloud_to_quanteda.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select docvar fields and rename media</span></span>
+<span id="cb17-5"><a href="22-mediacloud_to_quanteda.html#cb17-5" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>date <span class="ot">&lt;-</span><span class="fu">as.Date</span>(qd<span class="sc">$</span>publish_date)</span>
+<span id="cb17-6"><a href="22-mediacloud_to_quanteda.html#cb17-6" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>source <span class="ot">&lt;-</span><span class="st">&quot;fr_TUN_ecomag&quot;</span></span>
+<span id="cb17-7"><a href="22-mediacloud_to_quanteda.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[,<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb17-8"><a href="22-mediacloud_to_quanteda.html#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="22-mediacloud_to_quanteda.html#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="22-mediacloud_to_quanteda.html#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="22-mediacloud_to_quanteda.html#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="22-mediacloud_to_quanteda.html#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add global meta</span></span>
+<span id="cb17-13"><a href="22-mediacloud_to_quanteda.html#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_source&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Media Cloud &quot;</span></span>
+<span id="cb17-14"><a href="22-mediacloud_to_quanteda.html#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_time&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Download the 2021-07-13&quot;</span></span>
+<span id="cb17-15"><a href="22-mediacloud_to_quanteda.html#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_author&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Elaborated by Claude Grasland&quot;</span></span>
+<span id="cb17-16"><a href="22-mediacloud_to_quanteda.html#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;project&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;ANR-DFG Project IMAGEUN&quot;</span></span></code></pre></div>
 <p>We have created a quanteda object with a lot of information stored in various fields. The structure of the object is the following one</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="22-mediacloud_to_quanteda.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(qd)</span></code></pre></div>
 <pre><code> &#39;corpus&#39; Named chr [1:13623] &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; ...
  - attr(*, &quot;names&quot;)= chr [1:13623] &quot;719049395&quot; &quot;719049401&quot; &quot;719049385&quot; &quot;719049416&quot; ...
- - attr(*, &quot;docvars&quot;)=&#39;data.frame&#39;: 13623 obs. of  11 variables:
-  ..$ docname_     : chr [1:13623] &quot;719049395&quot; &quot;719049401&quot; &quot;719049385&quot; &quot;719049416&quot; ...
-  ..$ docid_       : Factor w/ 13623 levels &quot;719049395&quot;,&quot;719049401&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
-  ..$ segid_       : int [1:13623] 1 1 1 1 1 1 1 1 1 1 ...
-  ..$ publish_date : chr [1:13623] &quot;2017-11-03 06:59:58&quot; &quot;2017-11-03 06:15:37&quot; &quot;2017-11-03 07:32:40&quot; &quot;2017-11-03 04:36:14&quot; ...
-  ..$ url          : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-sa&quot;| __truncated__ ...
-  ..$ language     : chr [1:13623] &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; ...
-  ..$ ap_syndicated: logi [1:13623] FALSE FALSE FALSE FALSE FALSE FALSE ...
-  ..$ themes       : chr [1:13623] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
-  ..$ media_id     : int [1:13623] 623820 623820 623820 623820 623820 623820 623820 623820 623820 623820 ...
-  ..$ media_name   : chr [1:13623] &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; ...
-  ..$ media_url    : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; ...
+ - attr(*, &quot;docvars&quot;)=&#39;data.frame&#39;: 13623 obs. of  5 variables:
+  ..$ docname_: chr [1:13623] &quot;719049395&quot; &quot;719049401&quot; &quot;719049385&quot; &quot;719049416&quot; ...
+  ..$ docid_  : Factor w/ 13623 levels &quot;719049395&quot;,&quot;719049401&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+  ..$ segid_  : int [1:13623] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ source  : chr [1:13623] &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; ...
+  ..$ date    : Date[1:13623], format: &quot;2017-11-03&quot; &quot;2017-11-03&quot; ...
  - attr(*, &quot;meta&quot;)=List of 3
   ..$ system:List of 6
   .. ..$ package-version:Classes &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
   .. .. ..$ : int [1:3] 3 0 0
   .. ..$ r-version      :Classes &#39;R_system_version&#39;, &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
-  .. .. ..$ : int [1:3] 4 1 0
-  .. ..$ system         : Named chr [1:3] &quot;Windows&quot; &quot;x86-64&quot; &quot;Dark Schuman&quot;
+  .. .. ..$ : int [1:3] 4 0 2
+  .. ..$ system         : Named chr [1:3] &quot;Darwin&quot; &quot;x86_64&quot; &quot;claudegrasland1&quot;
   .. .. ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;sysname&quot; &quot;machine&quot; &quot;user&quot;
-  .. ..$ directory      : chr &quot;C:/git/meida_cookbook&quot;
+  .. ..$ directory      : chr &quot;/Users/claudegrasland1/git/media_cookbook&quot;
   .. ..$ created        : Date[1:1], format: &quot;2021-07-14&quot;
   .. ..$ source         : chr &quot;data.frame&quot;
   ..$ object:List of 2
@@ -401,25 +434,13 @@ code span.wa { color: #bf0303; } /* Warning */
 </tbody>
 </table>
 <p>We can get meta information on each stories with <em>summary()</em></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="22-mediacloud_to_quanteda.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>Corpus consisting of 13623 documents, showing 3 documents:
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="22-mediacloud_to_quanteda.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">head</span>(qd,<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>Corpus consisting of 3 documents, showing 3 documents:
 
-      Text Types Tokens Sentences        publish_date
- 719049395    13     13         1 2017-11-03 06:59:58
- 719049401    11     11         1 2017-11-03 06:15:37
- 719049385     7      7         1 2017-11-03 07:32:40
-                                                                                                                        url
- http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/
-                 http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/
-                                                      http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/
- language ap_syndicated themes media_id             media_name
-       fr         FALSE          623820 L&#39;Economiste Maghrebin
-       fr         FALSE          623820 L&#39;Economiste Maghrebin
-       fr         FALSE          623820 L&#39;Economiste Maghrebin
-                            media_url
- http://www.leconomistemaghrebin.com/
- http://www.leconomistemaghrebin.com/
- http://www.leconomistemaghrebin.com/</code></pre>
+      Text Types Tokens Sentences        source       date
+ 719049395    13     13         1 fr_TUN_ecomag 2017-11-03
+ 719049401    11     11         1 fr_TUN_ecomag 2017-11-03
+ 719049385     7      7         1 fr_TUN_ecomag 2017-11-03</code></pre>
 <p>We can get meta information about the full document</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="22-mediacloud_to_quanteda.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd)</span></code></pre></div>
 <pre><code>$meta_source
@@ -436,35 +457,31 @@ $project
 <div id="storage-of-the-quanteda-object" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Storage of the quanteda object</h3>
 <p>We can finally save the object in .Rdata format in a directory dedicated to our quanteda files. It can be usefull to give some information in the name of the file</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="22-mediacloud_to_quanteda.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;data/corpora/TUN/qd_ecomag_titles.Rdata&quot;</span>)</span></code></pre></div>
-<p>We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.43Mb which means a division by 8 as compared to the initial .csv file downloaded from Media Cloud.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="22-mediacloud_to_quanteda.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;data/corpora/TUN/fr_TUN_ecomag.Rdata&quot;</span>)</span></code></pre></div>
+<p>We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.6 Mb which means a division by 6 as compared to the initial .csv file downloaded from Media Cloud.</p>
 </div>
 <div id="backtransformation-of-quanteda-to-data.table-or-tibble" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Backtransformation of quanteda to data.table or tibble</h3>
 <p>In the following steps, we will make an intensive use of quanteda, but sometimes it can be usefull to export the results in a more practical format or to use other packages. For this reasons, it is important to know that the <code>tidytext</code>package can easily transform quanteda object in tibbles which are more classical and easy to manage</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="22-mediacloud_to_quanteda.html#cb26-1" aria-hidden="true" tabindex="-1"></a>td <span class="ot">&lt;-</span> <span class="fu">tidy</span>(qd)</span>
-<span id="cb26-2"><a href="22-mediacloud_to_quanteda.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(td)</span></code></pre></div>
-<pre><code># A tibble: 6 x 9
-  text    publish_date  url    language ap_syndicated themes media_id media_name
-  &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;    &lt;lgl&gt;         &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;     
-1 Univer~ 2017-11-03 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
-2 Cyrine~ 2017-11-03 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
-3 Santé ~ 2017-11-03 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
-4 Düssel~ 2017-11-03 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
-5 Etude:~ 2017-11-04 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
-6 Réconc~ 2017-11-04 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
-# ... with 1 more variable: media_url &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="22-mediacloud_to_quanteda.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(td)</span></code></pre></div>
-<pre><code>tibble [13,623 x 9] (S3: tbl_df/tbl/data.frame)
- $ text         : chr [1:13623] &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; &quot;Cyrine Ben Hassine élue présidente de l’ATUGE France (2017-2018)&quot; &quot;Santé : pour une nouvelle relation médecin-patient&quot; &quot;Düsseldorf : 250 visiteurs professionnels et 8 exposants tunisiens au salon Medica 2017&quot; ...
- $ publish_date : chr [1:13623] &quot;2017-11-03 06:59:58&quot; &quot;2017-11-03 06:15:37&quot; &quot;2017-11-03 07:32:40&quot; &quot;2017-11-03 04:36:14&quot; ...
- $ url          : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-sa&quot;| __truncated__ ...
- $ language     : chr [1:13623] &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; ...
- $ ap_syndicated: logi [1:13623] FALSE FALSE FALSE FALSE FALSE FALSE ...
- $ themes       : chr [1:13623] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
- $ media_id     : int [1:13623] 623820 623820 623820 623820 623820 623820 623820 623820 623820 623820 ...
- $ media_name   : chr [1:13623] &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; ...
- $ media_url    : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; ...</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="22-mediacloud_to_quanteda.html#cb26-1" aria-hidden="true" tabindex="-1"></a>td <span class="ot">&lt;-</span> <span class="fu">tidy</span>(qd)</span></code></pre></div>
+<pre><code>Warning: &#39;texts.corpus&#39; is deprecated.
+Use &#39;as.character&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="22-mediacloud_to_quanteda.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(td)</span></code></pre></div>
+<pre><code># A tibble: 6 x 3
+  text                                                     source     date      
+  &lt;chr&gt;                                                    &lt;chr&gt;      &lt;date&gt;    
+1 Université: projet de formation codiplomante entre la S… fr_TUN_ec… 2017-11-03
+2 Cyrine Ben Hassine élue présidente de l’ATUGE France (2… fr_TUN_ec… 2017-11-03
+3 Santé : pour une nouvelle relation médecin-patient       fr_TUN_ec… 2017-11-03
+4 Düsseldorf : 250 visiteurs professionnels et 8 exposant… fr_TUN_ec… 2017-11-03
+5 Etude: 68% des dirigeants n’ont pas creusé la transmiss… fr_TUN_ec… 2017-11-04
+6 Réconciliation                                           fr_TUN_ec… 2017-11-04</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="22-mediacloud_to_quanteda.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(td)</span></code></pre></div>
+<pre><code>tibble [13,623 × 3] (S3: tbl_df/tbl/data.frame)
+ $ text  : chr [1:13623] &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; &quot;Cyrine Ben Hassine élue présidente de l’ATUGE France (2017-2018)&quot; &quot;Santé : pour une nouvelle relation médecin-patient&quot; &quot;Düsseldorf : 250 visiteurs professionnels et 8 exposants tunisiens au salon Medica 2017&quot; ...
+ $ source: chr [1:13623] &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; ...
+ $ date  : Date[1:13623], format: &quot;2017-11-03&quot; &quot;2017-11-03&quot; ...</code></pre>
 
 </div>
 </div>
@@ -475,8 +492,8 @@ $project
           </div>
         </div>
       </div>
-<a href="21-corpus-mediacloud.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="21-corpus-mediacloud.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="31_geonetworks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
