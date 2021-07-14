@@ -3,7 +3,6 @@ bookdown::gitbook:
   highlight: kate
   css: css/tidyverse.css
   self_contained: false
-  df_print: tibble
   split_by: rmd
   download: ["epub", "pdf"]
   includes:

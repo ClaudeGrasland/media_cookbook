@@ -1,4 +1,4 @@
-# Corpus mediacloud {#c22_corpus_mediacloud}
+# Extraction of data from Media Cloud {#c21_mediacloud}
 
 ```{r}
 library(quanteda)
@@ -6,10 +6,18 @@ library(dplyr)
 library(ggplot2)
 library(tidytext)
 library(knitr)
-datapath<- "data"
+
+knitr::opts_chunk$set(cache = TRUE,
+                      echo = TRUE,
+                      comment = "")
+
+
 ```
 
-## The Media Cloud database
+
+
+
+
 
 (tbd : presentation of the MediaCloud project)
 
@@ -28,27 +36,27 @@ You have different ways to get title of news. We will focus here on a simple exa
 
 We use the application called *Source Manager* and we introduce a research by collection which is the most convenient to explore what is available in a country. In our example, the target country is Tunisia and we have three collections that are propsed : 
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/mc_source_001.png")
 ```
 
 We have selected the collection named "Tunisia National" because we are interested in the most important newspapers of the country. 
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/mc_source_002.png")
 ```
 The buble graphic on the right indicates immediately the media that has produced the highest number of news, but it is wise to explore in more details the list on the left which indicates for each media the statting date of data collection. 
 
 When a media appears interesting, we click on its name to obtain a brief summary of the metadata. For example, in the case of *L'économiste Maghrebin* the metadata indicates :
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/mc_source_003.png")
 ```
 
 The media looks promising,  but before to go further, it can be better to have a look at the website of the media to have a more concrete idea of the content if we don't know in advance what it is about in terms of content, what is the ideological orientation, etc. 
 
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/ecomag.png")
 ```
 
@@ -58,14 +66,14 @@ Here we can see that this is an ecnomic journal, published in french, with news 
 
 We have clicked on *search in explorer* on the metadata page of the Source Manager and obtain a news interfacce where we modify the date to cover the full period of collection of the media (or our period of interest). In the research field, we let the search term `*` which indicates a research on all news.
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/mc_explo_001.png")
 ```
 
 
 Below your request, you obtain a graphic entitled *Attention Over Time* with the distribution of the number of news published per day which help you to verify if the distribution of news is regular through time. You just have to modify the type of graphic in order to visualize *Story Count* and you can choose the time span you want (day, week or month) for the evaluation of the regularity of news flow. In our example, we notice that at daily level they are some brief period of break in 2019, but the flow is reasonnabely regular with approximatively 5 news per day at the beginning and 10 to 20 in the final period. We also notice a classical week cycle with a decrease of news published during the week-end. 
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/mc_explo_002.png")
 ```
 
@@ -74,7 +82,7 @@ Going down, you will find a news panel entitled *Total Attention* which gives yo
 
 
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/mc003.png")
 ```
 
@@ -82,12 +90,12 @@ knitr::include_graphics("pics/mc003.png")
 
 You can eventually use Mediacloud to check the number of news produced about a specific topic, for example Europe or European Union or EU. The request shouldbe put in lower case with "" for compounds. Detailed explanation are available in the ![query guide](https://mediacloud.org/support/query-guide).
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/mc_explo_003.png")
 ```
 This time you can use the graphic option *Stories percentage* rather than *Story count* if you want to viusalize the salience of the topic through time.
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/mc_explo_004.png")
 ```
 

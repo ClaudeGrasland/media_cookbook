@@ -1,11 +1,5 @@
-c11_data_sources
-minimum-requirement
-mediacloud
-factiva
-europresse
-others
-c22_corpus_mediacloud
-the-media-cloud-database
+introduction
+c21_mediacloud
 how-to-extract-data-from-mediacloud
 selection-of-media-with-source-manager
 checking-the-stability-through-time
