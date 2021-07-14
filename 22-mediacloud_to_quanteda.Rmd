@@ -1,0 +1,179 @@
+# Creation of a quanteda corpus {#c22_mediacloud_to_quanteda}
+
+```{r}
+library(quanteda)
+library(dplyr)
+library(ggplot2)
+library(tidytext)
+library(knitr)
+library(readtext)
+
+knitr::opts_chunk$set(cache = TRUE,
+                      echo = TRUE,
+                      comment = "")
+
+
+```
+In the previous section (ref...) whe have obtained a .csv file of news collected from MediaCloud. We will try now to put this data in a standard form and we have chosen the format of the `quanteda` package as reference for data organization and storage. 
+
+But of course the researchers involved in the project can prefer to use other R packages like `tm` or `tidytext`. And they can also prefer to use another programming language for Python. It is the reason why we explain how to transform and export the data that has been prepared and harmonized with quanteda in various format like .csv or JSON. 
+
+
+## Importation of text to R
+
+
+This step is really not obvious because many problems of encoding can appear that are more or less easy to solve. In principle , the data from Media Cloud are exported in standard `UTF-8` but as we will see it is not necessary the case. 
+
+
+### Import with R-Base 
+
+We try firstly to use the standard R function `read.csv()`: 
+
+```{r loadcsv, echo=TRUE}
+dt<-read.csv(file =("data/corpora/TUN/-all-story-urls-20210713153555.csv"),
+             sep=",",
+             header=T,
+             encoding = "UTF-8",
+             stringsAsFactors = F)
+head(dt)
+str(dt)
+```
+
+The importation was successfull for 13623 news but message of errors appeared for 3 news where R sent a message of error telling :
+
+`Error in gregexpr(calltext, singleline, fixed = TRUE) : regular expression is invalid UTF-8`
+
+Looking in more details, we discover also some problems of encoding in news like in the following example where the text of the news appears differently if we apply the standard functions `paste()` o0 the specialized function r `knitr::kable` for printing. 
+
+```{r}
+paste(dt[12, 3])
+kable((dt[550,3]))
+```
+
+
+### Import with readtext
+
+The package [readtext](https://readtext.quanteda.io/articles/readtext_vignette.html) which has been developped by the same team as quanteda appears more efficient because it is adapted to a great diversity of input format and introduce immediately some parameters of interest for the creation of quanteda corpora like :
+
+- text_field : the column describing the text
+- docid_field : the unique code of documents
+
+The resulting object belong to the class `data.table`but also the class `readtext`which is more easy to transform in quanteda corpus. 
+
+```{r}
+df <- readtext(file ="data/corpora/TUN/-all-story-urls-20210713153555.csv",
+                encoding = "UTF-8",
+                text_field = "title",
+                docid_field = "stories_id")
+class(df)
+
+          
+```
+
+In our example, the use of this package does not solve the problem of encoding but this problem is apparently limited to a small number of news and a small number of characters. It can therefore be solved in this example by manual corrections. 
+
+## Cleaning of the text
+
+in our opinion it is better to proceed to some cleaing operation before to import the text in quanteda and to create a news version of the initial .csv file. 
+
+### encoding problems
+
+It is sometime possible to adapt manually the encoding problem whan they are not too much as in present example. 
+
+```{r}
+# standardize apostrophe
+df$text<-gsub("&#8217;","'",df$text)
+
+# standardize punct
+df$text<-gsub('&#8230;','.',df$text)
+
+# standardize hyphens
+df$text<-gsub('&#8211;','-',df$text)
+
+# Remove quotation marks
+df$text<-gsub('&#171;&#160;','',df$text)
+df$text<-gsub('&#160;&#187;','',df$text)
+df$text<-gsub('&#8220;','',df$text)
+df$text<-gsub('&#8221;','',df$text)
+df$text<-gsub('&#8216;','',df$text)
+df$text<-gsub('&#8243;','',df$text)
+
+```
+
+
+### Other cleaning actions
+
+We can introduce othr cleaning procedures here or keep it for later analysis
+
+
+## Transformation in quanteda format
+
+We propose  a storage based on `quanteda` format by just transforming the data that has been produced by readtext. 
+
+```{r create quanteda, echo=T}
+
+# Create Quanteda corpus
+qd<-corpus(df)
+
+
+# Add global meta
+meta(qd,"meta_source")<-"Media Cloud "
+meta(qd,"meta_time")<-"Download the 2021-07-13"
+meta(qd,"meta_author")<-"Elaborated by Claude Grasland"
+meta(qd,"project")<-"ANR-DFG Project IMAGEUN"
+
+```
+
+
+We have created a quanteda object with a lot of information stored in various fields. The structure of the object is the following one
+
+```{r, echo=TRUE}
+str(qd)
+```
+
+We can look at the first titles with *head()*
+
+```{r, echo=TRUE}
+kable(head(qd,3))
+```
+
+
+We can get meta information on each stories with *summary()*
+
+```{r, echo=TRUE}
+summary(qd,3)
+```
+
+We can get meta information about the full document
+
+```{r, echo=TRUE}
+meta(qd)
+```
+
+
+
+### Storage of the quanteda object
+
+We can finally save the object in .Rdata format in a directory dedicated to our quanteda files. It can be usefull to give some information in the name of the file
+
+```{r, echo=TRUE}
+saveRDS(qd,"data/corpora/TUN/qd_ecomag_titles.Rdata")
+```
+
+We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.43Mb which means a division by 8 as compared to the initial .csv file downloaded from Media Cloud.
+
+### Backtransformation of quanteda to data.table or tibble
+
+In the following steps, we will make an intensive use of quanteda, but sometimes it can be usefull to export the results in a more practical format or to use other packages. For this reasons, it is important to know that the `tidytext`package can easily transform quanteda object in tibbles which are more classical and easy to manage 
+
+```{r}
+td <- tidy(qd)
+head(td)
+str(td)
+```
+
+
+
+
+
+

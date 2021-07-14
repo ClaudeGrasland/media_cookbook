@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Creation of a quanteda corpus | The media cookbook</title>
+  <meta name="description" content="A reminder of some experiments made in 2021" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Creation of a quanteda corpus | The media cookbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A reminder of some experiments made in 2021" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Creation of a quanteda corpus | The media cookbook" />
+  
+  <meta name="twitter:description" content="A reminder of some experiments made in 2021" />
+  
+
+<meta name="author" content="Claude Grasland" />
+
+
+<meta name="date" content="2021-07-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="21-corpus-mediacloud.html"/>
+
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">The Media Cookbook  <em>C. Grasland (2021)</em></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html"><i class="fa fa-check"></i><b>2</b> Extraction of data from Media Cloud</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-media-with-source-manager"><i class="fa fa-check"></i><b>2.1</b> Selection of media with source manager</a></li>
+<li class="chapter" data-level="2.2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#checking-the-stability-through-time"><i class="fa fa-check"></i><b>2.2</b> Checking the stability through time</a></li>
+<li class="chapter" data-level="2.3" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-news-specifically-related-to-a-topic-option"><i class="fa fa-check"></i><b>2.3</b> Selection of news specifically related to a topic (option)</a></li>
+<li class="chapter" data-level="2.4" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#download-and-storage-of-news"><i class="fa fa-check"></i><b>2.4</b> Download and storage of news</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html"><i class="fa fa-check"></i><b>3</b> Creation of a quanteda corpus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#importation-of-text-to-r"><i class="fa fa-check"></i><b>3.1</b> Importation of text to R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#import-with-r-base"><i class="fa fa-check"></i><b>3.1.1</b> Import with R-Base</a></li>
+<li class="chapter" data-level="3.1.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#import-with-readtext"><i class="fa fa-check"></i><b>3.1.2</b> Import with readtext</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#cleaning-of-the-text"><i class="fa fa-check"></i><b>3.2</b> Cleaning of the text</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#encoding-problems"><i class="fa fa-check"></i><b>3.2.1</b> encoding problems</a></li>
+<li class="chapter" data-level="3.2.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#other-cleaning-actions"><i class="fa fa-check"></i><b>3.2.2</b> Other cleaning actions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#transformation-in-quanteda-format"><i class="fa fa-check"></i><b>3.3</b> Transformation in quanteda format</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#storage-of-the-quanteda-object"><i class="fa fa-check"></i><b>3.3.1</b> Storage of the quanteda object</a></li>
+<li class="chapter" data-level="3.3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.3.2</b> Backtransformation of quanteda to data.table or tibble</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The media cookbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c22_mediacloud_to_quanteda" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Creation of a quanteda corpus</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="22-mediacloud_to_quanteda.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb6-2"><a href="22-mediacloud_to_quanteda.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-3"><a href="22-mediacloud_to_quanteda.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-4"><a href="22-mediacloud_to_quanteda.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb6-5"><a href="22-mediacloud_to_quanteda.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb6-6"><a href="22-mediacloud_to_quanteda.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readtext)</span>
+<span id="cb6-7"><a href="22-mediacloud_to_quanteda.html#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="22-mediacloud_to_quanteda.html#cb6-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-9"><a href="22-mediacloud_to_quanteda.html#cb6-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-10"><a href="22-mediacloud_to_quanteda.html#cb6-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">comment =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p>In the previous section (ref…) whe have obtained a .csv file of news collected from MediaCloud. We will try now to put this data in a standard form and we have chosen the format of the <code>quanteda</code> package as reference for data organization and storage.</p>
+<p>But of course the researchers involved in the project can prefer to use other R packages like <code>tm</code> or <code>tidytext</code>. And they can also prefer to use another programming language for Python. It is the reason why we explain how to transform and export the data that has been prepared and harmonized with quanteda in various format like .csv or JSON.</p>
+<div id="importation-of-text-to-r" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Importation of text to R</h2>
+<p>This step is really not obvious because many problems of encoding can appear that are more or less easy to solve. In principle , the data from Media Cloud are exported in standard <code>UTF-8</code> but as we will see it is not necessary the case.</p>
+<div id="import-with-r-base" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Import with R-Base</h3>
+<p>We try firstly to use the standard R function <code>read.csv()</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="22-mediacloud_to_quanteda.html#cb7-1" aria-hidden="true" tabindex="-1"></a>dt<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="at">file =</span>(<span class="st">&quot;data/corpora/TUN/-all-story-urls-20210713153555.csv&quot;</span>),</span>
+<span id="cb7-2"><a href="22-mediacloud_to_quanteda.html#cb7-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,</span>
+<span id="cb7-3"><a href="22-mediacloud_to_quanteda.html#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">header=</span>T,</span>
+<span id="cb7-4"><a href="22-mediacloud_to_quanteda.html#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
+<span id="cb7-5"><a href="22-mediacloud_to_quanteda.html#cb7-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb7-6"><a href="22-mediacloud_to_quanteda.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dt)</span></code></pre></div>
+<pre><code>  stories_id        publish_date
+1  719049395 2017-11-03 06:59:58
+2  719049401 2017-11-03 06:15:37
+3  719049385 2017-11-03 07:32:40
+4  719049416 2017-11-03 04:36:14
+5  719457836 2017-11-04 07:12:34
+6  719457840 2017-11-04 06:38:38
+                                                                                    title
+1        Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar
+2                        Cyrine Ben Hassine élue présidente de l’ATUGE France (2017-2018)
+3                                      Santé : pour une nouvelle relation médecin-patient
+4 Düsseldorf : 250 visiteurs professionnels et 8 exposants tunisiens au salon Medica 2017
+5         Etude: 68% des dirigeants n’ont pas creusé la transmission à la 3ème génération
+6                                                                          Réconciliation
+                                                                                                                              url
+1      http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/
+2                      http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/
+3                                                           http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/
+4 http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-salon-medica-2017/
+5                                         http://www.leconomistemaghrebin.com/2017/11/04/dirigeants-transmission-3eme-generation/
+6                                                                  http://www.leconomistemaghrebin.com/2017/11/04/reconciliation/
+  language ap_syndicated themes media_id             media_name
+1       fr         False          623820 L&#39;Economiste Maghrebin
+2       fr         False          623820 L&#39;Economiste Maghrebin
+3       fr         False          623820 L&#39;Economiste Maghrebin
+4       fr         False          623820 L&#39;Economiste Maghrebin
+5       fr         False          623820 L&#39;Economiste Maghrebin
+6       fr         False          623820 L&#39;Economiste Maghrebin
+                             media_url
+1 http://www.leconomistemaghrebin.com/
+2 http://www.leconomistemaghrebin.com/
+3 http://www.leconomistemaghrebin.com/
+4 http://www.leconomistemaghrebin.com/
+5 http://www.leconomistemaghrebin.com/
+6 http://www.leconomistemaghrebin.com/</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="22-mediacloud_to_quanteda.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dt)</span></code></pre></div>
+<pre><code>&#39;data.frame&#39;:   13623 obs. of  10 variables:
+ $ stories_id   : int  719049395 719049401 719049385 719049416 719457836 719457840 719457843 719457851 719489735 720908005 ...
+ $ publish_date : chr  &quot;2017-11-03 06:59:58&quot; &quot;2017-11-03 06:15:37&quot; &quot;2017-11-03 07:32:40&quot; &quot;2017-11-03 04:36:14&quot; ...
+ $ title        : chr  &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; &quot;Cyrine Ben Hassine élue présidente de l’ATUGE France (2017-2018)&quot; &quot;Santé : pour une nouvelle relation médecin-patient&quot; &quot;Düsseldorf : 250 visiteurs professionnels et 8 exposants tunisiens au salon Medica 2017&quot; ...
+ $ url          : chr  &quot;http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-sa&quot;| __truncated__ ...
+ $ language     : chr  &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; ...
+ $ ap_syndicated: chr  &quot;False&quot; &quot;False&quot; &quot;False&quot; &quot;False&quot; ...
+ $ themes       : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+ $ media_id     : int  623820 623820 623820 623820 623820 623820 623820 623820 623820 623820 ...
+ $ media_name   : chr  &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; ...
+ $ media_url    : chr  &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; ...</code></pre>
+<p>The importation was successfull for 13623 news but message of errors appeared for 3 news where R sent a message of error telling :</p>
+<p><code>Error in gregexpr(calltext, singleline, fixed = TRUE) : regular expression is invalid UTF-8</code></p>
+<p>Looking in more details, we discover also some problems of encoding in news like in the following example where the text of the news appears differently if we apply the standard functions <code>paste()</code> o0 the specialized function r <code>knitr::kable</code> for printing.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="22-mediacloud_to_quanteda.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(dt[<span class="dv">12</span>, <span class="dv">3</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Noureddine Bhiri: &amp;#171;&amp;#160;Nous soutenons le PLF relatif à la protection des forces armées&amp;#160;&amp;#187;&quot;</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="22-mediacloud_to_quanteda.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>((dt[<span class="dv">550</span>,<span class="dv">3</span>]))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Khemaies Jehinaoui: “La Tunisie compte accueillir 20.000 étudiants africains”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="import-with-readtext" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Import with readtext</h3>
+<p>The package <a href="https://readtext.quanteda.io/articles/readtext_vignette.html">readtext</a> which has been developped by the same team as quanteda appears more efficient because it is adapted to a great diversity of input format and introduce immediately some parameters of interest for the creation of quanteda corpora like :</p>
+<ul>
+<li>text_field : the column describing the text</li>
+<li>docid_field : the unique code of documents</li>
+</ul>
+<p>The resulting object belong to the class <code>data.table</code>but also the class <code>readtext</code>which is more easy to transform in quanteda corpus.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="22-mediacloud_to_quanteda.html#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="at">file =</span><span class="st">&quot;data/corpora/TUN/-all-story-urls-20210713153555.csv&quot;</span>,</span>
+<span id="cb14-2"><a href="22-mediacloud_to_quanteda.html#cb14-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
+<span id="cb14-3"><a href="22-mediacloud_to_quanteda.html#cb14-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">text_field =</span> <span class="st">&quot;title&quot;</span>,</span>
+<span id="cb14-4"><a href="22-mediacloud_to_quanteda.html#cb14-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">docid_field =</span> <span class="st">&quot;stories_id&quot;</span>)</span>
+<span id="cb14-5"><a href="22-mediacloud_to_quanteda.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df)</span></code></pre></div>
+<pre><code>[1] &quot;readtext&quot;   &quot;data.frame&quot;</code></pre>
+<p>In our example, the use of this package does not solve the problem of encoding but this problem is apparently limited to a small number of news and a small number of characters. It can therefore be solved in this example by manual corrections.</p>
+</div>
+</div>
+<div id="cleaning-of-the-text" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Cleaning of the text</h2>
+<p>in our opinion it is better to proceed to some cleaing operation before to import the text in quanteda and to create a news version of the initial .csv file.</p>
+<div id="encoding-problems" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> encoding problems</h3>
+<p>It is sometime possible to adapt manually the encoding problem whan they are not too much as in present example.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="22-mediacloud_to_quanteda.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardize apostrophe</span></span>
+<span id="cb16-2"><a href="22-mediacloud_to_quanteda.html#cb16-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&quot;&amp;#8217;&quot;</span>,<span class="st">&quot;&#39;&quot;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb16-3"><a href="22-mediacloud_to_quanteda.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="22-mediacloud_to_quanteda.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># standardize punct</span></span>
+<span id="cb16-5"><a href="22-mediacloud_to_quanteda.html#cb16-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8230;&#39;</span>,<span class="st">&#39;.&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb16-6"><a href="22-mediacloud_to_quanteda.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="22-mediacloud_to_quanteda.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># standardize hyphens</span></span>
+<span id="cb16-8"><a href="22-mediacloud_to_quanteda.html#cb16-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8211;&#39;</span>,<span class="st">&#39;-&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb16-9"><a href="22-mediacloud_to_quanteda.html#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="22-mediacloud_to_quanteda.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove quotation marks</span></span>
+<span id="cb16-11"><a href="22-mediacloud_to_quanteda.html#cb16-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#171;&amp;#160;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb16-12"><a href="22-mediacloud_to_quanteda.html#cb16-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#160;&amp;#187;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb16-13"><a href="22-mediacloud_to_quanteda.html#cb16-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8220;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb16-14"><a href="22-mediacloud_to_quanteda.html#cb16-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8221;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb16-15"><a href="22-mediacloud_to_quanteda.html#cb16-15" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8216;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb16-16"><a href="22-mediacloud_to_quanteda.html#cb16-16" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8243;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span></code></pre></div>
+</div>
+<div id="other-cleaning-actions" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Other cleaning actions</h3>
+<p>We can introduce othr cleaning procedures here or keep it for later analysis</p>
+</div>
+</div>
+<div id="transformation-in-quanteda-format" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Transformation in quanteda format</h2>
+<p>We propose a storage based on <code>quanteda</code> format by just transforming the data that has been produced by readtext.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="22-mediacloud_to_quanteda.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Quanteda corpus</span></span>
+<span id="cb17-2"><a href="22-mediacloud_to_quanteda.html#cb17-2" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus</span>(df)</span>
+<span id="cb17-3"><a href="22-mediacloud_to_quanteda.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="22-mediacloud_to_quanteda.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="22-mediacloud_to_quanteda.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add global meta</span></span>
+<span id="cb17-6"><a href="22-mediacloud_to_quanteda.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_source&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Media Cloud &quot;</span></span>
+<span id="cb17-7"><a href="22-mediacloud_to_quanteda.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_time&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Download the 2021-07-13&quot;</span></span>
+<span id="cb17-8"><a href="22-mediacloud_to_quanteda.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_author&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Elaborated by Claude Grasland&quot;</span></span>
+<span id="cb17-9"><a href="22-mediacloud_to_quanteda.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;project&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;ANR-DFG Project IMAGEUN&quot;</span></span></code></pre></div>
+<p>We have created a quanteda object with a lot of information stored in various fields. The structure of the object is the following one</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="22-mediacloud_to_quanteda.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(qd)</span></code></pre></div>
+<pre><code> &#39;corpus&#39; Named chr [1:13623] &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; ...
+ - attr(*, &quot;names&quot;)= chr [1:13623] &quot;719049395&quot; &quot;719049401&quot; &quot;719049385&quot; &quot;719049416&quot; ...
+ - attr(*, &quot;docvars&quot;)=&#39;data.frame&#39;: 13623 obs. of  11 variables:
+  ..$ docname_     : chr [1:13623] &quot;719049395&quot; &quot;719049401&quot; &quot;719049385&quot; &quot;719049416&quot; ...
+  ..$ docid_       : Factor w/ 13623 levels &quot;719049395&quot;,&quot;719049401&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+  ..$ segid_       : int [1:13623] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ publish_date : chr [1:13623] &quot;2017-11-03 06:59:58&quot; &quot;2017-11-03 06:15:37&quot; &quot;2017-11-03 07:32:40&quot; &quot;2017-11-03 04:36:14&quot; ...
+  ..$ url          : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-sa&quot;| __truncated__ ...
+  ..$ language     : chr [1:13623] &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; ...
+  ..$ ap_syndicated: logi [1:13623] FALSE FALSE FALSE FALSE FALSE FALSE ...
+  ..$ themes       : chr [1:13623] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+  ..$ media_id     : int [1:13623] 623820 623820 623820 623820 623820 623820 623820 623820 623820 623820 ...
+  ..$ media_name   : chr [1:13623] &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; ...
+  ..$ media_url    : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; ...
+ - attr(*, &quot;meta&quot;)=List of 3
+  ..$ system:List of 6
+  .. ..$ package-version:Classes &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
+  .. .. ..$ : int [1:3] 3 0 0
+  .. ..$ r-version      :Classes &#39;R_system_version&#39;, &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
+  .. .. ..$ : int [1:3] 4 1 0
+  .. ..$ system         : Named chr [1:3] &quot;Windows&quot; &quot;x86-64&quot; &quot;Dark Schuman&quot;
+  .. .. ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;sysname&quot; &quot;machine&quot; &quot;user&quot;
+  .. ..$ directory      : chr &quot;C:/git/meida_cookbook&quot;
+  .. ..$ created        : Date[1:1], format: &quot;2021-07-14&quot;
+  .. ..$ source         : chr &quot;data.frame&quot;
+  ..$ object:List of 2
+  .. ..$ unit   : chr &quot;documents&quot;
+  .. ..$ summary:List of 2
+  .. .. ..$ hash: chr(0) 
+  .. .. ..$ data: NULL
+  ..$ user  :List of 4
+  .. ..$ meta_source: chr &quot;Media Cloud &quot;
+  .. ..$ meta_time  : chr &quot;Download the 2021-07-13&quot;
+  .. ..$ meta_author: chr &quot;Elaborated by Claude Grasland&quot;
+  .. ..$ project    : chr &quot;ANR-DFG Project IMAGEUN&quot;</code></pre>
+<p>We can look at the first titles with <em>head()</em></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="22-mediacloud_to_quanteda.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(qd,<span class="dv">3</span>))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">719049395</td>
+<td align="left">Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar</td>
+</tr>
+<tr class="even">
+<td align="left">719049401</td>
+<td align="left">Cyrine Ben Hassine élue présidente de l’ATUGE France (2017-2018)</td>
+</tr>
+<tr class="odd">
+<td align="left">719049385</td>
+<td align="left">Santé : pour une nouvelle relation médecin-patient</td>
+</tr>
+</tbody>
+</table>
+<p>We can get meta information on each stories with <em>summary()</em></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="22-mediacloud_to_quanteda.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 13623 documents, showing 3 documents:
+
+      Text Types Tokens Sentences        publish_date
+ 719049395    13     13         1 2017-11-03 06:59:58
+ 719049401    11     11         1 2017-11-03 06:15:37
+ 719049385     7      7         1 2017-11-03 07:32:40
+                                                                                                                        url
+ http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/
+                 http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/
+                                                      http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/
+ language ap_syndicated themes media_id             media_name
+       fr         FALSE          623820 L&#39;Economiste Maghrebin
+       fr         FALSE          623820 L&#39;Economiste Maghrebin
+       fr         FALSE          623820 L&#39;Economiste Maghrebin
+                            media_url
+ http://www.leconomistemaghrebin.com/
+ http://www.leconomistemaghrebin.com/
+ http://www.leconomistemaghrebin.com/</code></pre>
+<p>We can get meta information about the full document</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="22-mediacloud_to_quanteda.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd)</span></code></pre></div>
+<pre><code>$meta_source
+[1] &quot;Media Cloud &quot;
+
+$meta_time
+[1] &quot;Download the 2021-07-13&quot;
+
+$meta_author
+[1] &quot;Elaborated by Claude Grasland&quot;
+
+$project
+[1] &quot;ANR-DFG Project IMAGEUN&quot;</code></pre>
+<div id="storage-of-the-quanteda-object" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Storage of the quanteda object</h3>
+<p>We can finally save the object in .Rdata format in a directory dedicated to our quanteda files. It can be usefull to give some information in the name of the file</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="22-mediacloud_to_quanteda.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;data/corpora/TUN/qd_ecomag_titles.Rdata&quot;</span>)</span></code></pre></div>
+<p>We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.43Mb which means a division by 8 as compared to the initial .csv file downloaded from Media Cloud.</p>
+</div>
+<div id="backtransformation-of-quanteda-to-data.table-or-tibble" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Backtransformation of quanteda to data.table or tibble</h3>
+<p>In the following steps, we will make an intensive use of quanteda, but sometimes it can be usefull to export the results in a more practical format or to use other packages. For this reasons, it is important to know that the <code>tidytext</code>package can easily transform quanteda object in tibbles which are more classical and easy to manage</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="22-mediacloud_to_quanteda.html#cb26-1" aria-hidden="true" tabindex="-1"></a>td <span class="ot">&lt;-</span> <span class="fu">tidy</span>(qd)</span>
+<span id="cb26-2"><a href="22-mediacloud_to_quanteda.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(td)</span></code></pre></div>
+<pre><code># A tibble: 6 x 9
+  text    publish_date  url    language ap_syndicated themes media_id media_name
+  &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;    &lt;lgl&gt;         &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;     
+1 Univer~ 2017-11-03 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
+2 Cyrine~ 2017-11-03 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
+3 Santé ~ 2017-11-03 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
+4 Düssel~ 2017-11-03 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
+5 Etude:~ 2017-11-04 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
+6 Réconc~ 2017-11-04 0~ http:~ fr       FALSE         &quot;&quot;       623820 L&#39;Economi~
+# ... with 1 more variable: media_url &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="22-mediacloud_to_quanteda.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(td)</span></code></pre></div>
+<pre><code>tibble [13,623 x 9] (S3: tbl_df/tbl/data.frame)
+ $ text         : chr [1:13623] &quot;Université: projet de formation codiplomante entre la Sorbonne et Tunis El Manar&quot; &quot;Cyrine Ben Hassine élue présidente de l’ATUGE France (2017-2018)&quot; &quot;Santé : pour une nouvelle relation médecin-patient&quot; &quot;Düsseldorf : 250 visiteurs professionnels et 8 exposants tunisiens au salon Medica 2017&quot; ...
+ $ publish_date : chr [1:13623] &quot;2017-11-03 06:59:58&quot; &quot;2017-11-03 06:15:37&quot; &quot;2017-11-03 07:32:40&quot; &quot;2017-11-03 04:36:14&quot; ...
+ $ url          : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/2017/11/03/universite-projet-de-formation-co-diplomante-entre-sorbonne-tunis-el-manar/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/cirine-ben-hassine-elue-presidente-latuge-france-2017-2018/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/sante-medecin-patient/&quot; &quot;http://www.leconomistemaghrebin.com/2017/11/03/dusseldorf-250-visiteurs-professionnels-7-exposants-tunisiens-sa&quot;| __truncated__ ...
+ $ language     : chr [1:13623] &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; &quot;fr&quot; ...
+ $ ap_syndicated: logi [1:13623] FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ themes       : chr [1:13623] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+ $ media_id     : int [1:13623] 623820 623820 623820 623820 623820 623820 623820 623820 623820 623820 ...
+ $ media_name   : chr [1:13623] &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; ...
+ $ media_url    : chr [1:13623] &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; ...</code></pre>
+
+</div>
+</div>
+</div>
+<script src="js/tidyverse.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="21-corpus-mediacloud.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ClaudeGrasland/media_cookbook/blob/master/22-mediacloud_to_quanteda.Rmd",
+"text": "Source"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
