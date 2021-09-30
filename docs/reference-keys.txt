@@ -1,4 +1,4 @@
-tab:unnamed-chunk-30
+tab:unnamed-chunk-29
 introduction
 c21_mediacloud
 selection-of-media-with-source-manager
@@ -8,7 +8,6 @@ download-and-storage-of-news
 c22_mediacloud_to_quanteda
 importation-of-text-to-r
 import-with-r-base
-import-with-readtext
 cleaning-of-the-text
 encoding-problems
 other-cleaning-actions

@@ -30,13 +30,13 @@ This step is really not obvious because many problems of encoding can appear tha
 We try firstly to use the standard R function `read.csv()`: 
 
 ```{r loadcsv, echo=TRUE}
-dt<-read.csv(file =("data/corpora/TUN/-all-story-urls-20210713153555.csv"),
+df<-read.csv(url("https://api.nakala.fr/data/10.34847/nkl.8e317m71/7d129d03a92e22b0af0a9fba0ca49703a89d7552"),
              sep=",",
              header=T,
              encoding = "UTF-8",
              stringsAsFactors = F)
-head(dt)
-str(dt)
+head(df)
+str(df)
 ```
 
 The importation was successfull for 13623 news but message of errors appeared for 3 news where R sent a message of error telling :
@@ -46,41 +46,22 @@ The importation was successfull for 13623 news but message of errors appeared fo
 Looking in more details, we discover also some problems of encoding in news like in the following example where the text of the news appears differently if we apply the standard functions `paste()` o0 the specialized function r `knitr::kable` for printing. 
 
 ```{r}
-paste(dt[12, 3])
-kable((dt[12,3]))
+paste(df[9, 3])
+kable((df[9,3]))
 ```
 
-
-### Import with readtext
-
-The package [readtext](https://readtext.quanteda.io/articles/readtext_vignette.html) which has been developped by the same team as quanteda appears more efficient because it is adapted to a great diversity of input format and introduce immediately some parameters of interest for the creation of quanteda corpora like :
-
-- text_field : the column describing the text
-- docid_field : the unique code of documents
-
-The resulting object belong to the class `data.table`but also the class `readtext`which is more easy to transform in quanteda corpus. 
-
-```{r}
-df <- readtext(file ="data/corpora/TUN/-all-story-urls-20210713153555.csv",
-                encoding = "UTF-8",
-                text_field = "title",
-                docid_field = "stories_id")
-class(df)
-
-          
-```
-
-In our example, the use of this package does not solve the problem of encoding but this problem is apparently limited to a small number of news and a small number of characters. It can therefore be solved in this example by manual corrections. 
+ 
 
 ## Cleaning of the text
 
-in our opinion it is better to proceed to some cleaing operation before to import the text in quanteda and to create a news version of the initial .csv file. 
+in our opinion it is better to proceed to some cleaning operation before to import the text in quanteda and to create a news version of the initial .csv file. 
 
 ### encoding problems
 
 It is sometime possible to adapt manually the encoding problem whan they are not too much as in present example. 
 
 ```{r}
+df$text<-df$title
 # standardize apostrophe
 df$text<-gsub("&#8217;","'",df$text)
 
