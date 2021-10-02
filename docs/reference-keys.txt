@@ -42,3 +42,9 @@ le-monde
 royaume-uni
 the-guardian
 the-daily-telegraph
+ireland
+the-irish-time
+the-belfast-telegraph
+turkey
+the-yeni-sati
+cumhuryet

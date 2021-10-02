@@ -173,6 +173,16 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.4.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-guardian"><i class="fa fa-check"></i><b>3.4.1</b> The Guardian</a></li>
 <li class="chapter" data-level="3.4.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-daily-telegraph"><i class="fa fa-check"></i><b>3.4.2</b> The Daily Telegraph</a></li>
 </ul></li>
+<li class="chapter" data-level="3.5" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#ireland"><i class="fa fa-check"></i><b>3.5</b> Ireland</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-irish-time"><i class="fa fa-check"></i><b>3.5.1</b> The Irish Time</a></li>
+<li class="chapter" data-level="3.5.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-belfast-telegraph"><i class="fa fa-check"></i><b>3.5.2</b> The Belfast Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#turkey"><i class="fa fa-check"></i><b>3.6</b> Turkey</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-yeni-sati"><i class="fa fa-check"></i><b>3.6.1</b> The Yeni Sati</a></li>
+<li class="chapter" data-level="3.6.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#cumhuryet"><i class="fa fa-check"></i><b>3.6.2</b> Cumhuryet</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>4</b> Geonetworks</a>
 <ul>
@@ -613,6 +623,88 @@ See help(&quot;Deprecated&quot;)</code></pre>
 [3] &quot;Europe tells Britain to justify itself over fingerprinting children in schools&quot;
 [4] &quot;Sumo champion Asashoryu outrages sport with celebration&quot;                       
 [5] &quot;Barack Obama meets Jewish leaders over &#39;tough line&#39; on Israel&quot;                 </code></pre>
+</div>
+</div>
+<div id="ireland" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Ireland</h2>
+<div id="the-irish-time" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> The Irish Time</h3>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="22-mediacloud_to_quanteda.html#cb58-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_IRL_irtime.RDS&quot;</span>)</span>
+<span id="cb58-2"><a href="22-mediacloud_to_quanteda.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 108479 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1003842232     8      9         1 en_IRL_irtime 2020-01-15
+ 1128791232     8      8         1 en_IRL_irtime 2019-01-01
+ 1128791226     7      7         1 en_IRL_irtime 2019-01-01
+ 1128803852    10     10         1 en_IRL_irtime 2019-01-01
+ 1128874798    11     11         1 en_IRL_irtime 2019-01-01</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="22-mediacloud_to_quanteda.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Strong corporate tax receipts ‘sustainable’ until 2020&quot;      
+[2] &quot;Number of British people becoming Irish citizens surges&quot;     
+[3] &quot;7 tips to build your physical stamina&quot;                       
+[4] &quot;Having a baby abroad changed my perspective on living away&quot;  
+[5] &quot;New Year’s Eve celebrations around the world to ring in 2019&quot;</code></pre>
+</div>
+<div id="the-belfast-telegraph" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> The Belfast Telegraph</h3>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="22-mediacloud_to_quanteda.html#cb62-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_NIR_beltel.RDS&quot;</span>)</span>
+<span id="cb62-2"><a href="22-mediacloud_to_quanteda.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 99932 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128845104     8      8         1 en_NIR_beltel 2019-01-01
+ 1128845083    11     11         1 en_NIR_beltel 2019-01-01
+ 1128845064     9      9         1 en_NIR_beltel 2019-01-01
+ 1128845042    11     11         1 en_NIR_beltel 2019-01-01
+ 1128905097    10     10         1 en_NIR_beltel 2019-01-01</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="22-mediacloud_to_quanteda.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Officer disarmed knifeman in Foyleside Centre court told&quot;               
+[2] &quot;Hoaxers are putting lives at risk, warns fire service officer&quot;          
+[3] &quot;The volunteers providing a lifeline to elderly Belfast residents&quot;       
+[4] &quot;Tributes to Northern Ireland man Christopher Donnelly after death in US&quot;
+[5] &quot;Belfast bar to build rooftop terrace in £350k extension&quot;                </code></pre>
+</div>
+</div>
+<div id="turkey" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Turkey</h2>
+<div id="the-yeni-sati" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> The Yeni Sati</h3>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="22-mediacloud_to_quanteda.html#cb66-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_yenisa.RDS&quot;</span>)</span>
+<span id="cb66-2"><a href="22-mediacloud_to_quanteda.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 97638 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128735746     4      4         1 tr_TUR_yenisa 2019-01-01
+ 1128760707     5      5         1 tr_TUR_yenisa 2019-01-01
+ 1128776505     7      7         1 tr_TUR_yenisa 2019-01-01
+ 1128776514     7      7         1 tr_TUR_yenisa 2019-01-01
+ 1128796514     4      4         1 tr_TUR_yenisa 2019-01-01</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="22-mediacloud_to_quanteda.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Bingöl&#39;de 4.2 şiddetinde deprem&quot;                     
+[2] &quot;Pentagon&#39;da deprem: Görevden alındı&quot;                 
+[3] &quot;Cumhurbaşkanı Erdoğan en seçkin dünya lideri seçildi&quot;
+[4] &quot;Japonya&#39;da araçlı saldırı: Yayaların arasında daldı&quot; 
+[5] &quot;Almanya&#39;da Mekke&#39;nin fethi kutlandı&quot;                 </code></pre>
+</div>
+<div id="cumhuryet" class="section level3" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Cumhuryet</h3>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="22-mediacloud_to_quanteda.html#cb70-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_cumhur.RDS&quot;</span>)</span>
+<span id="cb70-2"><a href="22-mediacloud_to_quanteda.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 133713 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1129020777     7      7         1 tr_TUR_cumhur 2019-01-01
+ 1129020771     8      8         1 tr_TUR_cumhur 2019-01-01
+ 1129020761     5      5         1 tr_TUR_cumhur 2019-01-01
+ 1129000336     6      6         1 tr_TUR_cumhur 2019-01-01
+ 1129020744     4      4         1 tr_TUR_cumhur 2019-01-01</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="22-mediacloud_to_quanteda.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Hakkari-Şırnak kara yolunda çığ düşmesi sonucu kapandı&quot;
+[2] &quot;Adana&#39;da 10 araç birbirine girdi: Yaralılar var&quot;       
+[3] &quot;CHP binasında  partililerden oturma eylemi&quot;            
+[4] &quot;Suriye sınırına askeri sevkiyat devam ediyor&quot;          
+[5] &quot;İsveç&#39;te camiye silahlı saldırı&quot;                       </code></pre>
 
 </div>
 </div>
