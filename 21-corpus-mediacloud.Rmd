@@ -1,4 +1,4 @@
-# Extraction of data from Media Cloud {#c21_mediacloud}
+# Import from Media Cloud {#c21_mediacloud}
 
 ```{r}
 library(quanteda)

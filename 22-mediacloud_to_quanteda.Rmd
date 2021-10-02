@@ -14,23 +14,30 @@ knitr::opts_chunk$set(cache = TRUE,
 
 
 ```
+
 In the previous section (ref...) whe have obtained a .csv file of news collected from MediaCloud. We will try now to put this data in a standard form and we have chosen the format of the `quanteda` package as reference for data organization and storage. 
 
 But of course the researchers involved in the project can prefer to use other R packages like `tm` or `tidytext`. And they can also prefer to use another programming language for Python. It is the reason why we explain how to transform and export the data that has been prepared and harmonized with quanteda in various format like .csv or JSON. 
 
 
-## Importation of text to R
+## Example 
 
+We detail here an example of importation with the example of the newspaper "L'économiste maghrebin"
 
-This step is really not obvious because many problems of encoding can appear that are more or less easy to solve. In principle , the data from Media Cloud are exported in standard `UTF-8` but as we will see it is not necessary the case. 
+### Importation of text to R
 
-
-### Import with R-Base 
+This step is not always obvious because many problems of encoding can appear that are more or less easy to solve. In principle , the data from Media Cloud are exported in standard `UTF-8` but as we will see it is not necessary the case. 
 
 We try firstly to use the standard R function `read.csv()`: 
 
 ```{r loadcsv, echo=TRUE}
-df<-read.csv(url("https://api.nakala.fr/data/10.34847/nkl.8e317m71/7d129d03a92e22b0af0a9fba0ca49703a89d7552"),
+store <- "corpus/TUN/"
+media <- "fr_TUN_ecomag"
+type <-".csv"
+
+fic <- paste(store,media,type,sep="")
+
+df<-read.csv(fic,
              sep=",",
              header=T,
              encoding = "UTF-8",
@@ -51,11 +58,6 @@ kable((df[9,3]))
 ```
 
  
-
-## Cleaning of the text
-
-in our opinion it is better to proceed to some cleaning operation before to import the text in quanteda and to create a news version of the initial .csv file. 
-
 ### encoding problems
 
 It is sometime possible to adapt manually the encoding problem whan they are not too much as in present example. 
@@ -82,23 +84,22 @@ df$text<-gsub('&#8243;','',df$text)
 ```
 
 
-### Other cleaning actions
-
 We can introduce othr cleaning procedures here or keep it for later analysis
 
 
-## Transformation in quanteda format
+### Transformation in quanteda format
 
 We propose  a storage based on `quanteda` format by just transforming the data that has been produced by readtext. We keep only the name of the source and the date of publication. 
 
 ```{r create quanteda, echo=T}
 
 # Create Quanteda corpus
-qd<-corpus(df)
+qd<-corpus(df,docid_field = "stories_id")
+
 
 # Select docvar fields and rename media
 qd$date <-as.Date(qd$publish_date)
-qd$source <-"fr_TUN_ecomag"
+qd$source <-media
 docvars(qd)<-docvars(qd)[,c("source","date")]
 
 
@@ -106,7 +107,7 @@ docvars(qd)<-docvars(qd)[,c("source","date")]
 
 # Add global meta
 meta(qd,"meta_source")<-"Media Cloud "
-meta(qd,"meta_time")<-"Download the 2021-07-13"
+meta(qd,"meta_time")<-"Download the 2021-09-30"
 meta(qd,"meta_author")<-"Elaborated by Claude Grasland"
 meta(qd,"project")<-"ANR-DFG Project IMAGEUN"
 
@@ -142,10 +143,17 @@ meta(qd)
 
 ### Storage of the quanteda object
 
-We can finally save the object in .Rdata format in a directory dedicated to our quanteda files. It can be usefull to give some information in the name of the file
+We can finally save the object in .RDS format in a directory dedicated to our quanteda files. It can be usefull to give some information in the name of the file
 
 ```{r, echo=TRUE}
-saveRDS(qd,"data/corpora/TUN/fr_TUN_ecomag.Rdata")
+store <- "quanteda/"
+type<- ".RDS"
+myfile <- paste(store,media,type,sep="")
+myfile
+saveRDS(qd,myfile)
+qd[1:3]
+summary(qd,3)
+
 ```
 
 We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.6 Mb which means a division by 6 as compared to the initial .csv file downloaded from Media Cloud.
@@ -162,6 +170,119 @@ str(td)
 
 
 
+
+## Germany
+
+### Frankfurter Allgemeine Zeitung 
+
+```{r, eval=FALSE, include=FALSE}
+
+store <- "corpus/DEU/"
+media <- "de_DEU_frankf"
+
+### (1) Load .csv file
+type <-".csv"
+
+fic <- paste(store,media,type,sep="")
+
+df<-read.csv(fic,
+             sep=",",
+             header=T,
+             encoding = "UTF-8",
+             stringsAsFactors = F)
+
+### (2) solve encoding problems
+
+df$text<-df$title
+
+### (3) transform in quanteda
+
+# Create Quanteda corpus
+qd<-corpus(df,docid_field = "stories_id")
+
+# Select docvar fields and rename media
+qd$date <-as.Date(qd$publish_date)
+qd$source <-media
+docvars(qd)<-docvars(qd)[,c("source","date")]
+
+# Add global meta
+meta(qd,"meta_source")<-"Media Cloud "
+meta(qd,"meta_time")<-"Download the 2021-09-30"
+meta(qd,"meta_author")<-"Elaborated by Claude Grasland"
+meta(qd,"project")<-"ANR-DFG Project IMAGEUN"
+
+### (4) Store as quanteda object
+store <- "quanteda/"
+type<- ".RDS"
+myfile <- paste(store,media,type,sep="")
+saveRDS(qd,myfile)
+
+
+```
+
+
+```{r}
+qd<-readRDS("quanteda/de_DEU_frankf.RDS")
+paste(qd[1:5])
+summary(qd,3)
+```
+
+
+
+
+### Süddeutsche Zeitung
+
+```{r, eval=FALSE, include=FALSE}
+
+store <- "corpus/DEU/"
+media <- "de_DEU_suddeu"
+
+### (1) Load .csv file
+type <-".csv"
+
+fic <- paste(store,media,type,sep="")
+
+df<-read.csv(fic,
+             sep=",",
+             header=T,
+             encoding = "UTF-8",
+             stringsAsFactors = F)
+
+### (2) solve encoding problems
+
+df$text<-df$title
+
+### (3) transform in quanteda
+
+# Create Quanteda corpus
+qd<-corpus(df,docid_field = "stories_id")
+
+# Select docvar fields and rename media
+qd$date <-as.Date(qd$publish_date)
+qd$source <-media
+docvars(qd)<-docvars(qd)[,c("source","date")]
+
+# Add global meta
+meta(qd,"meta_source")<-"Media Cloud "
+meta(qd,"meta_time")<-"Download the 2021-09-30"
+meta(qd,"meta_author")<-"Elaborated by Claude Grasland"
+meta(qd,"project")<-"ANR-DFG Project IMAGEUN"
+
+### (4) Store as quanteda object
+store <- "quanteda/"
+type<- ".RDS"
+myfile <- paste(store,media,type,sep="")
+saveRDS(qd,myfile)
+
+
+
+```
+
+```{r}
+qd<-readRDS("quanteda/de_DEU_suddeu.RDS")
+paste(qd[1:5])
+summary(qd,5)
+```
 
 
 
