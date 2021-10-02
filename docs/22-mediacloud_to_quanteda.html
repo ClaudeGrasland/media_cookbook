@@ -163,6 +163,16 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.2.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#frankfurter-allgemeine-zeitung"><i class="fa fa-check"></i><b>3.2.1</b> Frankfurter Allgemeine Zeitung</a></li>
 <li class="chapter" data-level="3.2.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#süddeutsche-zeitung"><i class="fa fa-check"></i><b>3.2.2</b> Süddeutsche Zeitung</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#france"><i class="fa fa-check"></i><b>3.3</b> France</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-figaro"><i class="fa fa-check"></i><b>3.3.1</b> Le Figaro</a></li>
+<li class="chapter" data-level="3.3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-monde"><i class="fa fa-check"></i><b>3.3.2</b> Le Monde</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#royaume-uni"><i class="fa fa-check"></i><b>3.4</b> Royaume-Uni</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-guardian"><i class="fa fa-check"></i><b>3.4.1</b> The Guardian</a></li>
+<li class="chapter" data-level="3.4.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-daily-telegraph"><i class="fa fa-check"></i><b>3.4.2</b> The Daily Telegraph</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>4</b> Geonetworks</a>
 <ul>
@@ -489,30 +499,24 @@ See help(&quot;Deprecated&quot;)</code></pre>
 <div id="frankfurter-allgemeine-zeitung" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Frankfurter Allgemeine Zeitung</h3>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="22-mediacloud_to_quanteda.html#cb34-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/de_DEU_frankf.RDS&quot;</span>)</span>
-<span id="cb34-2"><a href="22-mediacloud_to_quanteda.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
-<pre><code>[1] &quot;Bundestagswahl: Durchmarsch der AfD&quot;                                                         
-[2] &quot;Kahl folgt auf Schindler: CSU kritisiert Wechsel an BND-Spitze&quot;                              
-[3] &quot;Dramatisches Ende einer Bergtour: Drei Deutsche nach eisiger Nacht in Tiroler Alpen gerettet&quot;
-[4] &quot;Trotz Gelbwesten-Protesten: Macron kündigt für 2019 weitere Reformen an&quot;                     
-[5] &quot;May wirbt in Neujahrsansprache für Brexit-Abkommen&quot;                                          </code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="22-mediacloud_to_quanteda.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">3</span>)</span></code></pre></div>
+<span id="cb34-2"><a href="22-mediacloud_to_quanteda.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>Corpus consisting of 88313 documents, showing 3 documents:
 
        Text Types Tokens Sentences        source       date
   930016745     5      5         1 de_DEU_frankf 2020-09-06
  1118202030    10     10         1 de_DEU_frankf 2021-07-06
  1128764967    14     14         1 de_DEU_frankf 2019-01-01</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="22-mediacloud_to_quanteda.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Bundestagswahl: Durchmarsch der AfD&quot;                                                         
+[2] &quot;Kahl folgt auf Schindler: CSU kritisiert Wechsel an BND-Spitze&quot;                              
+[3] &quot;Dramatisches Ende einer Bergtour: Drei Deutsche nach eisiger Nacht in Tiroler Alpen gerettet&quot;
+[4] &quot;Trotz Gelbwesten-Protesten: Macron kündigt für 2019 weitere Reformen an&quot;                     
+[5] &quot;May wirbt in Neujahrsansprache für Brexit-Abkommen&quot;                                          </code></pre>
 </div>
 <div id="süddeutsche-zeitung" class="section level3" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Süddeutsche Zeitung</h3>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="22-mediacloud_to_quanteda.html#cb38-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/de_DEU_suddeu.RDS&quot;</span>)</span>
-<span id="cb38-2"><a href="22-mediacloud_to_quanteda.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
-<pre><code>[1] &quot;EU setzt Russland Ultimatum&quot;                                   
-[2] &quot;Flüchtlinge : Großbritannien verlegt Schiffe in den Ärmelkanal&quot;
-[3] &quot;Zugang zum Internet : Buena Vista Netz Club&quot;                   
-[4] &quot;Brasilien: Bolsonaros Plan&quot;                                    
-[5] &quot;Dirty Dancing: Getanzter Dreck&quot;                                </code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="22-mediacloud_to_quanteda.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<span id="cb38-2"><a href="22-mediacloud_to_quanteda.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>Corpus consisting of 35444 documents, showing 5 documents:
 
        Text Types Tokens Sentences        source       date
@@ -521,6 +525,94 @@ See help(&quot;Deprecated&quot;)</code></pre>
  1128842047     8      8         1 de_DEU_suddeu 2019-01-01
  1128842007     4      4         1 de_DEU_suddeu 2019-01-01
  1128842024     5      5         1 de_DEU_suddeu 2019-01-01</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="22-mediacloud_to_quanteda.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;EU setzt Russland Ultimatum&quot;                                   
+[2] &quot;Flüchtlinge : Großbritannien verlegt Schiffe in den Ärmelkanal&quot;
+[3] &quot;Zugang zum Internet : Buena Vista Netz Club&quot;                   
+[4] &quot;Brasilien: Bolsonaros Plan&quot;                                    
+[5] &quot;Dirty Dancing: Getanzter Dreck&quot;                                </code></pre>
+</div>
+</div>
+<div id="france" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> France</h2>
+<div id="le-figaro" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Le Figaro</h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="22-mediacloud_to_quanteda.html#cb42-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_figaro.RDS&quot;</span>)</span>
+<span id="cb42-2"><a href="22-mediacloud_to_quanteda.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 128807 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128863317    12     12         1 fr_FRA_figaro 2019-01-01
+ 1128915698    11     11         1 fr_FRA_figaro 2019-01-01
+ 1128915693     8      8         1 fr_FRA_figaro 2019-01-01
+ 1128915594     8      8         1 fr_FRA_figaro 2019-01-01
+ 1128915683     8      8         1 fr_FRA_figaro 2019-01-01</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="22-mediacloud_to_quanteda.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Légion d&#39;honneur : autant de femmes distinguées que d&#39;hommes ce 1er janvier&quot;
+[2] &quot;Tokyo : une voiture fonce dans la foule, 9 blessés&quot;                         
+[3] &quot;Thaïlande : le roi sera couronné en mai&quot;                                    
+[4] &quot;Ces joueurs qui pourraient enflammer le mercato hivernal&quot;                   
+[5] &quot;Strasbourg : 9 blessés à cause des pétards&quot;                                 </code></pre>
+</div>
+<div id="le-monde" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Le Monde</h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="22-mediacloud_to_quanteda.html#cb46-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_lmonde.RDS&quot;</span>)</span>
+<span id="cb46-2"><a href="22-mediacloud_to_quanteda.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 49731 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128825289    12     12         1 fr_FRA_lmonde 2019-01-01
+ 1128864671    11     11         1 fr_FRA_lmonde 2019-01-01
+ 1128864634     9      9         1 fr_FRA_lmonde 2019-01-01
+ 1128864655    13     13         1 fr_FRA_lmonde 2019-01-01
+ 1128908122    11     11         1 fr_FRA_lmonde 2019-01-01</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="22-mediacloud_to_quanteda.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Les pesticides de synthèse interdits aux particuliers à partir du 1er janvier&quot; 
+[2] &quot;Mauritanie : un député antiesclavagiste libéré après cinq mois de prison&quot;      
+[3] &quot;Jeanne Calment était-elle vraiment la doyenne de l’humanité ?&quot;                 
+[4] &quot;Italie : après l’adoption du budget, 2019 commence dans une ambiance chaotique&quot;
+[5] &quot;Pérou : destitution de deux procureurs qui enquêtaient sur l’affaire Odebrecht&quot;</code></pre>
+</div>
+</div>
+<div id="royaume-uni" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Royaume-Uni</h2>
+<div id="the-guardian" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> The Guardian</h3>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="22-mediacloud_to_quanteda.html#cb50-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_GBR_guardi.RDS&quot;</span>)</span>
+<span id="cb50-2"><a href="22-mediacloud_to_quanteda.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 77875 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128777161    12     12         1 en_GBR_guardi 2019-01-01
+ 1128777148    10     10         1 en_GBR_guardi 2019-01-01
+ 1128795880    11     11         1 en_GBR_guardi 2019-01-01
+ 1128795872     9      9         1 en_GBR_guardi 2019-01-01
+ 1128795860    12     13         1 en_GBR_guardi 2019-01-01</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="22-mediacloud_to_quanteda.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Toxic legacy taints ANC as it nears 25-year rule in South Africa&quot;     
+[2] &quot;Why Trump’s Middle East peace plan is just a sideshow&quot;                
+[3] &quot;Preparations for the Harbin ice and snow festival – in pictures&quot;      
+[4] &quot;Turning air into drinking water: Africa&#39;s inspired inventors&quot;         
+[5] &quot;&#39;Resign from Facebook&#39;: experts offer Mark Zuckerberg advice for 2019&quot;</code></pre>
+</div>
+<div id="the-daily-telegraph" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> The Daily Telegraph</h3>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="22-mediacloud_to_quanteda.html#cb54-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_GBR_telegr.RDS&quot;</span>)</span>
+<span id="cb54-2"><a href="22-mediacloud_to_quanteda.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 41803 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1001621055    10     13         2 en_GBR_telegr 2020-03-15
+  794012047     6      7         1 en_GBR_telegr 2021-04-15
+ 1020025042    11     11         1 en_GBR_telegr 2020-07-06
+ 1071998286     7      7         1 en_GBR_telegr 2021-06-26
+ 1080057597    11     12         1 en_GBR_telegr 2020-06-15</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="22-mediacloud_to_quanteda.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Guant?namo &#39;suicides&#39; were at secret &#39;black&#39; site&quot;                             
+[2] &quot;IKEA founder &#39;was Nazi recruiter&#39;&quot;                                             
+[3] &quot;Europe tells Britain to justify itself over fingerprinting children in schools&quot;
+[4] &quot;Sumo champion Asashoryu outrages sport with celebration&quot;                       
+[5] &quot;Barack Obama meets Jewish leaders over &#39;tough line&#39; on Israel&quot;                 </code></pre>
 
 </div>
 </div>

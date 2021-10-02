@@ -36,3 +36,9 @@ example
 germany
 frankfurter-allgemeine-zeitung
 süddeutsche-zeitung
+france
+le-figaro
+le-monde
+royaume-uni
+the-guardian
+the-daily-telegraph
