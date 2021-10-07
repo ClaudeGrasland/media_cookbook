@@ -61,3 +61,15 @@ with-france
 without-france
 with-france-1
 without-france-1
+c23_wikidata
+introduction-1
+wikidata
+the-package-wikidatar
+codification-of-entities
+informations-on-entities
+wikipedia-entities-and-textual-units
+wikipedia-entities-as-a-multilingual-nodes-of-an-ontolongy
+wikipedia-entities-as-nodes-of-an-ontolongy
+a-tool-for-cross-linguistical-experiments
+basic-operations
+find_item
