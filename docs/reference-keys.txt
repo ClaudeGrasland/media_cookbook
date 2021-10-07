@@ -73,3 +73,5 @@ wikipedia-entities-as-nodes-of-an-ontolongy
 a-tool-for-cross-linguistical-experiments
 basic-operations
 find_item
+identification-of-entities-of-interest
+elaboration-of-a-cross_linguistic-dictionnary

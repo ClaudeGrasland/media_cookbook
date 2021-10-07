@@ -107,9 +107,9 @@ library(WikidataR)
 
 (based on Etienne Toureille previous experiments)
 
-#### find_item
+#### identification of entities of interest
 
-This function help to find all wikipedia entities (=items) associated to a textual unit (word or group of word) in  given language. Let's start with the research of entities associated to "Afrique" in french language : 
+The function `find_item` will help to find all wikipedia entities (=items) associated to a textual unit (word or group of word) in  given language. Let's start with the research of entities associated to "*Afrique*" in french language : 
 
 ```{r}
 mytext <- "Afrique"
@@ -216,7 +216,73 @@ kable(tab)
 But this list which was based on the french textual units associated to "Afrique" should certainly be completed by equivalent list established for other languages with different seeds ("Africa" in english, "Afrika" in german, ...)
 
 
+### Elaboration of a cross_linguistic dictionnary
 
+Admitting that we have established a list of wikipedia entities of interest, we can now turn to the creation of a dictionary for the identification of these entities in different languages. We will use for that purpose the powerful function `get_properties` 
+
+
+```{r}
+
+item_prop <- get_property("Q15")[[1]]
+
+
+```
+
+The result is a very large object (list of list) which provide all the informations (or links toward these information) in all languages wher the object is available. The problem is therefore to understand the structure of this object and to extract exactly what we need. In our case, we want to extract for each language of interest. 
+
+The information will be separated in two datasets :
+
+- dictionary of definitions
+- dictionary of labels and aliases
+
+We create two functions dedicated to each of the tasks
+
+
+```{r}
+extract_def <- function(item = c("Q15", "Q246"),
+                        langs = c("fr","de","en","tr","ar")) {
+  # Create empty dataset
+  res<-data.frame()
+  res$id    <- as.character()
+  res$lang  <- as.character()
+  res$label <- as.character()
+  res$desc  <- as.character()
+  
+  
+  # Loop of items
+  n <- length(item)
+  for (i in 1:n) {
+    
+     # Extract item properties
+    item_prop <- get_property(item[i])[[1]]
+  
+   
+     # Loop  of language
+     p<-length(langs)
+     for (j in 1:p) {
+        id <- item[i]
+        lang  <- langs[j]
+        label <- item_prop[["labels"]][[lang]]$value
+        desc  <-item_prop[["descriptions"]][[lang]]$value
+        add <-data.frame(id,lang,label,desc)
+        res<- rbind(res,add) 
+        }
+  
+  }
+  # Export result
+return(res)
+
+}
+
+
+```
+
+The function works proprerly as long as the entities are available in all languages. It should be adapted to prevent errors when an entity is not available in one language. 
+
+```{r}
+tab<-extract_def(c("Q15","Q258"),c("fr","de","tr","en"))
+kable(tab)
+```
 
 
 
