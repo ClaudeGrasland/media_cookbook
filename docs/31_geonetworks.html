@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Geonetworks | The media cookbook</title>
+  <meta name="description" content="A reminder of some experiments made in 2021" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Geonetworks | The media cookbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A reminder of some experiments made in 2021" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Geonetworks | The media cookbook" />
+  
+  <meta name="twitter:description" content="A reminder of some experiments made in 2021" />
+  
+
+<meta name="author" content="Claude Grasland" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="23-Wikidata.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">The Media Cookbook  <em>C. Grasland (2021)</em></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html"><i class="fa fa-check"></i><b>2</b> Import from Media Cloud</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-media-with-source-manager"><i class="fa fa-check"></i><b>2.1</b> Selection of media with source manager</a></li>
+<li class="chapter" data-level="2.2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#checking-the-stability-through-time"><i class="fa fa-check"></i><b>2.2</b> Checking the stability through time</a></li>
+<li class="chapter" data-level="2.3" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-news-specifically-related-to-a-topic-option"><i class="fa fa-check"></i><b>2.3</b> Selection of news specifically related to a topic (option)</a></li>
+<li class="chapter" data-level="2.4" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#download-and-storage-of-news"><i class="fa fa-check"></i><b>2.4</b> Download and storage of news</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html"><i class="fa fa-check"></i><b>3</b> Creation of a quanteda corpus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#example"><i class="fa fa-check"></i><b>3.1</b> Example</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#importation-of-text-to-r"><i class="fa fa-check"></i><b>3.1.1</b> Importation of text to R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#encoding-problems"><i class="fa fa-check"></i><b>3.1.2</b> encoding problems</a></li>
+<li class="chapter" data-level="3.1.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#transformation-in-quanteda-format"><i class="fa fa-check"></i><b>3.1.3</b> Transformation in quanteda format</a></li>
+<li class="chapter" data-level="3.1.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#storage-of-the-quanteda-object"><i class="fa fa-check"></i><b>3.1.4</b> Storage of the quanteda object</a></li>
+<li class="chapter" data-level="3.1.5" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.1.5</b> Backtransformation of quanteda to data.table or tibble</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#germany"><i class="fa fa-check"></i><b>3.2</b> Germany</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#frankfurter-allgemeine-zeitung"><i class="fa fa-check"></i><b>3.2.1</b> Frankfurter Allgemeine Zeitung</a></li>
+<li class="chapter" data-level="3.2.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#süddeutsche-zeitung"><i class="fa fa-check"></i><b>3.2.2</b> Süddeutsche Zeitung</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#france"><i class="fa fa-check"></i><b>3.3</b> France</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-figaro"><i class="fa fa-check"></i><b>3.3.1</b> Le Figaro</a></li>
+<li class="chapter" data-level="3.3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-monde"><i class="fa fa-check"></i><b>3.3.2</b> Le Monde</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#royaume-uni"><i class="fa fa-check"></i><b>3.4</b> Royaume-Uni</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-guardian"><i class="fa fa-check"></i><b>3.4.1</b> The Guardian</a></li>
+<li class="chapter" data-level="3.4.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-daily-telegraph"><i class="fa fa-check"></i><b>3.4.2</b> The Daily Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#ireland"><i class="fa fa-check"></i><b>3.5</b> Ireland</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-irish-time"><i class="fa fa-check"></i><b>3.5.1</b> The Irish Time</a></li>
+<li class="chapter" data-level="3.5.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-belfast-telegraph"><i class="fa fa-check"></i><b>3.5.2</b> The Belfast Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#turkey"><i class="fa fa-check"></i><b>3.6</b> Turkey</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-yeni-sati"><i class="fa fa-check"></i><b>3.6.1</b> The Yeni Sati</a></li>
+<li class="chapter" data-level="3.6.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#cumhuryet"><i class="fa fa-check"></i><b>3.6.2</b> Cumhuryet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#tunisia"><i class="fa fa-check"></i><b>3.7</b> Tunisia</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#réalités"><i class="fa fa-check"></i><b>3.7.1</b> Réalités</a></li>
+<li class="chapter" data-level="3.7.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#léconomiste-maghrebin"><i class="fa fa-check"></i><b>3.7.2</b> L’économiste Maghrebin</a></li>
+<li class="chapter" data-level="3.7.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#la-presse"><i class="fa fa-check"></i><b>3.7.3</b> La Presse</a></li>
+<li class="chapter" data-level="3.7.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#babnet"><i class="fa fa-check"></i><b>3.7.4</b> Babnet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="23-Wikidata.html"><a href="23-Wikidata.html"><i class="fa fa-check"></i><b>4</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikidata"><i class="fa fa-check"></i><b>4.2</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#codification-of-entities"><i class="fa fa-check"></i><b>4.2.1</b> Codification of entities</a></li>
+<li class="chapter" data-level="4.2.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#informations-on-entities"><i class="fa fa-check"></i><b>4.2.2</b> Informations on entities</a></li>
+<li class="chapter" data-level="4.2.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikipedia-entities-as-nodes-of-an-ontolongy"><i class="fa fa-check"></i><b>4.2.3</b> Wikipedia entities as nodes of an ontolongy</a></li>
+<li class="chapter" data-level="4.2.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#a-tool-for-cross-linguistical-experiments"><i class="fa fa-check"></i><b>4.2.4</b> A tool for cross-linguistical experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#the-package-wikidatar"><i class="fa fa-check"></i><b>4.3</b> The package WikidataR</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#basic-operations"><i class="fa fa-check"></i><b>4.3.1</b> Basic operations</a></li>
+<li class="chapter" data-level="4.3.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#elaboration-of-a-cross_linguistic-dictionnary"><i class="fa fa-check"></i><b>4.3.2</b> Elaboration of a cross_linguistic dictionnary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>5</b> Geonetworks</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#geotags"><i class="fa fa-check"></i><b>5.1</b> Geotags</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-corpus"><i class="fa fa-check"></i><b>5.1.1</b> Select corpus</a></li>
+<li class="chapter" data-level="5.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize"><i class="fa fa-check"></i><b>5.1.2</b> Tokenize</a></li>
+<li class="chapter" data-level="5.1.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#identify-geotags"><i class="fa fa-check"></i><b>5.1.3</b> identify geotags</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercubes"><i class="fa fa-check"></i><b>5.2</b> Hypercubes</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#load-data"><i class="fa fa-check"></i><b>5.2.1</b> Load data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercube-function"><i class="fa fa-check"></i><b>5.2.2</b> Hypercube Function</a></li>
+<li class="chapter" data-level="5.2.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#build-hypercube"><i class="fa fa-check"></i><b>5.2.3</b> Build hypercube</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#linkages"><i class="fa fa-check"></i><b>5.3</b> Linkages</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-links"><i class="fa fa-check"></i><b>5.3.1</b> Select links</a></li>
+<li class="chapter" data-level="5.3.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#create-interaction-matrix"><i class="fa fa-check"></i><b>5.3.2</b> Create interaction matrix</a></li>
+<li class="chapter" data-level="5.3.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#estimate-random-model"><i class="fa fa-check"></i><b>5.3.3</b> Estimate random model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#visualization"><i class="fa fa-check"></i><b>5.4</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#function"><i class="fa fa-check"></i><b>5.4.1</b> Function</a></li>
+<li class="chapter" data-level="5.4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network"><i class="fa fa-check"></i><b>5.4.2</b> Raw network</a></li>
+<li class="chapter" data-level="5.4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#preferential-links"><i class="fa fa-check"></i><b>5.4.3</b> Preferential links</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The media cookbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c31_geonetworks" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Geonetworks</h1>
+<p>We present here the program used for the elaboration of networks of states and regions that has been presented at the 3rd IMAGEUN workshop in Paris the 12-13 July 2021.</p>
+<div id="geotags" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Geotags</h2>
+<p>During this first step, we proceed in three steps to (1) the selection of the corpus, (2) the tokenization and cleaning of the text and (3) the creation of compounds and the extraction of tags related togeographical names.</p>
+<div id="select-corpus" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Select corpus</h3>
+<p>We load a coprus of title of news stored in quanteda forma</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="31_geonetworks.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load external corpus</span></span>
+<span id="cb106-2"><a href="31_geonetworks.html#cb106-2" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_figaro.RDS&quot;</span>)</span></code></pre></div>
+</div>
+<div id="tokenize" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Tokenize</h3>
+<p>We proceed to a first tokenization with minimal option and we save the results in a file as the time of computation is very long. In the french case, we eliminate the <em>apostrophe</em></p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="31_geonetworks.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize text</span></span>
+<span id="cb107-2"><a href="31_geonetworks.html#cb107-2" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens</span>(qd)</span>
+<span id="cb107-3"><a href="31_geonetworks.html#cb107-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-4"><a href="31_geonetworks.html#cb107-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Split french apostroph</span></span>
+<span id="cb107-5"><a href="31_geonetworks.html#cb107-5" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span> <span class="fu">tokens_split</span>(toks, <span class="st">&quot;&#39;&quot;</span>)</span></code></pre></div>
+</div>
+<div id="identify-geotags" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> identify geotags</h3>
+<p>We produce a list of tags based on a dictionary. To do that it is necessary to transform the keywords in blankspace into compounds. It is also important to add external compounds that can be a problem. List of tags are produced for the whole dictionary but also for the different subtypes. Tags are uique at sentence level.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="31_geonetworks.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load tags dictionary</span></span>
+<span id="cb108-2"><a href="31_geonetworks.html#cb108-2" aria-hidden="true" tabindex="-1"></a>tags<span class="ot">&lt;-</span><span class="fu">read.csv2</span>(<span class="st">&quot;data/corpora/TUN/geo_names_fr_V2.csv&quot;</span>, <span class="at">header=</span>T, <span class="at">sep=</span><span class="st">&quot;;&quot;</span>)</span>
+<span id="cb108-3"><a href="31_geonetworks.html#cb108-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-4"><a href="31_geonetworks.html#cb108-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-5"><a href="31_geonetworks.html#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create compounds presents in the dictionnary</span></span>
+<span id="cb108-6"><a href="31_geonetworks.html#cb108-6" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span>ntoks<span class="ot">&lt;-</span><span class="fu">ntoken</span>(<span class="fu">tokens</span>(tags<span class="sc">$</span>tokens))</span>
+<span id="cb108-7"><a href="31_geonetworks.html#cb108-7" aria-hidden="true" tabindex="-1"></a>sel<span class="ot">&lt;-</span>tags[tags<span class="sc">$</span>ntoks<span class="sc">&gt;</span><span class="dv">1</span>,]</span>
+<span id="cb108-8"><a href="31_geonetworks.html#cb108-8" aria-hidden="true" tabindex="-1"></a>toks2<span class="ot">&lt;-</span><span class="fu">tokens_compound</span>(toks, <span class="at">pattern=</span><span class="fu">phrase</span>(sel<span class="sc">$</span>tokens))</span>
+<span id="cb108-9"><a href="31_geonetworks.html#cb108-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-10"><a href="31_geonetworks.html#cb108-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create other compounds of interest not present in dictionary (e.g. Europe 1)</span></span>
+<span id="cb108-11"><a href="31_geonetworks.html#cb108-11" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">phrase</span>(<span class="fu">c</span>(<span class="st">&quot;europe 1&quot;</span>,</span>
+<span id="cb108-12"><a href="31_geonetworks.html#cb108-12" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;france inter&quot;</span>,</span>
+<span id="cb108-13"><a href="31_geonetworks.html#cb108-13" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;union européenne&quot;</span>,</span>
+<span id="cb108-14"><a href="31_geonetworks.html#cb108-14" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;conseil de l europe&quot;</span>,</span>
+<span id="cb108-15"><a href="31_geonetworks.html#cb108-15" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;agence france presse&quot;</span>))</span>
+<span id="cb108-16"><a href="31_geonetworks.html#cb108-16" aria-hidden="true" tabindex="-1"></a>toks2<span class="ot">&lt;-</span><span class="fu">tokens_compound</span>(toks2, <span class="at">pattern=</span>comp)</span>
+<span id="cb108-17"><a href="31_geonetworks.html#cb108-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-18"><a href="31_geonetworks.html#cb108-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Build dictionnary</span></span>
+<span id="cb108-19"><a href="31_geonetworks.html#cb108-19" aria-hidden="true" tabindex="-1"></a>keys <span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&quot; &quot;</span>,<span class="st">&quot;_&quot;</span>,tags<span class="sc">$</span>tokens)</span>
+<span id="cb108-20"><a href="31_geonetworks.html#cb108-20" aria-hidden="true" tabindex="-1"></a>dict<span class="ot">&lt;-</span><span class="fu">as.list</span>(keys)</span>
+<span id="cb108-21"><a href="31_geonetworks.html#cb108-21" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dict)<span class="ot">&lt;-</span>tags<span class="sc">$</span>code</span>
+<span id="cb108-22"><a href="31_geonetworks.html#cb108-22" aria-hidden="true" tabindex="-1"></a>dico<span class="ot">&lt;-</span><span class="fu">dictionary</span>(dict)</span>
+<span id="cb108-23"><a href="31_geonetworks.html#cb108-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-24"><a href="31_geonetworks.html#cb108-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify geo tags (states or reg or org ...)</span></span>
+<span id="cb108-25"><a href="31_geonetworks.html#cb108-25" aria-hidden="true" tabindex="-1"></a>toks_tags <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(toks2, dico)</span>
+<span id="cb108-26"><a href="31_geonetworks.html#cb108-26" aria-hidden="true" tabindex="-1"></a>toks_tags <span class="ot">&lt;-</span> <span class="fu">lapply</span>(toks_tags, unique)</span>
+<span id="cb108-27"><a href="31_geonetworks.html#cb108-27" aria-hidden="true" tabindex="-1"></a>toks_tags<span class="ot">&lt;-</span><span class="fu">as.tokens</span>(toks_tags)</span>
+<span id="cb108-28"><a href="31_geonetworks.html#cb108-28" aria-hidden="true" tabindex="-1"></a>list_tags<span class="ot">&lt;-</span><span class="cf">function</span>(x){res<span class="ot">&lt;-</span><span class="fu">paste</span>(x, <span class="at">collapse=</span><span class="st">&#39; &#39;</span>)}</span>
+<span id="cb108-29"><a href="31_geonetworks.html#cb108-29" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>tags<span class="ot">&lt;-</span><span class="fu">as.character</span>(<span class="fu">lapply</span>(toks_tags,<span class="at">FUN=</span>list_tags))</span>
+<span id="cb108-30"><a href="31_geonetworks.html#cb108-30" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>nbtags<span class="ot">&lt;-</span><span class="fu">ntoken</span>(toks_tags)</span>
+<span id="cb108-31"><a href="31_geonetworks.html#cb108-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-32"><a href="31_geonetworks.html#cb108-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-33"><a href="31_geonetworks.html#cb108-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Save corpus </span></span>
+<span id="cb108-34"><a href="31_geonetworks.html#cb108-34" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/fr_FRA_figaro_geo.Rdata&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="hypercubes" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Hypercubes</h2>
+<p>During this second step, we will produce aggregates of news called <em>hypercubes</em> which provide a number of to links between geographical units found in the text. Different options are possible which desserve the creation of a function with parameters.</p>
+<div id="load-data" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Load data</h3>
+<p>We start from the results of the previous step and we load the dictionary used for tagging and the tags describing the texts. Th example chosen is * Le Figaro*.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="31_geonetworks.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load quanteda corpus with geotags</span></span>
+<span id="cb109-2"><a href="31_geonetworks.html#cb109-2" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_figaro_geo.Rdata&quot;</span>)</span></code></pre></div>
+</div>
+<div id="hypercube-function" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Hypercube Function</h3>
+<p>We start by the creation of a global hypercube crossing all the geographical tags by media and data, whatever their type (state or region).</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="31_geonetworks.html#cb110-1" aria-hidden="true" tabindex="-1"></a>hypercube <span class="ot">&lt;-</span><span class="cf">function</span>(<span class="at">qd =</span> qd,</span>
+<span id="cb110-2"><a href="31_geonetworks.html#cb110-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">when =</span> <span class="st">&quot;date&quot;</span>,</span>
+<span id="cb110-3"><a href="31_geonetworks.html#cb110-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">when_cut =</span> <span class="st">&quot;year&quot;</span>,</span>
+<span id="cb110-4"><a href="31_geonetworks.html#cb110-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">who =</span> <span class="st">&quot;source&quot;</span>,</span>
+<span id="cb110-5"><a href="31_geonetworks.html#cb110-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">where1 =</span> <span class="st">&quot;tags&quot;</span>,</span>
+<span id="cb110-6"><a href="31_geonetworks.html#cb110-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">where2 =</span> <span class="st">&quot;tags&quot;</span>)</span>
+<span id="cb110-7"><a href="31_geonetworks.html#cb110-7" aria-hidden="true" tabindex="-1"></a>                     </span>
+<span id="cb110-8"><a href="31_geonetworks.html#cb110-8" aria-hidden="true" tabindex="-1"></a>  {   </span>
+<span id="cb110-9"><a href="31_geonetworks.html#cb110-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-10"><a href="31_geonetworks.html#cb110-10" aria-hidden="true" tabindex="-1"></a><span class="co"># create data.table accroding to parameter chosen</span></span>
+<span id="cb110-11"><a href="31_geonetworks.html#cb110-11" aria-hidden="true" tabindex="-1"></a>  don<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)</span>
+<span id="cb110-12"><a href="31_geonetworks.html#cb110-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-13"><a href="31_geonetworks.html#cb110-13" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span><span class="fu">data.table</span>(<span class="at">id =</span> <span class="fu">docid</span>(qd),</span>
+<span id="cb110-14"><a href="31_geonetworks.html#cb110-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">who =</span> don[,who],</span>
+<span id="cb110-15"><a href="31_geonetworks.html#cb110-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">when =</span> <span class="fu">as.character</span>(<span class="fu">cut</span>(don[,when],<span class="at">breaks=</span>when_cut)),</span>
+<span id="cb110-16"><a href="31_geonetworks.html#cb110-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">where1 =</span> don[,where1],</span>
+<span id="cb110-17"><a href="31_geonetworks.html#cb110-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">where2 =</span> don[,where2])</span>
+<span id="cb110-18"><a href="31_geonetworks.html#cb110-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-19"><a href="31_geonetworks.html#cb110-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-20"><a href="31_geonetworks.html#cb110-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-21"><a href="31_geonetworks.html#cb110-21" aria-hidden="true" tabindex="-1"></a><span class="co"># add code _no_ for empty fields</span></span>
+<span id="cb110-22"><a href="31_geonetworks.html#cb110-22" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>where1[df<span class="sc">$</span>where1<span class="sc">==</span><span class="st">&quot;&quot;</span>]<span class="ot">&lt;-</span><span class="st">&quot;_no_&quot;</span></span>
+<span id="cb110-23"><a href="31_geonetworks.html#cb110-23" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>where2[df<span class="sc">$</span>where2<span class="sc">==</span><span class="st">&quot;&quot;</span>]<span class="ot">&lt;-</span><span class="st">&quot;_no_&quot;</span></span>
+<span id="cb110-24"><a href="31_geonetworks.html#cb110-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-25"><a href="31_geonetworks.html#cb110-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-26"><a href="31_geonetworks.html#cb110-26" aria-hidden="true" tabindex="-1"></a><span class="co"># unnest where1</span></span>
+<span id="cb110-27"><a href="31_geonetworks.html#cb110-27" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span><span class="fu">unnest_tokens</span>(df,where1,where1,<span class="at">to_lower=</span>F)</span>
+<span id="cb110-28"><a href="31_geonetworks.html#cb110-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb110-29"><a href="31_geonetworks.html#cb110-29" aria-hidden="true" tabindex="-1"></a><span class="co"># unnest where2</span></span>
+<span id="cb110-30"><a href="31_geonetworks.html#cb110-30" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span><span class="fu">unnest_tokens</span>(df,where2,where2,<span class="at">to_lower=</span>F)  </span>
+<span id="cb110-31"><a href="31_geonetworks.html#cb110-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb110-32"><a href="31_geonetworks.html#cb110-32" aria-hidden="true" tabindex="-1"></a><span class="co"># define number of occurence by id</span></span>
+<span id="cb110-33"><a href="31_geonetworks.html#cb110-33" aria-hidden="true" tabindex="-1"></a>  nb<span class="ot">&lt;-</span>df[,.N,<span class="fu">list</span>(id)] <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">wgt =</span> <span class="dv">1</span><span class="sc">/</span>N) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>N)</span>
+<span id="cb110-34"><a href="31_geonetworks.html#cb110-34" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(nb) </span>
+<span id="cb110-35"><a href="31_geonetworks.html#cb110-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb110-36"><a href="31_geonetworks.html#cb110-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(nb)</span>
+<span id="cb110-37"><a href="31_geonetworks.html#cb110-37" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb110-38"><a href="31_geonetworks.html#cb110-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate</span></span>
+<span id="cb110-39"><a href="31_geonetworks.html#cb110-39" aria-hidden="true" tabindex="-1"></a>  hc<span class="ot">&lt;-</span> df[,.( <span class="at">tags =</span> .N, <span class="at">news=</span><span class="fu">sum</span>(wgt)) ,.(who, when,where1,where2)]</span>
+<span id="cb110-40"><a href="31_geonetworks.html#cb110-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb110-41"><a href="31_geonetworks.html#cb110-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert date to time</span></span>
+<span id="cb110-42"><a href="31_geonetworks.html#cb110-42" aria-hidden="true" tabindex="-1"></a>  hc<span class="sc">$</span>when<span class="ot">&lt;-</span><span class="fu">as.Date</span>(hc<span class="sc">$</span>when)</span>
+<span id="cb110-43"><a href="31_geonetworks.html#cb110-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb110-44"><a href="31_geonetworks.html#cb110-44" aria-hidden="true" tabindex="-1"></a><span class="co"># return hypercube</span></span>
+<span id="cb110-45"><a href="31_geonetworks.html#cb110-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(hc)</span>
+<span id="cb110-46"><a href="31_geonetworks.html#cb110-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-47"><a href="31_geonetworks.html#cb110-47" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="build-hypercube" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Build hypercube</h3>
+<p>Depending on the hypothesis, different types of hypercubes can be quickly created with the function. This hypercube is dedicated to the creation of a full network linking geographical tags. We present here an example where we mix all geo names (states and regions together). But we can further create differences between links relating states, links relating regions, linkes relating states and regions, etc.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="31_geonetworks.html#cb111-1" aria-hidden="true" tabindex="-1"></a>hc_geo_geo <span class="ot">&lt;-</span> <span class="fu">hypercube</span>(<span class="at">qd =</span> qd,</span>
+<span id="cb111-2"><a href="31_geonetworks.html#cb111-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">when =</span> <span class="st">&quot;date&quot;</span>,</span>
+<span id="cb111-3"><a href="31_geonetworks.html#cb111-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">when_cut =</span> <span class="st">&quot;months&quot;</span>,</span>
+<span id="cb111-4"><a href="31_geonetworks.html#cb111-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">who =</span> <span class="st">&quot;source&quot;</span>,</span>
+<span id="cb111-5"><a href="31_geonetworks.html#cb111-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">where1 =</span> <span class="st">&quot;tags&quot;</span>,</span>
+<span id="cb111-6"><a href="31_geonetworks.html#cb111-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">where2 =</span> <span class="st">&quot;tags&quot;</span>)</span>
+<span id="cb111-7"><a href="31_geonetworks.html#cb111-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-8"><a href="31_geonetworks.html#cb111-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hc_geo_geo)</span></code></pre></div>
+<pre><code>FALSE              who       when  where1  where2 tags    news
+FALSE 1: fr_FRA_figaro 2019-01-01    _no_    _no_ 2769 2769.00
+FALSE 2: fr_FRA_figaro 2019-01-01     COD     COD   25   25.00
+FALSE 3: fr_FRA_figaro 2019-01-01     QAT     QAT    3    3.00
+FALSE 4: fr_FRA_figaro 2019-01-01 CHN_HKG CHN_HKG    4    4.00
+FALSE 5: fr_FRA_figaro 2019-01-01     GAB     GAB    5    5.00
+FALSE 6: fr_FRA_figaro 2019-01-01     SYR     SYR   49   46.75</code></pre>
+</div>
+</div>
+<div id="linkages" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Linkages</h2>
+<p>The objective of this step is to propose a random model of allocation of linkages between two groups of geographical units that can be the same or different. We start from an hypercube (<em>see. step 2</em>) which is transformed into an interaction matrix where a double constraint model is applied. Different options are introduced, in particular for the filtering of geographical units wit small number of occurences. As in previous section, we propose a function dedicated to the task of estimation of the model of interest.</p>
+<div id="select-links" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Select links</h3>
+<p>We want to produce a selection of the hypercube data set and to normalize the datain order to keep only two columns of location corresponding to <code>where1</code>, <code>where2</code>. The function will also help us to select data according to the dimensions who and when and the possible selection or exclusion of elements from where1 and where2</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="31_geonetworks.html#cb113-1" aria-hidden="true" tabindex="-1"></a>hc_filter <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">don =</span> hc,</span>
+<span id="cb113-2"><a href="31_geonetworks.html#cb113-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">who =</span> <span class="st">&quot;who&quot;</span>,</span>
+<span id="cb113-3"><a href="31_geonetworks.html#cb113-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">when =</span> <span class="st">&quot;when&quot;</span>,</span>
+<span id="cb113-4"><a href="31_geonetworks.html#cb113-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">where1 =</span> <span class="st">&quot;where1&quot;</span>,</span>
+<span id="cb113-5"><a href="31_geonetworks.html#cb113-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">where2 =</span> <span class="st">&quot;where2&quot;</span>,</span>
+<span id="cb113-6"><a href="31_geonetworks.html#cb113-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">wgt =</span> <span class="st">&quot;tags&quot;</span>,</span>
+<span id="cb113-7"><a href="31_geonetworks.html#cb113-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">self =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb113-8"><a href="31_geonetworks.html#cb113-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">when_start =</span> <span class="cn">NA</span>,</span>
+<span id="cb113-9"><a href="31_geonetworks.html#cb113-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">when_end =</span> <span class="cn">NA</span>,</span>
+<span id="cb113-10"><a href="31_geonetworks.html#cb113-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">who_exc =</span> <span class="cn">NA</span>,</span>
+<span id="cb113-11"><a href="31_geonetworks.html#cb113-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">who_inc =</span> <span class="cn">NA</span>,</span>
+<span id="cb113-12"><a href="31_geonetworks.html#cb113-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">where1_exc =</span> <span class="cn">NA</span>,</span>
+<span id="cb113-13"><a href="31_geonetworks.html#cb113-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">where1_inc =</span> <span class="cn">NA</span>,</span>
+<span id="cb113-14"><a href="31_geonetworks.html#cb113-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">where2_exc =</span> <span class="cn">NA</span>,</span>
+<span id="cb113-15"><a href="31_geonetworks.html#cb113-15" aria-hidden="true" tabindex="-1"></a>                      <span class="at">where2_inc =</span> <span class="cn">NA</span>)</span>
+<span id="cb113-16"><a href="31_geonetworks.html#cb113-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-17"><a href="31_geonetworks.html#cb113-17" aria-hidden="true" tabindex="-1"></a>  {                          </span>
+<span id="cb113-18"><a href="31_geonetworks.html#cb113-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-19"><a href="31_geonetworks.html#cb113-19" aria-hidden="true" tabindex="-1"></a>    df<span class="ot">&lt;-</span><span class="fu">data.table</span>(<span class="at">who =</span> don[[who]],</span>
+<span id="cb113-20"><a href="31_geonetworks.html#cb113-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">when =</span> don[[when]],</span>
+<span id="cb113-21"><a href="31_geonetworks.html#cb113-21" aria-hidden="true" tabindex="-1"></a>                   <span class="at">where1 =</span> don[[where1]],</span>
+<span id="cb113-22"><a href="31_geonetworks.html#cb113-22" aria-hidden="true" tabindex="-1"></a>                   <span class="at">where2 =</span> don[[where2]],</span>
+<span id="cb113-23"><a href="31_geonetworks.html#cb113-23" aria-hidden="true" tabindex="-1"></a>                   <span class="at">wgt =</span> don[[wgt]])</span>
+<span id="cb113-24"><a href="31_geonetworks.html#cb113-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-25"><a href="31_geonetworks.html#cb113-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select time period</span></span>
+<span id="cb113-26"><a href="31_geonetworks.html#cb113-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">is.na</span>(when_start)<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb113-27"><a href="31_geonetworks.html#cb113-27" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[when <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(when_start), ]}</span>
+<span id="cb113-28"><a href="31_geonetworks.html#cb113-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">is.na</span>(when_end)<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb113-29"><a href="31_geonetworks.html#cb113-29" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[when <span class="sc">&lt;=</span> <span class="fu">as.Date</span>(when_end), ]}</span>
+<span id="cb113-30"><a href="31_geonetworks.html#cb113-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select who</span></span>
+<span id="cb113-31"><a href="31_geonetworks.html#cb113-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">is.na</span>(who_exc)<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb113-32"><a href="31_geonetworks.html#cb113-32" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[<span class="sc">!</span>(who <span class="sc">%in%</span> who_exc), ]}</span>
+<span id="cb113-33"><a href="31_geonetworks.html#cb113-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">is.na</span>(who_inc)<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb113-34"><a href="31_geonetworks.html#cb113-34" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[(who <span class="sc">%in%</span> who_inc), ]}</span>
+<span id="cb113-35"><a href="31_geonetworks.html#cb113-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select where1</span></span>
+<span id="cb113-36"><a href="31_geonetworks.html#cb113-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">is.na</span>(where1_exc)<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb113-37"><a href="31_geonetworks.html#cb113-37" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[<span class="sc">!</span>(where1 <span class="sc">%in%</span> where1_exc), ]}</span>
+<span id="cb113-38"><a href="31_geonetworks.html#cb113-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">is.na</span>(where1_inc)<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb113-39"><a href="31_geonetworks.html#cb113-39" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[(where1 <span class="sc">%in%</span> where1_inc), ]}</span>
+<span id="cb113-40"><a href="31_geonetworks.html#cb113-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select where2</span></span>
+<span id="cb113-41"><a href="31_geonetworks.html#cb113-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">is.na</span>(where2_exc)<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb113-42"><a href="31_geonetworks.html#cb113-42" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[<span class="sc">!</span>(where2 <span class="sc">%in%</span> where2_exc), ]}</span>
+<span id="cb113-43"><a href="31_geonetworks.html#cb113-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">is.na</span>(where2_inc)<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb113-44"><a href="31_geonetworks.html#cb113-44" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[(where2 <span class="sc">%in%</span> where2_inc), ]}</span>
+<span id="cb113-45"><a href="31_geonetworks.html#cb113-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># eliminate internal links</span></span>
+<span id="cb113-46"><a href="31_geonetworks.html#cb113-46" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (self<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb113-47"><a href="31_geonetworks.html#cb113-47" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[(where1 <span class="sc">!=</span> where2), ]}</span>
+<span id="cb113-48"><a href="31_geonetworks.html#cb113-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(df)</span>
+<span id="cb113-49"><a href="31_geonetworks.html#cb113-49" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-50"><a href="31_geonetworks.html#cb113-50" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Application now:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="31_geonetworks.html#cb114-1" aria-hidden="true" tabindex="-1"></a>hc<span class="ot">&lt;-</span><span class="fu">hc_filter</span>(<span class="at">don =</span> hc_geo_geo,</span>
+<span id="cb114-2"><a href="31_geonetworks.html#cb114-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">wgt =</span> <span class="st">&quot;tags&quot;</span>,</span>
+<span id="cb114-3"><a href="31_geonetworks.html#cb114-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">where1_exc =</span> <span class="fu">c</span>(<span class="st">&quot;_no_&quot;</span>),</span>
+<span id="cb114-4"><a href="31_geonetworks.html#cb114-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">where2_exc =</span> <span class="fu">c</span>(<span class="st">&quot;_no_&quot;</span>),</span>
+<span id="cb114-5"><a href="31_geonetworks.html#cb114-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">self =</span> <span class="cn">FALSE</span></span>
+<span id="cb114-6"><a href="31_geonetworks.html#cb114-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>`</p>
+</div>
+<div id="create-interaction-matrix" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Create interaction matrix</h3>
+<p>Now, we transform the data in a matrix of interaction (i,j,Fij) whre we fill with 0 the empty cells. After that we eliminate the lines and columns wich do not fulfill one of the two conditions of salience and diversity :</p>
+<ul>
+<li><strong>Salience (s1,s2)</strong> : For example, we will eliminate a country that has not be mentioned at less 20 times in the news. To do that, we compute the marginal sums of the matrix in lines (1) and columns (2) and we check if the condition is fulfilled.<br />
+</li>
+<li><strong>Diversity (n1,n2,k)</strong> : We consider that a linkage between units i and j exist if Fij &gt; k. Then we compute the number of links where the condition is verified in lines (1) and columns. To do that we compute a boolean matrix where the value are 0 if Fij &lt; k and 1 if Fi &gt;= k. And we verify if the marginal sums of the matrix verify the conditions n1 and n2.</li>
+</ul>
+<p>The default values are</p>
+<ul>
+<li>s1 = s2 = 5</li>
+<li>n1 = n2 = 3</li>
+<li>k = 0</li>
+</ul>
+<p>They depend from the type of weight used. The previous parameter are adapted to the case where we use fractions of news as weighting criteria. They should be higher if we decide to use the number of tags.</p>
+<p>To do that, we create a specific function called <code>build_mat</code> .</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="31_geonetworks.html#cb115-1" aria-hidden="true" tabindex="-1"></a>build_int <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">don =</span> don,       <span class="co"># a dataframe with columns i, j , Fij</span></span>
+<span id="cb115-2"><a href="31_geonetworks.html#cb115-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">i =</span> <span class="st">&quot;where1&quot;</span>,</span>
+<span id="cb115-3"><a href="31_geonetworks.html#cb115-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">j =</span> <span class="st">&quot;where2&quot;</span>,</span>
+<span id="cb115-4"><a href="31_geonetworks.html#cb115-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Fij =</span> <span class="st">&quot;wgt&quot;</span>,</span>
+<span id="cb115-5"><a href="31_geonetworks.html#cb115-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">s1 =</span> <span class="dv">1</span>,</span>
+<span id="cb115-6"><a href="31_geonetworks.html#cb115-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">s2 =</span> <span class="dv">1</span>,</span>
+<span id="cb115-7"><a href="31_geonetworks.html#cb115-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">n1 =</span> <span class="dv">1</span>,</span>
+<span id="cb115-8"><a href="31_geonetworks.html#cb115-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">n2 =</span> <span class="dv">1</span>,</span>
+<span id="cb115-9"><a href="31_geonetworks.html#cb115-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">k =</span> <span class="dv">0</span>)</span>
+<span id="cb115-10"><a href="31_geonetworks.html#cb115-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-11"><a href="31_geonetworks.html#cb115-11" aria-hidden="true" tabindex="-1"></a>{  </span>
+<span id="cb115-12"><a href="31_geonetworks.html#cb115-12" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span><span class="fu">data.table</span>(<span class="at">i=</span>don[[i]],<span class="at">j=</span>don[[j]],<span class="at">Fij=</span>don[[Fij]])</span>
+<span id="cb115-13"><a href="31_geonetworks.html#cb115-13" aria-hidden="true" tabindex="-1"></a>  int <span class="ot">&lt;-</span>df[,.(<span class="at">Fij=</span><span class="fu">sum</span>(Fij)),.(i,j)]</span>
+<span id="cb115-14"><a href="31_geonetworks.html#cb115-14" aria-hidden="true" tabindex="-1"></a>  int<span class="ot">&lt;-</span><span class="fu">dcast</span>(int,<span class="at">formula =</span> i<span class="sc">~</span>j,<span class="at">fill =</span> <span class="dv">0</span>)</span>
+<span id="cb115-15"><a href="31_geonetworks.html#cb115-15" aria-hidden="true" tabindex="-1"></a>  mat<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(int[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb115-16"><a href="31_geonetworks.html#cb115-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row.names</span>(mat)<span class="ot">&lt;-</span>int<span class="sc">$</span>i</span>
+<span id="cb115-17"><a href="31_geonetworks.html#cb115-17" aria-hidden="true" tabindex="-1"></a>  mat<span class="ot">&lt;-</span>mat[<span class="fu">apply</span>(mat,<span class="dv">1</span>,sum)<span class="sc">&gt;=</span>s1,<span class="fu">apply</span>(mat,<span class="dv">2</span>,sum)<span class="sc">&gt;=</span>s2 ]</span>
+<span id="cb115-18"><a href="31_geonetworks.html#cb115-18" aria-hidden="true" tabindex="-1"></a>  m0<span class="ot">&lt;-</span>mat</span>
+<span id="cb115-19"><a href="31_geonetworks.html#cb115-19" aria-hidden="true" tabindex="-1"></a>  m0[m0<span class="sc">&lt;</span>k]<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb115-20"><a href="31_geonetworks.html#cb115-20" aria-hidden="true" tabindex="-1"></a>  m0[m0<span class="sc">&gt;=</span>k]<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb115-21"><a href="31_geonetworks.html#cb115-21" aria-hidden="true" tabindex="-1"></a>  mat<span class="ot">&lt;-</span>mat[<span class="fu">apply</span>(m0,<span class="dv">1</span>,sum)<span class="sc">&gt;=</span>n1,<span class="fu">apply</span>(m0,<span class="dv">2</span>,sum)<span class="sc">&gt;=</span>n2 ]</span>
+<span id="cb115-22"><a href="31_geonetworks.html#cb115-22" aria-hidden="true" tabindex="-1"></a>  int<span class="ot">&lt;-</span><span class="fu">melt</span>(mat)</span>
+<span id="cb115-23"><a href="31_geonetworks.html#cb115-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(int) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;i&quot;</span>,<span class="st">&quot;j&quot;</span>,<span class="st">&quot;Fij&quot;</span>)</span>
+<span id="cb115-24"><a href="31_geonetworks.html#cb115-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(int)</span>
+<span id="cb115-25"><a href="31_geonetworks.html#cb115-25" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Application now:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="31_geonetworks.html#cb116-1" aria-hidden="true" tabindex="-1"></a>int <span class="ot">&lt;-</span> <span class="fu">build_int</span>(<span class="at">don =</span> hc,</span>
+<span id="cb116-2"><a href="31_geonetworks.html#cb116-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">s1=</span><span class="dv">1</span>,</span>
+<span id="cb116-3"><a href="31_geonetworks.html#cb116-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">s2=</span><span class="dv">1</span>,</span>
+<span id="cb116-4"><a href="31_geonetworks.html#cb116-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">n1=</span><span class="dv">1</span>,</span>
+<span id="cb116-5"><a href="31_geonetworks.html#cb116-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">n2=</span><span class="dv">1</span>,</span>
+<span id="cb116-6"><a href="31_geonetworks.html#cb116-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">k=</span><span class="dv">0</span>)</span>
+<span id="cb116-7"><a href="31_geonetworks.html#cb116-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(int)</span></code></pre></div>
+<pre><code>FALSE           i   j Fij
+FALSE 1       AFG AFG   0
+FALSE 2   AFRIQUE AFG   0
+FALSE 3 AF_centra AFG   0
+FALSE 4    AF_est AFG   0
+FALSE 5   AF_nord AFG   0
+FALSE 6  AF_ouest AFG   0</code></pre>
+</div>
+<div id="estimate-random-model" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Estimate random model</h3>
+<p>We can now solve the model and compute the most important and significant residuals according to various criteria. We will therefore build a model where i, j and Fij will be completed by a column Eij which describe the expected number of news where i and j would be associated if the allocation was made randomly.</p>
+<p>It is important to check if the size of the matrix is not too large, in order to avoid computational crash … As a security, we introduce a parameter <code>maxsize = 100000</code> defined by the product of numer of lines and columns… If you decide to increase this parameter, it is at your own risk …</p>
+<p>When i and j describe the same spatial units (e.g. state x state or reg x reg), it can be important to eliminate the diagonal if it is empty or if we decide to focus only on external relations between geographical objects. For this reason, we introduce a parameter <code>diag</code> = TRUE or FALSE in the function <code>rand_int()</code> that solves the model</p>
+<p>We can eventually add to the data set further columns related to the residuals measures in different forms if we activate the parameter <code>resid=TRUE</code> :</p>
+<ul>
+<li>Rabs_ij = Fij-Eij : absolute residuals</li>
+<li>Rrel_ij = Fij/Eij : relative residuals</li>
+<li>Rchi_ij = sign(R_absij) x (Rabs_ij)^2 / Eij</li>
+</ul>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="31_geonetworks.html#cb118-1" aria-hidden="true" tabindex="-1"></a>rand_int <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">int =</span> int, <span class="co"># A table with columns i, j Fij</span></span>
+<span id="cb118-2"><a href="31_geonetworks.html#cb118-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">maxsize =</span> <span class="dv">100000</span>,</span>
+<span id="cb118-3"><a href="31_geonetworks.html#cb118-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag    =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb118-4"><a href="31_geonetworks.html#cb118-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">resid   =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb118-5"><a href="31_geonetworks.html#cb118-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Eliminate diagonal ?</span></span>
+<span id="cb118-6"><a href="31_geonetworks.html#cb118-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (diag<span class="sc">==</span><span class="cn">FALSE</span>) { </span>
+<span id="cb118-7"><a href="31_geonetworks.html#cb118-7" aria-hidden="true" tabindex="-1"></a>        int <span class="ot">&lt;-</span> int[<span class="fu">as.character</span>(int<span class="sc">$</span>i) <span class="sc">!=</span> <span class="fu">as.character</span>(int<span class="sc">$</span>j), ]}</span>
+<span id="cb118-8"><a href="31_geonetworks.html#cb118-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb118-9"><a href="31_geonetworks.html#cb118-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute model if size not too large</span></span>
+<span id="cb118-10"><a href="31_geonetworks.html#cb118-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">dim</span>(int)[<span class="dv">1</span>] <span class="sc">&lt;</span> maxsize) {</span>
+<span id="cb118-11"><a href="31_geonetworks.html#cb118-11" aria-hidden="true" tabindex="-1"></a>       <span class="co"># Proceed to poisson regression model</span></span>
+<span id="cb118-12"><a href="31_geonetworks.html#cb118-12" aria-hidden="true" tabindex="-1"></a>       mod <span class="ot">&lt;-</span> <span class="fu">glm</span>( <span class="at">formula =</span> Fij <span class="sc">~</span> i <span class="sc">+</span> j,<span class="at">family =</span> <span class="st">&quot;poisson&quot;</span>, <span class="at">data =</span> int)</span>
+<span id="cb118-13"><a href="31_geonetworks.html#cb118-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb118-14"><a href="31_geonetworks.html#cb118-14" aria-hidden="true" tabindex="-1"></a>       <span class="co"># Add residuals if requested</span></span>
+<span id="cb118-15"><a href="31_geonetworks.html#cb118-15" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span>(resid <span class="sc">==</span> <span class="cn">TRUE</span>)   { </span>
+<span id="cb118-16"><a href="31_geonetworks.html#cb118-16" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Add estimates</span></span>
+<span id="cb118-17"><a href="31_geonetworks.html#cb118-17" aria-hidden="true" tabindex="-1"></a>          int<span class="sc">$</span>Eij <span class="ot">&lt;-</span> mod<span class="sc">$</span>fitted.values</span>
+<span id="cb118-18"><a href="31_geonetworks.html#cb118-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-19"><a href="31_geonetworks.html#cb118-19" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Add absolute residuals</span></span>
+<span id="cb118-20"><a href="31_geonetworks.html#cb118-20" aria-hidden="true" tabindex="-1"></a>          int<span class="sc">$</span>Rabs_ij <span class="ot">&lt;-</span> int<span class="sc">$</span>Fij<span class="sc">-</span>int<span class="sc">$</span>Eij</span>
+<span id="cb118-21"><a href="31_geonetworks.html#cb118-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-22"><a href="31_geonetworks.html#cb118-22" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Add relative residuals</span></span>
+<span id="cb118-23"><a href="31_geonetworks.html#cb118-23" aria-hidden="true" tabindex="-1"></a>          int<span class="sc">$</span>Rrel_ij <span class="ot">&lt;-</span> int<span class="sc">$</span>Fij<span class="sc">/</span>int<span class="sc">$</span>Eij</span>
+<span id="cb118-24"><a href="31_geonetworks.html#cb118-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-25"><a href="31_geonetworks.html#cb118-25" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Add chi-square residuals</span></span>
+<span id="cb118-26"><a href="31_geonetworks.html#cb118-26" aria-hidden="true" tabindex="-1"></a>          int<span class="sc">$</span>Rchi_ij <span class="ot">&lt;-</span>  (int<span class="sc">$</span>Rabs_ij)<span class="sc">**</span><span class="dv">2</span> <span class="sc">/</span> int<span class="sc">$</span>Eij</span>
+<span id="cb118-27"><a href="31_geonetworks.html#cb118-27" aria-hidden="true" tabindex="-1"></a>          int<span class="sc">$</span>Rchi_ij[int<span class="sc">$</span>Rabs_ij<span class="sc">&lt;</span><span class="dv">0</span>]<span class="ot">&lt;-</span> <span class="sc">-</span>int<span class="sc">$</span>Rchi_ij[int<span class="sc">$</span>Rabs_ij<span class="sc">&lt;</span><span class="dv">0</span>]</span>
+<span id="cb118-28"><a href="31_geonetworks.html#cb118-28" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb118-29"><a href="31_geonetworks.html#cb118-29" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb118-30"><a href="31_geonetworks.html#cb118-30" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> { <span class="fu">paste</span> (<span class="st">&quot;Table &gt; 100000 -  </span><span class="sc">\n</span><span class="st"> </span></span>
+<span id="cb118-31"><a href="31_geonetworks.html#cb118-31" aria-hidden="true" tabindex="-1"></a><span class="st">                     modify maxsize =  parameter </span><span class="sc">\n</span></span>
+<span id="cb118-32"><a href="31_geonetworks.html#cb118-32" aria-hidden="true" tabindex="-1"></a><span class="st">                     if you are sure that your computer can do it !&quot;</span>)}</span>
+<span id="cb118-33"><a href="31_geonetworks.html#cb118-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Export results</span></span>
+<span id="cb118-34"><a href="31_geonetworks.html#cb118-34" aria-hidden="true" tabindex="-1"></a>  int<span class="sc">$</span>i<span class="ot">&lt;-</span><span class="fu">as.character</span>(int<span class="sc">$</span>i)</span>
+<span id="cb118-35"><a href="31_geonetworks.html#cb118-35" aria-hidden="true" tabindex="-1"></a>  int<span class="sc">$</span>j<span class="ot">&lt;-</span><span class="fu">as.character</span>(int<span class="sc">$</span>j)</span>
+<span id="cb118-36"><a href="31_geonetworks.html#cb118-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(int)</span>
+<span id="cb118-37"><a href="31_geonetworks.html#cb118-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb118-38"><a href="31_geonetworks.html#cb118-38" aria-hidden="true" tabindex="-1"></a> }</span></code></pre></div>
+<div id="model-wit-france" class="section level4" number="5.3.3.1">
+<h4><span class="header-section-number">5.3.3.1</span> Model wit France</h4>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="31_geonetworks.html#cb119-1" aria-hidden="true" tabindex="-1"></a>mod<span class="ot">&lt;-</span><span class="fu">rand_int</span>(int,</span>
+<span id="cb119-2"><a href="31_geonetworks.html#cb119-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">resid =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb119-3"><a href="31_geonetworks.html#cb119-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">diag =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>We can have a look at the more important positive residuals in absolute value :</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="31_geonetworks.html#cb120-1" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>mod[<span class="fu">order</span>(<span class="sc">-</span>mod<span class="sc">$</span>Rabs_ij),]</span>
+<span id="cb120-2"><a href="31_geonetworks.html#cb120-2" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>tab[(tab<span class="sc">$</span>i <span class="sc">&gt;</span> tab<span class="sc">$</span>j),]</span>
+<span id="cb120-3"><a href="31_geonetworks.html#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(tab,<span class="dv">10</span>) , <span class="at">digits=</span><span class="dv">2</span>, <span class="at">caption =</span> <span class="st">&quot;Positive residuals&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-71">Table 5.1: </span>Positive residuals</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">i</th>
+<th align="left">j</th>
+<th align="right">Fij</th>
+<th align="right">Eij</th>
+<th align="right">Rabs_ij</th>
+<th align="right">Rrel_ij</th>
+<th align="right">Rchi_ij</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">20869</td>
+<td align="left">TUR</td>
+<td align="left">SYR</td>
+<td align="right">45</td>
+<td align="right">5.26</td>
+<td align="right">39.74</td>
+<td align="right">8.56</td>
+<td align="right">300.54</td>
+</tr>
+<tr class="even">
+<td align="left">10992</td>
+<td align="left">USA</td>
+<td align="left">IRN</td>
+<td align="right">33</td>
+<td align="right">6.49</td>
+<td align="right">26.51</td>
+<td align="right">5.08</td>
+<td align="right">108.20</td>
+</tr>
+<tr class="odd">
+<td align="left">10637</td>
+<td align="left">PAK</td>
+<td align="left">IND</td>
+<td align="right">24</td>
+<td align="right">0.65</td>
+<td align="right">23.35</td>
+<td align="right">37.20</td>
+<td align="right">845.54</td>
+</tr>
+<tr class="even">
+<td align="left">8658</td>
+<td align="left">ITA</td>
+<td align="left">FRA</td>
+<td align="right">61</td>
+<td align="right">38.02</td>
+<td align="right">22.98</td>
+<td align="right">1.60</td>
+<td align="right">13.89</td>
+</tr>
+<tr class="odd">
+<td align="left">8642</td>
+<td align="left">GBR_ENG</td>
+<td align="left">FRA</td>
+<td align="right">35</td>
+<td align="right">17.65</td>
+<td align="right">17.35</td>
+<td align="right">1.98</td>
+<td align="right">17.06</td>
+</tr>
+<tr class="even">
+<td align="left">4674</td>
+<td align="left">USA</td>
+<td align="left">CHN</td>
+<td align="right">26</td>
+<td align="right">8.95</td>
+<td align="right">17.05</td>
+<td align="right">2.91</td>
+<td align="right">32.51</td>
+</tr>
+<tr class="odd">
+<td align="left">18766</td>
+<td align="left">UKR</td>
+<td align="left">RUS</td>
+<td align="right">17</td>
+<td align="right">1.60</td>
+<td align="right">15.40</td>
+<td align="right">10.65</td>
+<td align="right">148.68</td>
+</tr>
+<tr class="even">
+<td align="left">7506</td>
+<td align="left">FRA</td>
+<td align="left">EUROPE</td>
+<td align="right">60</td>
+<td align="right">45.85</td>
+<td align="right">14.15</td>
+<td align="right">1.31</td>
+<td align="right">4.36</td>
+</tr>
+<tr class="odd">
+<td align="left">8674</td>
+<td align="left">MCO</td>
+<td align="left">FRA</td>
+<td align="right">17</td>
+<td align="right">4.35</td>
+<td align="right">12.65</td>
+<td align="right">3.91</td>
+<td align="right">36.76</td>
+</tr>
+<tr class="even">
+<td align="left">2160</td>
+<td align="left">FRA</td>
+<td align="left">AUS</td>
+<td align="right">25</td>
+<td align="right">12.59</td>
+<td align="right">12.41</td>
+<td align="right">1.99</td>
+<td align="right">12.22</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="visualization" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Visualization</h2>
+<div id="function" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Function</h3>
+<p>We have created a prototype of geonetwork visualization function with different parameters making possible to display different graphs.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="31_geonetworks.html#cb121-1" aria-hidden="true" tabindex="-1"></a>geo_network<span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">don =</span> don,</span>
+<span id="cb121-2"><a href="31_geonetworks.html#cb121-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">from =</span> <span class="st">&quot;i&quot;</span>,</span>
+<span id="cb121-3"><a href="31_geonetworks.html#cb121-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">to =</span> <span class="st">&quot;j&quot;</span>, </span>
+<span id="cb121-4"><a href="31_geonetworks.html#cb121-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">size =</span> <span class="st">&quot;Fij&quot;</span>,</span>
+<span id="cb121-5"><a href="31_geonetworks.html#cb121-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">minsize =</span> <span class="dv">1</span>,</span>
+<span id="cb121-6"><a href="31_geonetworks.html#cb121-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">maxsize =</span> <span class="cn">NA</span>,</span>
+<span id="cb121-7"><a href="31_geonetworks.html#cb121-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">test =</span> <span class="st">&quot;Fij&quot;</span>,</span>
+<span id="cb121-8"><a href="31_geonetworks.html#cb121-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">mintest =</span> <span class="dv">1</span>,</span>
+<span id="cb121-9"><a href="31_geonetworks.html#cb121-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">loops  =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb121-10"><a href="31_geonetworks.html#cb121-10" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="st">&quot;Network&quot;</span>)</span>
+<span id="cb121-11"><a href="31_geonetworks.html#cb121-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-12"><a href="31_geonetworks.html#cb121-12" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb121-13"><a href="31_geonetworks.html#cb121-13" aria-hidden="true" tabindex="-1"></a>int<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">i =</span> <span class="fu">as.character</span>(don[,from]),</span>
+<span id="cb121-14"><a href="31_geonetworks.html#cb121-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">j =</span> <span class="fu">as.character</span>(don[,to]),</span>
+<span id="cb121-15"><a href="31_geonetworks.html#cb121-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> don[,size],</span>
+<span id="cb121-16"><a href="31_geonetworks.html#cb121-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">test =</span> don[,test]</span>
+<span id="cb121-17"><a href="31_geonetworks.html#cb121-17" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb121-18"><a href="31_geonetworks.html#cb121-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.na</span>(minsize)<span class="sc">==</span><span class="cn">FALSE</span>) {int <span class="ot">=</span>int[int<span class="sc">$</span>size <span class="sc">&gt;=</span> minsize,]} </span>
+<span id="cb121-19"><a href="31_geonetworks.html#cb121-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.na</span>(maxsize)<span class="sc">==</span><span class="cn">FALSE</span>) {int <span class="ot">=</span>int[int<span class="sc">$</span>size <span class="sc">&lt;=</span> maxsize,]} </span>
+<span id="cb121-20"><a href="31_geonetworks.html#cb121-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.na</span>(mintest)<span class="sc">==</span><span class="cn">FALSE</span>) {int <span class="ot">=</span>int[int<span class="sc">$</span>test <span class="sc">&gt;=</span> mintest,]}</span>
+<span id="cb121-21"><a href="31_geonetworks.html#cb121-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-22"><a href="31_geonetworks.html#cb121-22" aria-hidden="true" tabindex="-1"></a>nodes<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">code =</span> <span class="fu">unique</span>(<span class="fu">c</span>(int<span class="sc">$</span>i,int<span class="sc">$</span>j)))</span>
+<span id="cb121-23"><a href="31_geonetworks.html#cb121-23" aria-hidden="true" tabindex="-1"></a>nodes<span class="sc">$</span>code<span class="ot">&lt;-</span><span class="fu">as.character</span>(nodes<span class="sc">$</span>code)</span>
+<span id="cb121-24"><a href="31_geonetworks.html#cb121-24" aria-hidden="true" tabindex="-1"></a>nodes<span class="sc">$</span>id<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(nodes<span class="sc">$</span>code)</span>
+<span id="cb121-25"><a href="31_geonetworks.html#cb121-25" aria-hidden="true" tabindex="-1"></a>nodes<span class="sc">$</span>label<span class="ot">&lt;-</span>nodes<span class="sc">$</span>code</span>
+<span id="cb121-26"><a href="31_geonetworks.html#cb121-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-27"><a href="31_geonetworks.html#cb121-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-28"><a href="31_geonetworks.html#cb121-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust edge codes</span></span>
+<span id="cb121-29"><a href="31_geonetworks.html#cb121-29" aria-hidden="true" tabindex="-1"></a>edges <span class="ot">&lt;-</span> int <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">width =</span> <span class="dv">5</span><span class="sc">+</span><span class="dv">30</span><span class="sc">*</span>size <span class="sc">/</span> <span class="fu">max</span>(size)) <span class="sc">%&gt;%</span></span>
+<span id="cb121-30"><a href="31_geonetworks.html#cb121-30" aria-hidden="true" tabindex="-1"></a>                <span class="fu">left_join</span>(nodes <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="at">i=</span>code, <span class="at">from =</span> id)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb121-31"><a href="31_geonetworks.html#cb121-31" aria-hidden="true" tabindex="-1"></a>                <span class="fu">left_join</span>(nodes <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="at">j=</span>code, <span class="at">to =</span> id )) </span>
+<span id="cb121-32"><a href="31_geonetworks.html#cb121-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-33"><a href="31_geonetworks.html#cb121-33" aria-hidden="true" tabindex="-1"></a><span class="co"># compute nodesize</span></span>
+<span id="cb121-34"><a href="31_geonetworks.html#cb121-34" aria-hidden="true" tabindex="-1"></a>tot<span class="ot">&lt;-</span>int <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(i) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">size =</span><span class="fu">sum</span> (size)) <span class="sc">%&gt;%</span> <span class="fu">select</span> (<span class="at">code=</span>i,size)</span>
+<span id="cb121-35"><a href="31_geonetworks.html#cb121-35" aria-hidden="true" tabindex="-1"></a>tot<span class="sc">$</span>code<span class="ot">&lt;-</span><span class="fu">as.factor</span>(tot<span class="sc">$</span>code)</span>
+<span id="cb121-36"><a href="31_geonetworks.html#cb121-36" aria-hidden="true" tabindex="-1"></a>nodes <span class="ot">&lt;-</span> <span class="fu">left_join</span>(nodes,tot) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">value =</span> <span class="fu">sqrt</span>(<span class="dv">10</span> <span class="sc">*</span>size<span class="sc">/</span><span class="fu">max</span>(size)))</span>
+<span id="cb121-37"><a href="31_geonetworks.html#cb121-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-38"><a href="31_geonetworks.html#cb121-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-39"><a href="31_geonetworks.html#cb121-39" aria-hidden="true" tabindex="-1"></a><span class="co">#sel_nodes &lt;-nodes %&gt;% filter(code %in% unique(c(sel_edges$i,sel_edges$j)))</span></span>
+<span id="cb121-40"><a href="31_geonetworks.html#cb121-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-41"><a href="31_geonetworks.html#cb121-41" aria-hidden="true" tabindex="-1"></a><span class="co"># eliminate loops</span></span>
+<span id="cb121-42"><a href="31_geonetworks.html#cb121-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-43"><a href="31_geonetworks.html#cb121-43" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(loops <span class="sc">==</span> <span class="cn">FALSE</span>) {edges <span class="ot">&lt;-</span> edges[edges<span class="sc">$</span>from <span class="sc">&lt;</span> edges<span class="sc">$</span>to,]}</span>
+<span id="cb121-44"><a href="31_geonetworks.html#cb121-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-45"><a href="31_geonetworks.html#cb121-45" aria-hidden="true" tabindex="-1"></a>net<span class="ot">&lt;-</span> <span class="fu">visNetwork</span>(nodes, </span>
+<span id="cb121-46"><a href="31_geonetworks.html#cb121-46" aria-hidden="true" tabindex="-1"></a>                  edges, </span>
+<span id="cb121-47"><a href="31_geonetworks.html#cb121-47" aria-hidden="true" tabindex="-1"></a>                  <span class="at">main =</span> title,</span>
+<span id="cb121-48"><a href="31_geonetworks.html#cb121-48" aria-hidden="true" tabindex="-1"></a><span class="at">height =</span> <span class="st">&quot;700px&quot;</span>, </span>
+<span id="cb121-49"><a href="31_geonetworks.html#cb121-49" aria-hidden="true" tabindex="-1"></a>                  <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)   <span class="sc">%&gt;%</span>   </span>
+<span id="cb121-50"><a href="31_geonetworks.html#cb121-50" aria-hidden="true" tabindex="-1"></a>   <span class="fu">visNodes</span>(<span class="at">scaling =</span><span class="fu">list</span>(<span class="at">min =</span><span class="dv">20</span>, <span class="at">max=</span><span class="dv">60</span>, </span>
+<span id="cb121-51"><a href="31_geonetworks.html#cb121-51" aria-hidden="true" tabindex="-1"></a>                          <span class="at">label=</span><span class="fu">list</span>(<span class="at">min=</span><span class="dv">20</span>,<span class="at">max=</span><span class="dv">80</span>, </span>
+<span id="cb121-52"><a href="31_geonetworks.html#cb121-52" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">maxVisible =</span> <span class="dv">20</span>)))<span class="sc">%&gt;%</span></span>
+<span id="cb121-53"><a href="31_geonetworks.html#cb121-53" aria-hidden="true" tabindex="-1"></a>       <span class="fu">visOptions</span>(<span class="at">highlightNearest =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb121-54"><a href="31_geonetworks.html#cb121-54" aria-hidden="true" tabindex="-1"></a>     <span class="co">#               selectedBy = &quot;group&quot;, </span></span>
+<span id="cb121-55"><a href="31_geonetworks.html#cb121-55" aria-hidden="true" tabindex="-1"></a>    <span class="co">#               manipulation = TRUE,</span></span>
+<span id="cb121-56"><a href="31_geonetworks.html#cb121-56" aria-hidden="true" tabindex="-1"></a>                  <span class="at">nodesIdSelection =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb121-57"><a href="31_geonetworks.html#cb121-57" aria-hidden="true" tabindex="-1"></a>        <span class="fu">visInteraction</span>(<span class="at">navigationButtons =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb121-58"><a href="31_geonetworks.html#cb121-58" aria-hidden="true" tabindex="-1"></a>         <span class="fu">visLegend</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb121-59"><a href="31_geonetworks.html#cb121-59" aria-hidden="true" tabindex="-1"></a>      <span class="fu">visIgraphLayout</span>(<span class="at">layout =</span><span class="st">&quot;layout.fruchterman.reingold&quot;</span>,<span class="at">smooth =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb121-60"><a href="31_geonetworks.html#cb121-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-61"><a href="31_geonetworks.html#cb121-61" aria-hidden="true" tabindex="-1"></a>net</span>
+<span id="cb121-62"><a href="31_geonetworks.html#cb121-62" aria-hidden="true" tabindex="-1"></a> <span class="fu">return</span>(net)</span>
+<span id="cb121-63"><a href="31_geonetworks.html#cb121-63" aria-hidden="true" tabindex="-1"></a> } </span></code></pre></div>
+<div id="model-without-france" class="section level4" number="5.4.1.1">
+<h4><span class="header-section-number">5.4.1.1</span> Model without France</h4>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="31_geonetworks.html#cb122-1" aria-hidden="true" tabindex="-1"></a>mod2<span class="ot">&lt;-</span><span class="fu">rand_int</span>(int <span class="sc">%&gt;%</span> <span class="fu">filter</span>(i <span class="sc">!=</span> <span class="st">&quot;FRA&quot;</span>, j <span class="sc">!=</span><span class="st">&quot;FRA&quot;</span>),</span>
+<span id="cb122-2"><a href="31_geonetworks.html#cb122-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">resid =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb122-3"><a href="31_geonetworks.html#cb122-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">diag =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>We can have a look at the more important positive residuals in absolute value :</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="31_geonetworks.html#cb123-1" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>mod2[<span class="fu">order</span>(<span class="sc">-</span>mod2<span class="sc">$</span>Rabs_ij),]</span>
+<span id="cb123-2"><a href="31_geonetworks.html#cb123-2" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>tab[(tab<span class="sc">$</span>i <span class="sc">&gt;</span> tab<span class="sc">$</span>j),]</span>
+<span id="cb123-3"><a href="31_geonetworks.html#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(tab,<span class="dv">10</span>) , <span class="at">digits=</span><span class="dv">2</span>, <span class="at">caption =</span> <span class="st">&quot;Positive residuals&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-74">Table 5.2: </span>Positive residuals</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">i</th>
+<th align="left">j</th>
+<th align="right">Fij</th>
+<th align="right">Eij</th>
+<th align="right">Rabs_ij</th>
+<th align="right">Rrel_ij</th>
+<th align="right">Rchi_ij</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">20579</td>
+<td align="left">TUR</td>
+<td align="left">SYR</td>
+<td align="right">45</td>
+<td align="right">5.36</td>
+<td align="right">39.64</td>
+<td align="right">8.39</td>
+<td align="right">292.85</td>
+</tr>
+<tr class="even">
+<td align="left">10763</td>
+<td align="left">USA</td>
+<td align="left">IRN</td>
+<td align="right">33</td>
+<td align="right">8.18</td>
+<td align="right">24.82</td>
+<td align="right">4.04</td>
+<td align="right">75.37</td>
+</tr>
+<tr class="odd">
+<td align="left">10410</td>
+<td align="left">PAK</td>
+<td align="left">IND</td>
+<td align="right">24</td>
+<td align="right">0.77</td>
+<td align="right">23.23</td>
+<td align="right">31.20</td>
+<td align="right">701.51</td>
+</tr>
+<tr class="even">
+<td align="left">18489</td>
+<td align="left">UKR</td>
+<td align="left">RUS</td>
+<td align="right">17</td>
+<td align="right">1.82</td>
+<td align="right">15.18</td>
+<td align="right">9.35</td>
+<td align="right">126.70</td>
+</tr>
+<tr class="odd">
+<td align="left">4645</td>
+<td align="left">USA</td>
+<td align="left">CHN</td>
+<td align="right">26</td>
+<td align="right">11.20</td>
+<td align="right">14.80</td>
+<td align="right">2.32</td>
+<td align="right">19.54</td>
+</tr>
+<tr class="even">
+<td align="left">6994</td>
+<td align="left">ITA</td>
+<td align="left">ESP</td>
+<td align="right">17</td>
+<td align="right">4.57</td>
+<td align="right">12.43</td>
+<td align="right">3.72</td>
+<td align="right">33.75</td>
+</tr>
+<tr class="odd">
+<td align="left">10694</td>
+<td align="left">IRQ</td>
+<td align="left">IRN</td>
+<td align="right">14</td>
+<td align="right">1.88</td>
+<td align="right">12.12</td>
+<td align="right">7.45</td>
+<td align="right">78.18</td>
+</tr>
+<tr class="even">
+<td align="left">12851</td>
+<td align="left">TUR</td>
+<td align="left">LBY</td>
+<td align="right">14</td>
+<td align="right">2.08</td>
+<td align="right">11.92</td>
+<td align="right">6.74</td>
+<td align="right">68.47</td>
+</tr>
+<tr class="odd">
+<td align="left">8765</td>
+<td align="left">ITA</td>
+<td align="left">GBR_ENG</td>
+<td align="right">13</td>
+<td align="right">2.35</td>
+<td align="right">10.65</td>
+<td align="right">5.52</td>
+<td align="right">48.17</td>
+</tr>
+<tr class="even">
+<td align="left">2122</td>
+<td align="left">CHN</td>
+<td align="left">AUS</td>
+<td align="right">13</td>
+<td align="right">2.45</td>
+<td align="right">10.55</td>
+<td align="right">5.30</td>
+<td align="right">45.33</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="raw-network" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Raw network</h3>
+<p>We can firstly provide a basic view of the network using the default parameters wich visualize all connections greater to zero.</p>
+<div id="with-france" class="section level4" number="5.4.2.1">
+<h4><span class="header-section-number">5.4.2.1</span> With France</h4>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="31_geonetworks.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geo_network</span>(mod,</span>
+<span id="cb124-2"><a href="31_geonetworks.html#cb124-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="st">&quot;Fij&quot;</span>,</span>
+<span id="cb124-3"><a href="31_geonetworks.html#cb124-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">minsize =</span> <span class="dv">0</span>,</span>
+<span id="cb124-4"><a href="31_geonetworks.html#cb124-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">test =</span> <span class="st">&quot;Fij&quot;</span>,</span>
+<span id="cb124-5"><a href="31_geonetworks.html#cb124-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mintest =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div id="htmlwidget-735581809e8d4de02c2e" style="width:100%;height:700px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-735581809e8d4de02c2e">{"x":{"nodes":{"code":["CHN","DEU","FRA","IRQ","QAT","EUROPE","MLI","ITA","DNK","ESP","SYR","USA","AFG","AUS","CAN","CHN_HKG","IND","IRN","JPN","RUS","TUR","VEN","AUT","BEL","CHE","GBR","GBR_ENG","PRT","UKR","MAR","AFRIQUE","LBY","AND","FIN","FJI","GBR_WLS","HUN","IRL","LBN","MCO","NLD","PAK","RWA","TUN","VAT","XX_sahel","POL","XX_himalaya","OMN","SAU","XX_moyori","SRB","AF_ouest","BFA","HRV","KOS","CYP","MEX","COL"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],"label":["CHN","DEU","FRA","IRQ","QAT","EUROPE","MLI","ITA","DNK","ESP","SYR","USA","AFG","AUS","CAN","CHN_HKG","IND","IRN","JPN","RUS","TUR","VEN","AUT","BEL","CHE","GBR","GBR_ENG","PRT","UKR","MAR","AFRIQUE","LBY","AND","FIN","FJI","GBR_WLS","HUN","IRL","LBN","MCO","NLD","PAK","RWA","TUN","VAT","XX_sahel","POL","XX_himalaya","OMN","SAU","XX_moyori","SRB","AF_ouest","BFA","HRV","KOS","CYP","MEX","COL"],"size":[168,154,679,40,12,168,32,144,10,90,122,132,36,38,22,9,40,126,25,128,136,33,11,51,28,62,70,37,31,11,16,30,5,6,8,25,14,31,8,17,14,32,14,5,8,11,8,5,8,15,9,6,6,5,5,6,9,8,9],"value":[1.57296751527923,1.50600173874847,3.16227766016838,0.767529556453336,0.420393251621427,1.57296751527923,0.686499305187969,1.4562849419348,0.383764778226668,1.15129433468,1.34043274396362,1.39428668002574,0.728142470967399,0.748095274031311,0.569215153537044,0.3640712354837,0.767529556453336,1.3622298275595,0.606785392472833,1.37299861037594,1.41525457360156,0.69714334001287,0.402495895020185,0.866662890366003,0.642161299067936,0.955566591633286,1.01534616513362,0.738186289853209,0.675687616819213,0.402495895020185,0.485428313978266,0.664700094043992,0.271362677064629,0.297262918986574,0.343249652593984,0.606785392472833,0.4540766091865,0.675687616819213,0.343249652593984,0.500368053049471,0.4540766091865,0.686499305187969,0.4540766091865,0.271362677064629,0.343249652593984,0.402495895020185,0.343249652593984,0.271362677064629,0.343249652593984,0.470013943953842,0.3640712354837,0.297262918986574,0.297262918986574,0.271362677064629,0.271362677064629,0.297262918986574,0.3640712354837,0.343249652593984,0.3640712354837],"x":[-0.305656643341278,-0.140756034712244,0.0808918401989176,-0.346082253966289,-0.700930820484608,-0.131378016230004,0.691751014787658,-0.0708787084546508,-0.371067572425908,-0.0233328609424154,-0.271735061712116,-0.368134321601206,-0.385834534853571,0.000448602571178958,-0.563244996271125,-0.478376850425181,-0.718220451657748,-0.477108436962801,-0.0906994971016266,-0.195612487953279,-0.143859693819804,-0.206815341757825,-0.197059772254643,-0.22821317831351,0.050982762530225,0.0149579078888185,0.157461623891571,-0.0258643494723195,-0.0486872762343957,0.210178668292732,0.154504635639366,0.011826229323795,0.473551362550641,0.529280997004617,0.351510847395409,0.393347039572542,0.405579198791471,0.275291215741475,0.199997583050772,0.470589895123892,0.239969617173306,-0.449858276710716,0.548462511039889,0.50548146903443,0.396081943160483,0.316842275313741,0.549334293283769,-1,-0.866175813201157,-0.777560201137499,-0.853651077492578,0.627667462966721,1,0.962891039625726,-0.0574869030525165,0.479283264091243,-0.108773254645554,-0.657610898149017,-0.287727669615708],"y":[0.0696926251091521,-0.393956071190043,-0.113270984226849,-0.224724423519097,-0.574215360147362,-0.13956069639749,-0.228194766094132,-0.336303487127282,-0.67103725303237,-0.451031641463939,-0.119594426534242,0.158400774496247,-0.323534065576221,0.247802802687294,0.294862403626736,0.471118245599861,0.177608060782171,-0.13276916667733,0.287286286668518,-0.0352963856019316,0.159242946656325,0.32405639771142,-0.698946147430099,-0.39243736473578,-0.522481197886508,-0.301108978567682,-0.420845403585286,-0.611510103732541,-0.180027141820898,-0.563360740863394,0.0471285663457777,0.102746054208583,0.213201610371694,0.087654028541243,0.331104884395492,-0.416214788934142,-0.60436358757802,-0.368910892801963,0.3559860553718,-0.135691501637191,-0.242368375388355,0.0482533364360092,-0.0411710676033987,-0.279455289287997,0.0692051794728805,0.219961380692386,-0.90675750397686,0.295769185457506,-0.0949817263175659,-0.408429680378416,-0.24801529957602,0.916994993675867,-0.169562825949175,-0.386615190820829,-1,1,0.603435991155128,0.476169253447544,0.722693835462893]},"edges":{"i":["CHN","DEU","FRA","IRQ","QAT","EUROPE","FRA","MLI","FRA","CHN","FRA","DEU","ITA","DEU","DNK","ESP","EUROPE","FRA","ITA","SYR","MLI","CHN","USA","DEU","ESP","FRA","ITA","CHN","VEN","TUR","DEU","DEU","EUROPE","FRA","ITA","CHN","DEU","FRA","FRA","FRA","CHN","DEU","DEU","EUROPE","FRA","RUS","DEU","FRA","ITA","FRA","GBR_ENG","PRT","FRA","CHN","FRA","GBR","GBR_ENG","CHN","EUROPE","FRA","IRQ","SYR","USA","FRA","CHN","DEU","EUROPE","FRA","CHN","FRA","SRB","FRA","EUROPE","FRA","TUR","ESP","FRA","FRA","USA","FRA","FRA","ITA","IRN","FRA","IND","HUN","DEU","ESP","FRA","GBR","CHN","DEU","EUROPE","FRA","IRN","SYR","USA","FRA","IRN","QAT","DEU","FRA","IRQ","FRA","CHN","EUROPE","FRA","RUS","SYR","DEU","FRA","RUS","CHN","FRA","SYR","FRA","FRA","RUS","USA","IND","IRN","FRA"],"j":["AFG","AFG","AFG","AFG","AFG","AFRIQUE","AFRIQUE","AF_ouest","AND","AUS","AUS","AUT","AUT","BEL","BEL","BEL","BEL","BEL","BEL","BEL","BFA","CAN","CAN","CHE","CHE","CHE","CHE","CHN_HKG","COL","CYP","DNK","ESP","ESP","ESP","ESP","EUROPE","EUROPE","EUROPE","FIN","FJI","FRA","FRA","GBR","GBR","GBR","GBR","GBR_ENG","GBR_ENG","GBR_ENG","GBR_WLS","GBR_WLS","HRV","HUN","IND","IRL","IRL","IRL","IRN","IRN","IRN","IRN","IRN","IRN","IRQ","ITA","ITA","ITA","ITA","JPN","JPN","KOS","LBN","LBY","LBY","LBY","MAR","MAR","MCO","MEX","MLI","NLD","NLD","OMN","PAK","PAK","POL","PRT","PRT","PRT","PRT","RUS","RUS","RUS","RUS","RUS","RUS","RUS","RWA","SAU","SAU","SYR","SYR","SYR","TUN","TUR","TUR","TUR","TUR","TUR","UKR","UKR","UKR","USA","USA","USA","VAT","VEN","VEN","VEN","XX_himalaya","XX_moyori","XX_sahel"],"size":[6,5,12,6,7,7,9,6,5,13,25,6,5,6,5,7,5,16,6,6,5,11,11,6,7,10,5,9,9,9,5,13,6,24,17,18,15,60,6,8,25,47,13,10,20,5,5,35,13,17,8,5,6,11,15,7,9,9,6,17,14,10,33,9,7,11,14,61,10,15,6,8,5,11,14,6,5,17,8,21,9,5,8,8,24,8,5,10,10,7,18,6,7,14,10,17,19,14,10,5,6,20,11,5,5,15,40,8,45,5,9,17,26,19,7,8,8,7,9,5,9,11],"test":[6,5,12,6,7,7,9,6,5,13,25,6,5,6,5,7,5,16,6,6,5,11,11,6,7,10,5,9,9,9,5,13,6,24,17,18,15,60,6,8,25,47,13,10,20,5,5,35,13,17,8,5,6,11,15,7,9,9,6,17,14,10,33,9,7,11,14,61,10,15,6,8,5,11,14,6,5,17,8,21,9,5,8,8,24,8,5,10,10,7,18,6,7,14,10,17,19,14,10,5,6,20,11,5,5,15,40,8,45,5,9,17,26,19,7,8,8,7,9,5,9,11],"width":[7.95081967213115,7.45901639344262,10.9016393442623,7.95081967213115,8.44262295081967,8.44262295081967,9.42622950819672,7.95081967213115,7.45901639344262,11.3934426229508,17.2950819672131,7.95081967213115,7.45901639344262,7.95081967213115,7.45901639344262,8.44262295081967,7.45901639344262,12.8688524590164,7.95081967213115,7.95081967213115,7.45901639344262,10.4098360655738,10.4098360655738,7.95081967213115,8.44262295081967,9.91803278688525,7.45901639344262,9.42622950819672,9.42622950819672,9.42622950819672,7.45901639344262,11.3934426229508,7.95081967213115,16.8032786885246,13.3606557377049,13.8524590163934,12.3770491803279,34.5081967213115,7.95081967213115,8.9344262295082,17.2950819672131,28.1147540983607,11.3934426229508,9.91803278688525,14.8360655737705,7.45901639344262,7.45901639344262,22.2131147540984,11.3934426229508,13.3606557377049,8.9344262295082,7.45901639344262,7.95081967213115,10.4098360655738,12.3770491803279,8.44262295081967,9.42622950819672,9.42622950819672,7.95081967213115,13.3606557377049,11.8852459016393,9.91803278688525,21.2295081967213,9.42622950819672,8.44262295081967,10.4098360655738,11.8852459016393,35,9.91803278688525,12.3770491803279,7.95081967213115,8.9344262295082,7.45901639344262,10.4098360655738,11.8852459016393,7.95081967213115,7.45901639344262,13.3606557377049,8.9344262295082,15.327868852459,9.42622950819672,7.45901639344262,8.9344262295082,8.9344262295082,16.8032786885246,8.9344262295082,7.45901639344262,9.91803278688525,9.91803278688525,8.44262295081967,13.8524590163934,7.95081967213115,8.44262295081967,11.8852459016393,9.91803278688525,13.3606557377049,14.344262295082,11.8852459016393,9.91803278688525,7.45901639344262,7.95081967213115,14.8360655737705,10.4098360655738,7.45901639344262,7.45901639344262,12.3770491803279,24.672131147541,8.9344262295082,27.1311475409836,7.45901639344262,9.42622950819672,13.3606557377049,17.7868852459016,14.344262295082,8.44262295081967,8.9344262295082,8.9344262295082,8.44262295081967,9.42622950819672,7.45901639344262,9.42622950819672,10.4098360655738],"from":[1,2,3,4,5,6,3,7,3,1,3,2,8,2,9,10,6,3,8,11,7,1,12,2,10,3,8,1,22,21,2,2,6,3,8,1,2,3,3,3,1,2,2,6,3,20,2,3,8,3,27,28,3,1,3,26,27,1,6,3,4,11,12,3,1,2,6,3,1,3,52,3,6,3,21,10,3,3,12,3,3,8,18,3,17,37,2,10,3,26,1,2,6,3,18,11,12,3,18,5,2,3,4,3,1,6,3,20,11,2,3,20,1,3,11,3,3,20,12,17,18,3],"to":[13,13,13,13,13,31,31,53,33,14,14,23,23,24,24,24,24,24,24,24,54,15,15,25,25,25,25,16,59,57,9,10,10,10,10,6,6,6,34,35,3,3,26,26,26,26,27,27,27,36,36,55,37,17,38,38,38,18,18,18,18,18,18,4,8,8,8,8,19,19,56,39,32,32,32,30,30,40,58,7,41,41,49,42,42,47,28,28,28,28,20,20,20,20,20,20,20,43,50,50,11,11,11,44,21,21,21,21,21,29,29,29,12,12,12,45,22,22,22,48,51,46]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","scaling":{"min":20,"max":60,"label":{"min":20,"max":80,"maxVisible":20}},"physics":false},"manipulation":{"enabled":false},"interaction":{"navigationButtons":true},"edges":{"smooth":true},"physics":{"stabilization":false}},"groups":null,"width":"100%","height":"700px","idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":{"text":"Network","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","legend":{"width":0.2,"useGroups":true,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true},"igraphlayout":{"type":"square"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="without-france" class="section level4" number="5.4.2.2">
+<h4><span class="header-section-number">5.4.2.2</span> Without France</h4>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="31_geonetworks.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geo_network</span>(mod2,</span>
+<span id="cb125-2"><a href="31_geonetworks.html#cb125-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="st">&quot;Fij&quot;</span>,</span>
+<span id="cb125-3"><a href="31_geonetworks.html#cb125-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">minsize =</span> <span class="dv">0</span>,</span>
+<span id="cb125-4"><a href="31_geonetworks.html#cb125-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">test =</span> <span class="st">&quot;Fij&quot;</span>,</span>
+<span id="cb125-5"><a href="31_geonetworks.html#cb125-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mintest =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div id="htmlwidget-64591e510065dfb34d48" style="width:100%;height:700px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-64591e510065dfb34d48">{"x":{"nodes":{"code":["CHN","DEU","IRQ","QAT","EUROPE","MLI","ITA","DNK","ESP","SYR","USA","AFG","AUS","CAN","CHN_HKG","IND","IRN","JPN","RUS","TUR","VEN","AUT","BEL","CHE","GBR","GBR_ENG","PRT","UKR","MAR","AFRIQUE","LBY","IRL","GBR_WLS","POL","PAK","XX_himalaya","OMN","SAU","XX_moyori","NLD","SRB","AF_ouest","BFA","HUN","HRV","KOS","CYP","MEX","COL"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49],"label":["CHN","DEU","IRQ","QAT","EUROPE","MLI","ITA","DNK","ESP","SYR","USA","AFG","AUS","CAN","CHN_HKG","IND","IRN","JPN","RUS","TUR","VEN","AUT","BEL","CHE","GBR","GBR_ENG","PRT","UKR","MAR","AFRIQUE","LBY","IRL","GBR_WLS","POL","PAK","XX_himalaya","OMN","SAU","XX_moyori","NLD","SRB","AF_ouest","BFA","HUN","HRV","KOS","CYP","MEX","COL"],"size":[143,107,31,12,108,11,83,10,66,102,113,24,13,22,9,40,109,10,114,96,25,11,35,18,42,35,27,22,6,7,19,16,8,8,24,5,8,15,9,5,6,6,5,8,5,6,9,8,9],"value":[3.16227766016838,2.73541906890288,1.47235599222205,0.916057224828689,2.74817167448607,0.877058019307029,2.40918986470469,0.836242010007091,2.1483446221183,2.67074280545079,2.81106703977296,1.29550055126259,0.953462589245592,1.24034734589208,0.793328828021918,1.67248402001418,2.76086537563453,0.836242010007091,2.82347799212743,2.59100110252518,1.32221471336986,0.877058019307029,1.56446554693686,1.12193638801015,1.71378614099395,1.56446554693686,1.37408583724303,1.24034734589208,0.647750275631296,0.699650262281441,1.15268006344837,1.05777177069589,0.747957592006766,0.747957592006766,1.29550055126259,0.591312395989083,0.747957592006766,1.02418311299838,0.793328828021918,0.591312395989083,0.647750275631296,0.647750275631296,0.591312395989083,0.747957592006766,0.591312395989083,0.647750275631296,0.793328828021918,0.747957592006766,0.793328828021918],"x":[0.00274171881010732,-0.309458354656867,-0.157255793874324,0.186217460323082,-0.42222472675909,0.381358592152792,-0.214991578691612,-0.610954445195946,-0.494585919332011,-0.333134015058924,-0.10640027510336,0.0013512993462601,0.324092232081461,0.16100450906445,0.298748532385306,0.481508641709951,-0.252431756232562,0.364789691148083,-0.273379471564447,-0.479609357689621,-0.431702060996816,-0.0306875935060819,-0.470883020525908,-0.331816100444204,-0.460681240155602,-0.228955043184749,-0.709747057084267,-0.0913615696590115,-0.711489728038935,-0.82343121185504,-0.704351157140062,-0.447992862120122,-0.116100924705864,0.973013813917571,0.683142005501554,0.759583337414288,-0.233376623560043,-0.0226023914592921,-0.403741486686239,-0.0772506087491636,0.845164967882546,0.526864950208294,0.227339587461994,1,-1,0.766821268600162,-0.811211222842093,0.105686131586603,-0.669903401673068],"y":[-0.284307081987952,0.0476567175658944,-0.499267812980069,-0.7496055265193,-0.157582049958513,0.898535465640589,0.168328099384514,0.239332897276781,0.234617746824162,-0.348856241745349,-0.61052126396135,-0.38382453137917,-0.161800186828528,-0.555533619491443,-0.0114454946947358,-0.484398111016861,-0.60725140607715,-0.31513635817522,-0.28891730804049,-0.390625166402982,-0.687406508837464,0.269846864791734,-4.52854775251366e-05,0.342054174855447,0.112021127046902,0.475507013572968,0.181237749180708,-0.0456456597890782,0.554714113253715,-0.157852352101292,-0.336053821141046,0.531248055279554,0.79377335730709,0.0354536320083472,-0.692758071070307,-0.480944594251081,-1,-0.879612889953707,-0.946681857355288,0.551912451473777,0.373847396923463,0.784558310820661,1,-0.133307442254651,0.283050128141959,0.517941213237781,-0.563846766126132,-0.97262218377827,-0.911141775207951]},"edges":{"i":["CHN","DEU","IRQ","QAT","EUROPE","MLI","CHN","DEU","ITA","DEU","DNK","ESP","EUROPE","ITA","SYR","MLI","CHN","USA","DEU","ESP","ITA","CHN","VEN","TUR","DEU","DEU","EUROPE","ITA","CHN","DEU","DEU","EUROPE","RUS","DEU","ITA","GBR_ENG","PRT","POL","CHN","GBR","GBR_ENG","CHN","EUROPE","IRQ","SYR","USA","CHN","DEU","EUROPE","CHN","SRB","EUROPE","TUR","ESP","USA","ITA","IRN","IND","DEU","ESP","GBR","CHN","DEU","EUROPE","IRN","SYR","USA","IRN","QAT","DEU","IRQ","CHN","EUROPE","RUS","SYR","DEU","RUS","CHN","SYR","RUS","USA","IND","IRN"],"j":["AFG","AFG","AFG","AFG","AFRIQUE","AF_ouest","AUS","AUT","AUT","BEL","BEL","BEL","BEL","BEL","BEL","BFA","CAN","CAN","CHE","CHE","CHE","CHN_HKG","COL","CYP","DNK","ESP","ESP","ESP","EUROPE","EUROPE","GBR","GBR","GBR","GBR_ENG","GBR_ENG","GBR_WLS","HRV","HUN","IND","IRL","IRL","IRN","IRN","IRN","IRN","IRN","ITA","ITA","ITA","JPN","KOS","LBY","LBY","MAR","MEX","NLD","OMN","PAK","PRT","PRT","PRT","RUS","RUS","RUS","RUS","RUS","RUS","SAU","SAU","SYR","SYR","TUR","TUR","TUR","TUR","UKR","UKR","USA","USA","VEN","VEN","XX_himalaya","XX_moyori"],"size":[6,5,6,7,7,6,13,6,5,6,5,7,5,6,6,5,11,11,6,7,5,9,9,9,5,13,6,17,18,15,13,10,5,5,13,8,5,8,11,7,9,9,6,14,10,33,7,11,14,10,6,5,14,6,8,5,8,24,5,10,7,18,6,7,10,17,19,10,5,6,11,5,15,8,45,5,17,26,7,7,9,5,9],"test":[6,5,6,7,7,6,13,6,5,6,5,7,5,6,6,5,11,11,6,7,5,9,9,9,5,13,6,17,18,15,13,10,5,5,13,8,5,8,11,7,9,9,6,14,10,33,7,11,14,10,6,5,14,6,8,5,8,24,5,10,7,18,6,7,10,17,19,10,5,6,11,5,15,8,45,5,17,26,7,7,9,5,9],"width":[9,8.33333333333333,9,9.66666666666667,9.66666666666667,9,13.6666666666667,9,8.33333333333333,9,8.33333333333333,9.66666666666667,8.33333333333333,9,9,8.33333333333333,12.3333333333333,12.3333333333333,9,9.66666666666667,8.33333333333333,11,11,11,8.33333333333333,13.6666666666667,9,16.3333333333333,17,15,13.6666666666667,11.6666666666667,8.33333333333333,8.33333333333333,13.6666666666667,10.3333333333333,8.33333333333333,10.3333333333333,12.3333333333333,9.66666666666667,11,11,9,14.3333333333333,11.6666666666667,27,9.66666666666667,12.3333333333333,14.3333333333333,11.6666666666667,9,8.33333333333333,14.3333333333333,9,10.3333333333333,8.33333333333333,10.3333333333333,21,8.33333333333333,11.6666666666667,9.66666666666667,17,9,9.66666666666667,11.6666666666667,16.3333333333333,17.6666666666667,11.6666666666667,8.33333333333333,9,12.3333333333333,8.33333333333333,15,10.3333333333333,35,8.33333333333333,16.3333333333333,22.3333333333333,9.66666666666667,9.66666666666667,11,8.33333333333333,11],"from":[1,2,3,4,5,6,1,2,7,2,8,9,5,7,10,6,1,11,2,9,7,1,21,20,2,2,5,7,1,2,2,5,19,2,7,26,27,34,1,25,26,1,5,3,10,11,1,2,5,1,41,5,20,9,11,7,17,16,2,9,25,1,2,5,17,10,11,17,4,2,3,1,5,19,10,2,19,1,10,19,11,16,17],"to":[12,12,12,12,30,42,13,22,22,23,23,23,23,23,23,43,14,14,24,24,24,15,49,47,8,9,9,9,5,5,25,25,25,26,26,33,45,44,16,32,32,17,17,17,17,17,7,7,7,18,46,31,31,29,48,40,37,35,27,27,27,19,19,19,19,19,19,38,38,10,10,20,20,20,20,28,28,11,11,21,21,36,39]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","scaling":{"min":20,"max":60,"label":{"min":20,"max":80,"maxVisible":20}},"physics":false},"manipulation":{"enabled":false},"interaction":{"navigationButtons":true},"edges":{"smooth":true},"physics":{"stabilization":false}},"groups":null,"width":"100%","height":"700px","idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":{"text":"Network","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","legend":{"width":0.2,"useGroups":true,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true},"igraphlayout":{"type":"square"}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="preferential-links" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Preferential links</h3>
+<p>But we can also visualize the most significant links by changing the criteria of size and introducing a test of significance :</p>
+<div id="with-france-1" class="section level4" number="5.4.3.1">
+<h4><span class="header-section-number">5.4.3.1</span> With France</h4>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="31_geonetworks.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geo_network</span>(mod,</span>
+<span id="cb126-2"><a href="31_geonetworks.html#cb126-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="st">&quot;Rabs_ij&quot;</span>,</span>
+<span id="cb126-3"><a href="31_geonetworks.html#cb126-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">minsize =</span> <span class="dv">2</span>,</span>
+<span id="cb126-4"><a href="31_geonetworks.html#cb126-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">test =</span> <span class="st">&quot;Rchi_ij&quot;</span>,</span>
+<span id="cb126-5"><a href="31_geonetworks.html#cb126-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mintest =</span> <span class="fl">3.84</span>)</span></code></pre></div>
+<div id="htmlwidget-ea0f2907b2a31758eef8" style="width:100%;height:700px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ea0f2907b2a31758eef8">{"x":{"nodes":{"code":["IRQ","PAK","QAT","ASIE","EUROPE","RUS","MLI","FRA","MEX","AFRIQUE","CHN","IND","DEU","ITA","NLD","CHE","DNK","ESP","RWA","SYR","NER","GBR","USA","BEL","UKR","AUS","CAN","CHN_HKG","JPN","VAT","VEN","IRN","TUR","AUT","POL","SDN","MAR","PRT","AND","FIN","FJI","GBR_ENG","GBR_WLS","IRL","MCO","TON","XX_alpes","XX_sahel","ZAF","ISL","BGD","LKA","XX_himalaya","CUB","OMN","PSE","SAU","XX_moyori","AFG","HUN","LBN","SRB","TUN","ESH","ARG","BOL","GTM","AF_ouest","BFA","XX_maghre","HRV","EGY","KOS","KAZ","LBY","CYP","COL"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77],"label":["IRQ","PAK","QAT","ASIE","EUROPE","RUS","MLI","FRA","MEX","AFRIQUE","CHN","IND","DEU","ITA","NLD","CHE","DNK","ESP","RWA","SYR","NER","GBR","USA","BEL","UKR","AUS","CAN","CHN_HKG","JPN","VAT","VEN","IRN","TUR","AUT","POL","SDN","MAR","PRT","AND","FIN","FJI","GBR_ENG","GBR_WLS","IRL","MCO","TON","XX_alpes","XX_sahel","ZAF","ISL","BGD","LKA","XX_himalaya","CUB","OMN","PSE","SAU","XX_moyori","AFG","HUN","LBN","SRB","TUN","ESH","ARG","BOL","GTM","AF_ouest","BFA","XX_maghre","HRV","EGY","KOS","KAZ","LBY","CYP","COL"],"size":[27.0057376022916,25.6821572574701,14.4815218104198,8.02533250369696,36.4817010108574,56.8310441886696,31.824614454385,146.996257737098,16.7269125745324,10.4767029441037,81.5220132260228,44.9958551835439,33.6510490710297,51.018770255411,10.007359698042,13.8591392523472,8.39134288274347,45.9467492805036,12.2721775719584,75.440120774466,8.72535462406094,25.5755459845227,83.686285546225,20.6938156642283,23.7858496813963,25.5761068930932,20.1320635302344,8.34736338679597,12.7598386564224,6.58072695972095,24.299400996326,75.1052116322522,66.7959607433409,12.5743468968294,10.644366139323,5.32078782883152,8.23047030338587,18.8878363318895,3.49083099408284,3.54521782676432,5.54521782676424,42.3347820360593,18.3526067675174,23.510473840071,12.6484438568161,2.24599992230365,3.24599992230367,12.7423132493334,3.48688864200158,2.93228927920877,2.87469960307541,2.90258192672853,4.91651497164155,7.05843017145388,7.62124308141688,5.45919018238906,14.0605798170298,8.52627744598391,14.2309795883996,10.768110711677,5.04870251082259,5.97362088283263,2.81477821591367,2.97280235684702,2.86309113154284,3.93426089802677,2.96970007149322,5.93168335222771,7.84550925836838,2.93168335222776,4.75853382682879,2.95962414226024,5.97362088283263,3.75922756993159,14.6613017414673,8.4241619642526,12.1825895654579],"value":[1.35542309884741,1.32179045442339,0.992553584433029,0.738887599930583,1.57537663718193,1.96625426909563,1.47139215517547,3.16227766016838,1.0667306022059,0.844226879841123,2.35496419706854,1.74957722197039,1.51302521137575,1.8629957058902,0.825100054439717,0.970990520328525,0.755548929221732,1.76796741364418,0.913708523156317,2.26541644210537,0.770439257872634,1.31904410586699,2.38601959908354,1.18649837792163,1.2720558973183,1.31905857005649,1.17028329777681,0.753566391127375,0.931685748135105,0.669088856209665,1.28571480465055,2.26038229981212,2.13167975746905,0.92488892575634,0.85095533052727,0.601637407844512,0.748271470095712,1.13354291327176,0.487316675066056,0.491098178090201,0.614194843673784,1.69705346494185,1.11736674142528,1.26467097640528,0.927609973444962,0.390887451959518,0.469916953126169,0.931045701543584,0.487041423036537,0.446632443358757,0.442224801069267,0.444364242125644,0.578329763600644,0.692948441039974,0.720045213276688,0.609411959435122,0.978021666021443,0.761599396089501,0.983930127344467,0.855887368162034,0.586052808200536,0.637478715695401,0.437591574490262,0.449707239545155,0.441331012546832,0.517342835400527,0.449472530981193,0.635237079440934,0.73056259148147,0.446586295007717,0.568962235313159,0.448709372861585,0.637478715695401,0.505703744386358,0.998695577543609,0.757024987609218,0.91036733680666],"x":[0.301643666404471,-0.249493548843229,0.318038615165253,-0.224385813459424,-0.0898047716790834,0.117316269098302,-0.801293911609709,-0.458489417193936,-0.151805589569595,-0.0715977021814891,-0.215350274784397,-0.491784731603934,0.296782186116051,-0.126292392809519,0.0705851212261754,0.33339474751601,0.4459695174929,0.196762060469959,-0.129656610583667,0.33004546329446,-0.9151109366889,0.00744173594269348,0.0575916093796438,0.207571028190093,0.26045402554628,-0.470600816644398,-0.0139518419896004,-0.360865785728301,-0.167577461788053,-0.414810979566444,0.24461020567062,0.434487010716299,0.376648903403383,0.0919687116115866,0.540403124056429,0.0808769382723,0.319778298029985,0.0976108439032188,-0.693256481483836,-0.720995509240638,-0.595093854563623,-0.323153634328249,-0.427971863931123,-0.250796323952355,-0.627545261990172,-0.489052421466235,-0.591389486570206,-0.735150698068086,-0.0911366582633973,0.766775716457186,-0.715793806450654,-0.588133778097449,-0.694203130483502,0.490185639357288,0.691577513313813,0.450864395098561,0.512661522299694,0.663693327167424,0.0776636626865554,0.706861969997783,0.12553706051382,1,0.894731176260676,0.364477669514142,-0.135637348858961,-0.353411790521181,-0.268813712091474,-1,-0.979692525238906,-0.886932356556522,0.0599788616228585,0.120012093347349,0.960935261877495,0.581388886448653,0.6998570551479,0.606879482649724,0.176532016627724],"y":[-0.47542188244187,-0.602915167773674,-0.804716083523784,-0.106669410462113,0.0515987558800926,-0.174037382349633,0.134909019815048,0.339813494298945,-0.779404183709812,-0.171083589628344,-0.195520990355085,-0.413667798866674,0.507351962847168,0.54480881986209,0.527626551172124,0.39519746666032,0.421323136647112,0.538818459898649,0.341162848606303,-0.150136645186697,0.123481217447863,0.422838105644687,-0.44207966747802,0.2953197569831,0.227798483414688,-0.0822879099069223,-0.044282945174081,-0.377693576595787,0.0501862900308414,0.0535907782322846,-0.386590251167682,-0.512834943417246,0.0244659726203114,0.648694185353233,0.637215490564576,-0.787863755871936,0.818622071358769,0.751762064181233,0.554180229542204,0.426012818529685,0.630124981906802,0.506626024221241,0.58345617076711,0.323693088655602,0.302667514513705,0.681168161476116,0.488955656557555,0.230025168889011,0.72995426606655,0.806549458373983,-0.436223110120332,-0.630714586949653,-0.565192234096157,-0.410026541481646,-0.485411261257837,-0.783228814893229,-0.722942704669486,-0.620915405179843,-0.668931703191467,0.693152958088357,-0.0287457560050514,0.22480056356876,-0.0601262354338341,1,-0.989433561386978,-0.860303104156521,-0.960835038562813,0.234367131288059,0.0159112121186762,-0.0966695103018701,0.99193810111734,-1,0.353661112533105,-0.182136223259015,-0.0111623572028074,0.108660049888359,-0.558976187889113]},"edges":{"i":["IRQ","PAK","QAT","ASIE","EUROPE","RUS","MLI","FRA","MEX","CHN","FRA","IND","DEU","ITA","NLD","CHE","DNK","ESP","NLD","RWA","SYR","MLI","NER","IND","MEX","CHN","GBR","USA","DEU","ASIE","EUROPE","RUS","CHN","USA","VEN","IRN","VEN","TUR","DEU","SDN","MAR","CHE","DEU","ITA","ASIE","FRA","FRA","EUROPE","MLI","DEU","FRA","ITA","FRA","GBR_ENG","MEX","PRT","ISL","POL","CHN","PAK","FRA","GBR","GBR_ENG","JPN","IRQ","SYR","USA","FRA","CHN","SYR","SRB","JPN","SYR","TUN","TUR","IND","ESP","FRA","MLI","ITA","IRN","DEU","ESP","GBR","IRN","QAT","FRA","IRN","QAT","USA","IRQ","RUS","FRA","EUROPE","SYR","CHE","DEU","ESP","RUS","CHN","MEX","RUS","CHN","FRA","RUS","USA","FRA","IND","MLI","IRN","FRA","MLI","NER","GBR"],"j":["AFG","AFG","AFG","AFRIQUE","AFRIQUE","AFRIQUE","AF_ouest","AND","ARG","AUS","AUS","AUS","AUT","AUT","AUT","BEL","BEL","BEL","BEL","BEL","BEL","BFA","BFA","BGD","BOL","CAN","CAN","CAN","CHE","CHN","CHN","CHN","CHN_HKG","COL","COL","CUB","CUB","CYP","DNK","EGY","ESH","ESP","ESP","ESP","EUROPE","FIN","FJI","FRA","FRA","GBR","GBR_ENG","GBR_ENG","GBR_WLS","GBR_WLS","GTM","HRV","HUN","HUN","IND","IND","IRL","IRL","IRL","IRL","IRN","IRN","IRN","ITA","JPN","KAZ","KOS","LBN","LBN","LBY","LBY","LKA","MAR","MCO","NER","NLD","OMN","POL","PRT","PRT","PSE","PSE","RWA","SAU","SAU","SDN","SYR","SYR","TON","TUR","TUR","UKR","UKR","UKR","UKR","USA","USA","USA","VAT","VAT","VEN","VEN","XX_alpes","XX_himalaya","XX_maghre","XX_moyori","XX_sahel","XX_sahel","XX_sahel","ZAF"],"size":[5.23858910551817,2.32724667264507,6.66514381023611,2.83982460786591,5.05790695259379,2.57897138364411,5.93168335222771,3.49083099408273,2.86309113154284,10.0993001741637,12.4060705976258,3.07073612130335,4.89114926641236,3.94239187361453,3.74080575680245,2.094528120575,4.5414877475096,4.77524029721713,3.19426968487807,2.62373371514227,3.46455609890632,4.88277203500228,2.9627372233661,2.87469960307541,3.93426089802677,8.63238934665396,2.67195082404588,8.82772335953459,3.72868919717121,2.12896898565353,7.43893157057885,10.2724709418306,8.34736338679595,3.36116368657118,8.82142587888677,3.30425729802132,3.75417287343255,8.42416196425261,3.84985513523383,2.95962414226024,2.97280235684702,5.53403961190994,7.41935099095766,11.6772459415055,3.05653891017752,3.54521782676433,5.54521782676424,14.1471513084173,11.4895902951485,7.84970468309269,17.3522292252412,9.34915110258267,10.9349632055572,7.41764356195996,2.96970007149322,4.7585338268288,2.93228927920877,7.83582143246819,7.87641197597011,23.354910584825,6.83239784453256,5.94478736994067,8.21575814627466,2.51753047932273,12.3457562264991,5.09772743945698,26.5065581416389,22.9776970813475,7.49935953276551,3.7592275699316,5.97362088283263,2.74294864433415,2.30575386648845,2.81477821591367,11.8465235255536,2.90258192672853,5.25766794653883,12.6484438568159,2.84357432872188,3.07228425636134,7.62124308141687,2.80854470685473,8.50708803961893,5.62221446544174,2.52627744598394,2.93291273640514,9.64844385681592,9.17711455325125,4.88346526377857,2.36116368657126,9.42139227027435,11.6473605449633,2.24599992230363,6.78117226908991,39.7441029844449,2.50188232269099,3.10375509130726,2.77611645275541,15.4040958146424,17.0541352389687,6.95986047346956,11.9100121095266,2.17268207264211,4.40804488707821,5.01813339406258,6.7056688499441,3.2459999223036,4.91651497164154,2.93168335222776,8.52627744598392,6.07795908630275,3.74531109105689,2.91904307197295,3.48688864200159],"test":[36.0420582570331,8.05061358318656,132.666330708871,50.3485816141452,13.1726040496688,4.68047815582445,515.026256972872,8.07457679124684,59.8740674720003,35.1625022001231,12.2210140104691,10.1471934321848,21.574897704151,14.6958531211939,53.9889603159924,4.84504063302924,44.9826822484127,10.2496102692093,12.6634912801898,18.295496793121,4.73414101463309,203.376922445634,235.565157716523,65.9526865896163,235.452087861565,31.47398653867,5.37579581794499,35.8742060107853,6.12118918810482,5.20361372582736,5.23978263009775,13.6555499767674,106.764582466716,17.6843756224318,435.771734737251,15.6927500072603,57.3322161813965,123.240391211483,12.8865371800792,216.945857098744,324.938223623482,20.8911473154394,9.86386512354245,25.6179547805326,9.90229508159893,5.12003450906637,12.5263418813783,4.36487363063214,13.8806517539436,11.9639476613097,17.0616370151392,23.9414527401437,19.7152011371885,94.4806864288544,291.060703745703,93.7756369088574,126.986100819593,373.983635285595,19.8610908794456,845.544564201518,5.71546696538398,33.491351285114,86.0687064805885,13.1364976287456,92.1373858228729,5.30097515510524,108.201111189039,13.8859175440201,22.4903956160793,58.6935635384804,1352.74225537582,29.2695101566976,7.65794814864167,42.7756186663718,65.1690981103366,86.4827393772617,37.238149837629,36.7645795515258,51.6917389383596,4.89643277699714,153.352567982982,6.62041069923717,48.4760982793348,22.9421014392903,13.4721846785254,128.220718187515,21.3929145792917,102.346483166339,204.6448445828,8.7269521747447,56.2284287850355,25.3446937354833,6.6903383702559,5.59499466938967,300.537418705746,12.5661373641846,5.08019592967918,6.29702276545028,148.684469934835,32.5115052058429,46.570346164752,20.0068590582036,5.70584443136131,5.40954970639673,12.7060331331912,19.5987378387009,13.9741570422458,289.538375223262,125.807801729138,153.459881674594,7.50533920836937,55.0764272657308,105.251183112905,23.6954263673842],"width":[8.95423877668226,6.75667319015043,10.0310435836316,7.14358186091962,8.81785465474465,6.94668229245491,9.47740638747031,7.6349803356606,7.16114410683522,12.6232442670424,14.364461391277,7.31788055891349,8.69198112358455,7.97583156562183,7.8236685263219,6.58101048706126,8.42804648223188,8.60448967668442,7.4111272704745,6.98047019667482,7.61514728380883,8.68565774669513,7.2363598628901,7.16990651735216,7.96969406975915,11.5159774898172,7.01686586693751,11.6634212599964,7.81452259619286,6.60700744949768,10.6151209955527,12.7539585778432,11.3008316404043,7.53710369653079,11.658667739216,7.49414910633249,7.83375841309227,11.3588014309064,7.90598215544625,7.23401001911044,7.24395731714754,9.17725337573415,10.6003410069626,13.8143234326429,7.30716409277657,7.67603309211824,9.18569101604925,15.6786795369021,13.6726755158962,10.9251844376749,18.0979651738769,12.0570100220214,13.2540269255821,10.5990521901046,7.24161562231421,8.59187914898308,7.21337687280783,10.9147049580173,10.9453438758345,22.6289629135414,10.1572917727241,9.48729767955816,11.2014921933124,6.90030491842378,14.3189343571279,8.84791231150856,25.0079177673325,22.3442312362721,10.6607337715238,7.8375738444037,9.50906205016421,7.07045707792753,6.7404497975895,7.12467611888132,13.942099055694,7.19095290277243,8.96864003844539,14.5474117469197,7.14641225882099,7.31904913609229,10.7527350040329,7.11997088570896,11.421396434295,9.24381030889703,6.90690738218901,7.2138474763562,12.2829248610231,11.9271518520695,8.68618101585274,6.78227473456531,12.1115397476413,13.791765069793,6.69534578992713,10.1186252247866,35,6.88849323659677,7.34280423376671,7.09549310032881,16.6274576537842,17.8729551996507,10.253504256614,13.990022077631,6.64000335357358,8.32731994641074,8.78783242084486,10.061633057288,7.45017475189264,8.71112789253221,7.21291950157373,11.4358811539822,9.58781954798292,7.82706928310049,7.20337825195004,7.63200453413149],"from":[1,2,3,4,5,6,7,8,9,11,8,12,13,14,15,16,17,18,15,19,20,7,21,12,9,11,22,23,13,4,5,6,11,23,31,32,31,33,13,36,37,16,13,14,4,8,8,5,7,13,8,14,8,42,9,38,50,35,11,2,8,22,42,29,1,20,23,8,11,20,62,29,20,63,33,12,18,8,7,14,32,13,18,22,32,3,8,32,3,23,1,6,8,5,20,16,13,18,6,11,9,6,11,8,6,23,8,12,7,32,8,7,21,22],"to":[59,59,59,10,10,10,68,39,65,26,26,26,34,34,34,24,24,24,24,24,24,69,69,51,66,27,27,27,16,11,11,11,28,77,77,54,54,76,17,72,64,18,18,18,5,40,41,8,8,22,42,42,43,43,67,71,60,60,12,12,44,44,44,44,32,32,32,14,29,74,73,61,61,75,75,52,37,45,21,15,55,35,38,38,56,56,19,57,57,36,20,20,46,33,33,25,25,25,25,23,23,23,30,30,31,31,47,53,70,58,48,48,48,49]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","scaling":{"min":20,"max":60,"label":{"min":20,"max":80,"maxVisible":20}},"physics":false},"manipulation":{"enabled":false},"interaction":{"navigationButtons":true},"edges":{"smooth":true},"physics":{"stabilization":false}},"groups":null,"width":"100%","height":"700px","idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":{"text":"Network","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","legend":{"width":0.2,"useGroups":true,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true},"igraphlayout":{"type":"square"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="without-france-1" class="section level4" number="5.4.3.2">
+<h4><span class="header-section-number">5.4.3.2</span> Without France</h4>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="31_geonetworks.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geo_network</span>(mod2,</span>
+<span id="cb127-2"><a href="31_geonetworks.html#cb127-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="st">&quot;Rabs_ij&quot;</span>,</span>
+<span id="cb127-3"><a href="31_geonetworks.html#cb127-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">minsize =</span> <span class="dv">2</span>,</span>
+<span id="cb127-4"><a href="31_geonetworks.html#cb127-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">test =</span> <span class="st">&quot;Rchi_ij&quot;</span>,</span>
+<span id="cb127-5"><a href="31_geonetworks.html#cb127-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mintest =</span> <span class="fl">3.84</span>)</span></code></pre></div>
+<div id="htmlwidget-1d646182548c3303a086" style="width:100%;height:700px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1d646182548c3303a086">{"x":{"nodes":{"code":["IRQ","PAK","QAT","ASIE","EUROPE","MLI","MEX","AFRIQUE","CHN","IND","DEU","ITA","NLD","CHE","DNK","ESP","RWA","SYR","NER","USA","BEL","UKR","AUS","CAN","CHN_HKG","JPN","RUS","VAT","VEN","IRN","TUR","AUT","GBR","POL","SDN","MAR","PRT","IRL","ZAF","GBR_WLS","GBR_ENG","ISL","BGD","LKA","XX_himalaya","CUB","OMN","PSE","SAU","XX_moyori","AFG","HUN","LBN","SRB","TUN","ESH","ARG","BOL","GTM","AF_ouest","BFA","XX_maghre","XX_sahel","HRV","EGY","KOS","KAZ","LBY","CYP","COL"],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70],"label":["IRQ","PAK","QAT","ASIE","EUROPE","MLI","MEX","AFRIQUE","CHN","IND","DEU","ITA","NLD","CHE","DNK","ESP","RWA","SYR","NER","USA","BEL","UKR","AUS","CAN","CHN_HKG","JPN","RUS","VAT","VEN","IRN","TUR","AUT","GBR","POL","SDN","MAR","PRT","IRL","ZAF","GBR_WLS","GBR_ENG","ISL","BGD","LKA","XX_himalaya","CUB","OMN","PSE","SAU","XX_moyori","AFG","HUN","LBN","SRB","TUN","ESH","ARG","BOL","GTM","AF_ouest","BFA","XX_maghre","XX_sahel","HRV","EGY","KOS","KAZ","LBY","CYP","COL"],"size":[26.5753698296772,25.5199394075689,14.3556995319566,5.80306113735902,36.2953015840257,20.5445129920074,16.2301053694187,8.10107522146494,73.5597774377379,43.9968646251744,40.0719083866994,40.2648486535292,10.2723627280754,17.0431766156577,8.14949460848883,46.7180943042202,2.81937332092473,68.7277541447102,8.76027328787547,75.5891820860663,20.563818443948,23.6522050949333,13.7153709470712,15.9467692360794,8.10922860428829,12.9463804726152,48.0951548585786,2.34754103427388,23.32585085905,67.4319439351994,67.8251112209764,12.6747517610271,22.9118995303826,10.5097592475299,5.10646734874302,8.20863067774392,18.734660125877,17.2903959532085,3.34231473176823,7.74422593336843,26.9115505768274,2.94563398871115,2.87968863488381,2.87968863488383,4.87968863488383,6.89752286217743,7.52389314496351,5.40238476390162,13.8004950728356,8.34999380796799,14.0741832562886,10.7611090982355,5.21050050993619,5.9690588503867,2.84491027906352,2.97284897836143,2.82236262324096,3.90762228434809,2.95389285483138,5.93992988355055,7.86986879843361,2.94852648774887,6.80451406323452,4.72530002358784,2.94243593815743,5.9690588503867,3.79995910807879,14.7684963205988,8.40768373987563,11.9446950769969],"value":[1.87503697150601,1.83742658792057,1.37810515384667,0.87619092348218,2.19126742005449,1.64861065489857,1.46531449818313,1.0352411090625,3.11953871815342,2.41257621032437,2.30244990469314,2.30798622513074,1.16574980145608,1.50156953787566,1.0383302708288,2.48606647147815,0.610726085167804,3.0153397522005,1.07653710770776,3.16227766016838,1.64938506362705,1.76891105078654,1.34701972704684,1.45246786208001,1.03576194081073,1.30871282982644,2.52243997669538,0.557284255075418,1.7566649019736,2.9867785026679,2.99547317156819,1.29491096417091,1.74100783305688,1.17914322694157,0.821921718895883,1.04209073605791,1.57432026689611,1.51242081698092,0.664957438441089,1.01218333901143,1.88685939099383,0.624251462004321,0.617224196735339,0.617224196735341,0.803463648577492,0.955249350965729,0.997680505989619,0.845401342020434,1.35119338419446,1.05102550159434,1.36452588220721,1.19316002387353,0.830251938600764,0.888634371527647,0.613485728479062,0.627128590772057,0.611049767247046,0.718995985931966,0.625125976717887,0.886463454911225,1.02036116980728,0.624557882236552,0.948787020692459,0.790651084835105,0.623912497641955,0.888634371527647,0.709021881740161,1.39777837275038,1.05465000852174,1.25706493083837],"x":[0.170988932150405,0.630066830330033,0.412554902524762,0.277796770626724,0.0610885299098489,0.833726818029763,-0.604314654985877,0.20492741565567,0.180243933726765,0.61707078099363,-0.355694691157386,-0.20206121600297,-0.277627807634376,-0.388339624367154,-0.576090922401857,-0.504886685355006,-0.653815745278338,0.00997568186089381,0.954640255465018,-0.190031378705653,-0.394271326316379,-0.323458047844664,0.472243927659725,-0.00305511123042856,0.351090109036642,0.101440633216469,-0.16128937932381,0.423798207980854,-0.275953682745364,0.0289774786463795,0.325922278262633,-0.292513627634219,-0.337831181403856,-0.515147992677075,-0.397951526232832,-0.814445617467286,-0.621407118417493,-0.0444304824410591,-0.283755468526739,0.0381987536417987,-0.0486747922740154,-0.458485390925263,0.8646486481727,0.814814854174499,0.839510260684671,-0.176457057068041,0.0398578727393053,0.229873890717095,0.254250747561668,-0.106511059779056,0.433476407154901,-0.552192191467414,0.118115128164003,0.297983364680594,0.865098913873829,-1,-0.762478656885595,-0.842581500986489,-0.794245842272304,0.888322444711089,0.848856170457125,0.67975507746865,1,-0.837304301402688,-0.533190765769486,0.420433735275769,0.108898943804098,0.645576676298305,0.518081731936867,-0.407354374769814],"y":[-0.545616589444506,-0.602956488072018,-0.894165705657346,0.390085481194852,0.228019171084405,0.515884710434028,-0.503954844537587,0.468887007930699,-0.212092260886237,-0.365414905460226,0.344235445036816,0.361075352905,0.24198535459173,0.199030545712271,0.154346253867022,0.253168020610181,-0.0837939779597988,-0.164474727126975,0.567128390742838,-0.501013172376799,0.0204794445100511,0.060208408020743,-0.280556635606002,-0.418129533552622,-0.374486184190196,0.119488444120347,-0.260579868054466,-0.133718330196349,-0.535714287774434,-0.784772593803636,0.0866539207272186,0.456936699574836,0.582649388811016,0.633868345902967,-0.739191853840069,0.203241318459051,0.488519938479533,0.45316337220011,0.811642502224546,0.839367784446777,0.629085666312852,0.985599128829786,-0.384705692292032,-0.512447005594057,-0.256700559351286,-0.754727563769769,-1,-0.960011110153034,-0.851362382853396,-0.962974109615631,-0.695354687506243,0.843515308265358,-0.0218704544326156,1,0.0640223376210609,0.132551054483977,-0.635226631130633,-0.503760722216483,-0.378877627206285,0.337298830349852,0.669849178839245,0.646667974861504,0.436389723762206,0.536415425242669,-0.876734862626297,0.938725552860871,-0.333955483539712,0.0881287917736131,0.234785490450861,-0.555386509049811]},"edges":{"i":["IRQ","PAK","QAT","ASIE","EUROPE","MLI","MEX","CHN","IND","DEU","ITA","NLD","CHE","DNK","ESP","NLD","RWA","SYR","MLI","NER","IND","MEX","CHN","USA","DEU","ITA","EUROPE","CHN","USA","VEN","IRN","VEN","TUR","EUROPE","DEU","SDN","MAR","CHE","DEU","ITA","ASIE","DEU","GBR_WLS","IRL","ITA","MEX","PRT","ISL","POL","CHN","PAK","GBR","JPN","IRQ","USA","EUROPE","CHN","SYR","SRB","JPN","SYR","TUN","TUR","IND","ESP","MLI","ITA","IRN","DEU","ESP","GBR","IRN","QAT","CHN","SYR","UKR","USA","IRN","QAT","USA","IRQ","EUROPE","SYR","CHE","DEU","ESP","CHN","MEX","CHN","RUS","USA","IND","MLI","IRN","MLI","NER","GBR"],"j":["AFG","AFG","AFG","AFRIQUE","AFRIQUE","AF_ouest","ARG","AUS","AUS","AUT","AUT","AUT","BEL","BEL","BEL","BEL","BEL","BEL","BFA","BFA","BGD","BOL","CAN","CAN","CHE","CHE","CHN","CHN_HKG","COL","COL","CUB","CUB","CYP","DEU","DNK","EGY","ESH","ESP","ESP","ESP","EUROPE","GBR","GBR_ENG","GBR_ENG","GBR_ENG","GTM","HRV","HUN","HUN","IND","IND","IRL","IRL","IRN","IRN","ITA","JPN","KAZ","KOS","LBN","LBN","LBY","LBY","LKA","MAR","NER","NLD","OMN","POL","PRT","PRT","PSE","PSE","RUS","RUS","RUS","RUS","SAU","SAU","SDN","SYR","TUR","TUR","UKR","UKR","UKR","USA","USA","VAT","VEN","VEN","XX_himalaya","XX_maghre","XX_moyori","XX_sahel","XX_sahel","ZAF"],"size":[5.19448183260705,2.2892265803977,6.59047484328382,2.81928197535431,5.28179324611054,5.93992988355054,2.82236262324096,10.5461469993999,3.16922394767106,4.8890546362587,4.06014157164053,3.72555555312778,2.08706200540902,4.45521047048331,4.7437291664645,3.18973282842973,2.81937332092473,3.26871065223668,4.91410957379262,2.95575922464095,2.87968863488384,3.9076222843481,7.87732671821503,8.06944251786418,3.81193000971891,3.14889544587451,7.25963894153274,8.10922860428813,3.16403141058563,8.78066366641141,3.17567938408761,3.7218434780898,8.40768373987568,6.28486265234149,3.69428413800551,2.94243593815743,2.97284897836143,5.49482865298294,7.59231784627646,12.4251074661763,2.9837791620047,7.89988812983956,7.74422593336843,8.52069920951518,10.6466254339436,2.95389285483138,4.72530002358785,2.94563398871115,7.8154751095244,6.95786194568034,23.2307128271712,6.12124758488765,2.64844915880565,12.120906211451,24.8238162386651,6.62700438937682,7.48553289942129,3.79995910807878,5.9690588503867,2.81239841438801,2.39810209554819,2.84491027906352,11.9235860415353,2.87968863488384,5.23578169938251,2.87097352345767,3.35707434651777,7.52389314496347,2.69428413800553,8.46091101840172,5.54844908388743,2.48045706311512,2.92192770078649,8.18117912715902,10.3653822563216,15.1810393024724,9.78526109583663,8.95719808494926,4.84329698788629,2.1640314105856,9.25998178561915,7.85822319265941,39.6356182469057,2.50046050167241,3.20528683625312,2.76541845453537,14.7953211677685,6.54622760699821,2.3475410342738,4.5822930767875,6.24105063776144,4.87968863488383,2.94852648774887,8.34999380796797,3.87097352345767,2.93354053977685,3.34231473176821],"test":[33.4972476121967,7.37303645841393,106.06029433757,43.9820591893976,16.2363113935553,587.359724051479,44.842650361095,45.3251341892743,12.0898771724763,21.5157792781327,17.5396092478926,50.5740390728454,4.77121977640273,36.4340708858944,9.97352182650192,12.5568403530958,44.0071531151257,3.91187749360761,281.154419293898,197.47648008305,68.9262117994637,165.2943224389,19.871523731754,22.2196298643004,6.64092577638654,5.35655455384778,4.90694468039976,73.823192878856,11.9754436876458,351.515196598721,12.2342440014759,49.7997270755049,119.343584886447,4.53228640962374,10.4523010630139,150.405113416747,325.506390359482,20.0596044998324,10.6595189288625,33.745775317042,8.76083008214668,12.2366399115901,234.476607018355,151.475475234652,48.1651475143792,189.243618660699,81.2830805613844,159.598973508456,331.021202777371,11.9767910458701,701.514385680005,42.639623346813,19.9523998376682,78.1846910899759,75.3679064266047,5.95649170244219,22.2843252852353,72.1836874670473,1151.53004993928,42.1616097510579,9.55459990496294,52.1860149534744,68.4699231144729,68.9262117994661,35.871177098793,63.8821518906709,6.85968238682059,118.899712234737,5.55953039064706,46.5125903162345,21.2085479708407,11.8424615275272,109.355835227485,6.816673078923,16.1940225451632,126.70089827475,10.3911066509363,76.9382913236352,149.694159649256,5.60192333216924,49.2795201575002,8.64654180766046,292.854294515537,12.5161328410583,5.72451571102786,6.19443831537812,19.5366178482262,29.4771699400216,8.44642988615462,8.68484498264767,14.1179514188324,197.914479238287,168.898683395472,107.26420370726,116.134582768326,129.487360710105,16.9854310348604],"width":[8.93167715985802,6.73270407904618,9.9882972448386,7.13390034018788,8.99776272937754,9.49590303843507,7.13623206707111,12.9823255943963,7.39876965808535,8.70050085188746,8.07310072446579,7.81985425072961,6.57968672955312,8.37212638596683,8.59050473509505,7.41429272672849,7.13396947919047,7.4740706441423,8.7194648080275,7.2371992834034,7.17962183681238,7.95765964340911,10.9623089533844,11.1077204353895,7.88523064227703,7.38338311737095,10.4947841834909,11.1378343239956,7.39483945289485,11.6460401437766,7.40365574542453,7.81704459981296,11.3637335142605,9.75698091539076,7.79618507398499,7.22711495490837,7.25013443199678,9.15900815682008,10.7465871724121,14.4045013165497,7.25840743299442,10.9793855723113,10.8615656391127,11.4492743545236,13.0583772158831,7.23578663748633,8.57655580958932,7.22953554327951,10.915493782011,10.2663706939075,22.5832096392124,9.63314149416517,7.00459784099298,14.1742529176246,23.7890215946888,10.0159462744554,10.6657621834919,7.8761699270646,9.51795060685298,7.12869020753138,6.81511140858922,7.15329827430075,14.0249022739537,7.17962183681238,8.96293682119459,7.17302541282938,7.54095267968717,10.6947968603095,7.03929010610238,11.404020973531,9.19959319114739,6.87744546912076,7.21159237324216,11.1922933126931,12.8455056699897,16.4904522552698,12.4064148828564,11.779658156826,8.66586711809224,6.63794448501219,12.00883361622,10.9478495910225,34.9999999999999,6.89258597110512,7.42606547698042,7.09313131232759,16.1985041400913,9.95480673435131,6.77684199573983,8.46831457118388,9.72381982202232,8.69341177257763,7.23172486124577,11.3200682951021,7.92992038071201,7.22038207263679,7.52978120155534],"from":[1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,13,17,18,6,19,10,7,9,20,11,12,5,9,20,29,30,29,31,5,11,35,36,14,11,12,4,11,40,38,12,7,37,42,34,9,2,33,26,1,20,5,9,18,54,26,18,55,31,10,16,6,12,30,11,16,33,30,3,9,18,22,20,30,3,20,1,5,18,14,11,16,9,7,9,27,20,10,6,30,6,19,33],"to":[51,51,51,8,8,60,57,23,23,32,32,32,21,21,21,21,21,21,61,61,43,58,24,24,14,14,9,25,70,70,46,46,69,11,15,65,56,16,16,16,5,33,41,41,41,59,64,52,52,10,10,38,38,30,30,12,26,67,66,53,53,68,68,44,36,19,13,47,34,37,37,48,48,27,27,27,27,49,49,35,18,31,31,22,22,22,20,20,28,29,29,45,62,50,63,63,39]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","scaling":{"min":20,"max":60,"label":{"min":20,"max":80,"maxVisible":20}},"physics":false},"manipulation":{"enabled":false},"interaction":{"navigationButtons":true},"edges":{"smooth":true},"physics":{"stabilization":false}},"groups":null,"width":"100%","height":"700px","idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":{"text":"Network","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","legend":{"width":0.2,"useGroups":true,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true},"igraphlayout":{"type":"square"}},"evals":[],"jsHooks":[]}</script>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<script src="js/tidyverse.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="23-Wikidata.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ClaudeGrasland/media_cookbook/blob/master/31_geonetworks.Rmd",
+"text": "Source"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

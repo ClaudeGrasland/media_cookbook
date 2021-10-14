@@ -239,6 +239,7 @@ Admitting that we have established a list of wikipedia entities of interest, we 
 item_prop <- get_property("Q15")[[1]]
 
 
+
 ```
 
 The result is a very large object (list of list) which provide all the informations (or links toward these information) in all languages wher the object is available. The problem is therefore to understand the structure of this object and to extract exactly what we need. In our case, we want to extract for each language of interest. 
@@ -302,5 +303,130 @@ tab<-extract_def(entit,c("fr","de","tr","en","ar"))
 kable(tab)
 
 ```
+
+### Extraction of aliases
+
+Now we have to extract the *aliases* which are two texts corresponding to the same entity in a given,language. For example, the Q27394 which correspond to the southern part of Africa (a subregion, not a country) is associated in spanish language to one main label and three equivalenbt alisases
+
+```{r}
+item_prop <- get_property("Q27394")[[1]]
+item_prop$labels$es$value
+item_prop$aliases$es
+```
+
+But in french language, no aliases are mentioned : 
+
+```{r}
+item_prop$labels$fr$value
+item_prop$aliases$fr
+```
+The fact that no aliases are mentioned in french language can be considered as non logical as compared to spanish language. And we could certainly imagine to add in french the translation of two spanish aliases: "*Afrique méridionale*", "*Sud de l'Afrique*". But we can not add "*Afrique du Sud*" because it is related in french to the state and not to the subregion.
+
+Despite the fact that they are not complete, the aliases are certainly a good solution when we want to obtain more efficient dictionaries. For example, if we want to obtain the state of southern Africa (Q258), we can complete the official label by 4 alias in french language and 3 aliases in spanish, taking into account the fact that the text is in upper orlowercase, withor without accent, ...
+
+```{r}
+item_prop <- get_property("Q258")[[1]]
+item_prop$labels$es$value
+item_prop$aliases$es
+item_prop$labels$fr$value
+item_prop$aliases$fr
+lang="fr"
+is.null(item_prop[["aliases"]][[lang]])!=F
+ali <- item_prop[["aliases"]][[lang]]$value
+n<-length(ali)
+for (i in 1:n) { print(ali[i])}
+
+```
+
+
+We propose therefore a function called `extract_alias` which propose for each entity of interest a list of texts and aliases adapte to each language. We do not store the definition which has been otained previously with the function `extract_def` :
+
+```{r}
+extract_alias <- function(items = c("Q15", "Q258"),
+                          langs = c("fr","de","en","tr","ar")) {
+  # Create empty dataset
+  res<-data.frame()
+  res$id    <- as.character()
+  res$lang  <- as.character()
+  res$label <- as.character()
+
+  
+  # Loop of items
+  n <- length(items)
+  for (i in 1:n) {
+    
+     # Extract item properties
+    item_prop <- get_property(items[i])[[1]]
+  
+   
+     # Loop  of language
+     p<-length(langs)
+     for (j in 1:p) {
+        id <- items[i]
+        lang  <- langs[j]
+        if(is.null(item_prop[["labels"]][[lang]]$value)==F) {label <- item_prop[["labels"]][[lang]]$value} else { label <- NA}
+        if(is.null(item_prop[["descriptions"]][[lang]]$value)==F) {desc <- item_prop[["descriptions"]][[lang]]$value}else { desc <- NA}
+        add <-data.frame(id,lang,label)
+        res<- rbind(res,add) 
+           # Loop of aliases
+              if (is.null(item_prop[["aliases"]][[lang]])==F) {
+                ali <- item_prop[["aliases"]][[lang]]$value
+                n<-length(ali)
+               for (k in 1:n) {
+                        label <- ali[k]
+                        add <-data.frame(id,lang,label)
+                        res<- rbind(res,add) 
+                  }
+              }
+        
+        }
+  
+  }
+  # Export result
+return(res)
+
+}
+
+
+```
+
+
+Let's try the function on the case of the continent of "Africa" (Q15), the subregion "South of Africa" (Q27394) and the state of "Southern Africa" (Q258) in five languages : 
+
+
+```{r}
+tab<- extract_alias(items = c("Q15", "Q27394", "Q258"),
+              langs = c("fr","de","en","tr","ar"))
+kable(tab)
+```
+
+
+The function works !
+
+## Conclusion
+
+It is now possible to develop a global research strategy for the analysis of world regions :
+
+**1. Define a set of target regions in one language** : In our example, it was based on the use of the term "Afrique" in french language, but we can imagine a different list.
+
+**2. Identify the code of the wikidata entities associated to this target regions** : We have generally a lot of entities of minor interest.
+
+**3. Identify the code of the other wikidata entities that should be added for control** : As we have seen, some entities are likely to create confusion and ambiguity  in the definition of target entities. This entity will be transformed in compound or eliminate from the text before to look for the target entities.
+
+**4. Extract the properties of the entities in the different languages of interest** : this step can be an opportunity to return to step 1. For example, it it appears that some subdivisions of Africa are available in english or german language but not in french.
+
+**5. Compare the definitions of Wikipedia entities in different languages** : it is important to check if the assumption of identity of the entities is correct or not. If not, some entities will be eliminated from the list. 
+
+**6. Extract the dictionary of recognition of entities** : which can be done in a multilanguage perspective. 
+
+It is obviously possible to apply the same procedure to different objects like organizations, people, etc...
+
+
+
+
+
+
+
+
 
 

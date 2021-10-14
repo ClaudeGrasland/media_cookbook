@@ -1,3 +1,5 @@
+tab:unnamed-chunk-71
+tab:unnamed-chunk-74
 introduction
 c21_mediacloud
 selection-of-media-with-source-manager
@@ -65,3 +67,5 @@ without-france
 preferential-links
 with-france-1
 without-france-1
+extraction-of-aliases
+conclusion
