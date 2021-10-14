@@ -1,3 +1,93 @@
+--- 
+title: "The media cookbook"
+subtitle: "Working paper of the ANR-DFG Imageun Project"
+author: "Claude Grasland"
+date: "`r Sys.Date()`"
+documentclass: book
+link-citations: yes
+description: "A reminder of some experiments made in 2021"
+site: bookdown::bookdown_site
+always_allow_html: yes
+---
+--- 
+title: "The media cookbook"
+subtitle: "Working paper of the ANR-DFG Imageun Project"
+author: "Claude Grasland"
+date: "`r Sys.Date()`"
+documentclass: book
+link-citations: yes
+description: "A reminder of some experiments made in 2021"
+site: bookdown::bookdown_site
+always_allow_html: yes
+---
+
+```{r setup, include = FALSE, cache = FALSE}
+library(knitr)
+library(tidyverse)
+
+knitr::opts_chunk$set(cache = TRUE,
+                      echo = TRUE,
+                      comment = "")
+
+```
+
+
+
+# Introduction
+
+The aim of this cookbook is to exchange ideas and programs between members of the "Media Group" of the ANR-DFG project IMAGEUN. 
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# Import from Media Cloud {#c21_mediacloud}
+
+Placeholder
+
+
+## Selection of media with source manager
+## Checking the stability through time
+## Selection of news specifically related to a topic (option)
+## Download and storage of news
+
+<!--chapter:end:21-corpus-mediacloud.Rmd-->
+
+
+# Creation of a quanteda corpus {#c22_mediacloud_to_quanteda}
+
+Placeholder
+
+
+## Example 
+### Importation of text to R
+### encoding problems
+### Transformation in quanteda format
+### Storage of the quanteda object
+### Backtransformation of quanteda to data.table or tibble
+## Germany
+### Frankfurter Allgemeine Zeitung 
+### Süddeutsche Zeitung
+## France
+### Le Figaro
+### Le Monde
+## Royaume-Uni
+### The Guardian
+### The Daily Telegraph
+## Ireland
+### The Irish Time
+### The Belfast Telegraph
+## Turkey
+### The Yeni Sati
+### Cumhuryet
+## Tunisia
+### Réalités
+### L'économiste Maghrebin
+### La Presse
+### Babnet
+
+<!--chapter:end:22-mediacloud_to_quanteda.Rmd-->
+
 # Wikidata {#c23_wikidata}
 
 ```{r}
@@ -302,4 +392,38 @@ tab<-extract_def(entit,c("fr","de","tr","en"))
 
 ```
 
+
+
+<!--chapter:end:23-Wikidata.Rmd-->
+
+
+# Geonetworks {#c31_geonetworks}
+
+Placeholder
+
+
+## Geotags
+### Select corpus
+### Tokenize 
+### identify geotags
+## Hypercubes
+### Load data
+### Hypercube Function
+### Build hypercube
+## Linkages
+###  Select links
+### Create interaction matrix
+### Estimate random model
+#### Model wit France
+## Visualization
+### Function
+#### Model without France
+### Raw network
+#### With France
+#### Without France
+### Preferential links 
+#### With France
+#### Without France
+
+<!--chapter:end:31_geonetworks.Rmd-->
 
