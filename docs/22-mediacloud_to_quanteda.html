@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Creation of a quanteda corpus | The media cookbook</title>
+  <meta name="description" content="A reminder of some experiments made in 2021" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Creation of a quanteda corpus | The media cookbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A reminder of some experiments made in 2021" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Creation of a quanteda corpus | The media cookbook" />
+  
+  <meta name="twitter:description" content="A reminder of some experiments made in 2021" />
+  
+
+<meta name="author" content="Claude Grasland" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="21-corpus-mediacloud.html"/>
+<link rel="next" href="23-Wikidata.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">The Media Cookbook  <em>C. Grasland (2021)</em></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html"><i class="fa fa-check"></i><b>2</b> Import from Media Cloud</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-media-with-source-manager"><i class="fa fa-check"></i><b>2.1</b> Selection of media with source manager</a></li>
+<li class="chapter" data-level="2.2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#checking-the-stability-through-time"><i class="fa fa-check"></i><b>2.2</b> Checking the stability through time</a></li>
+<li class="chapter" data-level="2.3" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-news-specifically-related-to-a-topic-option"><i class="fa fa-check"></i><b>2.3</b> Selection of news specifically related to a topic (option)</a></li>
+<li class="chapter" data-level="2.4" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#download-and-storage-of-news"><i class="fa fa-check"></i><b>2.4</b> Download and storage of news</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html"><i class="fa fa-check"></i><b>3</b> Creation of a quanteda corpus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#example"><i class="fa fa-check"></i><b>3.1</b> Example</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#importation-of-text-to-r"><i class="fa fa-check"></i><b>3.1.1</b> Importation of text to R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#encoding-problems"><i class="fa fa-check"></i><b>3.1.2</b> encoding problems</a></li>
+<li class="chapter" data-level="3.1.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#transformation-in-quanteda-format"><i class="fa fa-check"></i><b>3.1.3</b> Transformation in quanteda format</a></li>
+<li class="chapter" data-level="3.1.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#storage-of-the-quanteda-object"><i class="fa fa-check"></i><b>3.1.4</b> Storage of the quanteda object</a></li>
+<li class="chapter" data-level="3.1.5" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.1.5</b> Backtransformation of quanteda to data.table or tibble</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#germany"><i class="fa fa-check"></i><b>3.2</b> Germany</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#frankfurter-allgemeine-zeitung"><i class="fa fa-check"></i><b>3.2.1</b> Frankfurter Allgemeine Zeitung</a></li>
+<li class="chapter" data-level="3.2.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#süddeutsche-zeitung"><i class="fa fa-check"></i><b>3.2.2</b> Süddeutsche Zeitung</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#france"><i class="fa fa-check"></i><b>3.3</b> France</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-figaro"><i class="fa fa-check"></i><b>3.3.1</b> Le Figaro</a></li>
+<li class="chapter" data-level="3.3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-monde"><i class="fa fa-check"></i><b>3.3.2</b> Le Monde</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#royaume-uni"><i class="fa fa-check"></i><b>3.4</b> Royaume-Uni</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-guardian"><i class="fa fa-check"></i><b>3.4.1</b> The Guardian</a></li>
+<li class="chapter" data-level="3.4.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-daily-telegraph"><i class="fa fa-check"></i><b>3.4.2</b> The Daily Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#ireland"><i class="fa fa-check"></i><b>3.5</b> Ireland</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-irish-time"><i class="fa fa-check"></i><b>3.5.1</b> The Irish Time</a></li>
+<li class="chapter" data-level="3.5.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-belfast-telegraph"><i class="fa fa-check"></i><b>3.5.2</b> The Belfast Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#turkey"><i class="fa fa-check"></i><b>3.6</b> Turkey</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-yeni-sati"><i class="fa fa-check"></i><b>3.6.1</b> The Yeni Sati</a></li>
+<li class="chapter" data-level="3.6.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#cumhuryet"><i class="fa fa-check"></i><b>3.6.2</b> Cumhuryet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#tunisia"><i class="fa fa-check"></i><b>3.7</b> Tunisia</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#réalités"><i class="fa fa-check"></i><b>3.7.1</b> Réalités</a></li>
+<li class="chapter" data-level="3.7.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#léconomiste-maghrebin"><i class="fa fa-check"></i><b>3.7.2</b> L’économiste Maghrebin</a></li>
+<li class="chapter" data-level="3.7.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#la-presse"><i class="fa fa-check"></i><b>3.7.3</b> La Presse</a></li>
+<li class="chapter" data-level="3.7.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#babnet"><i class="fa fa-check"></i><b>3.7.4</b> Babnet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="23-Wikidata.html"><a href="23-Wikidata.html"><i class="fa fa-check"></i><b>4</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikidata"><i class="fa fa-check"></i><b>4.2</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#codification-of-entities"><i class="fa fa-check"></i><b>4.2.1</b> Codification of entities</a></li>
+<li class="chapter" data-level="4.2.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#informations-on-entities"><i class="fa fa-check"></i><b>4.2.2</b> Informations on entities</a></li>
+<li class="chapter" data-level="4.2.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikipedia-entities-as-nodes-of-an-ontolongy"><i class="fa fa-check"></i><b>4.2.3</b> Wikipedia entities as nodes of an ontolongy</a></li>
+<li class="chapter" data-level="4.2.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#a-tool-for-cross-linguistical-experiments"><i class="fa fa-check"></i><b>4.2.4</b> A tool for cross-linguistical experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#the-package-wikidatar"><i class="fa fa-check"></i><b>4.3</b> The package WikidataR</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#basic-operations"><i class="fa fa-check"></i><b>4.3.1</b> Basic operations</a></li>
+<li class="chapter" data-level="4.3.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#elaboration-of-a-cross_linguistic-dictionnary"><i class="fa fa-check"></i><b>4.3.2</b> Elaboration of a cross_linguistic dictionnary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>5</b> Geonetworks</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#geotags"><i class="fa fa-check"></i><b>5.1</b> Geotags</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-corpus"><i class="fa fa-check"></i><b>5.1.1</b> Select corpus</a></li>
+<li class="chapter" data-level="5.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize"><i class="fa fa-check"></i><b>5.1.2</b> Tokenize</a></li>
+<li class="chapter" data-level="5.1.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#identify-geotags"><i class="fa fa-check"></i><b>5.1.3</b> identify geotags</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercubes"><i class="fa fa-check"></i><b>5.2</b> Hypercubes</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#load-data"><i class="fa fa-check"></i><b>5.2.1</b> Load data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercube-function"><i class="fa fa-check"></i><b>5.2.2</b> Hypercube Function</a></li>
+<li class="chapter" data-level="5.2.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#build-hypercube"><i class="fa fa-check"></i><b>5.2.3</b> Build hypercube</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#linkages"><i class="fa fa-check"></i><b>5.3</b> Linkages</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-links"><i class="fa fa-check"></i><b>5.3.1</b> Select links</a></li>
+<li class="chapter" data-level="5.3.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#create-interaction-matrix"><i class="fa fa-check"></i><b>5.3.2</b> Create interaction matrix</a></li>
+<li class="chapter" data-level="5.3.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#estimate-random-model"><i class="fa fa-check"></i><b>5.3.3</b> Estimate random model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#visualization"><i class="fa fa-check"></i><b>5.4</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#function"><i class="fa fa-check"></i><b>5.4.1</b> Function</a></li>
+<li class="chapter" data-level="5.4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network"><i class="fa fa-check"></i><b>5.4.2</b> Raw network</a></li>
+<li class="chapter" data-level="5.4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#preferential-links"><i class="fa fa-check"></i><b>5.4.3</b> Preferential links</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The media cookbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c22_mediacloud_to_quanteda" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Creation of a quanteda corpus</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="22-mediacloud_to_quanteda.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb1-2"><a href="22-mediacloud_to_quanteda.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="22-mediacloud_to_quanteda.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="22-mediacloud_to_quanteda.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb1-5"><a href="22-mediacloud_to_quanteda.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-6"><a href="22-mediacloud_to_quanteda.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readtext)</span>
+<span id="cb1-7"><a href="22-mediacloud_to_quanteda.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="22-mediacloud_to_quanteda.html#cb1-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-9"><a href="22-mediacloud_to_quanteda.html#cb1-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-10"><a href="22-mediacloud_to_quanteda.html#cb1-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">comment =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p>In the previous section (ref…) whe have obtained a .csv file of news collected from MediaCloud. We will try now to put this data in a standard form and we have chosen the format of the <code>quanteda</code> package as reference for data organization and storage.</p>
+<p>But of course the researchers involved in the project can prefer to use other R packages like <code>tm</code> or <code>tidytext</code>. And they can also prefer to use another programming language for Python. It is the reason why we explain how to transform and export the data that has been prepared and harmonized with quanteda in various format like .csv or JSON.</p>
+<div id="example" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Example</h2>
+<p>We detail here an example of importation with the example of the newspaper “L’économiste maghrebin”</p>
+<div id="importation-of-text-to-r" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Importation of text to R</h3>
+<p>This step is not always obvious because many problems of encoding can appear that are more or less easy to solve. In principle , the data from Media Cloud are exported in standard <code>UTF-8</code> but as we will see it is not necessary the case.</p>
+<p>We try firstly to use the standard R function <code>read.csv()</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="22-mediacloud_to_quanteda.html#cb2-1" aria-hidden="true" tabindex="-1"></a>store <span class="ot">&lt;-</span> <span class="st">&quot;corpus/TUN/&quot;</span></span>
+<span id="cb2-2"><a href="22-mediacloud_to_quanteda.html#cb2-2" aria-hidden="true" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="st">&quot;fr_TUN_ecomag&quot;</span></span>
+<span id="cb2-3"><a href="22-mediacloud_to_quanteda.html#cb2-3" aria-hidden="true" tabindex="-1"></a>type <span class="ot">&lt;-</span><span class="st">&quot;.csv&quot;</span></span>
+<span id="cb2-4"><a href="22-mediacloud_to_quanteda.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="22-mediacloud_to_quanteda.html#cb2-5" aria-hidden="true" tabindex="-1"></a>fic <span class="ot">&lt;-</span> <span class="fu">paste</span>(store,media,type,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb2-6"><a href="22-mediacloud_to_quanteda.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="22-mediacloud_to_quanteda.html#cb2-7" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read.csv</span>(fic,</span>
+<span id="cb2-8"><a href="22-mediacloud_to_quanteda.html#cb2-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,</span>
+<span id="cb2-9"><a href="22-mediacloud_to_quanteda.html#cb2-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">header=</span>T,</span>
+<span id="cb2-10"><a href="22-mediacloud_to_quanteda.html#cb2-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
+<span id="cb2-11"><a href="22-mediacloud_to_quanteda.html#cb2-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb2-12"><a href="22-mediacloud_to_quanteda.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code>  stories_id        publish_date
+1 1129295780 2019-01-02 03:42:46
+2 1129295771 2019-01-02 04:06:27
+3 1129295760 2019-01-02 06:05:08
+4 1129578051 2019-01-02 10:05:06
+5 1129461662 2019-01-02 07:52:36
+6 1129461636 2019-01-02 08:57:54
+                                                                            title
+1                 Les tarifs de l&amp;#8217;ADSL réduits à partir du 1er janvier 2019
+2                                   6ème Sfax Marathon International des Oliviers
+3                        Télécharger la version finale de la Loi de finances 2019
+4 Chawki Tabib : 245 dossiers de corruption présumée transmis au ministère public
+5                       Panoro Energy finalise l&amp;#8217;acquisition de OMV Tunisia
+6              La partie syndicale maintient le boycott des examens du secondaire
+                                                                                                        url
+1                       https://www.leconomistemaghrebin.com/2019/01/02/tarifs-adsl-reduits-1-janvier-2019/
+2                     https://www.leconomistemaghrebin.com/2019/01/02/sfax-marathon-international-oliviers/
+3 https://www.leconomistemaghrebin.com/2019/01/02/telecharger-la-version-finale-de-la-loi-de-finances-2019/
+4 https://www.leconomistemaghrebin.com/2019/01/02/chawki-tabib-245-dossiers-transferes-au-ministere-public/
+5       https://www.leconomistemaghrebin.com/2019/01/02/panoro-energy-finalise-lacquisition-de-omv-tunisia/
+6              https://www.leconomistemaghrebin.com/2019/01/02/partie-syndicale-boycott-examens-secondaire/
+  language ap_syndicated themes media_id             media_name
+1       fr         False          623820 L&#39;Economiste Maghrebin
+2       fr         False          623820 L&#39;Economiste Maghrebin
+3       en         False          623820 L&#39;Economiste Maghrebin
+4       fr         False          623820 L&#39;Economiste Maghrebin
+5       fr         False          623820 L&#39;Economiste Maghrebin
+6       fr         False          623820 L&#39;Economiste Maghrebin
+                             media_url
+1 http://www.leconomistemaghrebin.com/
+2 http://www.leconomistemaghrebin.com/
+3 http://www.leconomistemaghrebin.com/
+4 http://www.leconomistemaghrebin.com/
+5 http://www.leconomistemaghrebin.com/
+6 http://www.leconomistemaghrebin.com/</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="22-mediacloud_to_quanteda.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div>
+<pre><code>&#39;data.frame&#39;:   12794 obs. of  10 variables:
+ $ stories_id   : int  1129295780 1129295771 1129295760 1129578051 1129461662 1129461636 1130259352 1131673651 1132241460 1132432991 ...
+ $ publish_date : chr  &quot;2019-01-02 03:42:46&quot; &quot;2019-01-02 04:06:27&quot; &quot;2019-01-02 06:05:08&quot; &quot;2019-01-02 10:05:06&quot; ...
+ $ title        : chr  &quot;Les tarifs de l&amp;#8217;ADSL réduits à partir du 1er janvier 2019&quot; &quot;6ème Sfax Marathon International des Oliviers&quot; &quot;Télécharger la version finale de la Loi de finances 2019&quot; &quot;Chawki Tabib : 245 dossiers de corruption présumée transmis au ministère public&quot; ...
+ $ url          : chr  &quot;https://www.leconomistemaghrebin.com/2019/01/02/tarifs-adsl-reduits-1-janvier-2019/&quot; &quot;https://www.leconomistemaghrebin.com/2019/01/02/sfax-marathon-international-oliviers/&quot; &quot;https://www.leconomistemaghrebin.com/2019/01/02/telecharger-la-version-finale-de-la-loi-de-finances-2019/&quot; &quot;https://www.leconomistemaghrebin.com/2019/01/02/chawki-tabib-245-dossiers-transferes-au-ministere-public/&quot; ...
+ $ language     : chr  &quot;fr&quot; &quot;fr&quot; &quot;en&quot; &quot;fr&quot; ...
+ $ ap_syndicated: chr  &quot;False&quot; &quot;False&quot; &quot;False&quot; &quot;False&quot; ...
+ $ themes       : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+ $ media_id     : int  623820 623820 623820 623820 623820 623820 623820 623820 623820 623820 ...
+ $ media_name   : chr  &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; &quot;L&#39;Economiste Maghrebin&quot; ...
+ $ media_url    : chr  &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; &quot;http://www.leconomistemaghrebin.com/&quot; ...</code></pre>
+<p>The importation was successfull for 13623 news but message of errors appeared for 3 news where R sent a message of error telling :</p>
+<p><code>Error in gregexpr(calltext, singleline, fixed = TRUE) : regular expression is invalid UTF-8</code></p>
+<p>Looking in more details, we discover also some problems of encoding in news like in the following example where the text of the news appears differently if we apply the standard functions <code>paste()</code> o0 the specialized function r <code>knitr::kable</code> for printing.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="22-mediacloud_to_quanteda.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(df[<span class="dv">9</span>, <span class="dv">3</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Néji Jalloul : &amp;#8220;Nidaa Tounes peut revenir si&amp;#8230;&amp;#8221;&quot;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="22-mediacloud_to_quanteda.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>((df[<span class="dv">9</span>,<span class="dv">3</span>]))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Néji Jalloul : “Nidaa Tounes peut revenir si…”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="encoding-problems" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> encoding problems</h3>
+<p>It is sometime possible to adapt manually the encoding problem whan they are not too much as in present example.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="22-mediacloud_to_quanteda.html#cb9-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span>df<span class="sc">$</span>title</span>
+<span id="cb9-2"><a href="22-mediacloud_to_quanteda.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># standardize apostrophe</span></span>
+<span id="cb9-3"><a href="22-mediacloud_to_quanteda.html#cb9-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&quot;&amp;#8217;&quot;</span>,<span class="st">&quot;&#39;&quot;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb9-4"><a href="22-mediacloud_to_quanteda.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="22-mediacloud_to_quanteda.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># standardize punct</span></span>
+<span id="cb9-6"><a href="22-mediacloud_to_quanteda.html#cb9-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8230;&#39;</span>,<span class="st">&#39;.&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb9-7"><a href="22-mediacloud_to_quanteda.html#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="22-mediacloud_to_quanteda.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># standardize hyphens</span></span>
+<span id="cb9-9"><a href="22-mediacloud_to_quanteda.html#cb9-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8211;&#39;</span>,<span class="st">&#39;-&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb9-10"><a href="22-mediacloud_to_quanteda.html#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="22-mediacloud_to_quanteda.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove quotation marks</span></span>
+<span id="cb9-12"><a href="22-mediacloud_to_quanteda.html#cb9-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#171;&amp;#160;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb9-13"><a href="22-mediacloud_to_quanteda.html#cb9-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#160;&amp;#187;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb9-14"><a href="22-mediacloud_to_quanteda.html#cb9-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8220;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb9-15"><a href="22-mediacloud_to_quanteda.html#cb9-15" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8221;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb9-16"><a href="22-mediacloud_to_quanteda.html#cb9-16" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8216;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span>
+<span id="cb9-17"><a href="22-mediacloud_to_quanteda.html#cb9-17" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>text<span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&#39;&amp;#8243;&#39;</span>,<span class="st">&#39;&#39;</span>,df<span class="sc">$</span>text)</span></code></pre></div>
+<p>We can introduce othr cleaning procedures here or keep it for later analysis</p>
+</div>
+<div id="transformation-in-quanteda-format" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Transformation in quanteda format</h3>
+<p>We propose a storage based on <code>quanteda</code> format by just transforming the data that has been produced by readtext. We keep only the name of the source and the date of publication.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="22-mediacloud_to_quanteda.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Quanteda corpus</span></span>
+<span id="cb10-2"><a href="22-mediacloud_to_quanteda.html#cb10-2" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus</span>(df,<span class="at">docid_field =</span> <span class="st">&quot;stories_id&quot;</span>)</span>
+<span id="cb10-3"><a href="22-mediacloud_to_quanteda.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="22-mediacloud_to_quanteda.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="22-mediacloud_to_quanteda.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Select docvar fields and rename media</span></span>
+<span id="cb10-6"><a href="22-mediacloud_to_quanteda.html#cb10-6" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>date <span class="ot">&lt;-</span><span class="fu">as.Date</span>(qd<span class="sc">$</span>publish_date)</span>
+<span id="cb10-7"><a href="22-mediacloud_to_quanteda.html#cb10-7" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>source <span class="ot">&lt;-</span>media</span>
+<span id="cb10-8"><a href="22-mediacloud_to_quanteda.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[,<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb10-9"><a href="22-mediacloud_to_quanteda.html#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="22-mediacloud_to_quanteda.html#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="22-mediacloud_to_quanteda.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="22-mediacloud_to_quanteda.html#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="22-mediacloud_to_quanteda.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Add global meta</span></span>
+<span id="cb10-14"><a href="22-mediacloud_to_quanteda.html#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_source&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Media Cloud &quot;</span></span>
+<span id="cb10-15"><a href="22-mediacloud_to_quanteda.html#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_time&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Download the 2021-09-30&quot;</span></span>
+<span id="cb10-16"><a href="22-mediacloud_to_quanteda.html#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;meta_author&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;Elaborated by Claude Grasland&quot;</span></span>
+<span id="cb10-17"><a href="22-mediacloud_to_quanteda.html#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd,<span class="st">&quot;project&quot;</span>)<span class="ot">&lt;-</span><span class="st">&quot;ANR-DFG Project IMAGEUN&quot;</span></span></code></pre></div>
+<p>We have created a quanteda object with a lot of information stored in various fields. The structure of the object is the following one</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="22-mediacloud_to_quanteda.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(qd)</span></code></pre></div>
+<pre><code> &#39;corpus&#39; Named chr [1:12794] &quot;Les tarifs de l&#39;ADSL réduits à partir du 1er janvier 2019&quot; ...
+ - attr(*, &quot;names&quot;)= chr [1:12794] &quot;1129295780&quot; &quot;1129295771&quot; &quot;1129295760&quot; &quot;1129578051&quot; ...
+ - attr(*, &quot;docvars&quot;)=&#39;data.frame&#39;: 12794 obs. of  5 variables:
+  ..$ docname_: chr [1:12794] &quot;1129295780&quot; &quot;1129295771&quot; &quot;1129295760&quot; &quot;1129578051&quot; ...
+  ..$ docid_  : Factor w/ 12794 levels &quot;1129295780&quot;,&quot;1129295771&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+  ..$ segid_  : int [1:12794] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ source  : chr [1:12794] &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; ...
+  ..$ date    : Date[1:12794], format: &quot;2019-01-02&quot; &quot;2019-01-02&quot; ...
+ - attr(*, &quot;meta&quot;)=List of 3
+  ..$ system:List of 6
+  .. ..$ package-version:Classes &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
+  .. .. ..$ : int [1:3] 3 0 0
+  .. ..$ r-version      :Classes &#39;R_system_version&#39;, &#39;package_version&#39;, &#39;numeric_version&#39;  hidden list of 1
+  .. .. ..$ : int [1:3] 4 0 2
+  .. ..$ system         : Named chr [1:3] &quot;Darwin&quot; &quot;x86_64&quot; &quot;claudegrasland1&quot;
+  .. .. ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;sysname&quot; &quot;machine&quot; &quot;user&quot;
+  .. ..$ directory      : chr &quot;/Users/claudegrasland1/git/media_cookbook&quot;
+  .. ..$ created        : Date[1:1], format: &quot;2021-10-14&quot;
+  .. ..$ source         : chr &quot;data.frame&quot;
+  ..$ object:List of 2
+  .. ..$ unit   : chr &quot;documents&quot;
+  .. ..$ summary:List of 2
+  .. .. ..$ hash: chr(0) 
+  .. .. ..$ data: NULL
+  ..$ user  :List of 4
+  .. ..$ meta_source: chr &quot;Media Cloud &quot;
+  .. ..$ meta_time  : chr &quot;Download the 2021-09-30&quot;
+  .. ..$ meta_author: chr &quot;Elaborated by Claude Grasland&quot;
+  .. ..$ project    : chr &quot;ANR-DFG Project IMAGEUN&quot;</code></pre>
+<p>We can look at the first titles with <em>head()</em></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="22-mediacloud_to_quanteda.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(qd,<span class="dv">3</span>))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1129295780</td>
+<td align="left">Les tarifs de l’ADSL réduits à partir du 1er janvier 2019</td>
+</tr>
+<tr class="even">
+<td align="left">1129295771</td>
+<td align="left">6ème Sfax Marathon International des Oliviers</td>
+</tr>
+<tr class="odd">
+<td align="left">1129295760</td>
+<td align="left">Télécharger la version finale de la Loi de finances 2019</td>
+</tr>
+</tbody>
+</table>
+<p>We can get meta information on each stories with <em>summary()</em></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="22-mediacloud_to_quanteda.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">head</span>(qd,<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>Corpus consisting of 3 documents, showing 3 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1129295780    11     11         1 fr_TUN_ecomag 2019-01-02
+ 1129295771     6      6         1 fr_TUN_ecomag 2019-01-02
+ 1129295760     8     10         1 fr_TUN_ecomag 2019-01-02</code></pre>
+<p>We can get meta information about the full document</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="22-mediacloud_to_quanteda.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span>(qd)</span></code></pre></div>
+<pre><code>$meta_source
+[1] &quot;Media Cloud &quot;
+
+$meta_time
+[1] &quot;Download the 2021-09-30&quot;
+
+$meta_author
+[1] &quot;Elaborated by Claude Grasland&quot;
+
+$project
+[1] &quot;ANR-DFG Project IMAGEUN&quot;</code></pre>
+</div>
+<div id="storage-of-the-quanteda-object" class="section level3" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Storage of the quanteda object</h3>
+<p>We can finally save the object in .RDS format in a directory dedicated to our quanteda files. It can be usefull to give some information in the name of the file</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="22-mediacloud_to_quanteda.html#cb18-1" aria-hidden="true" tabindex="-1"></a>store <span class="ot">&lt;-</span> <span class="st">&quot;quanteda/&quot;</span></span>
+<span id="cb18-2"><a href="22-mediacloud_to_quanteda.html#cb18-2" aria-hidden="true" tabindex="-1"></a>type<span class="ot">&lt;-</span> <span class="st">&quot;.RDS&quot;</span></span>
+<span id="cb18-3"><a href="22-mediacloud_to_quanteda.html#cb18-3" aria-hidden="true" tabindex="-1"></a>myfile <span class="ot">&lt;-</span> <span class="fu">paste</span>(store,media,type,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb18-4"><a href="22-mediacloud_to_quanteda.html#cb18-4" aria-hidden="true" tabindex="-1"></a>myfile</span></code></pre></div>
+<pre><code>[1] &quot;quanteda/fr_TUN_ecomag.RDS&quot;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="22-mediacloud_to_quanteda.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,myfile)</span>
+<span id="cb20-2"><a href="22-mediacloud_to_quanteda.html#cb20-2" aria-hidden="true" tabindex="-1"></a>qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>Corpus consisting of 3 documents and 2 docvars.
+1129295780 :
+&quot;Les tarifs de l&#39;ADSL réduits à partir du 1er janvier 2019&quot;
+
+1129295771 :
+&quot;6ème Sfax Marathon International des Oliviers&quot;
+
+1129295760 :
+&quot;Télécharger la version finale de la Loi de finances 2019&quot;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="22-mediacloud_to_quanteda.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 12794 documents, showing 3 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1129295780    11     11         1 fr_TUN_ecomag 2019-01-02
+ 1129295771     6      6         1 fr_TUN_ecomag 2019-01-02
+ 1129295760     8     10         1 fr_TUN_ecomag 2019-01-02</code></pre>
+<p>We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.6 Mb which means a division by 6 as compared to the initial .csv file downloaded from Media Cloud.</p>
+</div>
+<div id="backtransformation-of-quanteda-to-data.table-or-tibble" class="section level3" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Backtransformation of quanteda to data.table or tibble</h3>
+<p>In the following steps, we will make an intensive use of quanteda, but sometimes it can be usefull to export the results in a more practical format or to use other packages. For this reasons, it is important to know that the <code>tidytext</code>package can easily transform quanteda object in tibbles which are more classical and easy to manage</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="22-mediacloud_to_quanteda.html#cb24-1" aria-hidden="true" tabindex="-1"></a>td <span class="ot">&lt;-</span> <span class="fu">tidy</span>(qd)</span></code></pre></div>
+<pre><code>Warning: &#39;texts.corpus&#39; is deprecated.
+Use &#39;as.character&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="22-mediacloud_to_quanteda.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(td)</span></code></pre></div>
+<pre><code># A tibble: 6 × 3
+  text                                                     source     date      
+  &lt;chr&gt;                                                    &lt;chr&gt;      &lt;date&gt;    
+1 Les tarifs de l&#39;ADSL réduits à partir du 1er janvier 20… fr_TUN_ec… 2019-01-02
+2 6ème Sfax Marathon International des Oliviers            fr_TUN_ec… 2019-01-02
+3 Télécharger la version finale de la Loi de finances 2019 fr_TUN_ec… 2019-01-02
+4 Chawki Tabib : 245 dossiers de corruption présumée tran… fr_TUN_ec… 2019-01-02
+5 Panoro Energy finalise l&#39;acquisition de OMV Tunisia      fr_TUN_ec… 2019-01-02
+6 La partie syndicale maintient le boycott des examens du… fr_TUN_ec… 2019-01-02</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="22-mediacloud_to_quanteda.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(td)</span></code></pre></div>
+<pre><code>tibble [12,794 × 3] (S3: tbl_df/tbl/data.frame)
+ $ text  : chr [1:12794] &quot;Les tarifs de l&#39;ADSL réduits à partir du 1er janvier 2019&quot; &quot;6ème Sfax Marathon International des Oliviers&quot; &quot;Télécharger la version finale de la Loi de finances 2019&quot; &quot;Chawki Tabib : 245 dossiers de corruption présumée transmis au ministère public&quot; ...
+ $ source: chr [1:12794] &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; &quot;fr_TUN_ecomag&quot; ...
+ $ date  : Date[1:12794], format: &quot;2019-01-02&quot; &quot;2019-01-02&quot; ...</code></pre>
+</div>
+</div>
+<div id="germany" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Germany</h2>
+<div id="frankfurter-allgemeine-zeitung" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Frankfurter Allgemeine Zeitung</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="22-mediacloud_to_quanteda.html#cb30-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/de_DEU_frankf.RDS&quot;</span>)</span>
+<span id="cb30-2"><a href="22-mediacloud_to_quanteda.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 88313 documents, showing 3 documents:
+
+       Text Types Tokens Sentences        source       date
+  930016745     5      5         1 de_DEU_frankf 2020-09-06
+ 1118202030    10     10         1 de_DEU_frankf 2021-07-06
+ 1128764967    14     14         1 de_DEU_frankf 2019-01-01</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="22-mediacloud_to_quanteda.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Bundestagswahl: Durchmarsch der AfD&quot;                                                         
+[2] &quot;Kahl folgt auf Schindler: CSU kritisiert Wechsel an BND-Spitze&quot;                              
+[3] &quot;Dramatisches Ende einer Bergtour: Drei Deutsche nach eisiger Nacht in Tiroler Alpen gerettet&quot;
+[4] &quot;Trotz Gelbwesten-Protesten: Macron kündigt für 2019 weitere Reformen an&quot;                     
+[5] &quot;May wirbt in Neujahrsansprache für Brexit-Abkommen&quot;                                          </code></pre>
+</div>
+<div id="süddeutsche-zeitung" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Süddeutsche Zeitung</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="22-mediacloud_to_quanteda.html#cb34-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/de_DEU_suddeu.RDS&quot;</span>)</span>
+<span id="cb34-2"><a href="22-mediacloud_to_quanteda.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 35444 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+  931884497     4      4         1 de_DEU_suddeu 2019-06-17
+ 1128842071     8      8         1 de_DEU_suddeu 2019-01-01
+ 1128842047     8      8         1 de_DEU_suddeu 2019-01-01
+ 1128842007     4      4         1 de_DEU_suddeu 2019-01-01
+ 1128842024     5      5         1 de_DEU_suddeu 2019-01-01</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="22-mediacloud_to_quanteda.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;EU setzt Russland Ultimatum&quot;                                   
+[2] &quot;Flüchtlinge : Großbritannien verlegt Schiffe in den Ärmelkanal&quot;
+[3] &quot;Zugang zum Internet : Buena Vista Netz Club&quot;                   
+[4] &quot;Brasilien: Bolsonaros Plan&quot;                                    
+[5] &quot;Dirty Dancing: Getanzter Dreck&quot;                                </code></pre>
+</div>
+</div>
+<div id="france" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> France</h2>
+<div id="le-figaro" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Le Figaro</h3>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="22-mediacloud_to_quanteda.html#cb38-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_figaro.RDS&quot;</span>)</span>
+<span id="cb38-2"><a href="22-mediacloud_to_quanteda.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 128807 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128863317    12     12         1 fr_FRA_figaro 2019-01-01
+ 1128915698    11     11         1 fr_FRA_figaro 2019-01-01
+ 1128915693     8      8         1 fr_FRA_figaro 2019-01-01
+ 1128915594     8      8         1 fr_FRA_figaro 2019-01-01
+ 1128915683     8      8         1 fr_FRA_figaro 2019-01-01</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="22-mediacloud_to_quanteda.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Légion d&#39;honneur : autant de femmes distinguées que d&#39;hommes ce 1er janvier&quot;
+[2] &quot;Tokyo : une voiture fonce dans la foule, 9 blessés&quot;                         
+[3] &quot;Thaïlande : le roi sera couronné en mai&quot;                                    
+[4] &quot;Ces joueurs qui pourraient enflammer le mercato hivernal&quot;                   
+[5] &quot;Strasbourg : 9 blessés à cause des pétards&quot;                                 </code></pre>
+</div>
+<div id="le-monde" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Le Monde</h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="22-mediacloud_to_quanteda.html#cb42-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_lmonde.RDS&quot;</span>)</span>
+<span id="cb42-2"><a href="22-mediacloud_to_quanteda.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 49731 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128825289    12     12         1 fr_FRA_lmonde 2019-01-01
+ 1128864671    11     11         1 fr_FRA_lmonde 2019-01-01
+ 1128864634     9      9         1 fr_FRA_lmonde 2019-01-01
+ 1128864655    13     13         1 fr_FRA_lmonde 2019-01-01
+ 1128908122    11     11         1 fr_FRA_lmonde 2019-01-01</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="22-mediacloud_to_quanteda.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Les pesticides de synthèse interdits aux particuliers à partir du 1er janvier&quot; 
+[2] &quot;Mauritanie : un député antiesclavagiste libéré après cinq mois de prison&quot;      
+[3] &quot;Jeanne Calment était-elle vraiment la doyenne de l’humanité ?&quot;                 
+[4] &quot;Italie : après l’adoption du budget, 2019 commence dans une ambiance chaotique&quot;
+[5] &quot;Pérou : destitution de deux procureurs qui enquêtaient sur l’affaire Odebrecht&quot;</code></pre>
+</div>
+</div>
+<div id="royaume-uni" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Royaume-Uni</h2>
+<div id="the-guardian" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> The Guardian</h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="22-mediacloud_to_quanteda.html#cb46-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_GBR_guardi.RDS&quot;</span>)</span>
+<span id="cb46-2"><a href="22-mediacloud_to_quanteda.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 77875 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128777161    12     12         1 en_GBR_guardi 2019-01-01
+ 1128777148    10     10         1 en_GBR_guardi 2019-01-01
+ 1128795880    11     11         1 en_GBR_guardi 2019-01-01
+ 1128795872     9      9         1 en_GBR_guardi 2019-01-01
+ 1128795860    12     13         1 en_GBR_guardi 2019-01-01</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="22-mediacloud_to_quanteda.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Toxic legacy taints ANC as it nears 25-year rule in South Africa&quot;     
+[2] &quot;Why Trump’s Middle East peace plan is just a sideshow&quot;                
+[3] &quot;Preparations for the Harbin ice and snow festival – in pictures&quot;      
+[4] &quot;Turning air into drinking water: Africa&#39;s inspired inventors&quot;         
+[5] &quot;&#39;Resign from Facebook&#39;: experts offer Mark Zuckerberg advice for 2019&quot;</code></pre>
+</div>
+<div id="the-daily-telegraph" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> The Daily Telegraph</h3>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="22-mediacloud_to_quanteda.html#cb50-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_GBR_telegr.RDS&quot;</span>)</span>
+<span id="cb50-2"><a href="22-mediacloud_to_quanteda.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 41803 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1001621055    10     13         2 en_GBR_telegr 2020-03-15
+  794012047     6      7         1 en_GBR_telegr 2021-04-15
+ 1020025042    11     11         1 en_GBR_telegr 2020-07-06
+ 1071998286     7      7         1 en_GBR_telegr 2021-06-26
+ 1080057597    11     12         1 en_GBR_telegr 2020-06-15</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="22-mediacloud_to_quanteda.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Guant?namo &#39;suicides&#39; were at secret &#39;black&#39; site&quot;                             
+[2] &quot;IKEA founder &#39;was Nazi recruiter&#39;&quot;                                             
+[3] &quot;Europe tells Britain to justify itself over fingerprinting children in schools&quot;
+[4] &quot;Sumo champion Asashoryu outrages sport with celebration&quot;                       
+[5] &quot;Barack Obama meets Jewish leaders over &#39;tough line&#39; on Israel&quot;                 </code></pre>
+</div>
+</div>
+<div id="ireland" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Ireland</h2>
+<div id="the-irish-time" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> The Irish Time</h3>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="22-mediacloud_to_quanteda.html#cb54-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_IRL_irtime.RDS&quot;</span>)</span>
+<span id="cb54-2"><a href="22-mediacloud_to_quanteda.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 108479 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1003842232     8      9         1 en_IRL_irtime 2020-01-15
+ 1128791232     8      8         1 en_IRL_irtime 2019-01-01
+ 1128791226     7      7         1 en_IRL_irtime 2019-01-01
+ 1128803852    10     10         1 en_IRL_irtime 2019-01-01
+ 1128874798    11     11         1 en_IRL_irtime 2019-01-01</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="22-mediacloud_to_quanteda.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Strong corporate tax receipts ‘sustainable’ until 2020&quot;      
+[2] &quot;Number of British people becoming Irish citizens surges&quot;     
+[3] &quot;7 tips to build your physical stamina&quot;                       
+[4] &quot;Having a baby abroad changed my perspective on living away&quot;  
+[5] &quot;New Year’s Eve celebrations around the world to ring in 2019&quot;</code></pre>
+</div>
+<div id="the-belfast-telegraph" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> The Belfast Telegraph</h3>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="22-mediacloud_to_quanteda.html#cb58-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_NIR_beltel.RDS&quot;</span>)</span>
+<span id="cb58-2"><a href="22-mediacloud_to_quanteda.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 99932 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128845104     8      8         1 en_NIR_beltel 2019-01-01
+ 1128845083    11     11         1 en_NIR_beltel 2019-01-01
+ 1128845064     9      9         1 en_NIR_beltel 2019-01-01
+ 1128845042    11     11         1 en_NIR_beltel 2019-01-01
+ 1128905097    10     10         1 en_NIR_beltel 2019-01-01</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="22-mediacloud_to_quanteda.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Officer disarmed knifeman in Foyleside Centre court told&quot;               
+[2] &quot;Hoaxers are putting lives at risk, warns fire service officer&quot;          
+[3] &quot;The volunteers providing a lifeline to elderly Belfast residents&quot;       
+[4] &quot;Tributes to Northern Ireland man Christopher Donnelly after death in US&quot;
+[5] &quot;Belfast bar to build rooftop terrace in £350k extension&quot;                </code></pre>
+</div>
+</div>
+<div id="turkey" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Turkey</h2>
+<div id="the-yeni-sati" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> The Yeni Sati</h3>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="22-mediacloud_to_quanteda.html#cb62-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_yenisa.RDS&quot;</span>)</span>
+<span id="cb62-2"><a href="22-mediacloud_to_quanteda.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 97638 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128735746     4      4         1 tr_TUR_yenisa 2019-01-01
+ 1128760707     5      5         1 tr_TUR_yenisa 2019-01-01
+ 1128776505     7      7         1 tr_TUR_yenisa 2019-01-01
+ 1128776514     7      7         1 tr_TUR_yenisa 2019-01-01
+ 1128796514     4      4         1 tr_TUR_yenisa 2019-01-01</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="22-mediacloud_to_quanteda.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Bingöl&#39;de 4.2 şiddetinde deprem&quot;                     
+[2] &quot;Pentagon&#39;da deprem: Görevden alındı&quot;                 
+[3] &quot;Cumhurbaşkanı Erdoğan en seçkin dünya lideri seçildi&quot;
+[4] &quot;Japonya&#39;da araçlı saldırı: Yayaların arasında daldı&quot; 
+[5] &quot;Almanya&#39;da Mekke&#39;nin fethi kutlandı&quot;                 </code></pre>
+</div>
+<div id="cumhuryet" class="section level3" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Cumhuryet</h3>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="22-mediacloud_to_quanteda.html#cb66-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_cumhur.RDS&quot;</span>)</span>
+<span id="cb66-2"><a href="22-mediacloud_to_quanteda.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 133713 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1129020777     7      7         1 tr_TUR_cumhur 2019-01-01
+ 1129020771     8      8         1 tr_TUR_cumhur 2019-01-01
+ 1129020761     5      5         1 tr_TUR_cumhur 2019-01-01
+ 1129000336     6      6         1 tr_TUR_cumhur 2019-01-01
+ 1129020744     4      4         1 tr_TUR_cumhur 2019-01-01</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="22-mediacloud_to_quanteda.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Hakkari-Şırnak kara yolunda çığ düşmesi sonucu kapandı&quot;
+[2] &quot;Adana&#39;da 10 araç birbirine girdi: Yaralılar var&quot;       
+[3] &quot;CHP binasında  partililerden oturma eylemi&quot;            
+[4] &quot;Suriye sınırına askeri sevkiyat devam ediyor&quot;          
+[5] &quot;İsveç&#39;te camiye silahlı saldırı&quot;                       </code></pre>
+</div>
+</div>
+<div id="tunisia" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Tunisia</h2>
+<div id="réalités" class="section level3" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> Réalités</h3>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="22-mediacloud_to_quanteda.html#cb70-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_TUN_realit.RDS&quot;</span>)</span>
+<span id="cb70-2"><a href="22-mediacloud_to_quanteda.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 23042 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128872823     8      8         1 fr_TUN_realit 2019-01-01
+ 1128936210    11     11         1 fr_TUN_realit 2019-01-01
+ 1128961861    12     12         1 fr_TUN_realit 2019-01-01
+ 1129004162    10     10         1 fr_TUN_realit 2019-01-01
+ 1129004150     5      5         1 fr_TUN_realit 2019-01-01</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="22-mediacloud_to_quanteda.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;L&#39;Est de la Turquie frappé par un séisme&quot;                                  
+[2] &quot;Enfidha : un Omda auteur d&#39;un trafic de logements sociaux ?&quot;               
+[3] &quot;Russie : la mort d&#39;un tunisien en prison suscite encore des interrogations&quot;
+[4] &quot;Abattage de vaches malades à Sousse: Ouverture d&#39;une enquête&quot;              
+[5] &quot;Quels remèdes aux incertitudes ?&quot;                                          </code></pre>
+</div>
+<div id="léconomiste-maghrebin" class="section level3" number="3.7.2">
+<h3><span class="header-section-number">3.7.2</span> L’économiste Maghrebin</h3>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="22-mediacloud_to_quanteda.html#cb74-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_TUN_ecomag.RDS&quot;</span>)</span>
+<span id="cb74-2"><a href="22-mediacloud_to_quanteda.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 12794 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1129295780    11     11         1 fr_TUN_ecomag 2019-01-02
+ 1129295771     6      6         1 fr_TUN_ecomag 2019-01-02
+ 1129295760     8     10         1 fr_TUN_ecomag 2019-01-02
+ 1129578051    12     12         1 fr_TUN_ecomag 2019-01-02
+ 1129461662     7      7         1 fr_TUN_ecomag 2019-01-02</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="22-mediacloud_to_quanteda.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Les tarifs de l&#39;ADSL réduits à partir du 1er janvier 2019&quot;                      
+[2] &quot;6ème Sfax Marathon International des Oliviers&quot;                                  
+[3] &quot;Télécharger la version finale de la Loi de finances 2019&quot;                       
+[4] &quot;Chawki Tabib : 245 dossiers de corruption présumée transmis au ministère public&quot;
+[5] &quot;Panoro Energy finalise l&#39;acquisition de OMV Tunisia&quot;                            </code></pre>
+</div>
+<div id="la-presse" class="section level3" number="3.7.3">
+<h3><span class="header-section-number">3.7.3</span> La Presse</h3>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="22-mediacloud_to_quanteda.html#cb78-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_TUN_presse.RDS&quot;</span>)</span>
+<span id="cb78-2"><a href="22-mediacloud_to_quanteda.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 11553 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1319140184    16     21         1 fr_TUN_presse 2019-04-24
+ 1332556981     6      6         1 fr_TUN_presse 2019-07-08
+ 1378389487    11     12         1 fr_TUN_presse 2019-08-29
+ 1378389531    21     24         1 fr_TUN_presse 2019-08-29
+ 1378389503    12     12         1 fr_TUN_presse 2019-08-29</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="22-mediacloud_to_quanteda.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;Grève de 24 heures à l&#39;aéroport de Tunis Carthage à partir de ce soir à minuit | La Presse de Tunisie&quot;                              
+[2] &quot;Accueil | La Presse de Tunisie&quot;                                                                                                     
+[3] &quot;Nomination de Najet Neili, coordinatrice des Journées cinématographiques de Carthage 2019&quot;                                          
+[4] &quot;40ème jour du décès du président de la République Béji Caïd Essebsi : « On fait tout pour empêcher l’organisation de la cérémonie »&quot;
+[5] &quot;Iyadh Elloumi : « Nous entamerons une grève de la faim »&quot;                                                                           </code></pre>
+</div>
+<div id="babnet" class="section level3" number="3.7.4">
+<h3><span class="header-section-number">3.7.4</span> Babnet</h3>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="22-mediacloud_to_quanteda.html#cb82-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/ar_TUN_babnet.RDS&quot;</span>)</span>
+<span id="cb82-2"><a href="22-mediacloud_to_quanteda.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 42649 documents, showing 5 documents:
+
+       Text Types Tokens Sentences        source       date
+ 1128915717    17     17         1 ar_TUN_babnet 2019-01-01
+ 1128915704    13     13         1 ar_TUN_babnet 2019-01-01
+ 1128915643    11     11         1 ar_TUN_babnet 2019-01-01
+ 1128915651    16     16         1 ar_TUN_babnet 2019-01-01
+ 1128915618     6      6         1 ar_TUN_babnet 2019-01-01</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="22-mediacloud_to_quanteda.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(qd[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>[1] &quot;سعد الحريري: على كل القوى السياسية أن تتنازل لتشكيل الحكومة وواثق من أننا سنصل إلى حل &quot;          
+[2] &quot;مقتل أكثر من 300 شخص في حوادث سير بتايلاند خلال احتفالات العام الجديد &quot;                          
+[3] &quot; المرزوقي يطالب التونسيين بالكثير من العمل ويدعوهم للكفّ عن الشتم والخصام   &quot;                     
+[4] &quot; مع انطلاق سنة 2019:  البنك المركزي التونسي يسمح لمؤسسات الدفع الانطلاق في اسداء خدماتها للعملاء&quot;
+[5] &quot;Seoul Welcomes Kim&#39;s New Year Address &quot;                                                          </code></pre>
+
+</div>
+</div>
+</div>
+<script src="js/tidyverse.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="21-corpus-mediacloud.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="23-Wikidata.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ClaudeGrasland/media_cookbook/blob/master/22-mediacloud_to_quanteda.Rmd",
+"text": "Source"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

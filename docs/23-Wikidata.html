@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Wikidata | The media cookbook</title>
+  <meta name="description" content="A reminder of some experiments made in 2021" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Wikidata | The media cookbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A reminder of some experiments made in 2021" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Wikidata | The media cookbook" />
+  
+  <meta name="twitter:description" content="A reminder of some experiments made in 2021" />
+  
+
+<meta name="author" content="Claude Grasland" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="22-mediacloud_to_quanteda.html"/>
+<link rel="next" href="31_geonetworks.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">The Media Cookbook  <em>C. Grasland (2021)</em></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html"><i class="fa fa-check"></i><b>2</b> Import from Media Cloud</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-media-with-source-manager"><i class="fa fa-check"></i><b>2.1</b> Selection of media with source manager</a></li>
+<li class="chapter" data-level="2.2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#checking-the-stability-through-time"><i class="fa fa-check"></i><b>2.2</b> Checking the stability through time</a></li>
+<li class="chapter" data-level="2.3" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-news-specifically-related-to-a-topic-option"><i class="fa fa-check"></i><b>2.3</b> Selection of news specifically related to a topic (option)</a></li>
+<li class="chapter" data-level="2.4" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#download-and-storage-of-news"><i class="fa fa-check"></i><b>2.4</b> Download and storage of news</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html"><i class="fa fa-check"></i><b>3</b> Creation of a quanteda corpus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#example"><i class="fa fa-check"></i><b>3.1</b> Example</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#importation-of-text-to-r"><i class="fa fa-check"></i><b>3.1.1</b> Importation of text to R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#encoding-problems"><i class="fa fa-check"></i><b>3.1.2</b> encoding problems</a></li>
+<li class="chapter" data-level="3.1.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#transformation-in-quanteda-format"><i class="fa fa-check"></i><b>3.1.3</b> Transformation in quanteda format</a></li>
+<li class="chapter" data-level="3.1.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#storage-of-the-quanteda-object"><i class="fa fa-check"></i><b>3.1.4</b> Storage of the quanteda object</a></li>
+<li class="chapter" data-level="3.1.5" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.1.5</b> Backtransformation of quanteda to data.table or tibble</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#germany"><i class="fa fa-check"></i><b>3.2</b> Germany</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#frankfurter-allgemeine-zeitung"><i class="fa fa-check"></i><b>3.2.1</b> Frankfurter Allgemeine Zeitung</a></li>
+<li class="chapter" data-level="3.2.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#süddeutsche-zeitung"><i class="fa fa-check"></i><b>3.2.2</b> Süddeutsche Zeitung</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#france"><i class="fa fa-check"></i><b>3.3</b> France</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-figaro"><i class="fa fa-check"></i><b>3.3.1</b> Le Figaro</a></li>
+<li class="chapter" data-level="3.3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-monde"><i class="fa fa-check"></i><b>3.3.2</b> Le Monde</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#royaume-uni"><i class="fa fa-check"></i><b>3.4</b> Royaume-Uni</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-guardian"><i class="fa fa-check"></i><b>3.4.1</b> The Guardian</a></li>
+<li class="chapter" data-level="3.4.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-daily-telegraph"><i class="fa fa-check"></i><b>3.4.2</b> The Daily Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#ireland"><i class="fa fa-check"></i><b>3.5</b> Ireland</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-irish-time"><i class="fa fa-check"></i><b>3.5.1</b> The Irish Time</a></li>
+<li class="chapter" data-level="3.5.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-belfast-telegraph"><i class="fa fa-check"></i><b>3.5.2</b> The Belfast Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#turkey"><i class="fa fa-check"></i><b>3.6</b> Turkey</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-yeni-sati"><i class="fa fa-check"></i><b>3.6.1</b> The Yeni Sati</a></li>
+<li class="chapter" data-level="3.6.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#cumhuryet"><i class="fa fa-check"></i><b>3.6.2</b> Cumhuryet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#tunisia"><i class="fa fa-check"></i><b>3.7</b> Tunisia</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#réalités"><i class="fa fa-check"></i><b>3.7.1</b> Réalités</a></li>
+<li class="chapter" data-level="3.7.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#léconomiste-maghrebin"><i class="fa fa-check"></i><b>3.7.2</b> L’économiste Maghrebin</a></li>
+<li class="chapter" data-level="3.7.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#la-presse"><i class="fa fa-check"></i><b>3.7.3</b> La Presse</a></li>
+<li class="chapter" data-level="3.7.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#babnet"><i class="fa fa-check"></i><b>3.7.4</b> Babnet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="23-Wikidata.html"><a href="23-Wikidata.html"><i class="fa fa-check"></i><b>4</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikidata"><i class="fa fa-check"></i><b>4.2</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#codification-of-entities"><i class="fa fa-check"></i><b>4.2.1</b> Codification of entities</a></li>
+<li class="chapter" data-level="4.2.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#informations-on-entities"><i class="fa fa-check"></i><b>4.2.2</b> Informations on entities</a></li>
+<li class="chapter" data-level="4.2.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikipedia-entities-as-nodes-of-an-ontolongy"><i class="fa fa-check"></i><b>4.2.3</b> Wikipedia entities as nodes of an ontolongy</a></li>
+<li class="chapter" data-level="4.2.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#a-tool-for-cross-linguistical-experiments"><i class="fa fa-check"></i><b>4.2.4</b> A tool for cross-linguistical experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#the-package-wikidatar"><i class="fa fa-check"></i><b>4.3</b> The package WikidataR</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#basic-operations"><i class="fa fa-check"></i><b>4.3.1</b> Basic operations</a></li>
+<li class="chapter" data-level="4.3.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#elaboration-of-a-cross_linguistic-dictionnary"><i class="fa fa-check"></i><b>4.3.2</b> Elaboration of a cross_linguistic dictionnary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>5</b> Geonetworks</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#geotags"><i class="fa fa-check"></i><b>5.1</b> Geotags</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-corpus"><i class="fa fa-check"></i><b>5.1.1</b> Select corpus</a></li>
+<li class="chapter" data-level="5.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize"><i class="fa fa-check"></i><b>5.1.2</b> Tokenize</a></li>
+<li class="chapter" data-level="5.1.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#identify-geotags"><i class="fa fa-check"></i><b>5.1.3</b> identify geotags</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercubes"><i class="fa fa-check"></i><b>5.2</b> Hypercubes</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#load-data"><i class="fa fa-check"></i><b>5.2.1</b> Load data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercube-function"><i class="fa fa-check"></i><b>5.2.2</b> Hypercube Function</a></li>
+<li class="chapter" data-level="5.2.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#build-hypercube"><i class="fa fa-check"></i><b>5.2.3</b> Build hypercube</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#linkages"><i class="fa fa-check"></i><b>5.3</b> Linkages</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-links"><i class="fa fa-check"></i><b>5.3.1</b> Select links</a></li>
+<li class="chapter" data-level="5.3.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#create-interaction-matrix"><i class="fa fa-check"></i><b>5.3.2</b> Create interaction matrix</a></li>
+<li class="chapter" data-level="5.3.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#estimate-random-model"><i class="fa fa-check"></i><b>5.3.3</b> Estimate random model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#visualization"><i class="fa fa-check"></i><b>5.4</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#function"><i class="fa fa-check"></i><b>5.4.1</b> Function</a></li>
+<li class="chapter" data-level="5.4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network"><i class="fa fa-check"></i><b>5.4.2</b> Raw network</a></li>
+<li class="chapter" data-level="5.4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#preferential-links"><i class="fa fa-check"></i><b>5.4.3</b> Preferential links</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The media cookbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c23_wikidata" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Wikidata</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="23-Wikidata.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-2"><a href="23-Wikidata.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="23-Wikidata.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span></code></pre></div>
+<p><strong>Authors</strong> : Claude Grasland &amp; Etienne Toureille</p>
+<div id="introduction-1" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>The objective of this short note is to explore the possibility of Wikidata for the production of multilingual dictionaries of world regions and more generally regional imaginations. In order to test the interest of this approach, we will try to produce multilingual dictionaries for the identification of five groups of entities :</p>
+<ul>
+<li>Europe and its subregions</li>
+<li>Africa and its subregions</li>
+<li>Asia and its subregions</li>
+<li>Mediterranea</li>
+<li>Middle East, Near East, Persian Gulf …</li>
+</ul>
+<p>The dictionary will be established in five languages of interest for the project IMAGEUN :</p>
+<ul>
+<li>english : applied to media of UK and Ireland</li>
+<li>french : applied to media of France and Tunisia</li>
+<li>german : applied to media of Germany</li>
+<li>turkish : applied to media of Turkey</li>
+<li>arabic : applied to media of Tunisia</li>
+</ul>
+</div>
+<div id="wikidata" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Wikidata</h2>
+<p><a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a> defines itself as</p>
+<ul>
+<li>a free and open knowledge base that can be read and edited by both humans and machines.</li>
+<li>as central storage for the structured data of its Wikimedia sister projects including Wikipedia, Wikivoyage, Wiktionary, Wikisource, and others.</li>
+<li>a support to many other sites and services beyond just Wikimedia projects! The content of Wikidata is available under a free license, exported using standard formats, and can be interlinked to other open data sets on the linked data web.</li>
+</ul>
+<div id="codification-of-entities" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Codification of entities</h3>
+<p>The first interest of wikidata is to provide unique code of identifications of objects. For example a research about “Africa” will produce a list of different objects characterized by a unique code :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="23-Wikidata.html#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/Wikidata001.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/Wikidata001.png" width="353" /></p>
+</div>
+<div id="informations-on-entities" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Informations on entities</h3>
+<p>Once we have selected an entity (e.g. <strong>Q15</strong>) we obtain a new page with more detailed informations in english but also in all other languages available in Wikipedia.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="23-Wikidata.html#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/Wikidata002.png&quot;</span>)</span></code></pre></div>
+<p><img src="pics/Wikidata002.png" width="500" /></p>
+<p>A lot of information are available concerning the entity but, at this stage, the most important ones for our research are :</p>
+<ol style="list-style-type: decimal">
+<li>the <strong>translation</strong> in different languages</li>
+<li>the <strong>equivalent</strong> words or expression in different languages</li>
+<li>the <strong>definitions</strong> in different languages</li>
+<li>the <strong>ambiguity</strong> of the term in each language and the potential risks of confusion with other entities.</li>
+</ol>
+<p>Of course we should not take for granted the answers proposed by wikidata (as noticed by Georg, Wikipedia is a matter of research for IMAGEUN …) but without any doubt, it offers a very good opportunity to clarify our questions and help us to build tools for recognition of world regions and other geographical imaginations in a multilingual perspective.</p>
+</div>
+<div id="wikipedia-entities-as-nodes-of-an-ontolongy" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Wikipedia entities as nodes of an ontolongy</h3>
+<p>It appears crucial to introduce here a clear distinction between <strong>Wikipedia entities</strong> and <strong>textual units</strong> associated to the names and definiton of this units.</p>
+<p>A <strong>wikipedia entity</strong> like <em>Q15</em> is an <strong>element of an ontology</strong> designed by its author for specific purposes. The specificity of the wikidata ontology is the fact that it is a <strong>multilinligual web</strong> where Q15 is a <strong>node of the web</strong> present in different linguistic layers. It means that we don’t have a single name or a single definition of Q15, except if we adopt the neocolonial perspective to choose the english language as reference. Depending on the context (i.e. the language or sub-language), Q15 could be defined as :</p>
+<ul>
+<li>(fr) : A <em>“continent”</em> named <em>“Afrique”</em>"</li>
+<li>(en) : A <em>“continent on the Earth’s northern and southern hemispheres”</em> named <em>“Africa”</em> or <em>“African continent”</em></li>
+<li>(de) : A <em>“Kontinent auf der Nord- und Südhalbkugel der Erde”</em> named <em>“Afrika”</em></li>
+<li>(tr) : A <em>“Dünya’nın kuzey ve güney yarıkürelerindeki bir kıta”</em> named <em>“Afrika”</em> or <em>“Afrika kıtası”</em></li>
+<li>(ar) : The <em>" ثاني أكبر قارات العالم من حيث المساحة وعدد السكان، تأتي في المرتبة الثانية بعد آسيا"</em> <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> named <em>“إفريقيا”</em> or <em>“القارة الأفريقية”</em></li>
+</ul>
+<p>In other words the <strong>existence of the same code of wikipedia entities does not offer any guarantee of concordance between the geographical objects found in news published in different languages or different countries</strong>. But - and it is the important point - it help us to point similarities and differences between set of geographical entities that are more or less comparable in each language.</p>
+</div>
+<div id="a-tool-for-cross-linguistical-experiments" class="section level3" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> A tool for cross-linguistical experiments</h3>
+<p>Having in mind the limits of the equivalence of entities across languages, it can nevertheless be an interesting experience to select a set of wikipedia entities (Q15, Q258, Q4412 …) and to examine their relative frequency in our different media from different countries with different languages. A typical hypothesis could be something like :</p>
+<ul>
+<li>Is <em>Q15</em> more mentionned than <em>Q46</em> in Tunisian newspapers ?</li>
+</ul>
+<p>which is <strong>not equivalent</strong> to the question</p>
+<ul>
+<li>Is Africa more mentionned than Europe in Tunisian newspapers</li>
+</ul>
+<p>but rather equivalent to the two joint questions</p>
+<ul>
+<li>Is the textual unit “<em>Afrique</em>” more mentionned than the textual unit “<em>Europe</em>” in Tunisian newspapers published <strong>in french language</strong>.</li>
+<li>Is the textual unit <em>“إفريقيا”</em> more mentionned than the textual unit “<em>أوروبا</em>” in Tunisian newspapers published <strong>in arabic language</strong>.</li>
+</ul>
+</div>
+</div>
+<div id="the-package-wikidatar" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> The package WikidataR</h2>
+<p>The package <a href="https://cran.r-project.org/web/packages/WikidataR/WikidataR.pdf">WikidataR</a> is an interface for the use of the Wikidata API in R language. Equivalent tools are available in Python and other languages for those non familiar with R. And it is of course possible to use directly the API. The first step is to install the most recent version of the R package <code>WikidataR</code> which install also related packages of interest.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="23-Wikidata.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;WikidataR&quot;)</span></span>
+<span id="cb4-2"><a href="23-Wikidata.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span></code></pre></div>
+<div id="basic-operations" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Basic operations</h3>
+<p>(based on Etienne Toureille previous experiments)</p>
+<div id="identification-of-entities-of-interest" class="section level4" number="4.3.1.1">
+<h4><span class="header-section-number">4.3.1.1</span> identification of entities of interest</h4>
+<p>The function <code>find_item</code> will help to find all wikipedia entities (=items) associated to a textual unit (word or group of word) in given language. Let’s start with the research of entities associated to “<em>Afrique</em>” in french language :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="23-Wikidata.html#cb5-1" aria-hidden="true" tabindex="-1"></a>mytext <span class="ot">&lt;-</span> <span class="st">&quot;Afrique&quot;</span></span>
+<span id="cb5-2"><a href="23-Wikidata.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="23-Wikidata.html#cb5-3" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">find_item</span>(<span class="at">search_term =</span> mytext,</span>
+<span id="cb5-4"><a href="23-Wikidata.html#cb5-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">language =</span> <span class="st">&quot;fr&quot;</span>,</span>
+<span id="cb5-5"><a href="23-Wikidata.html#cb5-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">limit=</span><span class="dv">30</span>)</span>
+<span id="cb5-6"><a href="23-Wikidata.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(items)</span></code></pre></div>
+<pre><code>[1] &quot;find_item&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="23-Wikidata.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(items)</span></code></pre></div>
+<pre><code>[1] 30</code></pre>
+<p>The resulting object is an object from type <code>find_item</code> which is in practice a <code>list</code> describing the entities that has been recognized associated to the textual unit that we have chosen. In the french cas, we have found 50 entities that match with our textual unit. Let’s have a look at the first one :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="23-Wikidata.html#cb9-1" aria-hidden="true" tabindex="-1"></a>items[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>$id
+[1] &quot;Q15&quot;
+
+$title
+[1] &quot;Q15&quot;
+
+$pageid
+[1] 111
+
+$repository
+[1] &quot;wikidata&quot;
+
+$url
+[1] &quot;//www.wikidata.org/wiki/Q15&quot;
+
+$concepturi
+[1] &quot;http://www.wikidata.org/entity/Q15&quot;
+
+$label
+[1] &quot;Africa&quot;
+
+$description
+[1] &quot;continent on the Earth&#39;s northern and southern hemispheres&quot;
+
+$match
+$match$type
+[1] &quot;label&quot;
+
+$match$language
+[1] &quot;fr&quot;
+
+$match$text
+[1] &quot;Afrique&quot;
+
+
+$aliases
+$aliases[[1]]
+[1] &quot;Afrique&quot;</code></pre>
+<p>As we can see we can easily identify the code the label and description in english but also the text responsible from the matching answer in french. We can therefore create a function <code>item_info</code> that extract all elements of interest and put them in a table in order to have a complete view.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="23-Wikidata.html#cb11-1" aria-hidden="true" tabindex="-1"></a>item_info <span class="ot">&lt;-</span> <span class="cf">function</span>(my_item){ </span>
+<span id="cb11-2"><a href="23-Wikidata.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-3"><a href="23-Wikidata.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="23-Wikidata.html#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>id) <span class="sc">==</span> F){item_id <span class="ot">=</span> my_item<span class="sc">$</span>id}</span>
+<span id="cb11-5"><a href="23-Wikidata.html#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_id  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb11-6"><a href="23-Wikidata.html#cb11-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-7"><a href="23-Wikidata.html#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>label) <span class="sc">==</span>F){item_label <span class="ot">=</span> my_item<span class="sc">$</span>label}</span>
+<span id="cb11-8"><a href="23-Wikidata.html#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_label  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb11-9"><a href="23-Wikidata.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-10"><a href="23-Wikidata.html#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>desc) <span class="sc">==</span> F) {item_desc<span class="ot">=</span> my_item<span class="sc">$</span>desc}</span>
+<span id="cb11-11"><a href="23-Wikidata.html#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_desc  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb11-12"><a href="23-Wikidata.html#cb11-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-13"><a href="23-Wikidata.html#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>match<span class="sc">$</span>lang) <span class="sc">==</span>F){item_lang <span class="ot">=</span> my_item<span class="sc">$</span>match<span class="sc">$</span>lang}</span>
+<span id="cb11-14"><a href="23-Wikidata.html#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_lang  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb11-15"><a href="23-Wikidata.html#cb11-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-16"><a href="23-Wikidata.html#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>match<span class="sc">$</span>text) <span class="sc">==</span>F){item_text <span class="ot">=</span> my_item<span class="sc">$</span>match<span class="sc">$</span>text}</span>
+<span id="cb11-17"><a href="23-Wikidata.html#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_text  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb11-18"><a href="23-Wikidata.html#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="23-Wikidata.html#cb11-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-20"><a href="23-Wikidata.html#cb11-20" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>(item_id,item_label,item_desc,item_lang,item_text)</span>
+<span id="cb11-21"><a href="23-Wikidata.html#cb11-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-22"><a href="23-Wikidata.html#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res) </span>
+<span id="cb11-23"><a href="23-Wikidata.html#cb11-23" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>For example :</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="23-Wikidata.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">item_info</span>(items[[<span class="dv">1</span>]])</span></code></pre></div>
+<pre><code>  item_id item_label                                                  item_desc
+1     Q15     Africa continent on the Earth&#39;s northern and southern hemispheres
+  item_lang item_text
+1        fr   Afrique</code></pre>
+<p>We build then a second function that extract all the wikipedia entities associated to a textual unit for a given language</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="23-Wikidata.html#cb14-1" aria-hidden="true" tabindex="-1"></a>extract_entities <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">mytext=</span> <span class="st">&quot;Afrique&quot;</span>,</span>
+<span id="cb14-2"><a href="23-Wikidata.html#cb14-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">mylang =</span> <span class="st">&quot;fr&quot;</span>,</span>
+<span id="cb14-3"><a href="23-Wikidata.html#cb14-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">maxres =</span> <span class="dv">20</span>) {</span>
+<span id="cb14-4"><a href="23-Wikidata.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract items</span></span>
+<span id="cb14-5"><a href="23-Wikidata.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  items <span class="ot">&lt;-</span> <span class="fu">find_item</span>(<span class="at">search_term =</span>  mytext,</span>
+<span id="cb14-6"><a href="23-Wikidata.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">language      =</span>  mylang,</span>
+<span id="cb14-7"><a href="23-Wikidata.html#cb14-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">limit         =</span>  maxres)</span>
+<span id="cb14-8"><a href="23-Wikidata.html#cb14-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-9"><a href="23-Wikidata.html#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create empty dataset</span></span>
+<span id="cb14-10"><a href="23-Wikidata.html#cb14-10" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb14-11"><a href="23-Wikidata.html#cb14-11" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_id    <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb14-12"><a href="23-Wikidata.html#cb14-12" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_label <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb14-13"><a href="23-Wikidata.html#cb14-13" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_desc <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb14-14"><a href="23-Wikidata.html#cb14-14" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_lang  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb14-15"><a href="23-Wikidata.html#cb14-15" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_text  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb14-16"><a href="23-Wikidata.html#cb14-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-17"><a href="23-Wikidata.html#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fill dataset</span></span>
+<span id="cb14-18"><a href="23-Wikidata.html#cb14-18" aria-hidden="true" tabindex="-1"></a>  k<span class="ot">&lt;-</span><span class="fu">length</span>(items)</span>
+<span id="cb14-19"><a href="23-Wikidata.html#cb14-19" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb14-20"><a href="23-Wikidata.html#cb14-20" aria-hidden="true" tabindex="-1"></a>           res <span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,<span class="fu">item_info</span>(items[[i]]))</span>
+<span id="cb14-21"><a href="23-Wikidata.html#cb14-21" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb14-22"><a href="23-Wikidata.html#cb14-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-23"><a href="23-Wikidata.html#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return dataset</span></span>
+<span id="cb14-24"><a href="23-Wikidata.html#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb14-25"><a href="23-Wikidata.html#cb14-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-26"><a href="23-Wikidata.html#cb14-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>For example :</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="23-Wikidata.html#cb15-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">extract_entities</span>(<span class="st">&quot;Afrique&quot;</span>,<span class="st">&quot;fr&quot;</span>,<span class="dv">20</span>)</span>
+<span id="cb15-2"><a href="23-Wikidata.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="13%" />
+<col width="57%" />
+<col width="5%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">item_id</th>
+<th align="left">item_label</th>
+<th align="left">item_desc</th>
+<th align="left">item_lang</th>
+<th align="left">item_text</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Q15</td>
+<td align="left">Africa</td>
+<td align="left">continent on the Earth’s northern and southern hemispheres</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="even">
+<td align="left">Q181238</td>
+<td align="left">Africa</td>
+<td align="left">Roman province on the northern African coast covering parts of present-day Tunisia, Algeria, and Libya</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="odd">
+<td align="left">Q203548</td>
+<td align="left">African Plate</td>
+<td align="left">continental plate underlying Africa</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="even">
+<td align="left">Q258</td>
+<td align="left">South Africa</td>
+<td align="left">sovereign state in Southern Africa</td>
+<td align="left">fr</td>
+<td align="left">Afrique du Sud</td>
+</tr>
+<tr class="odd">
+<td align="left">Q4412</td>
+<td align="left">West Africa</td>
+<td align="left">region of Africa</td>
+<td align="left">fr</td>
+<td align="left">Afrique de l’Ouest</td>
+</tr>
+<tr class="even">
+<td align="left">Q132959</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="left">area of the continent of Africa that lies south of the Sahara Desert</td>
+<td align="left">fr</td>
+<td align="left">Afrique subsaharienne</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27394</td>
+<td align="left">Southern Africa</td>
+<td align="left">southernmost region of the African continent</td>
+<td align="left">fr</td>
+<td align="left">Afrique australe</td>
+</tr>
+<tr class="even">
+<td align="left">Q27407</td>
+<td align="left">East Africa</td>
+<td align="left">easterly region of the African continent</td>
+<td align="left">fr</td>
+<td align="left">Afrique de l’Est</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27381</td>
+<td align="left">North Africa</td>
+<td align="left">northernmost region of the African continent</td>
+<td align="left">fr</td>
+<td align="left">Afrique du Nord</td>
+</tr>
+<tr class="even">
+<td align="left">Q2826196</td>
+<td align="left">Afrique</td>
+<td align="left">Wikimedia disambiguation page</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="odd">
+<td align="left">Q23639892</td>
+<td align="left">Africa</td>
+<td align="left">artwork by Eugène Delaplanche in Paris, France</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="even">
+<td align="left">Q66022909</td>
+<td align="left">Afrique</td>
+<td align="left">NA</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="odd">
+<td align="left">Q153963</td>
+<td align="left">German East Africa</td>
+<td align="left">former German posesssion in the African Great Lakes region between 1884–1919</td>
+<td align="left">fr</td>
+<td align="left">Afrique orientale allemande</td>
+</tr>
+<tr class="even">
+<td align="left">Q4690138</td>
+<td align="left">Afrique</td>
+<td align="left">album by Count Basie</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="odd">
+<td align="left">Q65574303</td>
+<td align="left">Afrique</td>
+<td align="left">NA</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="even">
+<td align="left">Q56317928</td>
+<td align="left">Afrique</td>
+<td align="left">NA</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="odd">
+<td align="left">Q210682</td>
+<td align="left">French West Africa</td>
+<td align="left">French colonial federation (1895–1958)</td>
+<td align="left">fr</td>
+<td align="left">Afrique-Occidentale française</td>
+</tr>
+<tr class="even">
+<td align="left">Q27433</td>
+<td align="left">Central Africa</td>
+<td align="left">core region of the African continent</td>
+<td align="left">fr</td>
+<td align="left">Afrique centrale</td>
+</tr>
+<tr class="odd">
+<td align="left">Q106179043</td>
+<td align="left">Afrique</td>
+<td align="left">NA</td>
+<td align="left">en</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="even">
+<td align="left">Q271894</td>
+<td align="left">French Equatorial Africa</td>
+<td align="left">federation of French colonial possessions in Central Africa</td>
+<td align="left">fr</td>
+<td align="left">Afrique-Équatoriale française</td>
+</tr>
+</tbody>
+</table>
+<p>As we can see, many of the entities proposed in he list are not interesting and we will probably have to select one by one the entities of interest. But we have clearly to keep two different list of entities :</p>
+<ul>
+<li><strong>the target entities</strong> : that we consider as potential world regions or candidate to te title of “geographic imagination”.</li>
+<li><strong>the control entites</strong> : that we have to identify or eliminate if we want to identify correctly our target entities like the country of South Africa</li>
+</ul>
+<p>In the case of Africa, we could for example establish a more limited list</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="23-Wikidata.html#cb16-1" aria-hidden="true" tabindex="-1"></a>entit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q4412&quot;</span>,<span class="st">&quot;Q132959&quot;</span>, <span class="st">&quot;Q27394&quot;</span>,<span class="st">&quot;Q27407&quot;</span>,<span class="st">&quot;Q27381&quot;</span>,<span class="st">&quot;Q27433&quot;</span>,<span class="st">&quot;Q258&quot;</span>)</span>
+<span id="cb16-2"><a href="23-Wikidata.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="23-Wikidata.html#cb16-3" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>tab <span class="sc">%&gt;%</span> <span class="fu">filter</span>(item_id <span class="sc">%in%</span> entit)</span>
+<span id="cb16-4"><a href="23-Wikidata.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="14%" />
+<col width="53%" />
+<col width="7%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">item_id</th>
+<th align="left">item_label</th>
+<th align="left">item_desc</th>
+<th align="left">item_lang</th>
+<th align="left">item_text</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Q15</td>
+<td align="left">Africa</td>
+<td align="left">continent on the Earth’s northern and southern hemispheres</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+</tr>
+<tr class="even">
+<td align="left">Q258</td>
+<td align="left">South Africa</td>
+<td align="left">sovereign state in Southern Africa</td>
+<td align="left">fr</td>
+<td align="left">Afrique du Sud</td>
+</tr>
+<tr class="odd">
+<td align="left">Q4412</td>
+<td align="left">West Africa</td>
+<td align="left">region of Africa</td>
+<td align="left">fr</td>
+<td align="left">Afrique de l’Ouest</td>
+</tr>
+<tr class="even">
+<td align="left">Q132959</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="left">area of the continent of Africa that lies south of the Sahara Desert</td>
+<td align="left">fr</td>
+<td align="left">Afrique subsaharienne</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27394</td>
+<td align="left">Southern Africa</td>
+<td align="left">southernmost region of the African continent</td>
+<td align="left">fr</td>
+<td align="left">Afrique australe</td>
+</tr>
+<tr class="even">
+<td align="left">Q27407</td>
+<td align="left">East Africa</td>
+<td align="left">easterly region of the African continent</td>
+<td align="left">fr</td>
+<td align="left">Afrique de l’Est</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27381</td>
+<td align="left">North Africa</td>
+<td align="left">northernmost region of the African continent</td>
+<td align="left">fr</td>
+<td align="left">Afrique du Nord</td>
+</tr>
+<tr class="even">
+<td align="left">Q27433</td>
+<td align="left">Central Africa</td>
+<td align="left">core region of the African continent</td>
+<td align="left">fr</td>
+<td align="left">Afrique centrale</td>
+</tr>
+</tbody>
+</table>
+<p>But this list which was based on the french textual units associated to “Afrique” should certainly be completed by equivalent list established for other languages with different seeds (“Africa” in english, “Afrika” in german, …)</p>
+</div>
+</div>
+<div id="elaboration-of-a-cross_linguistic-dictionnary" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Elaboration of a cross_linguistic dictionnary</h3>
+<p>Admitting that we have established a list of wikipedia entities of interest, we can now turn to the creation of a dictionary for the identification of these entities in different languages. We will use for that purpose the powerful function <code>get_properties</code></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="23-Wikidata.html#cb17-1" aria-hidden="true" tabindex="-1"></a>item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(<span class="st">&quot;Q15&quot;</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
+<p>The result is a very large object (list of list) which provide all the informations (or links toward these information) in all languages wher the object is available. The problem is therefore to understand the structure of this object and to extract exactly what we need. In our case, we want to extract for each language of interest.</p>
+<p>The information will be separated in two datasets :</p>
+<ul>
+<li>dictionary of definitions</li>
+<li>dictionary of labels and aliases</li>
+</ul>
+<p>We create two functions dedicated to each of the tasks</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="23-Wikidata.html#cb18-1" aria-hidden="true" tabindex="-1"></a>extract_def <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">item =</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q246&quot;</span>),</span>
+<span id="cb18-2"><a href="23-Wikidata.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">langs =</span> <span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>)) {</span>
+<span id="cb18-3"><a href="23-Wikidata.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create empty dataset</span></span>
+<span id="cb18-4"><a href="23-Wikidata.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb18-5"><a href="23-Wikidata.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>id    <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb18-6"><a href="23-Wikidata.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>lang  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb18-7"><a href="23-Wikidata.html#cb18-7" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb18-8"><a href="23-Wikidata.html#cb18-8" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>desc  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb18-9"><a href="23-Wikidata.html#cb18-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-10"><a href="23-Wikidata.html#cb18-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-11"><a href="23-Wikidata.html#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop of items</span></span>
+<span id="cb18-12"><a href="23-Wikidata.html#cb18-12" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(item)</span>
+<span id="cb18-13"><a href="23-Wikidata.html#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb18-14"><a href="23-Wikidata.html#cb18-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-15"><a href="23-Wikidata.html#cb18-15" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Extract item properties</span></span>
+<span id="cb18-16"><a href="23-Wikidata.html#cb18-16" aria-hidden="true" tabindex="-1"></a>    item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(item[i])[[<span class="dv">1</span>]]</span>
+<span id="cb18-17"><a href="23-Wikidata.html#cb18-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-18"><a href="23-Wikidata.html#cb18-18" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb18-19"><a href="23-Wikidata.html#cb18-19" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Loop  of language</span></span>
+<span id="cb18-20"><a href="23-Wikidata.html#cb18-20" aria-hidden="true" tabindex="-1"></a>     p<span class="ot">&lt;-</span><span class="fu">length</span>(langs)</span>
+<span id="cb18-21"><a href="23-Wikidata.html#cb18-21" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p) {</span>
+<span id="cb18-22"><a href="23-Wikidata.html#cb18-22" aria-hidden="true" tabindex="-1"></a>        id <span class="ot">&lt;-</span> item[i]</span>
+<span id="cb18-23"><a href="23-Wikidata.html#cb18-23" aria-hidden="true" tabindex="-1"></a>        lang  <span class="ot">&lt;-</span> langs[j]</span>
+<span id="cb18-24"><a href="23-Wikidata.html#cb18-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {label <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value}</span>
+<span id="cb18-25"><a href="23-Wikidata.html#cb18-25" aria-hidden="true" tabindex="-1"></a>           <span class="cf">else</span> { label <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
+<span id="cb18-26"><a href="23-Wikidata.html#cb18-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {desc <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value}</span>
+<span id="cb18-27"><a href="23-Wikidata.html#cb18-27" aria-hidden="true" tabindex="-1"></a>           <span class="cf">else</span> { desc <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
+<span id="cb18-28"><a href="23-Wikidata.html#cb18-28" aria-hidden="true" tabindex="-1"></a>        add <span class="ot">&lt;-</span><span class="fu">data.frame</span>(id,lang,label,desc)</span>
+<span id="cb18-29"><a href="23-Wikidata.html#cb18-29" aria-hidden="true" tabindex="-1"></a>        res<span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,add) </span>
+<span id="cb18-30"><a href="23-Wikidata.html#cb18-30" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb18-31"><a href="23-Wikidata.html#cb18-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-32"><a href="23-Wikidata.html#cb18-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-33"><a href="23-Wikidata.html#cb18-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Export result</span></span>
+<span id="cb18-34"><a href="23-Wikidata.html#cb18-34" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(res)</span>
+<span id="cb18-35"><a href="23-Wikidata.html#cb18-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-36"><a href="23-Wikidata.html#cb18-36" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The function works proprerly as long as the entities are available in all languages. It should be adapted to prevent errors when an entity is not available in one language.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="23-Wikidata.html#cb19-1" aria-hidden="true" tabindex="-1"></a>entit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q4412&quot;</span>,<span class="st">&quot;Q132959&quot;</span>, <span class="st">&quot;Q27394&quot;</span>,<span class="st">&quot;Q27407&quot;</span>,<span class="st">&quot;Q27381&quot;</span>,<span class="st">&quot;Q27433&quot;</span>,<span class="st">&quot;Q258&quot;</span>)</span>
+<span id="cb19-2"><a href="23-Wikidata.html#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="23-Wikidata.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="23-Wikidata.html#cb19-4" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span><span class="fu">extract_def</span>(entit,<span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;ar&quot;</span>))</span>
+<span id="cb19-5"><a href="23-Wikidata.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="3%" />
+<col width="15%" />
+<col width="75%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">id</th>
+<th align="left">lang</th>
+<th align="left">label</th>
+<th align="left">desc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Q15</td>
+<td align="left">fr</td>
+<td align="left">Afrique</td>
+<td align="left">continent</td>
+</tr>
+<tr class="even">
+<td align="left">Q15</td>
+<td align="left">de</td>
+<td align="left">Afrika</td>
+<td align="left">Kontinent auf der Nord- und Südhalbkugel der Erde</td>
+</tr>
+<tr class="odd">
+<td align="left">Q15</td>
+<td align="left">tr</td>
+<td align="left">Afrika</td>
+<td align="left">Dünya’nın kuzey ve güney yarıkürelerindeki bir kıta</td>
+</tr>
+<tr class="even">
+<td align="left">Q15</td>
+<td align="left">en</td>
+<td align="left">Africa</td>
+<td align="left">continent on the Earth’s northern and southern hemispheres</td>
+</tr>
+<tr class="odd">
+<td align="left">Q15</td>
+<td align="left">ar</td>
+<td align="left">إفريقيا</td>
+<td align="left">ثاني أكبر قارات العالم من حيث المساحة وعدد السكان، تأتي في المرتبة الثانية بعد آسيا</td>
+</tr>
+<tr class="even">
+<td align="left">Q4412</td>
+<td align="left">fr</td>
+<td align="left">Afrique de l’Ouest</td>
+<td align="left">région d’Afrique</td>
+</tr>
+<tr class="odd">
+<td align="left">Q4412</td>
+<td align="left">de</td>
+<td align="left">Westafrika</td>
+<td align="left">Kontinentalteil</td>
+</tr>
+<tr class="even">
+<td align="left">Q4412</td>
+<td align="left">tr</td>
+<td align="left">Batı Afrika</td>
+<td align="left">Afrika’nın batısındaki 16 ülkenin bulunduğu alan</td>
+</tr>
+<tr class="odd">
+<td align="left">Q4412</td>
+<td align="left">en</td>
+<td align="left">West Africa</td>
+<td align="left">region of Africa</td>
+</tr>
+<tr class="even">
+<td align="left">Q4412</td>
+<td align="left">ar</td>
+<td align="left">غرب أفريقيا</td>
+<td align="left">المنطقة الغربية للقارة الأفريقية</td>
+</tr>
+<tr class="odd">
+<td align="left">Q132959</td>
+<td align="left">fr</td>
+<td align="left">Afrique subsaharienne</td>
+<td align="left">partie du continent africain au sud du Sahara</td>
+</tr>
+<tr class="even">
+<td align="left">Q132959</td>
+<td align="left">de</td>
+<td align="left">Subsahara-Afrika</td>
+<td align="left">südlich der Sahara gelegener Teil Afrikas</td>
+</tr>
+<tr class="odd">
+<td align="left">Q132959</td>
+<td align="left">tr</td>
+<td align="left">Sahraaltı Afrika</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Q132959</td>
+<td align="left">en</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="left">area of the continent of Africa that lies south of the Sahara Desert</td>
+</tr>
+<tr class="odd">
+<td align="left">Q132959</td>
+<td align="left">ar</td>
+<td align="left">أفريقيا جنوب الصحراء</td>
+<td align="left">جزء من القارة الأفريقية يقع جنوب الصحراء الكبرى</td>
+</tr>
+<tr class="even">
+<td align="left">Q27394</td>
+<td align="left">fr</td>
+<td align="left">Afrique australe</td>
+<td align="left">région la plus méridionale du continent africain</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27394</td>
+<td align="left">de</td>
+<td align="left">Südliches Afrika</td>
+<td align="left">Region in Afrika</td>
+</tr>
+<tr class="even">
+<td align="left">Q27394</td>
+<td align="left">tr</td>
+<td align="left">Güney Afrika</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27394</td>
+<td align="left">en</td>
+<td align="left">Southern Africa</td>
+<td align="left">southernmost region of the African continent</td>
+</tr>
+<tr class="even">
+<td align="left">Q27394</td>
+<td align="left">ar</td>
+<td align="left">أفريقيا الجنوبية</td>
+<td align="left">المنطقة الجنوبية للقارة الأفريقية</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27407</td>
+<td align="left">fr</td>
+<td align="left">Afrique de l’Est</td>
+<td align="left">région d’Afrique</td>
+</tr>
+<tr class="even">
+<td align="left">Q27407</td>
+<td align="left">de</td>
+<td align="left">Ostafrika</td>
+<td align="left">Region in Afrika</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27407</td>
+<td align="left">tr</td>
+<td align="left">Doğu Afrika</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Q27407</td>
+<td align="left">en</td>
+<td align="left">East Africa</td>
+<td align="left">easterly region of the African continent</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27407</td>
+<td align="left">ar</td>
+<td align="left">شرق أفريقيا</td>
+<td align="left">المنطقة الشرقية للقارة الأفريقية</td>
+</tr>
+<tr class="even">
+<td align="left">Q27381</td>
+<td align="left">fr</td>
+<td align="left">Afrique du Nord</td>
+<td align="left">région en Afrique</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27381</td>
+<td align="left">de</td>
+<td align="left">Nordafrika</td>
+<td align="left">Region in Afrika</td>
+</tr>
+<tr class="even">
+<td align="left">Q27381</td>
+<td align="left">tr</td>
+<td align="left">Kuzey Afrika</td>
+<td align="left">Afrika kıtasının Fas, Cezayir, Tunus, Libya, Mısır ve Sudan’ı içeren kuzey bölgesi</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27381</td>
+<td align="left">en</td>
+<td align="left">North Africa</td>
+<td align="left">northernmost region of the African continent</td>
+</tr>
+<tr class="even">
+<td align="left">Q27381</td>
+<td align="left">ar</td>
+<td align="left">شمال أفريقيا</td>
+<td align="left">سكان افريقيا في شمالها</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27433</td>
+<td align="left">fr</td>
+<td align="left">Afrique centrale</td>
+<td align="left">Région d’Afrique</td>
+</tr>
+<tr class="even">
+<td align="left">Q27433</td>
+<td align="left">de</td>
+<td align="left">Zentralafrika</td>
+<td align="left">Region in Afrika</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27433</td>
+<td align="left">tr</td>
+<td align="left">Orta Afrika</td>
+<td align="left">Afrika kıtasının Burundi, Orta Afrika Cumhuriyeti, Çad, Kongo Demokratik Cumhuriyeti ve Ruanda’yı barındıran orta kısmı</td>
+</tr>
+<tr class="even">
+<td align="left">Q27433</td>
+<td align="left">en</td>
+<td align="left">Central Africa</td>
+<td align="left">core region of the African continent</td>
+</tr>
+<tr class="odd">
+<td align="left">Q27433</td>
+<td align="left">ar</td>
+<td align="left">وسط أفريقيا</td>
+<td align="left">منطقة رئيسية للقارة الأفريقية</td>
+</tr>
+<tr class="even">
+<td align="left">Q258</td>
+<td align="left">fr</td>
+<td align="left">Afrique du Sud</td>
+<td align="left">pays d’Afrique</td>
+</tr>
+<tr class="odd">
+<td align="left">Q258</td>
+<td align="left">de</td>
+<td align="left">Südafrika</td>
+<td align="left">Staat im südlichen Afrika</td>
+</tr>
+<tr class="even">
+<td align="left">Q258</td>
+<td align="left">tr</td>
+<td align="left">Güney Afrika Cumhuriyeti</td>
+<td align="left">Güney Afrika’da bulunan bir ülke</td>
+</tr>
+<tr class="odd">
+<td align="left">Q258</td>
+<td align="left">en</td>
+<td align="left">South Africa</td>
+<td align="left">sovereign state in Southern Africa</td>
+</tr>
+<tr class="even">
+<td align="left">Q258</td>
+<td align="left">ar</td>
+<td align="left">جنوب أفريقيا</td>
+<td align="left">دولة في أفريقيا الجنوبية</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>second largest continent in the world in terms of area and population, comes second only to Asia.<a href="23-Wikidata.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<script src="js/tidyverse.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="22-mediacloud_to_quanteda.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="31_geonetworks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ClaudeGrasland/media_cookbook/blob/master/23-Wikidata.Rmd",
+"text": "Source"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

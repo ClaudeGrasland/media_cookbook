@@ -220,9 +220,9 @@ As we can see, many of the entities proposed in he list are not interesting and 
 In the case of Africa, we could for example establish a more limited list
 
 ```{r}
+entit <- c("Q15", "Q4412","Q132959", "Q27394","Q27407","Q27381","Q27433","Q258")
 
-
-tab<-tab %>% filter(item_id %in% c(target,control))
+tab<-tab %>% filter(item_id %in% entit)
 kable(tab)
 ```
 
@@ -298,7 +298,8 @@ The function works proprerly as long as the entities are available in all langua
 entit <- c("Q15", "Q4412","Q132959", "Q27394","Q27407","Q27381","Q27433","Q258")
 
 
-tab<-extract_def(entit,c("fr","de","tr","en"))
+tab<-extract_def(entit,c("fr","de","tr","en","ar"))
+kable(tab)
 
 ```
 
