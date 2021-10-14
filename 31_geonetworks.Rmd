@@ -29,7 +29,7 @@ We load a coprus of title of news stored in quanteda forma
 
 ```{r select_corpus_fr, eval=FALSE}
 # Load external corpus
-qd<-readRDS("data/corpora/TUN/fr_TUN_ecomag.Rdata")
+qd<-readRDS("quanteda/fr_FRA_figaro.RDS")
 
 ```
 
@@ -88,7 +88,7 @@ qd$nbtags<-ntoken(toks_tags)
 
 
 # Save corpus 
-saveRDS(qd,"data/corpora/TUN/fr_TUN_ecomag_geo.Rdata")
+saveRDS(qd,"quanteda/fr_FRA_figaro_geo.Rdata")
 
 ```
 
@@ -99,12 +99,12 @@ During this second step, we will produce aggregates of news called *hypercubes* 
 
 ### Load data
 
-We start from the results of the previous step and we load the dictionary used for tagging and the tags describing the texts
+We start from the results of the previous step and we load the dictionary used for tagging and the tags describing the texts. Th example chosen is * Le Figaro*.
 
 
 ```{r}
 # Load quanteda corpus with geotags
-qd<-readRDS("data/corpora/TUN/fr_TUN_ecomag_geo.Rdata")
+qd<-readRDS("quanteda/fr_FRA_figaro_geo.Rdata")
 
 
 ```
@@ -386,6 +386,7 @@ rand_int <- function(int = int, # A table with columns i, j Fij
 
 ```
 
+#### Model wit France
 
 ```{r}
 mod<-rand_int(int,
@@ -400,6 +401,9 @@ tab<-mod[order(-mod$Rabs_ij),]
 tab<-tab[(tab$i > tab$j),]
 kable(head(tab,10) , digits=2, caption = "Positive residuals")
 ```
+
+
+
 
 
 ## Visualization
@@ -477,33 +481,70 @@ net
 
 ```
 
+#### Model without France
 
+```{r}
+
+mod2<-rand_int(int %>% filter(i != "FRA", j !="FRA"),
+              resid = TRUE,
+              diag = FALSE)
+```
+
+We can have a look at the more important positive residuals in absolute value : 
+
+```{r}
+tab<-mod2[order(-mod2$Rabs_ij),]
+tab<-tab[(tab$i > tab$j),]
+kable(head(tab,10) , digits=2, caption = "Positive residuals")
+```
 
 ### Raw network
 
 We can firstly provide a basic view of the network using the default parameters wich visualize all connections greater to zero.
 
+#### With France
+
 ```{r}
-geo_network(mod)
+geo_network(mod,
+            size = "Fij",
+            minsize = 0,
+            test = "Fij",
+            mintest = 5)
 
 ```
 
-### Raw network without Tunisia
-
-We can eliminate the host country of the media which is obviously present in the majority of news.
+#### Without France
 
 ```{r}
-geo_network(mod %>% filter(i != "TUN", j !="TUN"))
+geo_network(mod2,
+            size = "Fij",
+            minsize = 0,
+            test = "Fij",
+            mintest = 5)
+
 ```
-### Preferential links
+
+### Preferential links 
 
 But we can also visualize the most significant links by changing the criteria of size and introducing a test of significance :
+
+#### With France
 
 ```{r}
 geo_network(mod,
             size = "Rabs_ij",
-            minsize = 0.5,
+            minsize = 2,
             test = "Rchi_ij",
-            mintest = 2.71)
+            mintest = 3.84)
 ```
 
+
+#### Without France
+
+```{r}
+geo_network(mod2,
+            size = "Rabs_ij",
+            minsize = 2,
+            test = "Rchi_ij",
+            mintest = 3.84)
+```

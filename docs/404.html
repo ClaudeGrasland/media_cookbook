@@ -24,7 +24,7 @@
 <meta name="author" content="Claude Grasland" />
 
 
-<meta name="date" content="2021-10-02" />
+<meta name="date" content="2021-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,10 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+<script src="libs/vis-9.1.0/vis-network.min.js"></script>
+<script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script>
 
 
 <style type="text/css">
@@ -191,32 +195,47 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.7.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#babnet"><i class="fa fa-check"></i><b>3.7.4</b> Babnet</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>4</b> Geonetworks</a>
+<li class="chapter" data-level="4" data-path="23-Wikidata.html"><a href="23-Wikidata.html"><i class="fa fa-check"></i><b>4</b> Wikidata</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#geotags"><i class="fa fa-check"></i><b>4.1</b> Geotags</a>
+<li class="chapter" data-level="4.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikidata"><i class="fa fa-check"></i><b>4.2</b> Wikidata</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-corpus"><i class="fa fa-check"></i><b>4.1.1</b> Select corpus</a></li>
-<li class="chapter" data-level="4.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize"><i class="fa fa-check"></i><b>4.1.2</b> Tokenize</a></li>
-<li class="chapter" data-level="4.1.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#identify-geotags"><i class="fa fa-check"></i><b>4.1.3</b> identify geotags</a></li>
+<li class="chapter" data-level="4.2.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#codification-of-entities"><i class="fa fa-check"></i><b>4.2.1</b> Codification of entities</a></li>
+<li class="chapter" data-level="4.2.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#informations-on-entities"><i class="fa fa-check"></i><b>4.2.2</b> Informations on entities</a></li>
+<li class="chapter" data-level="4.2.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikipedia-entities-as-nodes-of-an-ontolongy"><i class="fa fa-check"></i><b>4.2.3</b> Wikipedia entities as nodes of an ontolongy</a></li>
+<li class="chapter" data-level="4.2.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#a-tool-for-cross-linguistical-experiments"><i class="fa fa-check"></i><b>4.2.4</b> A tool for cross-linguistical experiments</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercubes"><i class="fa fa-check"></i><b>4.2</b> Hypercubes</a>
+<li class="chapter" data-level="4.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#the-package-wikidatar"><i class="fa fa-check"></i><b>4.3</b> The package WikidataR</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#load-data"><i class="fa fa-check"></i><b>4.2.1</b> Load data</a></li>
-<li class="chapter" data-level="4.2.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercube-function"><i class="fa fa-check"></i><b>4.2.2</b> Hypercube Function</a></li>
-<li class="chapter" data-level="4.2.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#build-hypercube"><i class="fa fa-check"></i><b>4.2.3</b> Build hypercube</a></li>
+<li class="chapter" data-level="4.3.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#basic-operations"><i class="fa fa-check"></i><b>4.3.1</b> Basic operations</a></li>
+<li class="chapter" data-level="4.3.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#elaboration-of-a-cross_linguistic-dictionnary"><i class="fa fa-check"></i><b>4.3.2</b> Elaboration of a cross_linguistic dictionnary</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#linkages"><i class="fa fa-check"></i><b>4.3</b> Linkages</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-links"><i class="fa fa-check"></i><b>4.3.1</b> Select links</a></li>
-<li class="chapter" data-level="4.3.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#create-interaction-matrix"><i class="fa fa-check"></i><b>4.3.2</b> Create interaction matrix</a></li>
-<li class="chapter" data-level="4.3.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#estimate-random-model"><i class="fa fa-check"></i><b>4.3.3</b> Estimate random model</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#visualization"><i class="fa fa-check"></i><b>4.4</b> Visualization</a>
+<li class="chapter" data-level="5" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>5</b> Geonetworks</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#function"><i class="fa fa-check"></i><b>4.4.1</b> Function</a></li>
-<li class="chapter" data-level="4.4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network"><i class="fa fa-check"></i><b>4.4.2</b> Raw network</a></li>
-<li class="chapter" data-level="4.4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network-without-tunisia"><i class="fa fa-check"></i><b>4.4.3</b> Raw network without Tunisia</a></li>
-<li class="chapter" data-level="4.4.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#preferential-links"><i class="fa fa-check"></i><b>4.4.4</b> Preferential links</a></li>
+<li class="chapter" data-level="5.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#geotags"><i class="fa fa-check"></i><b>5.1</b> Geotags</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-corpus"><i class="fa fa-check"></i><b>5.1.1</b> Select corpus</a></li>
+<li class="chapter" data-level="5.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize"><i class="fa fa-check"></i><b>5.1.2</b> Tokenize</a></li>
+<li class="chapter" data-level="5.1.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#identify-geotags"><i class="fa fa-check"></i><b>5.1.3</b> identify geotags</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercubes"><i class="fa fa-check"></i><b>5.2</b> Hypercubes</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#load-data"><i class="fa fa-check"></i><b>5.2.1</b> Load data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercube-function"><i class="fa fa-check"></i><b>5.2.2</b> Hypercube Function</a></li>
+<li class="chapter" data-level="5.2.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#build-hypercube"><i class="fa fa-check"></i><b>5.2.3</b> Build hypercube</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#linkages"><i class="fa fa-check"></i><b>5.3</b> Linkages</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-links"><i class="fa fa-check"></i><b>5.3.1</b> Select links</a></li>
+<li class="chapter" data-level="5.3.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#create-interaction-matrix"><i class="fa fa-check"></i><b>5.3.2</b> Create interaction matrix</a></li>
+<li class="chapter" data-level="5.3.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#estimate-random-model"><i class="fa fa-check"></i><b>5.3.3</b> Estimate random model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#visualization"><i class="fa fa-check"></i><b>5.4</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#function"><i class="fa fa-check"></i><b>5.4.1</b> Function</a></li>
+<li class="chapter" data-level="5.4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network"><i class="fa fa-check"></i><b>5.4.2</b> Raw network</a></li>
+<li class="chapter" data-level="5.4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#preferential-links"><i class="fa fa-check"></i><b>5.4.3</b> Preferential links</a></li>
 </ul></li>
 </ul></li>
 </ul>
