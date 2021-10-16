@@ -4,6 +4,7 @@
 library(knitr)
 library(dplyr)
 library(WikidataR)
+library(quanteda)
 ```
 
 
@@ -403,7 +404,7 @@ kable(tab)
 
 The function works !
 
-## Conclusion
+### Conclusion
 
 It is now possible to develop a global research strategy for the analysis of world regions :
 
@@ -422,11 +423,475 @@ It is now possible to develop a global research strategy for the analysis of wor
 It is obviously possible to apply the same procedure to different objects like organizations, people, etc...
 
 
+## Dictionary of world regions
+
+We realize a test of the method described above on a preliminary dictionary of world regions
 
 
+### Load the list of world regions
+
+We start from a provisional list of 65 world regions established by C. Grasland :
+
+```{r}
+ent<-read.table("dict/wikireg_V1.csv", 
+                sep=";",
+                header=T,
+                encoding = "UTF-8")
+```
+
+### Extract définitions
+
+We extract the definitions of the regions in the different languages.
+
+```{r, eval=FALSE}
+## NOT RUN ###
+worldreg_def <- extract_def(ent$wikidata,c("fr","de","en","tr","ar"))
+write.table(x = worldreg_def,
+              file = "dict/worldreg001_def.csv",
+              fileEncoding = "UTF-8",
+              sep = ";")
+saveRDS(object = worldreg_def, file = "dict/worldreg001_def.RDS")
+
+```
 
 
+### Extract aliases and create dictionary
+
+```{r, eval=FALSE}
+## NOT RUN ###
+worldreg_dict <- extract_alias(ent$wikidata,c("fr","de","en","tr","ar"))
+write.table(x = worldreg_dict,
+              file = "dict/worldreg001_dict.csv",
+              fileEncoding = "UTF-8",
+              sep = ";")
+saveRDS(object = worldreg_dict, file = "dict/worldreg001_dict.RDS")
+
+```
 
 
+### Extract dictionary of control units
 
+We need to add a supplementary dictionary of units that are introduced in order to avoid confusion. For the moment it is limited to the state of southern Africa, but many other units shouyld be added like "*Europe 1*" (a french radio), "*Council of Europe*" (an organization), etc...
+
+```{r, eval=FALSE}
+## NOT RUN ###
+ent_ctrl <- c("Q258",   # Republic of southern Africa
+              "Q8908",   # Council of Europe
+              "Q314407")  # French Radio Europe 1
+
+worldreg_ctrl <- extract_alias(ent_ctrl,c("fr","de","en","tr","ar"))
+write.table(x = worldreg_ctrl,
+              file = "dict/worldreg001_ctrl.csv",
+              fileEncoding = "UTF-8",
+              sep = ";")
+saveRDS(object = worldreg_ctrl, file = "dict/worldreg001_ctrl.RDS")
+
+```
+
+
+## Detection of world regions
+
+We describe now how to apply the dictionary to our different media :
+
+### Example of "Le Figaro" (fr_FRA_figaro)
+
+Before to elaborate a generic function, we describe step by step the procedure :
+
+#### Load corpus
+
+```{r}
+### Load corpus
+qd <- readRDS("quanteda/fr_FRA_figaro.RDS")
+summary(qd,3)
+```
+
+#### Tokenize
+
+```{r}
+# Tokenize text
+toks<-tokens(qd)
+
+# Split french apostroph (optional )
+#toks<- tokens_split(toks, "'")
+```
+
+#### Load dictionaries and create compounds
+
+```{r}
+## Control dictionary
+ctrl<-readRDS("dict/worldreg001_ctrl.RDS")
+ctrl<-ctrl[ctrl$lang=="fr" & is.na(ctrl$label)==F,]
+ctrl<-ctrl[ntoken(ctrl$label)>1,]
+toks<-tokens_compound(toks,pattern=phrase(ctrl$label))
+
+## Target dictionary
+dict<-readRDS("dict/worldreg001_dict.RDS")
+dict<-dict[dict$lang=="fr" & is.na(dict$label)==F,]
+target<-dict[ntoken(dict$label)>1,]
+toks<-tokens_compound(toks,pattern=phrase(target$label))
+
+
+```
+
+#### Store world regions in a field
+
+```{r}
+
+
+# create quanteda dictionary
+keys <-gsub(" ","_",dict$label)
+qd_dict<-as.list(keys)
+names(qd_dict)<-dict$id
+qd_dict<-dictionary(qd_dict)
+
+# Identify geo tags (states or reg or org ...)
+toks_tags <- tokens_lookup(toks, qd_dict)
+toks_tags <- lapply(toks_tags, unique)
+toks_tags<-as.tokens(toks_tags)
+list_tags<-function(x){res<-paste(x, collapse=' ')}
+qd$regs<-as.character(lapply(toks_tags,FUN=list_tags))
+qd$nbregs<-ntoken(toks_tags)
+
+```
+
+
+#### Check results
+
+In order to check the results we print the sample of news where two world regions or more was present. 
+
+```{r}
+table(qd$nbregs)
+check<-qd[qd$nbregs>1]
+kable(check)
+```
+
+With only one exception ("Air Caraïbes" is not a region), we have obtained genuine cases of linkages between world regions. This cases ae not very frequent but interesting :
+
+1. We have many examples of association of regions and states ("*Afrique, Asie, Russie*") which clearly suggest that very large states are considered as equivalent to world regions ("*"Afrique centrale, Amazonie ... L'Australie n'est pas la seule région du globe touchée par les incendies*")
+2. We notice some frequent associations like the dyad "*Amérique Latine / Caraïbes*" which is observed 7 times. 
+
+We can produce another case for the difficult case of "*Europe (Q46)*" in order to see if we have not forgotten to control some compounds : 
+
+```{r}
+check<-qd[qd$regs=="Q46"]
+ndoc(check)
+kable(check[1:10])
+```
+
+
+The manual analysis of the 387 occurences of "Europe" reveals a very good performance. Only 10   news  (i.e. less than  3% )  are related to entities different from the world region Europe. The  mistakes are related to :
+
+- other subregions of Europe with complements in upper case  (e.g. "*Europe Centrale*")
+- entities to be added to the control list like political parties (e.g. "*Europe Ecologie*"), companies (e.g. "*Google Europe*"), media ("*Radio Free Europe*"), films ("*Princesse Europe*"), ...
+
+But as a whole the number of mistakes is very reduced and could be debated in certain cases : "Google Europe" can be considered for example as a reference to the world region Europe.
+
+
+The third check made on America reveals that the procedure of tagging is correct from textual point of view (20 occurences of "*Amérique*" are observed) but not from the semantic point of view. In all cases but one, the text "Amérique" is in fact associated to USA (**Q30**) and not to the continent of America (**Q828**). It means that in this particular case, the ontology of Wikipedia is associated to a systematic error (95%).
+
+
+```{r}
+check<-qd[qd$regs=="Q828"]
+ndoc(check)
+kable(check)
+```
+
+#### What about the apostroph  ' ? 
+
+This example of "Amérique" reveals another problem which is related to the tokenization. In our example we have found only 20 occurences of "*Amérique*" because the dictionary extracted from Wikipedia has not included the textual units "*l'Amérique*" which appears in 144 news of the textual unit"*d'Amérique*" which is present in 22 news. We have therefore cleary understimate the real number of mention and the same is cetainly also true for other names of world regions like *"l'Europe"* (477 cases), *"l'Afrique"* (98 cases), *"l'Asie"* (16 cases).
+
+It appears therfore more relevant - at less in the french case - to replace the apostroph by a blank ...
+
+## Tagging function
+
+We try therefore to elaborate a function where the user can decide (optionally) to remove the apostroph and/or to use lower case. 
+
+
+```{r}
+extract_tags <- function(qd = qd,             # the corpus of interest
+                         lang = "fr",         # the language to be used
+                         dict = dict,         # the dictionary of target entities
+                         ctrl = ctrl,         # the dictionary of entities to be controled
+                         split  = TRUE,       # keep apostrophs ? 
+                         tolow = FALSE      # Tokenize text
+                         )
+{ 
+
+  
+# Tokenize  
+x<-texts(qd)
+if(split) { x <- gsub("'"," ",x)}  
+if(tolow) { x <- tolower(x)} 
+toks<-tokens(x)
+
+
+  
+# Load dictionaries and create compounds
+  ## Control dictionary
+ctrl<-ctrl[ctrl$lang==lang & is.na(ctrl$label)==F,]
+ctrl<-ctrl[ntoken(ctrl$label)>1,]
+labels <-ctrl$label
+if(split) {labels<- gsub("'"," ",labels)}  
+if(tolow) {labels <- tolower(labels)}  
+toks<-tokens_compound(toks,pattern=phrase(labels))
+  ## Target dictionary
+dict<-dict[dict$lang==lang & is.na(dict$label)==F,]
+target<-dict[ntoken(dict$label)>1,]
+labels <-dict$label
+if(split) {labels<- gsub("'"," ",labels)}  
+if(tolow)       {labels <- tolower(labels)}  
+toks<-tokens_compound(toks,pattern=phrase(labels))
+  
+ # create quanteda dictionary
+keys <-gsub(" ","_",labels)
+qd_dict<-as.list(keys)
+names(qd_dict)<-dict$id
+qd_dict<-dictionary(qd_dict)
+
+# Identify geo tags (states or reg or org ...)
+toks_tags <- tokens_lookup(toks, qd_dict)
+toks_tags <- lapply(toks_tags, unique)
+toks_tags<-as.tokens(toks_tags)
+list_tags<-function(x){res<-paste(x, collapse=' ')}
+qd$regs<-as.character(lapply(toks_tags,FUN=list_tags))
+qd$nbregs<-ntoken(toks_tags)
+
+# Export results
+return(qd)
+ }
+             
+```
+
+### Le Figaro
+
+```{r, eval=FALSE}
+
+ctrl<-readRDS("dict/worldreg001_ctrl.RDS")
+dict<-readRDS("dict/worldreg001_dict.RDS")
+dict<-dict[dict$id != "Q2017699",]  # Correct Mistake
+
+qd <- readRDS("quanteda/fr_FRA_figaro.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="fr",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/fr_FRA_figaro.RDS")
+qd1<-qd
+```
+### Le Monde
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/fr_FRA_lmonde.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="fr",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/fr_FRA_lmonde.RDS")
+qd2<-qd
+```
+
+### FAZ
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/de_DEU_frankf.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="de",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/de_DEU_frankf.RDS")
+qd3<-qd
+table(qd$nbregs)
+```
+
+### Süddeutsche Zeitung
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/de_DEU_suddeu.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="de",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/de_DEU_suddeu.RDS")
+qd4<-qd
+table(qd$nbregs)
+```
+
+
+### Guardian
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/en_GBR_guardi.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="en",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/en_GBR_guardi.RDS")
+qd5<-qd
+table(qd$nbregs)
+```
+
+### Daily Telegraph
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/en_GBR_telegr.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="en",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/en_GBR_telegr.RDS")
+qd6<-qd
+table(qd$nbregs)
+```
+
+### Belfast Telegraph
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/en_NIR_beltel.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="en",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/en_NIR_beltel.RDS")
+qd7<-qd
+table(qd$nbregs)
+```
+
+### Irish Times
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/en_IRL_irtime.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="en",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/en_IRL_irtime.RDS")
+qd8<-qd
+table(qd$nbregs)
+```
+
+### Cumhuryet
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/tr_TUR_cumhur.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="tr",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/tr_TUR_cumhur.RDS")
+qd9<-qd
+table(qd$nbregs)
+```
+
+### Yeni Safak
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/tr_TUR_yenisa.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="tr",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/tr_TUR_yenisa.RDS")
+qd10<-qd
+table(qd$nbregs)
+```
+
+### Babnet
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/ar_TUN_babnet.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="ar",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/ar_TUN_babnet.RDS")
+qd11<-qd
+table(qd$nbregs)
+```
+
+### Réalités
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/fr_TUN_realit.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="fr",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/fr_TUN_realit.RDS")
+qd12<-qd
+table(qd$nbregs)
+```
+### Economiste Maghrebin
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/fr_TUN_ecomag.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="fr",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/fr_TUN_ecomag.RDS")
+qd13<-qd
+table(qd$nbregs)
+```
+
+### La Presse
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/fr_TUN_presse.RDS")
+qd <- extract_tags (qd = qd,
+                     lang="fr",
+                     dict = dict,
+                     ctrl = ctrl,
+                     split = TRUE,
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/fr_TUN_presse.RDS")
+qd14<-qd
+table(qd$nbregs)
+```
+
+
+### Global corpus
+
+```{r, eval=FALSE}
+qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12,qd13,qd14)
+saveRDS(qd,"quanteda/corpus_worldreg_001.RDS")
+```
 

@@ -69,3 +69,15 @@ with-france-1
 without-france-1
 extraction-of-aliases
 conclusion
+dictionary-of-world-regions
+load-the-list-of-world-regions
+extract-définitions
+extract-aliases-and-create-dictionary
+extract-dictionary-of-control-units
+detection-of-world-regions
+example-of-le-figaro-fr_fra_figaro
+load-corpus
+load-dictionaries-and-create-compounds
+store-world-regions-in-a-field
+check-results
+tokenize-1

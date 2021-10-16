@@ -24,7 +24,7 @@
 <meta name="author" content="Claude Grasland" />
 
 
-<meta name="date" content="2021-10-14" />
+<meta name="date" content="2021-10-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -206,15 +206,26 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="4.3.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#basic-operations"><i class="fa fa-check"></i><b>4.3.1</b> Basic operations</a></li>
 <li class="chapter" data-level="4.3.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#elaboration-of-a-cross_linguistic-dictionnary"><i class="fa fa-check"></i><b>4.3.2</b> Elaboration of a cross_linguistic dictionnary</a></li>
 <li class="chapter" data-level="4.3.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#extraction-of-aliases"><i class="fa fa-check"></i><b>4.3.3</b> Extraction of aliases</a></li>
+<li class="chapter" data-level="4.3.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#conclusion"><i class="fa fa-check"></i><b>4.3.4</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#conclusion"><i class="fa fa-check"></i><b>4.4</b> Conclusion</a></li>
+<li class="chapter" data-level="4.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#dictionary-of-world-regions"><i class="fa fa-check"></i><b>4.4</b> Dictionary of world regions</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#load-the-list-of-world-regions"><i class="fa fa-check"></i><b>4.4.1</b> Load the list of world regions</a></li>
+<li class="chapter" data-level="4.4.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#extract-définitions"><i class="fa fa-check"></i><b>4.4.2</b> Extract définitions</a></li>
+<li class="chapter" data-level="4.4.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#extract-aliases-and-create-dictionary"><i class="fa fa-check"></i><b>4.4.3</b> Extract aliases and create dictionary</a></li>
+<li class="chapter" data-level="4.4.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#extract-dictionary-of-control-units"><i class="fa fa-check"></i><b>4.4.4</b> Extract dictionary of control units</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="23-Wikidata.html"><a href="23-Wikidata.html#detection-of-world-regions"><i class="fa fa-check"></i><b>4.5</b> Detection of world regions</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#example-of-le-figaro-fr_fra_figaro"><i class="fa fa-check"></i><b>4.5.1</b> Example of “Le Figaro” (fr_FRA_figaro)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>5</b> Geonetworks</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#geotags"><i class="fa fa-check"></i><b>5.1</b> Geotags</a>
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-corpus"><i class="fa fa-check"></i><b>5.1.1</b> Select corpus</a></li>
-<li class="chapter" data-level="5.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize"><i class="fa fa-check"></i><b>5.1.2</b> Tokenize</a></li>
+<li class="chapter" data-level="5.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize-1"><i class="fa fa-check"></i><b>5.1.2</b> Tokenize</a></li>
 <li class="chapter" data-level="5.1.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#identify-geotags"><i class="fa fa-check"></i><b>5.1.3</b> identify geotags</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercubes"><i class="fa fa-check"></i><b>5.2</b> Hypercubes</a>
@@ -257,7 +268,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <h1><span class="header-section-number">Chapter 4</span> Wikidata</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="23-Wikidata.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-2"><a href="23-Wikidata.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="23-Wikidata.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span></code></pre></div>
+<span id="cb1-3"><a href="23-Wikidata.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span>
+<span id="cb1-4"><a href="23-Wikidata.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code></pre></div>
 <p><strong>Authors</strong> : Claude Grasland &amp; Etienne Toureille</p>
 <div id="introduction-1" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Introduction</h2>
@@ -1318,9 +1330,8 @@ $aliases[[1]]
 </table>
 <p>The function works !</p>
 </div>
-</div>
-<div id="conclusion" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Conclusion</h2>
+<div id="conclusion" class="section level3" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Conclusion</h3>
 <p>It is now possible to develop a global research strategy for the analysis of world regions :</p>
 <p><strong>1. Define a set of target regions in one language</strong> : In our example, it was based on the use of the term “Afrique” in french language, but we can imagine a different list.</p>
 <p><strong>2. Identify the code of the wikidata entities associated to this target regions</strong> : We have generally a lot of entities of minor interest.</p>
@@ -1329,7 +1340,284 @@ $aliases[[1]]
 <p><strong>5. Compare the definitions of Wikipedia entities in different languages</strong> : it is important to check if the assumption of identity of the entities is correct or not. If not, some entities will be eliminated from the list.</p>
 <p><strong>6. Extract the dictionary of recognition of entities</strong> : which can be done in a multilanguage perspective.</p>
 <p>It is obviously possible to apply the same procedure to different objects like organizations, people, etc…</p>
+</div>
+</div>
+<div id="dictionary-of-world-regions" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Dictionary of world regions</h2>
+<p>We realize a test of the method described above on a preliminary dictionary of world regions</p>
+<div id="load-the-list-of-world-regions" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Load the list of world regions</h3>
+<p>We start from a provisional list of 65 world regions established by C. Grasland :</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="23-Wikidata.html#cb42-1" aria-hidden="true" tabindex="-1"></a>ent<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;dict/wikireg_V1.csv&quot;</span>, </span>
+<span id="cb42-2"><a href="23-Wikidata.html#cb42-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">sep=</span><span class="st">&quot;;&quot;</span>,</span>
+<span id="cb42-3"><a href="23-Wikidata.html#cb42-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">header=</span>T,</span>
+<span id="cb42-4"><a href="23-Wikidata.html#cb42-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
+</div>
+<div id="extract-définitions" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Extract définitions</h3>
+<p>We extract the definitions of the regions in the different languages.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="23-Wikidata.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="do">## NOT RUN </span><span class="al">###</span></span>
+<span id="cb43-2"><a href="23-Wikidata.html#cb43-2" aria-hidden="true" tabindex="-1"></a>worldreg_def <span class="ot">&lt;-</span> <span class="fu">extract_def</span>(ent<span class="sc">$</span>wikidata,<span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>))</span>
+<span id="cb43-3"><a href="23-Wikidata.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(<span class="at">x =</span> worldreg_def,</span>
+<span id="cb43-4"><a href="23-Wikidata.html#cb43-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">file =</span> <span class="st">&quot;dict/worldreg001_def.csv&quot;</span>,</span>
+<span id="cb43-5"><a href="23-Wikidata.html#cb43-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
+<span id="cb43-6"><a href="23-Wikidata.html#cb43-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>)</span>
+<span id="cb43-7"><a href="23-Wikidata.html#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> worldreg_def, <span class="at">file =</span> <span class="st">&quot;dict/worldreg001_def.RDS&quot;</span>)</span></code></pre></div>
+</div>
+<div id="extract-aliases-and-create-dictionary" class="section level3" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Extract aliases and create dictionary</h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="23-Wikidata.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">## NOT RUN </span><span class="al">###</span></span>
+<span id="cb44-2"><a href="23-Wikidata.html#cb44-2" aria-hidden="true" tabindex="-1"></a>worldreg_dict <span class="ot">&lt;-</span> <span class="fu">extract_alias</span>(ent<span class="sc">$</span>wikidata,<span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>))</span>
+<span id="cb44-3"><a href="23-Wikidata.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(<span class="at">x =</span> worldreg_dict,</span>
+<span id="cb44-4"><a href="23-Wikidata.html#cb44-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">file =</span> <span class="st">&quot;dict/worldreg001_dict.csv&quot;</span>,</span>
+<span id="cb44-5"><a href="23-Wikidata.html#cb44-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
+<span id="cb44-6"><a href="23-Wikidata.html#cb44-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>)</span>
+<span id="cb44-7"><a href="23-Wikidata.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> worldreg_dict, <span class="at">file =</span> <span class="st">&quot;dict/worldreg001_dict.RDS&quot;</span>)</span></code></pre></div>
+</div>
+<div id="extract-dictionary-of-control-units" class="section level3" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> Extract dictionary of control units</h3>
+<p>We need to add a supplementary dictionary of units that are introduced in order to avoid confusion. For the moment it is limited to the state of southern Africa, but many other units shouyld be added like “<em>Europe 1</em>” (a french radio), “<em>Council of Europe</em>” (an organization), etc…</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="23-Wikidata.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="do">## NOT RUN </span><span class="al">###</span></span>
+<span id="cb45-2"><a href="23-Wikidata.html#cb45-2" aria-hidden="true" tabindex="-1"></a>ent_ctrl <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Q258&quot;</span>,   <span class="co"># Republic of southern Africa</span></span>
+<span id="cb45-3"><a href="23-Wikidata.html#cb45-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;Q8908&quot;</span>,   <span class="co"># Council of Europe</span></span>
+<span id="cb45-4"><a href="23-Wikidata.html#cb45-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;Q314407&quot;</span>)  <span class="co"># French Radio Europe 1</span></span>
+<span id="cb45-5"><a href="23-Wikidata.html#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="23-Wikidata.html#cb45-6" aria-hidden="true" tabindex="-1"></a>worldreg_ctrl <span class="ot">&lt;-</span> <span class="fu">extract_alias</span>(ent_ctrl,<span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>))</span>
+<span id="cb45-7"><a href="23-Wikidata.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(<span class="at">x =</span> worldreg_ctrl,</span>
+<span id="cb45-8"><a href="23-Wikidata.html#cb45-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">file =</span> <span class="st">&quot;dict/worldreg001_ctrl.csv&quot;</span>,</span>
+<span id="cb45-9"><a href="23-Wikidata.html#cb45-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
+<span id="cb45-10"><a href="23-Wikidata.html#cb45-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>)</span>
+<span id="cb45-11"><a href="23-Wikidata.html#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> worldreg_ctrl, <span class="at">file =</span> <span class="st">&quot;dict/worldreg001_ctrl.RDS&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="detection-of-world-regions" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Detection of world regions</h2>
+<p>We describe now how to apply the dictionary to our different media :</p>
+<div id="example-of-le-figaro-fr_fra_figaro" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Example of “Le Figaro” (fr_FRA_figaro)</h3>
+<p>Before to elaborate a generic function, we describe step by step the procedure :</p>
+<div id="load-corpus" class="section level4" number="4.5.1.1">
+<h4><span class="header-section-number">4.5.1.1</span> Load corpus</h4>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="23-Wikidata.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Load corpus</span></span>
+<span id="cb46-2"><a href="23-Wikidata.html#cb46-2" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_figaro.RDS&quot;</span>)</span>
+<span id="cb46-3"><a href="23-Wikidata.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(qd,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>Corpus consisting of 128807 documents, showing 3 documents:
 
+       Text Types Tokens Sentences        source       date
+ 1128863317    12     12         1 fr_FRA_figaro 2019-01-01
+ 1128915698    11     11         1 fr_FRA_figaro 2019-01-01
+ 1128915693     8      8         1 fr_FRA_figaro 2019-01-01</code></pre>
+</div>
+<div id="tokenize" class="section level4" number="4.5.1.2">
+<h4><span class="header-section-number">4.5.1.2</span> Tokenize</h4>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="23-Wikidata.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize text</span></span>
+<span id="cb48-2"><a href="23-Wikidata.html#cb48-2" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens</span>(qd)</span>
+<span id="cb48-3"><a href="23-Wikidata.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="23-Wikidata.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Split french apostroph (optional )</span></span>
+<span id="cb48-5"><a href="23-Wikidata.html#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co">#toks&lt;- tokens_split(toks, &quot;&#39;&quot;)</span></span></code></pre></div>
+</div>
+<div id="load-dictionaries-and-create-compounds" class="section level4" number="4.5.1.3">
+<h4><span class="header-section-number">4.5.1.3</span> Load dictionaries and create compounds</h4>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="23-Wikidata.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Control dictionary</span></span>
+<span id="cb49-2"><a href="23-Wikidata.html#cb49-2" aria-hidden="true" tabindex="-1"></a>ctrl<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;dict/worldreg001_ctrl.RDS&quot;</span>)</span>
+<span id="cb49-3"><a href="23-Wikidata.html#cb49-3" aria-hidden="true" tabindex="-1"></a>ctrl<span class="ot">&lt;-</span>ctrl[ctrl<span class="sc">$</span>lang<span class="sc">==</span><span class="st">&quot;fr&quot;</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(ctrl<span class="sc">$</span>label)<span class="sc">==</span>F,]</span>
+<span id="cb49-4"><a href="23-Wikidata.html#cb49-4" aria-hidden="true" tabindex="-1"></a>ctrl<span class="ot">&lt;-</span>ctrl[<span class="fu">ntoken</span>(ctrl<span class="sc">$</span>label)<span class="sc">&gt;</span><span class="dv">1</span>,]</span>
+<span id="cb49-5"><a href="23-Wikidata.html#cb49-5" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens_compound</span>(toks,<span class="at">pattern=</span><span class="fu">phrase</span>(ctrl<span class="sc">$</span>label))</span>
+<span id="cb49-6"><a href="23-Wikidata.html#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="23-Wikidata.html#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Target dictionary</span></span>
+<span id="cb49-8"><a href="23-Wikidata.html#cb49-8" aria-hidden="true" tabindex="-1"></a>dict<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;dict/worldreg001_dict.RDS&quot;</span>)</span>
+<span id="cb49-9"><a href="23-Wikidata.html#cb49-9" aria-hidden="true" tabindex="-1"></a>dict<span class="ot">&lt;-</span>dict[dict<span class="sc">$</span>lang<span class="sc">==</span><span class="st">&quot;fr&quot;</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(dict<span class="sc">$</span>label)<span class="sc">==</span>F,]</span>
+<span id="cb49-10"><a href="23-Wikidata.html#cb49-10" aria-hidden="true" tabindex="-1"></a>target<span class="ot">&lt;-</span>dict[<span class="fu">ntoken</span>(dict<span class="sc">$</span>label)<span class="sc">&gt;</span><span class="dv">1</span>,]</span>
+<span id="cb49-11"><a href="23-Wikidata.html#cb49-11" aria-hidden="true" tabindex="-1"></a>target<span class="ot">&lt;-</span><span class="fu">tokens_compound</span>(toks,<span class="at">pattern=</span><span class="fu">phrase</span>(target<span class="sc">$</span>label))</span></code></pre></div>
+</div>
+<div id="store-world-regions-in-a-field" class="section level4" number="4.5.1.4">
+<h4><span class="header-section-number">4.5.1.4</span> Store world regions in a field</h4>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="23-Wikidata.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create quanteda dictionary</span></span>
+<span id="cb50-2"><a href="23-Wikidata.html#cb50-2" aria-hidden="true" tabindex="-1"></a>keys <span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&quot; &quot;</span>,<span class="st">&quot;_&quot;</span>,dict<span class="sc">$</span>label)</span>
+<span id="cb50-3"><a href="23-Wikidata.html#cb50-3" aria-hidden="true" tabindex="-1"></a>qd_dict<span class="ot">&lt;-</span><span class="fu">as.list</span>(keys)</span>
+<span id="cb50-4"><a href="23-Wikidata.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(qd_dict)<span class="ot">&lt;-</span>dict<span class="sc">$</span>id</span>
+<span id="cb50-5"><a href="23-Wikidata.html#cb50-5" aria-hidden="true" tabindex="-1"></a>qd_dict<span class="ot">&lt;-</span><span class="fu">dictionary</span>(qd_dict)</span>
+<span id="cb50-6"><a href="23-Wikidata.html#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="23-Wikidata.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify geo tags (states or reg or org ...)</span></span>
+<span id="cb50-8"><a href="23-Wikidata.html#cb50-8" aria-hidden="true" tabindex="-1"></a>toks_tags <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(toks, qd_dict)</span>
+<span id="cb50-9"><a href="23-Wikidata.html#cb50-9" aria-hidden="true" tabindex="-1"></a>toks_tags <span class="ot">&lt;-</span> <span class="fu">lapply</span>(toks_tags, unique)</span>
+<span id="cb50-10"><a href="23-Wikidata.html#cb50-10" aria-hidden="true" tabindex="-1"></a>toks_tags<span class="ot">&lt;-</span><span class="fu">as.tokens</span>(toks_tags)</span>
+<span id="cb50-11"><a href="23-Wikidata.html#cb50-11" aria-hidden="true" tabindex="-1"></a>list_tags<span class="ot">&lt;-</span><span class="cf">function</span>(x){res<span class="ot">&lt;-</span><span class="fu">paste</span>(x, <span class="at">collapse=</span><span class="st">&#39; &#39;</span>)}</span>
+<span id="cb50-12"><a href="23-Wikidata.html#cb50-12" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>regs<span class="ot">&lt;-</span><span class="fu">as.character</span>(<span class="fu">lapply</span>(toks_tags,<span class="at">FUN=</span>list_tags))</span>
+<span id="cb50-13"><a href="23-Wikidata.html#cb50-13" aria-hidden="true" tabindex="-1"></a>qd<span class="sc">$</span>nbregs<span class="ot">&lt;-</span><span class="fu">ntoken</span>(toks_tags)</span></code></pre></div>
+</div>
+<div id="check-results" class="section level4" number="4.5.1.5">
+<h4><span class="header-section-number">4.5.1.5</span> Check results</h4>
+<p>In order to check the results we print the sample of news where two world regions or more was present.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="23-Wikidata.html#cb51-1" aria-hidden="true" tabindex="-1"></a>check<span class="ot">&lt;-</span>qd[qd<span class="sc">$</span>nbregs<span class="sc">&gt;</span><span class="dv">1</span>]</span>
+<span id="cb51-2"><a href="23-Wikidata.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(check)</span></code></pre></div>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="91%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1233402821</td>
+<td align="left">Sommet Trump-Kim à Hanoï: quels enjeux pour les alliés des États-Unis en Europe et en Asie?</td>
+</tr>
+<tr class="even">
+<td align="left">1273320449</td>
+<td align="left">Asie, Afrique, Europe: la nouvelle stratégie de l’État islamique</td>
+</tr>
+<tr class="odd">
+<td align="left">1472261066</td>
+<td align="left">Morning meeting AOF France / Europe - Début de séance dans le vert en perspective</td>
+</tr>
+<tr class="even">
+<td align="left">1487858483</td>
+<td align="left">Afrique centrale, Amazonie… L’Australie n’est pas la seule région du globe touchée par des incendies dévastateurs</td>
+</tr>
+<tr class="odd">
+<td align="left">1538695782</td>
+<td align="left">Afrique, Asie, Russie: ces pays qui prétendent échapper au coronavirus</td>
+</tr>
+<tr class="even">
+<td align="left">1566082859</td>
+<td align="left">«On risque en Afrique d’avoir une mortalité beaucoup plus élevée qu’en Europe»</td>
+</tr>
+<tr class="odd">
+<td align="left">1615672526</td>
+<td align="left">Coronavirus: plus de 40.000 morts en Amérique latine et aux Caraïbes</td>
+</tr>
+<tr class="even">
+<td align="left">1622310115</td>
+<td align="left">Coronavirus: plus d’un million de cas en Amérique latine et aux Caraïbes</td>
+</tr>
+<tr class="odd">
+<td align="left">1643134082</td>
+<td align="left">Coronavirus: plus de 100.000 morts en Amérique latine et dans les Caraïbes</td>
+</tr>
+<tr class="even">
+<td align="left">1644080764</td>
+<td align="left">Un vent de sable du Sahara fait suffoquer les Caraïbes</td>
+</tr>
+<tr class="odd">
+<td align="left">1655624031</td>
+<td align="left">Covid-19: plus de 3 millions de cas en Amérique latine et aux Caraïbes</td>
+</tr>
+<tr class="even">
+<td align="left">1669473785</td>
+<td align="left">Coronavirus: plus de 4 millions de cas en Amérique latine et dans les Caraïbes</td>
+</tr>
+<tr class="odd">
+<td align="left">1674749497</td>
+<td align="left">Coronavirus: plus de 200.000 morts en Amérique latine et aux Caraïbes</td>
+</tr>
+<tr class="even">
+<td align="left">1791252333</td>
+<td align="left">Présidentielle américaine: Europe, Asie, Otan. Le monde retient son souffle</td>
+</tr>
+<tr class="odd">
+<td align="left">1822430945</td>
+<td align="left">Telefonica vend ses tours de télécommunication en Europe et Amérique latine pour 7,7 milliards d’euros</td>
+</tr>
+<tr class="even">
+<td align="left">1855542096</td>
+<td align="left">Polynésie: un marin chute d’un cargo et survit 16 heures dans l’océan Pacifique</td>
+</tr>
+<tr class="odd">
+<td align="left">1891681233</td>
+<td align="left">Canal de Suez bloqué : quelles conséquences pour les opérations de l’armée française au Moyen-Orient et en Asie ?</td>
+</tr>
+<tr class="even">
+<td align="left">1938506703</td>
+<td align="left">Covid-19 : plus d’un million de décès en Amérique latine et aux Caraïbes</td>
+</tr>
+<tr class="odd">
+<td align="left">2021112587</td>
+<td align="left">Bab al-Mandab, «porte des lamentations» entre Afrique et Moyen-Orient</td>
+</tr>
+<tr class="even">
+<td align="left">2023259245</td>
+<td align="left">Air Caraïbes et Corsair plongent aux Antilles</td>
+</tr>
+</tbody>
+</table>
+<p>With only one exception (“Air Caraïbes” is not a region), we have obtained genuine cases of linkages between world regions. This cases ae not very frequent but interesting :</p>
+<ol style="list-style-type: decimal">
+<li>We have many examples of association of regions and states (“<em>Afrique, Asie, Russie</em>”) which clearly suggest that very large states are considered as equivalent to world regions (“<em>"Afrique centrale, Amazonie … L’Australie n’est pas la seule région du globe touchée par les incendies</em>”)</li>
+<li>We notice some frequent associations like the dyad “<em>Amérique Latine / Caraïbes</em>” which is observed 7 times.</li>
+</ol>
+<p>We can produce another case for the difficult case of “<em>Europe (Q46)</em>” in order to see if we have not forgotten to control some compounds :</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="23-Wikidata.html#cb52-1" aria-hidden="true" tabindex="-1"></a>check<span class="ot">&lt;-</span>qd[qd<span class="sc">$</span>regs<span class="sc">==</span><span class="st">&quot;Q46&quot;</span>]</span>
+<span id="cb52-2"><a href="23-Wikidata.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ndoc</span>(check)</span></code></pre></div>
+<pre><code>[1] 390</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="23-Wikidata.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(check[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1129625564</td>
+<td align="left">Contrôle des chômeurs : comment ça marche ailleurs en Europe ?</td>
+</tr>
+<tr class="even">
+<td align="left">1147907423</td>
+<td align="left">Le mur entre les deux Europe, un mirage pour l’avenir</td>
+</tr>
+<tr class="odd">
+<td align="left">1162263438</td>
+<td align="left">En Europe, le rejet de l’accord sur le Brexit fait craindre l’hypothèse d’un «no deal»</td>
+</tr>
+<tr class="even">
+<td align="left">1165265804</td>
+<td align="left">Marque «Big Mac» révoquée en Europe : qu’est-ce que ça change ?</td>
+</tr>
+<tr class="odd">
+<td align="left">1171500116</td>
+<td align="left">La Model 3 de Tesla autorisée à circuler en Europe</td>
+</tr>
+<tr class="even">
+<td align="left">1171610557</td>
+<td align="left">Europe: la lune de miel ratée entre Macron et Merkel</td>
+</tr>
+<tr class="odd">
+<td align="left">1174229396</td>
+<td align="left">Un congé paternité de dix jours minimum en Europe</td>
+</tr>
+<tr class="even">
+<td align="left">1193017366</td>
+<td align="left">Fusion Axa/XL : 711 postes potentiellement supprimés en Europe</td>
+</tr>
+<tr class="odd">
+<td align="left">1193073299</td>
+<td align="left">«Oney Bank sera la banque digitale du groupe BPCE en Europe»</td>
+</tr>
+<tr class="even">
+<td align="left">1194469225</td>
+<td align="left">La pêche électrique sera interdite en Europe en 2021</td>
+</tr>
+</tbody>
+</table>
+<p>The manual analysis of the 390 occurences of “Europe” reveals a very good performance. Only 12 news (i.e 3% ) are related to entities different from the world region Europe. The 12 observed mistakes are related to :</p>
+<ul>
+<li>other subregions of Europe with complements in upper case (e.g. “<em>Europe Centrale</em>”, “¨<em>Europe de l’Est</em>” ) which are not in the list of aliases (easy to comple)</li>
+<li>entities to be added to the control list like political parties (e.g. “<em>Europe Ecologie</em>”), companies (e.g. “<em>Google Europe</em>”), media (“<em>Radio Free Europe</em>”), films (“<em>Princesse Europe</em>”), …</li>
+</ul>
+<p>But as a whole the number of mistakes is very reduced and could be debated in certain cases : “Google Europe” can be considered for example as a reference to the world region Europe.</p>
+
+</div>
+</div>
 </div>
 </div>
 <div class="footnotes">
