@@ -26,32 +26,29 @@
 </defs>
 <g clip-path='url(#cpMzYwLjAwfDQzMi4wMHwwLjAwfDcyLjAw)'>
 <rect x='380.97' y='7.13' width='1.78' height='59.52' style='stroke-width: 0.75; fill: #000000;' />
-<rect x='384.35' y='26.29' width='1.78' height='40.36' style='stroke-width: 0.75; fill: #000000;' />
-<rect x='387.73' y='37.50' width='1.78' height='29.15' style='stroke-width: 0.75; fill: #000000;' />
-<rect x='391.10' y='48.49' width='1.78' height='18.16' style='stroke-width: 0.75; fill: #000000;' />
-<rect x='394.48' y='54.14' width='1.78' height='12.51' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='397.86' y='59.68' width='1.78' height='6.98' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='401.24' y='59.93' width='1.78' height='6.72' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='404.62' y='62.92' width='1.78' height='3.74' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='407.99' y='63.82' width='1.78' height='2.83' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='411.37' y='64.63' width='1.78' height='2.02' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='414.75' y='65.21' width='1.78' height='1.44' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='418.13' y='65.39' width='1.78' height='1.27' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='421.50' y='65.82' width='1.78' height='0.83' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='424.88' y='65.97' width='1.78' height='0.68' style='stroke-width: 0.75; fill: #BEBEBE;' />
-<rect x='428.26' y='66.16' width='1.78' height='0.49' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='384.35' y='34.72' width='1.78' height='31.93' style='stroke-width: 0.75; fill: #000000;' />
+<rect x='387.73' y='38.55' width='1.78' height='28.11' style='stroke-width: 0.75; fill: #000000;' />
+<rect x='391.10' y='43.05' width='1.78' height='23.60' style='stroke-width: 0.75; fill: #000000;' />
+<rect x='394.48' y='54.29' width='1.78' height='12.37' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='397.86' y='59.57' width='1.78' height='7.08' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='401.24' y='60.61' width='1.78' height='6.05' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='404.62' y='63.22' width='1.78' height='3.43' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='407.99' y='64.27' width='1.78' height='2.38' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='411.37' y='64.87' width='1.78' height='1.78' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='414.75' y='65.03' width='1.78' height='1.63' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='418.13' y='65.35' width='1.78' height='1.31' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='421.50' y='65.56' width='1.78' height='1.09' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='424.88' y='65.67' width='1.78' height='0.98' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='428.26' y='65.81' width='1.78' height='0.84' style='stroke-width: 0.75; fill: #BEBEBE;' />
 </g>
 <g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
-<line x1='379.01' y1='66.65' x2='379.01' y2='9.51' style='stroke-width: 0.75;' />
+<line x1='379.01' y1='66.65' x2='379.01' y2='17.33' style='stroke-width: 0.75;' />
 <line x1='379.01' y1='66.65' x2='374.26' y2='66.65' style='stroke-width: 0.75;' />
-<line x1='379.01' y1='55.22' x2='374.26' y2='55.22' style='stroke-width: 0.75;' />
-<line x1='379.01' y1='43.79' x2='374.26' y2='43.79' style='stroke-width: 0.75;' />
-<line x1='379.01' y1='32.37' x2='374.26' y2='32.37' style='stroke-width: 0.75;' />
-<line x1='379.01' y1='20.94' x2='374.26' y2='20.94' style='stroke-width: 0.75;' />
-<line x1='379.01' y1='9.51' x2='374.26' y2='9.51' style='stroke-width: 0.75;' />
+<line x1='379.01' y1='50.21' x2='374.26' y2='50.21' style='stroke-width: 0.75;' />
+<line x1='379.01' y1='33.77' x2='374.26' y2='33.77' style='stroke-width: 0.75;' />
+<line x1='379.01' y1='17.33' x2='374.26' y2='17.33' style='stroke-width: 0.75;' />
 <text transform='translate(367.60,66.65) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.00</text>
-<text transform='translate(367.60,43.79) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.10</text>
-<text transform='translate(367.60,20.94) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.20</text>
+<text transform='translate(367.60,33.77) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.10</text>
 </g>
 <defs>
   <clipPath id='cpOTEuMDF8MzYwLjAwfDcuMTN8NjcuMjU='>
@@ -69,7 +66,7 @@
 <g clip-path='url(#cpNzIuMDB8MzYwLjAwfDAuMDB8NzIuMDA=)'>
 </g>
 <g clip-path='url(#cpOTEuMDF8MzYwLjAwfDcuMTN8NjcuMjU=)'>
-<text x='225.50' y='41.19' text-anchor='middle' style='font-size: 15.84px; font-family: Arial;' textLength='155.64px' lengthAdjust='spacingAndGlyphs'>Hierarchical clustering</text>
+<text x='225.50' y='41.13' text-anchor='middle' style='font-size: 15.84px; font-family: Arial;' textLength='155.71px' lengthAdjust='spacingAndGlyphs'>Hierarchical clustering</text>
 </g>
 <defs>
   <clipPath id='cpMzc5LjAxfDQzMi4wMHw3OS4xM3wzNTUuMjU='>
@@ -88,7 +85,7 @@
 </g>
 <g clip-path='url(#cpMzc5LjAxfDQzMi4wMHw3OS4xM3wzNTUuMjU=)'>
 <rect x='374.65' y='79.13' width='61.72' height='19.01' style='stroke-width: 0.75;' />
-<text x='388.90' y='91.46' style='font-size: 7.92px; font-family: Arial;' textLength='43.08px' lengthAdjust='spacingAndGlyphs'>inertia gain  </text>
+<text x='388.90' y='91.47' style='font-size: 7.92px; font-family: Arial;' textLength='43.08px' lengthAdjust='spacingAndGlyphs'>inertia gain  </text>
 </g>
 <defs>
   <clipPath id='cpOTEuMDF8MzYwLjAwfDc5LjEzfDM1NS4yNQ=='>
@@ -103,111 +100,101 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNzIuMDB8MzYwLjAwfDcyLjAwfDM2MC4wMA==)'>
-<text transform='translate(102.67,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='32.95px' lengthAdjust='spacingAndGlyphs'>Americas</text>
-<text transform='translate(109.05,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='54.95px' lengthAdjust='spacingAndGlyphs'>Eastern Europe</text>
-<polyline points='100.97,275.43 100.97,275.23 107.36,275.23 107.36,275.43 ' style='stroke-width: 0.75;' />
-<text transform='translate(115.44,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='68.57px' lengthAdjust='spacingAndGlyphs'>Sub-Saharan Africa</text>
-<text transform='translate(121.83,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='20.22px' lengthAdjust='spacingAndGlyphs'>Sahel</text>
-<polyline points='113.74,275.43 113.74,275.01 120.13,275.01 120.13,275.43 ' style='stroke-width: 0.75;' />
-<text transform='translate(128.21,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='35.16px' lengthAdjust='spacingAndGlyphs'>Near East</text>
-<text transform='translate(134.60,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='35.16px' lengthAdjust='spacingAndGlyphs'>Amazonia</text>
-<text transform='translate(140.99,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='34.29px' lengthAdjust='spacingAndGlyphs'>Polynesia</text>
-<text transform='translate(147.37,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='25.49px' lengthAdjust='spacingAndGlyphs'>Antilles</text>
-<polyline points='139.29,275.43 139.29,275.40 145.67,275.40 145.67,275.43 ' style='stroke-width: 0.75;' />
-<polyline points='132.90,275.43 132.90,275.37 142.48,275.37 142.48,275.40 ' style='stroke-width: 0.75;' />
-<polyline points='126.52,275.43 126.52,272.83 137.69,272.83 137.69,275.37 ' style='stroke-width: 0.75;' />
-<polyline points='116.94,275.01 116.94,263.75 132.10,263.75 132.10,272.83 ' style='stroke-width: 0.75;' />
-<text transform='translate(153.76,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='31.22px' lengthAdjust='spacingAndGlyphs'>Maghreb</text>
-<text transform='translate(160.15,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='41.31px' lengthAdjust='spacingAndGlyphs'>North Africa</text>
-<polyline points='152.06,275.43 152.06,274.26 158.45,274.26 158.45,275.43 ' style='stroke-width: 0.75;' />
-<text transform='translate(166.53,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='20.21px' lengthAdjust='spacingAndGlyphs'>Africa</text>
-<text transform='translate(172.92,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>Sahara</text>
-<polyline points='164.83,275.43 164.83,270.93 171.22,270.93 171.22,275.43 ' style='stroke-width: 0.75;' />
-<polyline points='155.25,274.26 155.25,253.62 168.03,253.62 168.03,270.93 ' style='stroke-width: 0.75;' />
-<polyline points='124.52,263.75 124.52,218.65 161.64,218.65 161.64,253.62 ' style='stroke-width: 0.75;' />
-<text transform='translate(179.30,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='37.35px' lengthAdjust='spacingAndGlyphs'>Asia Minor</text>
-<text transform='translate(185.69,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='26.81px' lengthAdjust='spacingAndGlyphs'>Eurasia</text>
-<polyline points='177.61,275.43 177.61,275.41 183.99,275.41 183.99,275.43 ' style='stroke-width: 0.75;' />
-<text transform='translate(192.08,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='67.27px' lengthAdjust='spacingAndGlyphs'>Mediterranean Sea</text>
-<text transform='translate(198.46,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='35.16px' lengthAdjust='spacingAndGlyphs'>Caucasus</text>
-<text transform='translate(204.85,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='42.63px' lengthAdjust='spacingAndGlyphs'>Central Asia</text>
-<polyline points='196.77,275.43 196.77,275.10 203.15,275.10 203.15,275.43 ' style='stroke-width: 0.75;' />
-<polyline points='190.38,275.43 190.38,274.93 199.96,274.93 199.96,275.10 ' style='stroke-width: 0.75;' />
-<polyline points='180.80,275.41 180.80,254.41 195.17,254.41 195.17,274.93 ' style='stroke-width: 0.75;' />
-<text transform='translate(211.24,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='54.06px' lengthAdjust='spacingAndGlyphs'>Southern Africa</text>
-<text transform='translate(217.62,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='15.38px' lengthAdjust='spacingAndGlyphs'>Asia</text>
-<text transform='translate(224.01,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='43.51px' lengthAdjust='spacingAndGlyphs'>Persian Gulf</text>
-<polyline points='215.92,275.43 215.92,275.13 222.31,275.13 222.31,275.43 ' style='stroke-width: 0.75;' />
-<text transform='translate(230.39,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>Europe</text>
-<text transform='translate(236.78,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='41.30px' lengthAdjust='spacingAndGlyphs'>Asia-Pacific</text>
-<text transform='translate(243.17,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='35.16px' lengthAdjust='spacingAndGlyphs'>Antarctica</text>
-<polyline points='235.08,275.43 235.08,275.30 241.47,275.30 241.47,275.43 ' style='stroke-width: 0.75;' />
-<polyline points='228.70,275.43 228.70,274.75 238.28,274.75 238.28,275.30 ' style='stroke-width: 0.75;' />
-<polyline points='219.12,275.13 219.12,273.88 233.49,273.88 233.49,274.75 ' style='stroke-width: 0.75;' />
-<polyline points='209.54,275.43 209.54,269.11 226.30,269.11 226.30,273.88 ' style='stroke-width: 0.75;' />
-<text transform='translate(249.55,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='51.42px' lengthAdjust='spacingAndGlyphs'>Atlantic Ocean</text>
-<text transform='translate(255.94,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='36.50px' lengthAdjust='spacingAndGlyphs'>Caribbean</text>
-<polyline points='247.86,275.43 247.86,275.25 254.24,275.25 254.24,275.43 ' style='stroke-width: 0.75;' />
-<text transform='translate(262.33,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='48.78px' lengthAdjust='spacingAndGlyphs'>Pacific Ocean</text>
-<text transform='translate(268.71,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='37.79px' lengthAdjust='spacingAndGlyphs'>East Africa</text>
-<text transform='translate(275.10,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='19.76px' lengthAdjust='spacingAndGlyphs'>Arctic</text>
-<polyline points='267.02,275.43 267.02,275.33 273.40,275.33 273.40,275.43 ' style='stroke-width: 0.75;' />
-<polyline points='260.63,275.43 260.63,275.21 270.21,275.21 270.21,275.33 ' style='stroke-width: 0.75;' />
-<polyline points='251.05,275.25 251.05,274.30 265.42,274.30 265.42,275.21 ' style='stroke-width: 0.75;' />
-<text transform='translate(281.49,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='41.31px' lengthAdjust='spacingAndGlyphs'>Middle East</text>
-<text transform='translate(287.87,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='52.75px' lengthAdjust='spacingAndGlyphs'>Southeast Asia</text>
-<text transform='translate(294.26,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='51.42px' lengthAdjust='spacingAndGlyphs'>South America</text>
-<text transform='translate(300.64,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='39.83px' lengthAdjust='spacingAndGlyphs'>West Africa</text>
-<polyline points='292.56,275.43 292.56,275.40 298.95,275.40 298.95,275.43 ' style='stroke-width: 0.75;' />
-<polyline points='286.17,275.43 286.17,275.23 295.75,275.23 295.75,275.40 ' style='stroke-width: 0.75;' />
-<polyline points='279.79,275.43 279.79,274.20 290.96,274.20 290.96,275.23 ' style='stroke-width: 0.75;' />
-<text transform='translate(307.03,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='56.25px' lengthAdjust='spacingAndGlyphs'>Central America</text>
-<text transform='translate(313.42,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='50.10px' lengthAdjust='spacingAndGlyphs'>North America</text>
-<polyline points='305.33,275.43 305.33,275.28 311.72,275.28 311.72,275.43 ' style='stroke-width: 0.75;' />
-<text transform='translate(319.80,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='47.04px' lengthAdjust='spacingAndGlyphs'>Indian Ocean</text>
-<text transform='translate(326.19,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='36.91px' lengthAdjust='spacingAndGlyphs'>Himalayas</text>
-<text transform='translate(332.58,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='59.79px' lengthAdjust='spacingAndGlyphs'>South China Sea</text>
-<text transform='translate(338.96,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='47.91px' lengthAdjust='spacingAndGlyphs'>Latin America</text>
-<polyline points='330.88,275.43 330.88,275.31 337.26,275.31 337.26,275.43 ' style='stroke-width: 0.75;' />
-<polyline points='324.49,275.43 324.49,275.29 334.07,275.29 334.07,275.31 ' style='stroke-width: 0.75;' />
-<polyline points='318.11,275.43 318.11,275.22 329.28,275.22 329.28,275.29 ' style='stroke-width: 0.75;' />
-<polyline points='308.53,275.28 308.53,274.91 323.69,274.91 323.69,275.22 ' style='stroke-width: 0.75;' />
-<text transform='translate(345.35,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='15.38px' lengthAdjust='spacingAndGlyphs'>Alps</text>
-<text transform='translate(351.74,282.02) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='28.13px' lengthAdjust='spacingAndGlyphs'>Balkans</text>
-<polyline points='343.65,275.43 343.65,274.70 350.04,274.70 350.04,275.43 ' style='stroke-width: 0.75;' />
-<polyline points='316.11,274.91 316.11,273.30 346.84,273.30 346.84,274.70 ' style='stroke-width: 0.75;' />
-<polyline points='285.38,274.20 285.38,271.47 331.48,271.47 331.48,273.30 ' style='stroke-width: 0.75;' />
-<polyline points='258.23,274.30 258.23,266.57 308.43,266.57 308.43,271.47 ' style='stroke-width: 0.75;' />
-<polyline points='217.92,269.11 217.92,236.31 283.33,236.31 283.33,266.57 ' style='stroke-width: 0.75;' />
-<polyline points='187.98,254.41 187.98,184.31 250.63,184.31 250.63,236.31 ' style='stroke-width: 0.75;' />
-<polyline points='143.08,218.65 143.08,149.27 219.30,149.27 219.30,184.31 ' style='stroke-width: 0.75;' />
-<polyline points='104.16,275.23 104.16,89.35 181.19,89.35 181.19,149.27 ' style='stroke-width: 0.75;' />
+<text transform='translate(102.67,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='69.01px' lengthAdjust='spacingAndGlyphs'>Sub-Saharan Africa</text>
+<text transform='translate(109.59,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='20.22px' lengthAdjust='spacingAndGlyphs'>Sahel</text>
+<polyline points='100.97,275.02 100.97,274.24 107.89,274.24 107.89,275.02 ' style='stroke-width: 0.75;' />
+<text transform='translate(116.51,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='35.16px' lengthAdjust='spacingAndGlyphs'>Near East</text>
+<text transform='translate(123.43,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='35.16px' lengthAdjust='spacingAndGlyphs'>Amazonia</text>
+<text transform='translate(130.35,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='34.29px' lengthAdjust='spacingAndGlyphs'>Polynesia</text>
+<text transform='translate(137.27,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='25.49px' lengthAdjust='spacingAndGlyphs'>Antilles</text>
+<polyline points='128.64,275.02 128.64,274.99 135.56,274.99 135.56,275.02 ' style='stroke-width: 0.75;' />
+<polyline points='121.73,275.02 121.73,274.90 132.10,274.90 132.10,274.99 ' style='stroke-width: 0.75;' />
+<polyline points='114.81,275.02 114.81,271.62 126.92,271.62 126.92,274.90 ' style='stroke-width: 0.75;' />
+<polyline points='104.43,274.24 104.43,256.16 120.86,256.16 120.86,271.62 ' style='stroke-width: 0.75;' />
+<text transform='translate(144.18,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='41.75px' lengthAdjust='spacingAndGlyphs'>North Africa</text>
+<text transform='translate(151.10,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='31.22px' lengthAdjust='spacingAndGlyphs'>Maghreb</text>
+<polyline points='142.48,275.02 142.48,272.63 149.40,272.63 149.40,275.02 ' style='stroke-width: 0.75;' />
+<text transform='translate(158.02,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>Sahara</text>
+<text transform='translate(164.94,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='20.21px' lengthAdjust='spacingAndGlyphs'>Africa</text>
+<polyline points='156.32,275.02 156.32,267.59 163.24,267.59 163.24,275.02 ' style='stroke-width: 0.75;' />
+<polyline points='145.94,272.63 145.94,236.45 159.78,236.45 159.78,267.59 ' style='stroke-width: 0.75;' />
+<polyline points='112.65,256.16 112.65,187.36 152.86,187.36 152.86,236.45 ' style='stroke-width: 0.75;' />
+<text transform='translate(171.86,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='19.76px' lengthAdjust='spacingAndGlyphs'>Arctic</text>
+<text transform='translate(178.78,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='38.22px' lengthAdjust='spacingAndGlyphs'>East Africa</text>
+<text transform='translate(185.69,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='36.50px' lengthAdjust='spacingAndGlyphs'>Caribbean</text>
+<polyline points='177.07,275.02 177.07,274.99 183.99,274.99 183.99,275.02 ' style='stroke-width: 0.75;' />
+<text transform='translate(192.61,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='59.79px' lengthAdjust='spacingAndGlyphs'>South China Sea</text>
+<text transform='translate(199.53,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='51.42px' lengthAdjust='spacingAndGlyphs'>Atlantic Ocean</text>
+<text transform='translate(206.45,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='48.78px' lengthAdjust='spacingAndGlyphs'>Pacific Ocean</text>
+<polyline points='197.83,275.02 197.83,274.80 204.75,274.80 204.75,275.02 ' style='stroke-width: 0.75;' />
+<polyline points='190.91,275.02 190.91,274.63 201.29,274.63 201.29,274.80 ' style='stroke-width: 0.75;' />
+<polyline points='180.53,274.99 180.53,274.30 196.10,274.30 196.10,274.63 ' style='stroke-width: 0.75;' />
+<polyline points='170.16,275.02 170.16,274.10 188.32,274.10 188.32,274.30 ' style='stroke-width: 0.75;' />
+<text transform='translate(213.37,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='35.16px' lengthAdjust='spacingAndGlyphs'>Antarctica</text>
+<text transform='translate(220.29,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='41.30px' lengthAdjust='spacingAndGlyphs'>Asia-Pacific</text>
+<polyline points='211.67,275.02 211.67,274.70 218.59,274.70 218.59,275.02 ' style='stroke-width: 0.75;' />
+<text transform='translate(227.21,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='41.31px' lengthAdjust='spacingAndGlyphs'>Middle East</text>
+<text transform='translate(234.12,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='56.69px' lengthAdjust='spacingAndGlyphs'>Central America</text>
+<text transform='translate(241.04,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='50.54px' lengthAdjust='spacingAndGlyphs'>North America</text>
+<polyline points='232.42,275.02 232.42,274.86 239.34,274.86 239.34,275.02 ' style='stroke-width: 0.75;' />
+<text transform='translate(247.96,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='47.04px' lengthAdjust='spacingAndGlyphs'>Indian Ocean</text>
+<text transform='translate(254.88,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='48.35px' lengthAdjust='spacingAndGlyphs'>Latin America</text>
+<polyline points='246.26,275.02 246.26,274.83 253.18,274.83 253.18,275.02 ' style='stroke-width: 0.75;' />
+<polyline points='235.88,274.86 235.88,274.16 249.72,274.16 249.72,274.83 ' style='stroke-width: 0.75;' />
+<polyline points='225.50,275.02 225.50,271.97 242.80,271.97 242.80,274.16 ' style='stroke-width: 0.75;' />
+<polyline points='215.13,274.70 215.13,270.95 234.15,270.95 234.15,271.97 ' style='stroke-width: 0.75;' />
+<polyline points='179.24,274.10 179.24,264.31 224.64,264.31 224.64,270.95 ' style='stroke-width: 0.75;' />
+<text transform='translate(261.80,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='26.81px' lengthAdjust='spacingAndGlyphs'>Eurasia</text>
+<text transform='translate(268.72,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='67.27px' lengthAdjust='spacingAndGlyphs'>Mediterranean Sea</text>
+<text transform='translate(275.64,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='43.07px' lengthAdjust='spacingAndGlyphs'>Central Asia</text>
+<text transform='translate(282.55,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='35.16px' lengthAdjust='spacingAndGlyphs'>Caucasus</text>
+<polyline points='273.93,275.02 273.93,274.65 280.85,274.65 280.85,275.02 ' style='stroke-width: 0.75;' />
+<polyline points='267.02,275.02 267.02,274.22 277.39,274.22 277.39,274.65 ' style='stroke-width: 0.75;' />
+<polyline points='260.10,275.02 260.10,269.46 272.20,269.46 272.20,274.22 ' style='stroke-width: 0.75;' />
+<text transform='translate(289.47,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>Europe</text>
+<text transform='translate(296.39,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='43.51px' lengthAdjust='spacingAndGlyphs'>Persian Gulf</text>
+<text transform='translate(303.31,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='15.38px' lengthAdjust='spacingAndGlyphs'>Asia</text>
+<polyline points='294.69,275.02 294.69,274.69 301.61,274.69 301.61,275.02 ' style='stroke-width: 0.75;' />
+<polyline points='287.77,275.02 287.77,272.41 298.15,272.41 298.15,274.69 ' style='stroke-width: 0.75;' />
+<text transform='translate(310.23,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='28.13px' lengthAdjust='spacingAndGlyphs'>Balkans</text>
+<text transform='translate(317.15,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='15.38px' lengthAdjust='spacingAndGlyphs'>Alps</text>
+<polyline points='308.53,275.02 308.53,273.68 315.44,273.68 315.44,275.02 ' style='stroke-width: 0.75;' />
+<text transform='translate(324.07,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='54.95px' lengthAdjust='spacingAndGlyphs'>Eastern Europe</text>
+<text transform='translate(330.98,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='36.91px' lengthAdjust='spacingAndGlyphs'>Himalayas</text>
+<text transform='translate(337.90,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='53.19px' lengthAdjust='spacingAndGlyphs'>Southeast Asia</text>
+<text transform='translate(344.82,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='40.41px' lengthAdjust='spacingAndGlyphs'>West Africa</text>
+<text transform='translate(351.74,281.61) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='51.86px' lengthAdjust='spacingAndGlyphs'>South America</text>
+<polyline points='343.12,275.02 343.12,274.98 350.04,274.98 350.04,275.02 ' style='stroke-width: 0.75;' />
+<polyline points='336.20,275.02 336.20,274.67 346.58,274.67 346.58,274.98 ' style='stroke-width: 0.75;' />
+<polyline points='329.28,275.02 329.28,274.43 341.39,274.43 341.39,274.67 ' style='stroke-width: 0.75;' />
+<polyline points='322.36,275.02 322.36,273.41 335.34,273.41 335.34,274.43 ' style='stroke-width: 0.75;' />
+<polyline points='311.99,273.68 311.99,269.95 328.85,269.95 328.85,273.41 ' style='stroke-width: 0.75;' />
+<polyline points='292.96,272.41 292.96,252.94 320.42,252.94 320.42,269.95 ' style='stroke-width: 0.75;' />
+<polyline points='266.15,269.46 266.15,201.41 306.69,201.41 306.69,252.94 ' style='stroke-width: 0.75;' />
+<polyline points='201.94,264.31 201.94,175.41 286.42,175.41 286.42,201.41 ' style='stroke-width: 0.75;' />
+<polyline points='132.75,187.36 132.75,89.35 244.18,89.35 244.18,175.41 ' style='stroke-width: 0.75;' />
 </g>
 <g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
-<line x1='91.01' y1='275.43' x2='91.01' y2='79.13' style='stroke-width: 0.75;' />
-<line x1='91.01' y1='275.43' x2='86.26' y2='275.43' style='stroke-width: 0.75;' />
-<line x1='91.01' y1='239.70' x2='86.26' y2='239.70' style='stroke-width: 0.75;' />
-<line x1='91.01' y1='203.97' x2='86.26' y2='203.97' style='stroke-width: 0.75;' />
-<line x1='91.01' y1='168.25' x2='86.26' y2='168.25' style='stroke-width: 0.75;' />
-<line x1='91.01' y1='132.52' x2='86.26' y2='132.52' style='stroke-width: 0.75;' />
-<line x1='91.01' y1='96.79' x2='86.26' y2='96.79' style='stroke-width: 0.75;' />
-<text transform='translate(79.60,275.43) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.00</text>
-<text transform='translate(79.60,239.70) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.05</text>
-<text transform='translate(79.60,203.97) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.10</text>
-<text transform='translate(79.60,168.25) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.15</text>
-<text transform='translate(79.60,132.52) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.20</text>
-<text transform='translate(79.60,96.79) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.25</text>
+<line x1='91.01' y1='275.02' x2='91.01' y2='79.13' style='stroke-width: 0.75;' />
+<line x1='91.01' y1='275.02' x2='86.26' y2='275.02' style='stroke-width: 0.75;' />
+<line x1='91.01' y1='223.74' x2='86.26' y2='223.74' style='stroke-width: 0.75;' />
+<line x1='91.01' y1='172.46' x2='86.26' y2='172.46' style='stroke-width: 0.75;' />
+<line x1='91.01' y1='121.17' x2='86.26' y2='121.17' style='stroke-width: 0.75;' />
+<text transform='translate(79.60,275.02) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.00</text>
+<text transform='translate(79.60,223.74) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.05</text>
+<text transform='translate(79.60,172.46) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.10</text>
+<text transform='translate(79.60,121.17) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.15</text>
 </g>
 <g clip-path='url(#cpNzIuMDB8MzYwLjAwfDcyLjAwfDM2MC4wMA==)'>
-<text x='225.50' y='78.96' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='91.84px' lengthAdjust='spacingAndGlyphs'>Cluster Dendrogram</text>
+<text x='225.50' y='78.98' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='91.85px' lengthAdjust='spacingAndGlyphs'>Cluster Dendrogram</text>
 <text transform='translate(60.60,217.19) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='22.86px' lengthAdjust='spacingAndGlyphs'>Height</text>
 </g>
 <g clip-path='url(#cpOTEuMDF8MzYwLjAwfDc5LjEzfDM1NS4yNQ==)'>
-<rect x='98.80' y='227.48' width='10.67' height='132.29' style='stroke-width: 0.75;' />
-<rect x='111.57' y='227.48' width='36.21' height='132.29' style='stroke-width: 0.75; stroke: #61D04F;' />
-<rect x='149.89' y='227.48' width='23.44' height='132.29' style='stroke-width: 0.75; stroke: #2297E6;' />
-<rect x='175.44' y='227.48' width='29.82' height='132.29' style='stroke-width: 0.75; stroke: #DF536B;' />
-<rect x='207.37' y='227.48' width='144.78' height='132.29' style='stroke-width: 0.75; stroke: #28E2E5;' />
+<rect x='98.62' y='218.93' width='39.23' height='140.24' style='stroke-width: 0.75; stroke: #2297E6;' />
+<rect x='140.13' y='218.93' width='25.39' height='140.24' style='stroke-width: 0.75; stroke: #28E2E5;' />
+<rect x='167.80' y='218.93' width='87.66' height='140.24' style='stroke-width: 0.75;' />
+<rect x='257.74' y='218.93' width='25.39' height='140.24' style='stroke-width: 0.75; stroke: #DF536B;' />
+<rect x='285.42' y='218.93' width='66.90' height='140.24' style='stroke-width: 0.75; stroke: #61D04F;' />
 </g>
 <defs>
   <clipPath id='cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng=='>
