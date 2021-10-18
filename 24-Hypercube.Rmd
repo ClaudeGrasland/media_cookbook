@@ -6,6 +6,9 @@ library(dplyr)
 library(quanteda)
 library(data.table)
 library(tidytext)
+library(FactoMineR)
+library(Factoshiny)
+library(explor)
 ```
 
 ## Objectives
@@ -162,3 +165,84 @@ res<-res[order(res$who, res$rnk),]
 kable(res,digits=c(0,1))
 
 ```
+
+
+
+## Analysis of the Media x Region table
+
+### Matrix creation
+
+```{r}
+# Matrix
+reg_med <-hc_reg[where1 !="_no_",list(nb = sum(news)), list(where1, who)] %>%
+  dcast(formula = where1~who, value.var = "nb",fill = 0)
+mat<-as.matrix(reg_med[,-1])
+
+# Labels
+lab<-reg_med[,1] %>% rename(id=where1) %>% left_join(tab_def)
+
+# Row.names (choose the language you want !)
+row.names(mat)<-lab$en
+
+# Filter ambiguous units
+mat<-mat[row.names(mat) != "Americas",]
+mat<-mat[row.names(mat) != "Asia Minor",]
+mat<-mat[row.names(mat) != "Southern Africa",]
+
+mat[1:5,1:5]
+
+```
+
+### Matrix selection
+
+```{r}
+# Select units > 20
+sel<-mat[apply(mat,1,sum)>20,]
+
+# Exclude units mentionned by less than 3 media
+sel <- sel[apply(sel>0,1,sum)>1,]
+
+```
+
+### Correspondance analysis
+
+```{r}
+afc <- CA(sel, graph = F)
+#explor(afc)
+```
+
+#### Factors 1-2
+```{r}
+res <- explor::prepare_results(afc)
+explor::CA_var_plot(res, xax = 1, yax = 2, lev_sup = FALSE, var_sup = FALSE,
+    var_sup_choice = , var_hide = "None", var_lab_min_contrib = 0, col_var = "Position",
+    symbol_var = NULL, size_var = "Contrib", size_range = c(52.5, 700), labels_size = 10,
+    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-1.15,
+        1.94), ylim = c(-1.52, 1.56))
+```
+
+#### Factors 3-4
+```{r}
+res <- explor::prepare_results(afc)
+explor::CA_var_plot(res, xax = 3, yax = 4, lev_sup = FALSE, var_sup = FALSE,
+    var_sup_choice = , var_hide = "None", var_lab_min_contrib = 0, col_var = "Position",
+    symbol_var = NULL, size_var = "Contrib", size_range = c(52.5, 700), labels_size = 10,
+    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-1.76,
+        1.08), ylim = c(-1.38, 1.46))
+```
+### Cluster analysis 1 (world regions)
+
+
+```{r}
+cah1 <- HCPC(afc,nb.clust = 5,graph = FALSE)
+plot.HCPC(cah1,choice="tree")
+```
+
+### Cluster analysis 2 (medias)
+
+
+```{r}
+cah2 <- HCPC(afc,nb.clust = 5,graph = FALSE,cluster.CA = "columns")
+plot.HCPC(cah2,choice="tree")
+```
+

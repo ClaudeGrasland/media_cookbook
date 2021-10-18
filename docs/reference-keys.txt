@@ -109,3 +109,12 @@ world-region
 which-of-news
 which-regions-are-the-most-mentionned
 top-regions-by-media
+analysis-of-the-media-x-region-table
+matrix-creation
+matrix-selection
+correspondance-analysis
+factors-1-2
+factors-3-4
+cluster-analysis-1-regions
+cluster-analysis-2-medias
+cluster-analysis-1-world-regions
