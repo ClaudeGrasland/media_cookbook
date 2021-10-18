@@ -98,3 +98,14 @@ réalités-1
 economiste-maghrebin
 la-presse-1
 global-corpus
+c24_hypercube
+objectives
+prepare-data
+load-corpus-1
+load-hypercube-function
+create-hypercube
+load-wikidata-entity-names
+world-region
+which-of-news
+which-regions-are-the-most-mentionned
+top-regions-by-media

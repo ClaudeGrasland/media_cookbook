@@ -1,0 +1,2373 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Hypercube | The media cookbook</title>
+  <meta name="description" content="A reminder of some experiments made in 2021" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Hypercube | The media cookbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A reminder of some experiments made in 2021" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Hypercube | The media cookbook" />
+  
+  <meta name="twitter:description" content="A reminder of some experiments made in 2021" />
+  
+
+<meta name="author" content="Claude Grasland" />
+
+
+<meta name="date" content="2021-10-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="23-Wikidata.html"/>
+<link rel="next" href="31_geonetworks.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">The Media Cookbook  <em>C. Grasland (2021)</em></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html"><i class="fa fa-check"></i><b>2</b> Import from Media Cloud</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-media-with-source-manager"><i class="fa fa-check"></i><b>2.1</b> Selection of media with source manager</a></li>
+<li class="chapter" data-level="2.2" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#checking-the-stability-through-time"><i class="fa fa-check"></i><b>2.2</b> Checking the stability through time</a></li>
+<li class="chapter" data-level="2.3" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#selection-of-news-specifically-related-to-a-topic-option"><i class="fa fa-check"></i><b>2.3</b> Selection of news specifically related to a topic (option)</a></li>
+<li class="chapter" data-level="2.4" data-path="21-corpus-mediacloud.html"><a href="21-corpus-mediacloud.html#download-and-storage-of-news"><i class="fa fa-check"></i><b>2.4</b> Download and storage of news</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html"><i class="fa fa-check"></i><b>3</b> Creation of a quanteda corpus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#example"><i class="fa fa-check"></i><b>3.1</b> Example</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#importation-of-text-to-r"><i class="fa fa-check"></i><b>3.1.1</b> Importation of text to R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#encoding-problems"><i class="fa fa-check"></i><b>3.1.2</b> encoding problems</a></li>
+<li class="chapter" data-level="3.1.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#transformation-in-quanteda-format"><i class="fa fa-check"></i><b>3.1.3</b> Transformation in quanteda format</a></li>
+<li class="chapter" data-level="3.1.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#storage-of-the-quanteda-object"><i class="fa fa-check"></i><b>3.1.4</b> Storage of the quanteda object</a></li>
+<li class="chapter" data-level="3.1.5" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.1.5</b> Backtransformation of quanteda to data.table or tibble</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#germany"><i class="fa fa-check"></i><b>3.2</b> Germany</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#frankfurter-allgemeine-zeitung"><i class="fa fa-check"></i><b>3.2.1</b> Frankfurter Allgemeine Zeitung</a></li>
+<li class="chapter" data-level="3.2.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#süddeutsche-zeitung"><i class="fa fa-check"></i><b>3.2.2</b> Süddeutsche Zeitung</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#france"><i class="fa fa-check"></i><b>3.3</b> France</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-figaro"><i class="fa fa-check"></i><b>3.3.1</b> Le Figaro</a></li>
+<li class="chapter" data-level="3.3.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#le-monde"><i class="fa fa-check"></i><b>3.3.2</b> Le Monde</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#royaume-uni"><i class="fa fa-check"></i><b>3.4</b> Royaume-Uni</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-guardian"><i class="fa fa-check"></i><b>3.4.1</b> The Guardian</a></li>
+<li class="chapter" data-level="3.4.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-daily-telegraph"><i class="fa fa-check"></i><b>3.4.2</b> The Daily Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#ireland"><i class="fa fa-check"></i><b>3.5</b> Ireland</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-irish-time"><i class="fa fa-check"></i><b>3.5.1</b> The Irish Time</a></li>
+<li class="chapter" data-level="3.5.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-belfast-telegraph"><i class="fa fa-check"></i><b>3.5.2</b> The Belfast Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#turkey"><i class="fa fa-check"></i><b>3.6</b> Turkey</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#the-yeni-sati"><i class="fa fa-check"></i><b>3.6.1</b> The Yeni Sati</a></li>
+<li class="chapter" data-level="3.6.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#cumhuryet"><i class="fa fa-check"></i><b>3.6.2</b> Cumhuryet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#tunisia"><i class="fa fa-check"></i><b>3.7</b> Tunisia</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#réalités"><i class="fa fa-check"></i><b>3.7.1</b> Réalités</a></li>
+<li class="chapter" data-level="3.7.2" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#léconomiste-maghrebin"><i class="fa fa-check"></i><b>3.7.2</b> L’économiste Maghrebin</a></li>
+<li class="chapter" data-level="3.7.3" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#la-presse"><i class="fa fa-check"></i><b>3.7.3</b> La Presse</a></li>
+<li class="chapter" data-level="3.7.4" data-path="22-mediacloud_to_quanteda.html"><a href="22-mediacloud_to_quanteda.html#babnet"><i class="fa fa-check"></i><b>3.7.4</b> Babnet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="23-Wikidata.html"><a href="23-Wikidata.html"><i class="fa fa-check"></i><b>4</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikidata"><i class="fa fa-check"></i><b>4.2</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#codification-of-entities"><i class="fa fa-check"></i><b>4.2.1</b> Codification of entities</a></li>
+<li class="chapter" data-level="4.2.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#informations-on-entities"><i class="fa fa-check"></i><b>4.2.2</b> Informations on entities</a></li>
+<li class="chapter" data-level="4.2.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#wikipedia-entities-as-nodes-of-an-ontolongy"><i class="fa fa-check"></i><b>4.2.3</b> Wikipedia entities as nodes of an ontolongy</a></li>
+<li class="chapter" data-level="4.2.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#a-tool-for-cross-linguistical-experiments"><i class="fa fa-check"></i><b>4.2.4</b> A tool for cross-linguistical experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#the-package-wikidatar"><i class="fa fa-check"></i><b>4.3</b> The package WikidataR</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#basic-operations"><i class="fa fa-check"></i><b>4.3.1</b> Basic operations</a></li>
+<li class="chapter" data-level="4.3.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#elaboration-of-a-cross_linguistic-dictionnary"><i class="fa fa-check"></i><b>4.3.2</b> Elaboration of a cross_linguistic dictionnary</a></li>
+<li class="chapter" data-level="4.3.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#extraction-of-aliases"><i class="fa fa-check"></i><b>4.3.3</b> Extraction of aliases</a></li>
+<li class="chapter" data-level="4.3.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#conclusion"><i class="fa fa-check"></i><b>4.3.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#dictionary-of-world-regions"><i class="fa fa-check"></i><b>4.4</b> Dictionary of world regions</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#load-the-list-of-world-regions"><i class="fa fa-check"></i><b>4.4.1</b> Load the list of world regions</a></li>
+<li class="chapter" data-level="4.4.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#extract-définitions"><i class="fa fa-check"></i><b>4.4.2</b> Extract définitions</a></li>
+<li class="chapter" data-level="4.4.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#extract-aliases-and-create-dictionary"><i class="fa fa-check"></i><b>4.4.3</b> Extract aliases and create dictionary</a></li>
+<li class="chapter" data-level="4.4.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#extract-dictionary-of-control-units"><i class="fa fa-check"></i><b>4.4.4</b> Extract dictionary of control units</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="23-Wikidata.html"><a href="23-Wikidata.html#detection-of-world-regions"><i class="fa fa-check"></i><b>4.5</b> Detection of world regions</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#example-of-le-figaro-fr_fra_figaro"><i class="fa fa-check"></i><b>4.5.1</b> Example of “Le Figaro” (fr_FRA_figaro)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="23-Wikidata.html"><a href="23-Wikidata.html#tagging-function"><i class="fa fa-check"></i><b>4.6</b> Tagging function</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="23-Wikidata.html"><a href="23-Wikidata.html#le-figaro-1"><i class="fa fa-check"></i><b>4.6.1</b> Le Figaro</a></li>
+<li class="chapter" data-level="4.6.2" data-path="23-Wikidata.html"><a href="23-Wikidata.html#le-monde-1"><i class="fa fa-check"></i><b>4.6.2</b> Le Monde</a></li>
+<li class="chapter" data-level="4.6.3" data-path="23-Wikidata.html"><a href="23-Wikidata.html#faz"><i class="fa fa-check"></i><b>4.6.3</b> FAZ</a></li>
+<li class="chapter" data-level="4.6.4" data-path="23-Wikidata.html"><a href="23-Wikidata.html#süddeutsche-zeitung-1"><i class="fa fa-check"></i><b>4.6.4</b> Süddeutsche Zeitung</a></li>
+<li class="chapter" data-level="4.6.5" data-path="23-Wikidata.html"><a href="23-Wikidata.html#guardian"><i class="fa fa-check"></i><b>4.6.5</b> Guardian</a></li>
+<li class="chapter" data-level="4.6.6" data-path="23-Wikidata.html"><a href="23-Wikidata.html#daily-telegraph"><i class="fa fa-check"></i><b>4.6.6</b> Daily Telegraph</a></li>
+<li class="chapter" data-level="4.6.7" data-path="23-Wikidata.html"><a href="23-Wikidata.html#belfast-telegraph"><i class="fa fa-check"></i><b>4.6.7</b> Belfast Telegraph</a></li>
+<li class="chapter" data-level="4.6.8" data-path="23-Wikidata.html"><a href="23-Wikidata.html#irish-times"><i class="fa fa-check"></i><b>4.6.8</b> Irish Times</a></li>
+<li class="chapter" data-level="4.6.9" data-path="23-Wikidata.html"><a href="23-Wikidata.html#cumhuryet-1"><i class="fa fa-check"></i><b>4.6.9</b> Cumhuryet</a></li>
+<li class="chapter" data-level="4.6.10" data-path="23-Wikidata.html"><a href="23-Wikidata.html#yeni-safak"><i class="fa fa-check"></i><b>4.6.10</b> Yeni Safak</a></li>
+<li class="chapter" data-level="4.6.11" data-path="23-Wikidata.html"><a href="23-Wikidata.html#babnet-1"><i class="fa fa-check"></i><b>4.6.11</b> Babnet</a></li>
+<li class="chapter" data-level="4.6.12" data-path="23-Wikidata.html"><a href="23-Wikidata.html#réalités-1"><i class="fa fa-check"></i><b>4.6.12</b> Réalités</a></li>
+<li class="chapter" data-level="4.6.13" data-path="23-Wikidata.html"><a href="23-Wikidata.html#economiste-maghrebin"><i class="fa fa-check"></i><b>4.6.13</b> Economiste Maghrebin</a></li>
+<li class="chapter" data-level="4.6.14" data-path="23-Wikidata.html"><a href="23-Wikidata.html#la-presse-1"><i class="fa fa-check"></i><b>4.6.14</b> La Presse</a></li>
+<li class="chapter" data-level="4.6.15" data-path="23-Wikidata.html"><a href="23-Wikidata.html#global-corpus"><i class="fa fa-check"></i><b>4.6.15</b> Global corpus</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="24-Hypercube.html"><a href="24-Hypercube.html"><i class="fa fa-check"></i><b>5</b> Hypercube</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="24-Hypercube.html"><a href="24-Hypercube.html#objectives"><i class="fa fa-check"></i><b>5.1</b> Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="24-Hypercube.html"><a href="24-Hypercube.html#prepare-data"><i class="fa fa-check"></i><b>5.2</b> Prepare data</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="24-Hypercube.html"><a href="24-Hypercube.html#load-corpus-1"><i class="fa fa-check"></i><b>5.2.1</b> Load corpus</a></li>
+<li class="chapter" data-level="5.2.2" data-path="24-Hypercube.html"><a href="24-Hypercube.html#load-hypercube-function"><i class="fa fa-check"></i><b>5.2.2</b> Load hypercube function</a></li>
+<li class="chapter" data-level="5.2.3" data-path="24-Hypercube.html"><a href="24-Hypercube.html#create-hypercube"><i class="fa fa-check"></i><b>5.2.3</b> Create Hypercube</a></li>
+<li class="chapter" data-level="5.2.4" data-path="24-Hypercube.html"><a href="24-Hypercube.html#load-wikidata-entity-names"><i class="fa fa-check"></i><b>5.2.4</b> Load Wikidata entity names</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="24-Hypercube.html"><a href="24-Hypercube.html#world-region"><i class="fa fa-check"></i><b>5.3</b> World Region</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="24-Hypercube.html"><a href="24-Hypercube.html#which-of-news"><i class="fa fa-check"></i><b>5.3.1</b> Which % of news ?</a></li>
+<li class="chapter" data-level="5.3.2" data-path="24-Hypercube.html"><a href="24-Hypercube.html#which-regions-are-the-most-mentionned"><i class="fa fa-check"></i><b>5.3.2</b> Which regions are the most mentionned ?</a></li>
+<li class="chapter" data-level="5.3.3" data-path="24-Hypercube.html"><a href="24-Hypercube.html#top-regions-by-media"><i class="fa fa-check"></i><b>5.3.3</b> Top regions by media</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="31_geonetworks.html"><a href="31_geonetworks.html"><i class="fa fa-check"></i><b>6</b> Geonetworks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#geotags"><i class="fa fa-check"></i><b>6.1</b> Geotags</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-corpus"><i class="fa fa-check"></i><b>6.1.1</b> Select corpus</a></li>
+<li class="chapter" data-level="6.1.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#tokenize-1"><i class="fa fa-check"></i><b>6.1.2</b> Tokenize</a></li>
+<li class="chapter" data-level="6.1.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#identify-geotags"><i class="fa fa-check"></i><b>6.1.3</b> identify geotags</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercubes"><i class="fa fa-check"></i><b>6.2</b> Hypercubes</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#load-data"><i class="fa fa-check"></i><b>6.2.1</b> Load data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#hypercube-function"><i class="fa fa-check"></i><b>6.2.2</b> Hypercube Function</a></li>
+<li class="chapter" data-level="6.2.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#build-hypercube"><i class="fa fa-check"></i><b>6.2.3</b> Build hypercube</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#linkages"><i class="fa fa-check"></i><b>6.3</b> Linkages</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#select-links"><i class="fa fa-check"></i><b>6.3.1</b> Select links</a></li>
+<li class="chapter" data-level="6.3.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#create-interaction-matrix"><i class="fa fa-check"></i><b>6.3.2</b> Create interaction matrix</a></li>
+<li class="chapter" data-level="6.3.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#estimate-random-model"><i class="fa fa-check"></i><b>6.3.3</b> Estimate random model</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="31_geonetworks.html"><a href="31_geonetworks.html#visualization"><i class="fa fa-check"></i><b>6.4</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="31_geonetworks.html"><a href="31_geonetworks.html#function"><i class="fa fa-check"></i><b>6.4.1</b> Function</a></li>
+<li class="chapter" data-level="6.4.2" data-path="31_geonetworks.html"><a href="31_geonetworks.html#raw-network"><i class="fa fa-check"></i><b>6.4.2</b> Raw network</a></li>
+<li class="chapter" data-level="6.4.3" data-path="31_geonetworks.html"><a href="31_geonetworks.html#preferential-links"><i class="fa fa-check"></i><b>6.4.3</b> Preferential links</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The media cookbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c24_hypercube" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Hypercube</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="24-Hypercube.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-2"><a href="24-Hypercube.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="24-Hypercube.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb1-4"><a href="24-Hypercube.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
+<pre><code>
+Attaching package: &#39;data.table&#39;</code></pre>
+<pre><code>The following objects are masked from &#39;package:dplyr&#39;:
+
+    between, first, last</code></pre>
+<pre><code>The following object is masked from &#39;package:purrr&#39;:
+
+    transpose</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="24-Hypercube.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span></code></pre></div>
+<div id="objectives" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Objectives</h2>
+<p>We have created a list of tags relate to world regions for news published in 14 newspapers. We propose now to build an hypercube in order to explore the results.</p>
+</div>
+<div id="prepare-data" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Prepare data</h2>
+<div id="load-corpus-1" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Load corpus</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="24-Hypercube.html#cb6-1" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/corpus_worldreg_001.RDS&quot;</span>)</span></code></pre></div>
+</div>
+<div id="load-hypercube-function" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Load hypercube function</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="24-Hypercube.html#cb7-1" aria-hidden="true" tabindex="-1"></a>hypercube <span class="ot">&lt;-</span><span class="cf">function</span>(<span class="at">qd =</span> qd,</span>
+<span id="cb7-2"><a href="24-Hypercube.html#cb7-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">when =</span> <span class="st">&quot;date&quot;</span>,</span>
+<span id="cb7-3"><a href="24-Hypercube.html#cb7-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">when_cut =</span> <span class="st">&quot;year&quot;</span>,</span>
+<span id="cb7-4"><a href="24-Hypercube.html#cb7-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">who =</span> <span class="st">&quot;source&quot;</span>,</span>
+<span id="cb7-5"><a href="24-Hypercube.html#cb7-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">where1 =</span> <span class="st">&quot;tags&quot;</span>,</span>
+<span id="cb7-6"><a href="24-Hypercube.html#cb7-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">where2 =</span> <span class="st">&quot;tags&quot;</span>)</span>
+<span id="cb7-7"><a href="24-Hypercube.html#cb7-7" aria-hidden="true" tabindex="-1"></a>                     </span>
+<span id="cb7-8"><a href="24-Hypercube.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  {   </span>
+<span id="cb7-9"><a href="24-Hypercube.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="24-Hypercube.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># create data.table accroding to parameter chosen</span></span>
+<span id="cb7-11"><a href="24-Hypercube.html#cb7-11" aria-hidden="true" tabindex="-1"></a>  don<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)</span>
+<span id="cb7-12"><a href="24-Hypercube.html#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="24-Hypercube.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span><span class="fu">data.table</span>(<span class="at">id =</span> <span class="fu">docid</span>(qd),</span>
+<span id="cb7-14"><a href="24-Hypercube.html#cb7-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">who =</span> don[,who],</span>
+<span id="cb7-15"><a href="24-Hypercube.html#cb7-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">when =</span> <span class="fu">as.character</span>(<span class="fu">cut</span>(don[,when],<span class="at">breaks=</span>when_cut)),</span>
+<span id="cb7-16"><a href="24-Hypercube.html#cb7-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">where1 =</span> don[,where1],</span>
+<span id="cb7-17"><a href="24-Hypercube.html#cb7-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">where2 =</span> don[,where2])</span>
+<span id="cb7-18"><a href="24-Hypercube.html#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="24-Hypercube.html#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="24-Hypercube.html#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="24-Hypercube.html#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># add code _no_ for empty fields</span></span>
+<span id="cb7-22"><a href="24-Hypercube.html#cb7-22" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>where1[df<span class="sc">$</span>where1<span class="sc">==</span><span class="st">&quot;&quot;</span>]<span class="ot">&lt;-</span><span class="st">&quot;_no_&quot;</span></span>
+<span id="cb7-23"><a href="24-Hypercube.html#cb7-23" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>where2[df<span class="sc">$</span>where2<span class="sc">==</span><span class="st">&quot;&quot;</span>]<span class="ot">&lt;-</span><span class="st">&quot;_no_&quot;</span></span>
+<span id="cb7-24"><a href="24-Hypercube.html#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="24-Hypercube.html#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="24-Hypercube.html#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co"># unnest where1</span></span>
+<span id="cb7-27"><a href="24-Hypercube.html#cb7-27" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span><span class="fu">unnest_tokens</span>(df,where1,where1,<span class="at">to_lower=</span>F)</span>
+<span id="cb7-28"><a href="24-Hypercube.html#cb7-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-29"><a href="24-Hypercube.html#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># unnest where2</span></span>
+<span id="cb7-30"><a href="24-Hypercube.html#cb7-30" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span><span class="fu">unnest_tokens</span>(df,where2,where2,<span class="at">to_lower=</span>F)  </span>
+<span id="cb7-31"><a href="24-Hypercube.html#cb7-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-32"><a href="24-Hypercube.html#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co"># define number of occurence by id</span></span>
+<span id="cb7-33"><a href="24-Hypercube.html#cb7-33" aria-hidden="true" tabindex="-1"></a>  nb<span class="ot">&lt;-</span>df[,.N,<span class="fu">list</span>(id)] <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">wgt =</span> <span class="dv">1</span><span class="sc">/</span>N) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>N)</span>
+<span id="cb7-34"><a href="24-Hypercube.html#cb7-34" aria-hidden="true" tabindex="-1"></a>  df<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(nb) </span>
+<span id="cb7-35"><a href="24-Hypercube.html#cb7-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-36"><a href="24-Hypercube.html#cb7-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(nb)</span>
+<span id="cb7-37"><a href="24-Hypercube.html#cb7-37" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-38"><a href="24-Hypercube.html#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate</span></span>
+<span id="cb7-39"><a href="24-Hypercube.html#cb7-39" aria-hidden="true" tabindex="-1"></a>  hc<span class="ot">&lt;-</span> df[,.( <span class="at">tags =</span> .N, <span class="at">news=</span><span class="fu">sum</span>(wgt)) ,.(who, when,where1,where2)]</span>
+<span id="cb7-40"><a href="24-Hypercube.html#cb7-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-41"><a href="24-Hypercube.html#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert date to time</span></span>
+<span id="cb7-42"><a href="24-Hypercube.html#cb7-42" aria-hidden="true" tabindex="-1"></a>  hc<span class="sc">$</span>when<span class="ot">&lt;-</span><span class="fu">as.Date</span>(hc<span class="sc">$</span>when)</span>
+<span id="cb7-43"><a href="24-Hypercube.html#cb7-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-44"><a href="24-Hypercube.html#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="co"># return hypercube</span></span>
+<span id="cb7-45"><a href="24-Hypercube.html#cb7-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(hc)</span>
+<span id="cb7-46"><a href="24-Hypercube.html#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="24-Hypercube.html#cb7-47" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="create-hypercube" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Create Hypercube</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="24-Hypercube.html#cb8-1" aria-hidden="true" tabindex="-1"></a>hc_reg <span class="ot">&lt;-</span> <span class="fu">hypercube</span>(<span class="at">qd =</span> qd,</span>
+<span id="cb8-2"><a href="24-Hypercube.html#cb8-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">when =</span> <span class="st">&quot;date&quot;</span>,</span>
+<span id="cb8-3"><a href="24-Hypercube.html#cb8-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">when_cut =</span> <span class="st">&quot;months&quot;</span>,</span>
+<span id="cb8-4"><a href="24-Hypercube.html#cb8-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">who =</span> <span class="st">&quot;source&quot;</span>,</span>
+<span id="cb8-5"><a href="24-Hypercube.html#cb8-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">where1 =</span> <span class="st">&quot;regs&quot;</span>,</span>
+<span id="cb8-6"><a href="24-Hypercube.html#cb8-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">where2 =</span> <span class="st">&quot;regs&quot;</span>)</span></code></pre></div>
+<pre><code>Joining, by = &quot;id&quot;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="24-Hypercube.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(hc_reg))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">who</th>
+<th align="left">when</th>
+<th align="left">where1</th>
+<th align="left">where2</th>
+<th align="right">tags</th>
+<th align="right">news</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">fr_FRA_figaro</td>
+<td align="left">2019-01-01</td>
+<td align="left"><em>no</em></td>
+<td align="left"><em>no</em></td>
+<td align="right">3417</td>
+<td align="right">3417</td>
+</tr>
+<tr class="even">
+<td align="left">fr_FRA_figaro</td>
+<td align="left">2019-01-01</td>
+<td align="left">Q46</td>
+<td align="left">Q46</td>
+<td align="right">15</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">fr_FRA_figaro</td>
+<td align="left">2019-01-01</td>
+<td align="left">Q4918</td>
+<td align="left">Q4918</td>
+<td align="right">2</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">fr_FRA_figaro</td>
+<td align="left">2019-01-01</td>
+<td align="left">Q7204</td>
+<td align="left">Q7204</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">fr_FRA_figaro</td>
+<td align="left">2019-01-01</td>
+<td align="left">Q51</td>
+<td align="left">Q51</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">fr_FRA_figaro</td>
+<td align="left">2019-01-01</td>
+<td align="left">Q18</td>
+<td align="left">Q18</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="load-wikidata-entity-names" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Load Wikidata entity names</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="24-Hypercube.html#cb11-1" aria-hidden="true" tabindex="-1"></a>reg_def<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;dict/worldreg001_def.RDS&quot;</span>)</span>
+<span id="cb11-2"><a href="24-Hypercube.html#cb11-2" aria-hidden="true" tabindex="-1"></a>tab_def<span class="ot">&lt;-</span><span class="fu">dcast</span>(reg_def, <span class="at">formula =</span>id<span class="sc">~</span>lang, <span class="at">value.var=</span><span class="st">&quot;label&quot;</span>)</span></code></pre></div>
+<pre><code>Warning in dcast(reg_def, formula = id ~ lang, value.var = &quot;label&quot;): The
+dcast generic in data.table has been passed a data.frame and will attempt to
+redirect to the reshape2::dcast; please note that reshape2 is deprecated, and
+this redirection is now deprecated as well. Please do this redirection yourself
+like reshape2::dcast(reg_def). In the next version, this warning will become an
+error.</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="24-Hypercube.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(tab_def))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="21%" />
+<col width="16%" />
+<col width="17%" />
+<col width="17%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">id</th>
+<th align="left">ar</th>
+<th align="left">de</th>
+<th align="left">en</th>
+<th align="left">fr</th>
+<th align="left">tr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Q1070940</td>
+<td align="left">آسيا والمحيط الهادئ</td>
+<td align="left">Asien-Pazifik</td>
+<td align="left">Asia-Pacific</td>
+<td align="left">Asie-Pacifique</td>
+<td align="left">Asya-Pasifik</td>
+</tr>
+<tr class="even">
+<td align="left">Q11708</td>
+<td align="left">جنوب شرق آسيا</td>
+<td align="left">Südostasien</td>
+<td align="left">Southeast Asia</td>
+<td align="left">Asie du Sud-Est</td>
+<td align="left">Güneydoğu Asya</td>
+</tr>
+<tr class="odd">
+<td align="left">Q1239</td>
+<td align="left">المحيط الهندي</td>
+<td align="left">Indischer Ozean</td>
+<td align="left">Indian Ocean</td>
+<td align="left">océan Indien</td>
+<td align="left">Hint Okyanusu</td>
+</tr>
+<tr class="even">
+<td align="left">Q12585</td>
+<td align="left">أمريكا اللاتينية</td>
+<td align="left">Lateinamerika</td>
+<td align="left">Latin America</td>
+<td align="left">Amérique latine</td>
+<td align="left">Latin Amerika</td>
+</tr>
+<tr class="odd">
+<td align="left">Q128011</td>
+<td align="left">جزر الأنتيل الكبرى</td>
+<td align="left">Große Antillen</td>
+<td align="left">Greater Antilles</td>
+<td align="left">Grandes Antilles</td>
+<td align="left">Büyük Antiller</td>
+</tr>
+<tr class="even">
+<td align="left">Q12824780</td>
+<td align="left">آسيا الصغرى</td>
+<td align="left">Kleinasien</td>
+<td align="left">Asia Minor</td>
+<td align="left">Asie mineure</td>
+<td align="left">Anadolu</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="world-region" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> World Region</h2>
+<div id="which-of-news" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Which % of news ?</h3>
+<p>What is the percentage of news where at less one world region is mentionned ?</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="24-Hypercube.html#cb14-1" aria-hidden="true" tabindex="-1"></a>hc_reg<span class="sc">$</span>tagged<span class="ot">&lt;-</span>hc_reg<span class="sc">$</span>where1<span class="sc">!=</span><span class="st">&quot;_no_&quot;</span></span>
+<span id="cb14-2"><a href="24-Hypercube.html#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="24-Hypercube.html#cb14-3" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>hc_reg[,<span class="fu">list</span>(<span class="at">nb =</span> <span class="fu">sum</span>(news)), <span class="fu">list</span>(who, tagged)] <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="24-Hypercube.html#cb14-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">dcast</span>(<span class="at">formula =</span>  who<span class="sc">~</span>tagged, <span class="at">value.var =</span> <span class="st">&quot;nb&quot;</span>) </span>
+<span id="cb14-5"><a href="24-Hypercube.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;media&quot;</span>,<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>)</span>
+<span id="cb14-6"><a href="24-Hypercube.html#cb14-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Tot <span class="ot">=</span> df<span class="sc">$</span>No<span class="sc">+</span>df<span class="sc">$</span>Yes</span>
+<span id="cb14-7"><a href="24-Hypercube.html#cb14-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Pct <span class="ot">=</span> <span class="dv">100</span><span class="sc">*</span>df<span class="sc">$</span>Yes<span class="sc">/</span>df<span class="sc">$</span>Tot</span>
+<span id="cb14-8"><a href="24-Hypercube.html#cb14-8" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>df[<span class="fu">order</span>(df<span class="sc">$</span>Pct)]</span>
+<span id="cb14-9"><a href="24-Hypercube.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df, <span class="at">digits=</span><span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">media</th>
+<th align="right">No</th>
+<th align="right">Yes</th>
+<th align="right">Tot</th>
+<th align="right">Pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">en_NIR_beltel</td>
+<td align="right">99494</td>
+<td align="right">438</td>
+<td align="right">99932</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="even">
+<td align="left">fr_TUN_realit</td>
+<td align="right">22886</td>
+<td align="right">156</td>
+<td align="right">23042</td>
+<td align="right">0.68</td>
+</tr>
+<tr class="odd">
+<td align="left">fr_TUN_presse</td>
+<td align="right">11466</td>
+<td align="right">87</td>
+<td align="right">11553</td>
+<td align="right">0.75</td>
+</tr>
+<tr class="even">
+<td align="left">en_IRL_irtime</td>
+<td align="right">107619</td>
+<td align="right">860</td>
+<td align="right">108479</td>
+<td align="right">0.79</td>
+</tr>
+<tr class="odd">
+<td align="left">ar_TUN_babnet</td>
+<td align="right">42258</td>
+<td align="right">391</td>
+<td align="right">42649</td>
+<td align="right">0.92</td>
+</tr>
+<tr class="even">
+<td align="left">fr_TUN_ecomag</td>
+<td align="right">12637</td>
+<td align="right">157</td>
+<td align="right">12794</td>
+<td align="right">1.23</td>
+</tr>
+<tr class="odd">
+<td align="left">tr_TUR_cumhur</td>
+<td align="right">132014</td>
+<td align="right">1699</td>
+<td align="right">133713</td>
+<td align="right">1.27</td>
+</tr>
+<tr class="even">
+<td align="left">fr_FRA_figaro</td>
+<td align="right">126984</td>
+<td align="right">1823</td>
+<td align="right">128807</td>
+<td align="right">1.42</td>
+</tr>
+<tr class="odd">
+<td align="left">en_GBR_telegr</td>
+<td align="right">41152</td>
+<td align="right">651</td>
+<td align="right">41803</td>
+<td align="right">1.56</td>
+</tr>
+<tr class="even">
+<td align="left">de_DEU_suddeu</td>
+<td align="right">34886</td>
+<td align="right">558</td>
+<td align="right">35444</td>
+<td align="right">1.57</td>
+</tr>
+<tr class="odd">
+<td align="left">fr_FRA_lmonde</td>
+<td align="right">48946</td>
+<td align="right">785</td>
+<td align="right">49731</td>
+<td align="right">1.58</td>
+</tr>
+<tr class="even">
+<td align="left">tr_TUR_yenisa</td>
+<td align="right">96089</td>
+<td align="right">1549</td>
+<td align="right">97638</td>
+<td align="right">1.59</td>
+</tr>
+<tr class="odd">
+<td align="left">de_DEU_frankf</td>
+<td align="right">86352</td>
+<td align="right">1961</td>
+<td align="right">88313</td>
+<td align="right">2.22</td>
+</tr>
+<tr class="even">
+<td align="left">en_GBR_guardi</td>
+<td align="right">76092</td>
+<td align="right">1783</td>
+<td align="right">77875</td>
+<td align="right">2.29</td>
+</tr>
+</tbody>
+</table>
+<p>We observe that the share is comprised between 0.44% (<em>Belfast Telegraph</em>, Ulster) and 2.29% (<em>The Guardian</em>, United Kingdom).</p>
+</div>
+<div id="which-regions-are-the-most-mentionned" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Which regions are the most mentionned ?</h3>
+<p>Iw we put together all newspapers, we obtain the following table</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="24-Hypercube.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute</span></span>
+<span id="cb15-2"><a href="24-Hypercube.html#cb15-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>hc_reg[where1 <span class="sc">!=</span><span class="st">&quot;_no_&quot;</span>,<span class="fu">list</span>(<span class="at">nb =</span> <span class="fu">sum</span>(news)), <span class="fu">list</span>(where1)] </span>
+<span id="cb15-3"><a href="24-Hypercube.html#cb15-3" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">merge</span>(tab_def,df,<span class="at">by.x=</span><span class="st">&quot;id&quot;</span>,<span class="at">by.y=</span><span class="st">&quot;where1&quot;</span>,<span class="at">all.x=</span>F,<span class="at">all.y=</span>T)</span>
+<span id="cb15-4"><a href="24-Hypercube.html#cb15-4" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>df[<span class="fu">order</span>(df<span class="sc">$</span>nb, <span class="at">decreasing =</span> T),]</span>
+<span id="cb15-5"><a href="24-Hypercube.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(df)<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(df)[<span class="dv">1</span>]</span>
+<span id="cb15-6"><a href="24-Hypercube.html#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="24-Hypercube.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df, <span class="at">digits=</span><span class="dv">0</span>,<span class="at">row.names =</span> T)</span></code></pre></div>
+<table>
+<colgroup>
+<col width="2%" />
+<col width="6%" />
+<col width="17%" />
+<col width="15%" />
+<col width="18%" />
+<col width="20%" />
+<col width="15%" />
+<col width="3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">id</th>
+<th align="left">ar</th>
+<th align="left">de</th>
+<th align="left">en</th>
+<th align="left">fr</th>
+<th align="left">tr</th>
+<th align="right">nb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">Q46</td>
+<td align="left">أوروبا</td>
+<td align="left">Europa</td>
+<td align="left">Europe</td>
+<td align="left">Europe</td>
+<td align="left">Avrupa</td>
+<td align="right">4546</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">Q828</td>
+<td align="left">الأمريكتان</td>
+<td align="left">Amerika</td>
+<td align="left">Americas</td>
+<td align="left">Amérique</td>
+<td align="left">Amerika</td>
+<td align="right">2431</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">Q15</td>
+<td align="left">إفريقيا</td>
+<td align="left">Afrika</td>
+<td align="left">Africa</td>
+<td align="left">Afrique</td>
+<td align="left">Afrika</td>
+<td align="right">1022</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">Q4918</td>
+<td align="left">البحر الأبيض المتوسط</td>
+<td align="left">Mittelmeer</td>
+<td align="left">Mediterranean Sea</td>
+<td align="left">mer Méditerranée</td>
+<td align="left">Akdeniz</td>
+<td align="right">912</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">Q12824780</td>
+<td align="left">آسيا الصغرى</td>
+<td align="left">Kleinasien</td>
+<td align="left">Asia Minor</td>
+<td align="left">Asie mineure</td>
+<td align="left">Anadolu</td>
+<td align="right">457</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">Q7204</td>
+<td align="left">الشرق الأوسط</td>
+<td align="left">Mittlerer Osten</td>
+<td align="left">Middle East</td>
+<td align="left">Moyen-Orient</td>
+<td align="left">Orta Doğu</td>
+<td align="right">332</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left">Q48</td>
+<td align="left">آسيا</td>
+<td align="left">Asien</td>
+<td align="left">Asia</td>
+<td align="left">Asie</td>
+<td align="left">Asya</td>
+<td align="right">293</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left">Q66065</td>
+<td align="left">الساحل</td>
+<td align="left">Sahelzone</td>
+<td align="left">Sahel</td>
+<td align="left">Sahel</td>
+<td align="left">Sahel</td>
+<td align="right">240</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="left">Q98</td>
+<td align="left">المحيط الهادئ</td>
+<td align="left">Pazifischer Ozean</td>
+<td align="left">Pacific Ocean</td>
+<td align="left">océan Pacifique</td>
+<td align="left">Büyük Okyanus</td>
+<td align="right">200</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">Q25322</td>
+<td align="left">المنطقة القطبية الشمالية</td>
+<td align="left">Arktis</td>
+<td align="left">Arctic</td>
+<td align="left">Arctique</td>
+<td align="left">Arktika</td>
+<td align="right">180</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="left">Q97</td>
+<td align="left">المحيط الأطلسي</td>
+<td align="left">Atlantischer Ozean</td>
+<td align="left">Atlantic Ocean</td>
+<td align="left">océan Atlantique</td>
+<td align="left">Atlas Okyanusu</td>
+<td align="right">180</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="left">Q1286</td>
+<td align="left">الألب</td>
+<td align="left">Alpen</td>
+<td align="left">Alps</td>
+<td align="left">Alpes</td>
+<td align="left">Alpler</td>
+<td align="right">174</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="left">Q28227</td>
+<td align="left">المغرب العربي</td>
+<td align="left">Maghreb</td>
+<td align="left">Maghreb</td>
+<td align="left">Maghreb</td>
+<td align="left">Mağrip</td>
+<td align="right">136</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="left">Q27394</td>
+<td align="left">أفريقيا الجنوبية</td>
+<td align="left">Südliches Afrika</td>
+<td align="left">Southern Africa</td>
+<td align="left">Afrique australe</td>
+<td align="left">Güney Afrika</td>
+<td align="right">126</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="left">Q6583</td>
+<td align="left">الصحراء الكبرى</td>
+<td align="left">Sahara</td>
+<td align="left">Sahara</td>
+<td align="left">Sahara</td>
+<td align="left">Sahra</td>
+<td align="right">122</td>
+</tr>
+<tr class="even">
+<td align="left">16</td>
+<td align="left">Q12585</td>
+<td align="left">أمريكا اللاتينية</td>
+<td align="left">Lateinamerika</td>
+<td align="left">Latin America</td>
+<td align="left">Amérique latine</td>
+<td align="left">Latin Amerika</td>
+<td align="right">122</td>
+</tr>
+<tr class="odd">
+<td align="left">17</td>
+<td align="left">Q664609</td>
+<td align="left">الكاريبي</td>
+<td align="left">Karibik</td>
+<td align="left">Caribbean</td>
+<td align="left">Caraïbes</td>
+<td align="left">Karayipler</td>
+<td align="right">110</td>
+</tr>
+<tr class="even">
+<td align="left">18</td>
+<td align="left">Q51</td>
+<td align="left">القارة القطبية الجنوبية</td>
+<td align="left">Antarktika</td>
+<td align="left">Antarctica</td>
+<td align="left">Antarctique</td>
+<td align="left">Antarktika</td>
+<td align="right">105</td>
+</tr>
+<tr class="odd">
+<td align="left">19</td>
+<td align="left">Q2841453</td>
+<td align="left">NA</td>
+<td align="left">Amazonien</td>
+<td align="left">Amazonia</td>
+<td align="left">Amazonie</td>
+<td align="left">NA</td>
+<td align="right">104</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="left">Q48214</td>
+<td align="left">شرق أدنى</td>
+<td align="left">Naher Osten</td>
+<td align="left">Near East</td>
+<td align="left">Proche-Orient</td>
+<td align="left">Yakın Doğu</td>
+<td align="right">84</td>
+</tr>
+<tr class="odd">
+<td align="left">21</td>
+<td align="left">Q35942</td>
+<td align="left">بولنيزيا</td>
+<td align="left">Polynesien</td>
+<td align="left">Polynesia</td>
+<td align="left">Polynésie</td>
+<td align="left">Polinezya</td>
+<td align="right">82</td>
+</tr>
+<tr class="even">
+<td align="left">22</td>
+<td align="left">Q18</td>
+<td align="left">أمريكا الجنوبية</td>
+<td align="left">Südamerika</td>
+<td align="left">South America</td>
+<td align="left">Amérique du Sud</td>
+<td align="left">Güney Amerika</td>
+<td align="right">74</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="left">Q23522</td>
+<td align="left">البلقان</td>
+<td align="left">Balkanhalbinsel</td>
+<td align="left">Balkans</td>
+<td align="left">Balkans</td>
+<td align="left">Balkanlar</td>
+<td align="right">71</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="left">Q5401</td>
+<td align="left">أوراسيا</td>
+<td align="left">Eurasien</td>
+<td align="left">Eurasia</td>
+<td align="left">Eurasie</td>
+<td align="left">Avrasya</td>
+<td align="right">65</td>
+</tr>
+<tr class="odd">
+<td align="left">25</td>
+<td align="left">Q11708</td>
+<td align="left">جنوب شرق آسيا</td>
+<td align="left">Südostasien</td>
+<td align="left">Southeast Asia</td>
+<td align="left">Asie du Sud-Est</td>
+<td align="left">Güneydoğu Asya</td>
+<td align="right">56</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="left">Q27611</td>
+<td align="left">أمريكا الوسطى</td>
+<td align="left">Zentralamerika</td>
+<td align="left">Central America</td>
+<td align="left">Amérique centrale</td>
+<td align="left">Orta Amerika</td>
+<td align="right">48</td>
+</tr>
+<tr class="odd">
+<td align="left">27</td>
+<td align="left">Q166131</td>
+<td align="left">جزر الأنتيل</td>
+<td align="left">Antillen</td>
+<td align="left">Antilles</td>
+<td align="left">Antilles</td>
+<td align="left">Antiller</td>
+<td align="right">46</td>
+</tr>
+<tr class="even">
+<td align="left">28</td>
+<td align="left">Q34675</td>
+<td align="left">الخليج العربي</td>
+<td align="left">Persischer Golf</td>
+<td align="left">Persian Gulf</td>
+<td align="left">golfe Persique</td>
+<td align="left">Basra Körfezi</td>
+<td align="right">46</td>
+</tr>
+<tr class="odd">
+<td align="left">29</td>
+<td align="left">Q37660</td>
+<td align="left">بحر الصين الجنوبي</td>
+<td align="left">Südchinesisches Meer</td>
+<td align="left">South China Sea</td>
+<td align="left">mer de Chine méridionale</td>
+<td align="left">Güney Çin Denizi</td>
+<td align="right">43</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="left">Q49</td>
+<td align="left">أمريكا الشمالية</td>
+<td align="left">Nordamerika</td>
+<td align="left">North America</td>
+<td align="left">Amérique du Nord</td>
+<td align="left">Kuzey Amerika</td>
+<td align="right">40</td>
+</tr>
+<tr class="odd">
+<td align="left">31</td>
+<td align="left">Q27468</td>
+<td align="left">أوروبا الشرقية</td>
+<td align="left">Osteuropa</td>
+<td align="left">Eastern Europe</td>
+<td align="left">Europe de l’Est</td>
+<td align="left">Doğu Avrupa</td>
+<td align="right">36</td>
+</tr>
+<tr class="even">
+<td align="left">32</td>
+<td align="left">Q18869</td>
+<td align="left">القوقاز</td>
+<td align="left">Kaukasus</td>
+<td align="left">Caucasus</td>
+<td align="left">Caucase</td>
+<td align="left">Kafkasya</td>
+<td align="right">34</td>
+</tr>
+<tr class="odd">
+<td align="left">33</td>
+<td align="left">Q27381</td>
+<td align="left">شمال أفريقيا</td>
+<td align="left">Nordafrika</td>
+<td align="left">North Africa</td>
+<td align="left">Afrique du Nord</td>
+<td align="left">Kuzey Afrika</td>
+<td align="right">31</td>
+</tr>
+<tr class="even">
+<td align="left">34</td>
+<td align="left">Q27275</td>
+<td align="left">آسيا الوسطى</td>
+<td align="left">Zentralasien</td>
+<td align="left">Central Asia</td>
+<td align="left">Asie centrale</td>
+<td align="left">Orta Asya</td>
+<td align="right">30</td>
+</tr>
+<tr class="odd">
+<td align="left">35</td>
+<td align="left">Q5451</td>
+<td align="left">هيمالايا</td>
+<td align="left">Himalaya</td>
+<td align="left">Himalayas</td>
+<td align="left">Himalaya</td>
+<td align="left">Himalaya Dağları</td>
+<td align="right">30</td>
+</tr>
+<tr class="even">
+<td align="left">36</td>
+<td align="left">Q4412</td>
+<td align="left">غرب أفريقيا</td>
+<td align="left">Westafrika</td>
+<td align="left">West Africa</td>
+<td align="left">Afrique de l’Ouest</td>
+<td align="left">Batı Afrika</td>
+<td align="right">29</td>
+</tr>
+<tr class="odd">
+<td align="left">37</td>
+<td align="left">Q1070940</td>
+<td align="left">آسيا والمحيط الهادئ</td>
+<td align="left">Asien-Pazifik</td>
+<td align="left">Asia-Pacific</td>
+<td align="left">Asie-Pacifique</td>
+<td align="left">Asya-Pasifik</td>
+<td align="right">26</td>
+</tr>
+<tr class="even">
+<td align="left">38</td>
+<td align="left">Q132959</td>
+<td align="left">أفريقيا جنوب الصحراء</td>
+<td align="left">Subsahara-Afrika</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="left">Afrique subsaharienne</td>
+<td align="left">Sahraaltı Afrika</td>
+<td align="right">25</td>
+</tr>
+<tr class="odd">
+<td align="left">39</td>
+<td align="left">Q1239</td>
+<td align="left">المحيط الهندي</td>
+<td align="left">Indischer Ozean</td>
+<td align="left">Indian Ocean</td>
+<td align="left">océan Indien</td>
+<td align="left">Hint Okyanusu</td>
+<td align="right">24</td>
+</tr>
+<tr class="even">
+<td align="left">40</td>
+<td align="left">Q27407</td>
+<td align="left">شرق أفريقيا</td>
+<td align="left">Ostafrika</td>
+<td align="left">East Africa</td>
+<td align="left">Afrique de l’Est</td>
+<td align="left">Doğu Afrika</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="left">41</td>
+<td align="left">Q21195</td>
+<td align="left">إسكندنافيا</td>
+<td align="left">Skandinavien</td>
+<td align="left">Scandinavia</td>
+<td align="left">Scandinavie</td>
+<td align="left">İskandinavya</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">42</td>
+<td align="left">Q27509</td>
+<td align="left">أوروبا الوسطى</td>
+<td align="left">Mitteleuropa</td>
+<td align="left">Central Europe</td>
+<td align="left">Europe centrale</td>
+<td align="left">Orta Avrupa</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="left">43</td>
+<td align="left">Q27449</td>
+<td align="left">أوروبا الجنوبية</td>
+<td align="left">Südeuropa</td>
+<td align="left">Southern Europe</td>
+<td align="left">Europe du Sud</td>
+<td align="left">Güney Avrupa</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">44</td>
+<td align="left">Q771405</td>
+<td align="left">جنوب آسيا</td>
+<td align="left">Südasien</td>
+<td align="left">South Asia</td>
+<td align="left">Asie du Sud</td>
+<td align="left">Güney Asya</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="left">45</td>
+<td align="left">Q27433</td>
+<td align="left">وسط أفريقيا</td>
+<td align="left">Zentralafrika</td>
+<td align="left">Central Africa</td>
+<td align="left">Afrique centrale</td>
+<td align="left">Orta Afrika</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="left">46</td>
+<td align="left">Q5463</td>
+<td align="left">جبال روكي</td>
+<td align="left">Rocky Mountains</td>
+<td align="left">Rocky Mountains</td>
+<td align="left">montagnes Rocheuses</td>
+<td align="left">Rocky Dağları</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">47</td>
+<td align="left">Q27479</td>
+<td align="left">أوروبا الشمالية</td>
+<td align="left">Nordeuropa</td>
+<td align="left">Northern Europe</td>
+<td align="left">Europe du Nord</td>
+<td align="left">Kuzey Avrupa</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">48</td>
+<td align="left">Q27231</td>
+<td align="left">شرق آسيا</td>
+<td align="left">Ostasien</td>
+<td align="left">East Asia</td>
+<td align="left">Asie de l’Est</td>
+<td align="left">Doğu Asya</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">49</td>
+<td align="left">Q538</td>
+<td align="left">جزيرة أوقيانوسيا</td>
+<td align="left">Ozeanien</td>
+<td align="left">Insular Oceania</td>
+<td align="left">Océanie</td>
+<td align="left">Okyanusya</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">50</td>
+<td align="left">Q27496</td>
+<td align="left">أوروبا الغربية</td>
+<td align="left">Westeuropa</td>
+<td align="left">Western Europe</td>
+<td align="left">Europe de l’Ouest</td>
+<td align="left">Batı Avrupa</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">51</td>
+<td align="left">Q5456</td>
+<td align="left">أنديز</td>
+<td align="left">Anden</td>
+<td align="left">Andes</td>
+<td align="left">cordillère des Andes</td>
+<td align="left">And Dağları</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">52</td>
+<td align="left">Q210682</td>
+<td align="left">غرب أفريقيا الفرنسي</td>
+<td align="left">Französisch-Westafrika</td>
+<td align="left">French West Africa</td>
+<td align="left">Afrique-Occidentale française</td>
+<td align="left">Fransız Batı Afrikası</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">53</td>
+<td align="left">Q60140</td>
+<td align="left">شبه القارة الهندية</td>
+<td align="left">indischer Subkontinent</td>
+<td align="left">Indian subcontinent</td>
+<td align="left">sous-continent indien</td>
+<td align="left">Hint altkıtası</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">54</td>
+<td align="left">Q16389571</td>
+<td align="left">شرق ووسط أوروبا</td>
+<td align="left">Ostmitteleuropa</td>
+<td align="left">East-Central Europe</td>
+<td align="left">Europe médiane</td>
+<td align="left">NA</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">55</td>
+<td align="left">Q3359409</td>
+<td align="left">ميكرونيسيا</td>
+<td align="left">Mikronesien</td>
+<td align="left">Micronesia</td>
+<td align="left">Micronésie</td>
+<td align="left">Mikronezya</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">56</td>
+<td align="left">Q37394</td>
+<td align="left">ميلانيزيا</td>
+<td align="left">Melanesien</td>
+<td align="left">Melanesia</td>
+<td align="left">Mélanésie</td>
+<td align="left">Melanezya</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">57</td>
+<td align="left">Q45341</td>
+<td align="left">بحر الصين الشرقي</td>
+<td align="left">Ostchinesisches Meer</td>
+<td align="left">East China Sea</td>
+<td align="left">mer de Chine orientale</td>
+<td align="left">Doğu Çin Denizi</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">58</td>
+<td align="left">Q900636</td>
+<td align="left">أوروبا الوسطى والشرقية</td>
+<td align="left">Mittel- und Osteuropa</td>
+<td align="left">Central and Eastern Europe</td>
+<td align="left">Europe centrale et orientale</td>
+<td align="left">NA</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">59</td>
+<td align="left">Q263686</td>
+<td align="left">جنوب شرق أوروبا</td>
+<td align="left">Südosteuropa</td>
+<td align="left">Southeast Europe</td>
+<td align="left">Europe du Sud-Est</td>
+<td align="left">Güneydoğu Avrupa</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="top-regions-by-media" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Top regions by media</h3>
+<p>We eliminate Q828 (Americas) as it refers generally to a country</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="24-Hypercube.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute</span></span>
+<span id="cb16-2"><a href="24-Hypercube.html#cb16-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>hc_reg[where1 <span class="sc">!=</span><span class="st">&quot;_no_&quot;</span>,<span class="fu">list</span>(<span class="at">nb =</span> <span class="fu">sum</span>(news)), <span class="fu">list</span>(where1, who)] <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="24-Hypercube.html#cb16-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_by</span>(who) <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="24-Hypercube.html#cb16-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">filter</span>(where1 <span class="sc">!=</span> <span class="st">&quot;Q828&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="24-Hypercube.html#cb16-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">mutate</span>(<span class="at">pct =</span> <span class="dv">100</span><span class="sc">*</span>nb<span class="sc">/</span><span class="fu">sum</span>(nb),</span>
+<span id="cb16-6"><a href="24-Hypercube.html#cb16-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">rnk =</span> <span class="fu">rank</span>(<span class="sc">-</span>nb))</span>
+<span id="cb16-7"><a href="24-Hypercube.html#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="24-Hypercube.html#cb16-8" aria-hidden="true" tabindex="-1"></a>reg_def_en<span class="ot">&lt;-</span>reg_def[reg_def<span class="sc">$</span>lang<span class="sc">==</span><span class="st">&quot;en&quot;</span>,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span>
+<span id="cb16-9"><a href="24-Hypercube.html#cb16-9" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">merge</span>(df,reg_def_en,<span class="at">by.x=</span><span class="st">&quot;where1&quot;</span>,<span class="at">by.y=</span><span class="st">&quot;id&quot;</span>)</span>
+<span id="cb16-10"><a href="24-Hypercube.html#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="24-Hypercube.html#cb16-11" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(rnk <span class="sc">&lt;</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(who, rnk,label, pct) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">who=</span><span class="fu">substr</span>(who,<span class="dv">4</span>,<span class="dv">12</span>))</span>
+<span id="cb16-12"><a href="24-Hypercube.html#cb16-12" aria-hidden="true" tabindex="-1"></a>res<span class="ot">&lt;-</span>res[<span class="fu">order</span>(res<span class="sc">$</span>who, res<span class="sc">$</span>rnk),]</span>
+<span id="cb16-13"><a href="24-Hypercube.html#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="24-Hypercube.html#cb16-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-15"><a href="24-Hypercube.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(res,<span class="at">digits=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">who</th>
+<th align="right">rnk</th>
+<th align="left">label</th>
+<th align="right">pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">70</td>
+<td align="left">DEU_frank</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">54.0</td>
+</tr>
+<tr class="even">
+<td align="left">19</td>
+<td align="left">DEU_frank</td>
+<td align="right">2.0</td>
+<td align="left">Africa</td>
+<td align="right">6.4</td>
+</tr>
+<tr class="odd">
+<td align="left">41</td>
+<td align="left">DEU_frank</td>
+<td align="right">3.0</td>
+<td align="left">Southern Africa</td>
+<td align="right">5.9</td>
+</tr>
+<tr class="even">
+<td align="left">94</td>
+<td align="left">DEU_frank</td>
+<td align="right">4.0</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">4.7</td>
+</tr>
+<tr class="odd">
+<td align="left">73</td>
+<td align="left">DEU_frank</td>
+<td align="right">5.0</td>
+<td align="left">Asia</td>
+<td align="right">3.9</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left">DEU_frank</td>
+<td align="right">6.0</td>
+<td align="left">Alps</td>
+<td align="right">3.2</td>
+</tr>
+<tr class="odd">
+<td align="left">126</td>
+<td align="left">DEU_frank</td>
+<td align="right">7.0</td>
+<td align="left">Middle East</td>
+<td align="right">2.3</td>
+</tr>
+<tr class="even">
+<td align="left">44</td>
+<td align="left">DEU_frank</td>
+<td align="right">8.0</td>
+<td align="left">Eastern Europe</td>
+<td align="right">1.9</td>
+</tr>
+<tr class="odd">
+<td align="left">31</td>
+<td align="left">DEU_frank</td>
+<td align="right">9.0</td>
+<td align="left">Balkans</td>
+<td align="right">1.8</td>
+</tr>
+<tr class="even">
+<td align="left">29</td>
+<td align="left">DEU_frank</td>
+<td align="right">10.0</td>
+<td align="left">South America</td>
+<td align="right">1.4</td>
+</tr>
+<tr class="odd">
+<td align="left">63</td>
+<td align="left">DEU_sudde</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">47.8</td>
+</tr>
+<tr class="even">
+<td align="left">27</td>
+<td align="left">DEU_sudde</td>
+<td align="right">2.0</td>
+<td align="left">Africa</td>
+<td align="right">8.0</td>
+</tr>
+<tr class="odd">
+<td align="left">119</td>
+<td align="left">DEU_sudde</td>
+<td align="right">3.0</td>
+<td align="left">Middle East</td>
+<td align="right">7.8</td>
+</tr>
+<tr class="even">
+<td align="left">90</td>
+<td align="left">DEU_sudde</td>
+<td align="right">4.0</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">7.2</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="left">DEU_sudde</td>
+<td align="right">5.0</td>
+<td align="left">Alps</td>
+<td align="right">4.6</td>
+</tr>
+<tr class="even">
+<td align="left">39</td>
+<td align="left">DEU_sudde</td>
+<td align="right">6.0</td>
+<td align="left">Southern Africa</td>
+<td align="right">3.3</td>
+</tr>
+<tr class="odd">
+<td align="left">84</td>
+<td align="left">DEU_sudde</td>
+<td align="right">7.0</td>
+<td align="left">Near East</td>
+<td align="right">2.4</td>
+</tr>
+<tr class="even">
+<td align="left">28</td>
+<td align="left">DEU_sudde</td>
+<td align="right">8.0</td>
+<td align="left">South America</td>
+<td align="right">2.3</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">DEU_sudde</td>
+<td align="right">9.5</td>
+<td align="left">Latin America</td>
+<td align="right">1.6</td>
+</tr>
+<tr class="even">
+<td align="left">35</td>
+<td align="left">DEU_sudde</td>
+<td align="right">9.5</td>
+<td align="left">Arctic</td>
+<td align="right">1.6</td>
+</tr>
+<tr class="odd">
+<td align="left">57</td>
+<td align="left">FRA_figar</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">39.3</td>
+</tr>
+<tr class="even">
+<td align="left">85</td>
+<td align="left">FRA_figar</td>
+<td align="right">2.0</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">8.2</td>
+</tr>
+<tr class="odd">
+<td align="left">24</td>
+<td align="left">FRA_figar</td>
+<td align="right">3.0</td>
+<td align="left">Africa</td>
+<td align="right">5.9</td>
+</tr>
+<tr class="even">
+<td align="left">107</td>
+<td align="left">FRA_figar</td>
+<td align="right">4.0</td>
+<td align="left">Sahel</td>
+<td align="right">4.9</td>
+</tr>
+<tr class="odd">
+<td align="left">52</td>
+<td align="left">FRA_figar</td>
+<td align="right">5.0</td>
+<td align="left">Amazonia</td>
+<td align="right">4.6</td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="left">FRA_figar</td>
+<td align="right">6.0</td>
+<td align="left">Alps</td>
+<td align="right">3.7</td>
+</tr>
+<tr class="odd">
+<td align="left">54</td>
+<td align="left">FRA_figar</td>
+<td align="right">7.0</td>
+<td align="left">Polynesia</td>
+<td align="right">3.3</td>
+</tr>
+<tr class="even">
+<td align="left">121</td>
+<td align="left">FRA_figar</td>
+<td align="right">8.0</td>
+<td align="left">Middle East</td>
+<td align="right">2.9</td>
+</tr>
+<tr class="odd">
+<td align="left">138</td>
+<td align="left">FRA_figar</td>
+<td align="right">9.0</td>
+<td align="left">Pacific Ocean</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="even">
+<td align="left">80</td>
+<td align="left">FRA_figar</td>
+<td align="right">10.0</td>
+<td align="left">Asia</td>
+<td align="right">2.2</td>
+</tr>
+<tr class="odd">
+<td align="left">65</td>
+<td align="left">FRA_lmond</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">27.2</td>
+</tr>
+<tr class="even">
+<td align="left">21</td>
+<td align="left">FRA_lmond</td>
+<td align="right">2.0</td>
+<td align="left">Africa</td>
+<td align="right">18.5</td>
+</tr>
+<tr class="odd">
+<td align="left">110</td>
+<td align="left">FRA_lmond</td>
+<td align="right">3.0</td>
+<td align="left">Sahel</td>
+<td align="right">9.9</td>
+</tr>
+<tr class="even">
+<td align="left">93</td>
+<td align="left">FRA_lmond</td>
+<td align="right">4.0</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">8.6</td>
+</tr>
+<tr class="odd">
+<td align="left">83</td>
+<td align="left">FRA_lmond</td>
+<td align="right">5.0</td>
+<td align="left">Near East</td>
+<td align="right">4.2</td>
+</tr>
+<tr class="even">
+<td align="left">122</td>
+<td align="left">FRA_lmond</td>
+<td align="right">6.0</td>
+<td align="left">Middle East</td>
+<td align="right">3.8</td>
+</tr>
+<tr class="odd">
+<td align="left">51</td>
+<td align="left">FRA_lmond</td>
+<td align="right">7.0</td>
+<td align="left">Amazonia</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="even">
+<td align="left">9</td>
+<td align="left">FRA_lmond</td>
+<td align="right">8.5</td>
+<td align="left">Alps</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="odd">
+<td align="left">55</td>
+<td align="left">FRA_lmond</td>
+<td align="right">8.5</td>
+<td align="left">Polynesia</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="even">
+<td align="left">104</td>
+<td align="left">FRA_lmond</td>
+<td align="right">10.0</td>
+<td align="left">Sahara</td>
+<td align="right">2.1</td>
+</tr>
+<tr class="odd">
+<td align="left">62</td>
+<td align="left">GBR_guard</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">36.6</td>
+</tr>
+<tr class="even">
+<td align="left">16</td>
+<td align="left">GBR_guard</td>
+<td align="right">2.0</td>
+<td align="left">Africa</td>
+<td align="right">9.6</td>
+</tr>
+<tr class="odd">
+<td align="left">34</td>
+<td align="left">GBR_guard</td>
+<td align="right">3.0</td>
+<td align="left">Arctic</td>
+<td align="right">7.2</td>
+</tr>
+<tr class="even">
+<td align="left">141</td>
+<td align="left">GBR_guard</td>
+<td align="right">4.0</td>
+<td align="left">Pacific Ocean</td>
+<td align="right">7.0</td>
+</tr>
+<tr class="odd">
+<td align="left">120</td>
+<td align="left">GBR_guard</td>
+<td align="right">5.0</td>
+<td align="left">Middle East</td>
+<td align="right">6.7</td>
+</tr>
+<tr class="even">
+<td align="left">133</td>
+<td align="left">GBR_guard</td>
+<td align="right">6.0</td>
+<td align="left">Atlantic Ocean</td>
+<td align="right">4.4</td>
+</tr>
+<tr class="odd">
+<td align="left">71</td>
+<td align="left">GBR_guard</td>
+<td align="right">7.0</td>
+<td align="left">Asia</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">GBR_guard</td>
+<td align="right">8.0</td>
+<td align="left">Latin America</td>
+<td align="right">2.9</td>
+</tr>
+<tr class="odd">
+<td align="left">96</td>
+<td align="left">GBR_guard</td>
+<td align="right">9.0</td>
+<td align="left">Antarctica</td>
+<td align="right">2.6</td>
+</tr>
+<tr class="even">
+<td align="left">114</td>
+<td align="left">GBR_guard</td>
+<td align="right">10.0</td>
+<td align="left">Caribbean</td>
+<td align="right">2.4</td>
+</tr>
+<tr class="odd">
+<td align="left">59</td>
+<td align="left">GBR_teleg</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">50.6</td>
+</tr>
+<tr class="even">
+<td align="left">25</td>
+<td align="left">GBR_teleg</td>
+<td align="right">2.0</td>
+<td align="left">Africa</td>
+<td align="right">12.5</td>
+</tr>
+<tr class="odd">
+<td align="left">74</td>
+<td align="left">GBR_teleg</td>
+<td align="right">3.0</td>
+<td align="left">Asia</td>
+<td align="right">4.8</td>
+</tr>
+<tr class="even">
+<td align="left">113</td>
+<td align="left">GBR_teleg</td>
+<td align="right">4.0</td>
+<td align="left">Caribbean</td>
+<td align="right">4.0</td>
+</tr>
+<tr class="odd">
+<td align="left">137</td>
+<td align="left">GBR_teleg</td>
+<td align="right">5.0</td>
+<td align="left">Pacific Ocean</td>
+<td align="right">3.3</td>
+</tr>
+<tr class="even">
+<td align="left">125</td>
+<td align="left">GBR_teleg</td>
+<td align="right">6.0</td>
+<td align="left">Middle East</td>
+<td align="right">2.8</td>
+</tr>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">GBR_teleg</td>
+<td align="right">7.5</td>
+<td align="left">Southeast Asia</td>
+<td align="right">2.6</td>
+</tr>
+<tr class="even">
+<td align="left">33</td>
+<td align="left">GBR_teleg</td>
+<td align="right">7.5</td>
+<td align="left">Arctic</td>
+<td align="right">2.6</td>
+</tr>
+<tr class="odd">
+<td align="left">56</td>
+<td align="left">GBR_teleg</td>
+<td align="right">9.5</td>
+<td align="left">South China Sea</td>
+<td align="right">1.8</td>
+</tr>
+<tr class="even">
+<td align="left">134</td>
+<td align="left">GBR_teleg</td>
+<td align="right">9.5</td>
+<td align="left">Atlantic Ocean</td>
+<td align="right">1.8</td>
+</tr>
+<tr class="odd">
+<td align="left">61</td>
+<td align="left">IRL_irtim</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">56.4</td>
+</tr>
+<tr class="even">
+<td align="left">132</td>
+<td align="left">IRL_irtim</td>
+<td align="right">2.0</td>
+<td align="left">Atlantic Ocean</td>
+<td align="right">4.5</td>
+</tr>
+<tr class="odd">
+<td align="left">17</td>
+<td align="left">IRL_irtim</td>
+<td align="right">3.0</td>
+<td align="left">Africa</td>
+<td align="right">4.4</td>
+</tr>
+<tr class="even">
+<td align="left">75</td>
+<td align="left">IRL_irtim</td>
+<td align="right">4.0</td>
+<td align="left">Asia</td>
+<td align="right">3.9</td>
+</tr>
+<tr class="odd">
+<td align="left">140</td>
+<td align="left">IRL_irtim</td>
+<td align="right">5.0</td>
+<td align="left">Pacific Ocean</td>
+<td align="right">3.8</td>
+</tr>
+<tr class="even">
+<td align="left">124</td>
+<td align="left">IRL_irtim</td>
+<td align="right">6.0</td>
+<td align="left">Middle East</td>
+<td align="right">3.7</td>
+</tr>
+<tr class="odd">
+<td align="left">115</td>
+<td align="left">IRL_irtim</td>
+<td align="right">7.0</td>
+<td align="left">Caribbean</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="even">
+<td align="left">50</td>
+<td align="left">IRL_irtim</td>
+<td align="right">8.0</td>
+<td align="left">Maghreb</td>
+<td align="right">1.9</td>
+</tr>
+<tr class="odd">
+<td align="left">10</td>
+<td align="left">IRL_irtim</td>
+<td align="right">9.0</td>
+<td align="left">Alps</td>
+<td align="right">1.7</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">IRL_irtim</td>
+<td align="right">10.0</td>
+<td align="left">Latin America</td>
+<td align="right">1.6</td>
+</tr>
+<tr class="odd">
+<td align="left">58</td>
+<td align="left">NIR_belte</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">51.1</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="left">NIR_belte</td>
+<td align="right">2.0</td>
+<td align="left">Africa</td>
+<td align="right">7.4</td>
+</tr>
+<tr class="odd">
+<td align="left">130</td>
+<td align="left">NIR_belte</td>
+<td align="right">3.0</td>
+<td align="left">Atlantic Ocean</td>
+<td align="right">7.3</td>
+</tr>
+<tr class="even">
+<td align="left">32</td>
+<td align="left">NIR_belte</td>
+<td align="right">4.0</td>
+<td align="left">Arctic</td>
+<td align="right">5.7</td>
+</tr>
+<tr class="odd">
+<td align="left">127</td>
+<td align="left">NIR_belte</td>
+<td align="right">5.0</td>
+<td align="left">Middle East</td>
+<td align="right">4.6</td>
+</tr>
+<tr class="even">
+<td align="left">72</td>
+<td align="left">NIR_belte</td>
+<td align="right">6.0</td>
+<td align="left">Asia</td>
+<td align="right">4.5</td>
+</tr>
+<tr class="odd">
+<td align="left">112</td>
+<td align="left">NIR_belte</td>
+<td align="right">7.0</td>
+<td align="left">Caribbean</td>
+<td align="right">3.4</td>
+</tr>
+<tr class="even">
+<td align="left">139</td>
+<td align="left">NIR_belte</td>
+<td align="right">8.0</td>
+<td align="left">Pacific Ocean</td>
+<td align="right">3.1</td>
+</tr>
+<tr class="odd">
+<td align="left">30</td>
+<td align="left">NIR_belte</td>
+<td align="right">10.0</td>
+<td align="left">South America</td>
+<td align="right">1.3</td>
+</tr>
+<tr class="even">
+<td align="left">45</td>
+<td align="left">NIR_belte</td>
+<td align="right">10.0</td>
+<td align="left">Central America</td>
+<td align="right">1.3</td>
+</tr>
+<tr class="odd">
+<td align="left">53</td>
+<td align="left">NIR_belte</td>
+<td align="right">10.0</td>
+<td align="left">Persian Gulf</td>
+<td align="right">1.3</td>
+</tr>
+<tr class="even">
+<td align="left">15</td>
+<td align="left">TUN_babne</td>
+<td align="right">1.0</td>
+<td align="left">Africa</td>
+<td align="right">46.3</td>
+</tr>
+<tr class="odd">
+<td align="left">60</td>
+<td align="left">TUN_babne</td>
+<td align="right">2.0</td>
+<td align="left">Europe</td>
+<td align="right">22.7</td>
+</tr>
+<tr class="even">
+<td align="left">48</td>
+<td align="left">TUN_babne</td>
+<td align="right">3.5</td>
+<td align="left">Maghreb</td>
+<td align="right">6.8</td>
+</tr>
+<tr class="odd">
+<td align="left">108</td>
+<td align="left">TUN_babne</td>
+<td align="right">3.5</td>
+<td align="left">Sahel</td>
+<td align="right">6.8</td>
+</tr>
+<tr class="even">
+<td align="left">128</td>
+<td align="left">TUN_babne</td>
+<td align="right">5.0</td>
+<td align="left">Middle East</td>
+<td align="right">5.5</td>
+</tr>
+<tr class="odd">
+<td align="left">76</td>
+<td align="left">TUN_babne</td>
+<td align="right">6.0</td>
+<td align="left">Asia</td>
+<td align="right">4.8</td>
+</tr>
+<tr class="even">
+<td align="left">89</td>
+<td align="left">TUN_babne</td>
+<td align="right">7.5</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">1.4</td>
+</tr>
+<tr class="odd">
+<td align="left">131</td>
+<td align="left">TUN_babne</td>
+<td align="right">7.5</td>
+<td align="left">Atlantic Ocean</td>
+<td align="right">1.4</td>
+</tr>
+<tr class="even">
+<td align="left">13</td>
+<td align="left">TUN_babne</td>
+<td align="right">9.0</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">0.8</td>
+</tr>
+<tr class="odd">
+<td align="left">22</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">1.0</td>
+<td align="left">Africa</td>
+<td align="right">34.3</td>
+</tr>
+<tr class="even">
+<td align="left">49</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">2.0</td>
+<td align="left">Maghreb</td>
+<td align="right">18.6</td>
+</tr>
+<tr class="odd">
+<td align="left">88</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">3.0</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">14.7</td>
+</tr>
+<tr class="even">
+<td align="left">64</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">4.0</td>
+<td align="left">Europe</td>
+<td align="right">11.9</td>
+</tr>
+<tr class="odd">
+<td align="left">38</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">5.0</td>
+<td align="left">North Africa</td>
+<td align="right">5.8</td>
+</tr>
+<tr class="even">
+<td align="left">111</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">6.5</td>
+<td align="left">Sahel</td>
+<td align="right">4.2</td>
+</tr>
+<tr class="odd">
+<td align="left">118</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">6.5</td>
+<td align="left">Middle East</td>
+<td align="right">4.2</td>
+</tr>
+<tr class="even">
+<td align="left">101</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">8.0</td>
+<td align="left">Sahara</td>
+<td align="right">2.9</td>
+</tr>
+<tr class="odd">
+<td align="left">78</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">9.0</td>
+<td align="left">Asia</td>
+<td align="right">1.9</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">10.5</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">0.6</td>
+</tr>
+<tr class="odd">
+<td align="left">43</td>
+<td align="left">TUN_ecoma</td>
+<td align="right">10.5</td>
+<td align="left">Central Africa</td>
+<td align="right">0.6</td>
+</tr>
+<tr class="even">
+<td align="left">91</td>
+<td align="left">TUN_press</td>
+<td align="right">1.0</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">30.8</td>
+</tr>
+<tr class="odd">
+<td align="left">14</td>
+<td align="left">TUN_press</td>
+<td align="right">2.0</td>
+<td align="left">Africa</td>
+<td align="right">30.2</td>
+</tr>
+<tr class="even">
+<td align="left">106</td>
+<td align="left">TUN_press</td>
+<td align="right">3.0</td>
+<td align="left">Sahel</td>
+<td align="right">15.1</td>
+</tr>
+<tr class="odd">
+<td align="left">47</td>
+<td align="left">TUN_press</td>
+<td align="right">4.0</td>
+<td align="left">Maghreb</td>
+<td align="right">6.4</td>
+</tr>
+<tr class="even">
+<td align="left">68</td>
+<td align="left">TUN_press</td>
+<td align="right">5.0</td>
+<td align="left">Europe</td>
+<td align="right">4.7</td>
+</tr>
+<tr class="odd">
+<td align="left">37</td>
+<td align="left">TUN_press</td>
+<td align="right">6.0</td>
+<td align="left">North Africa</td>
+<td align="right">4.1</td>
+</tr>
+<tr class="even">
+<td align="left">103</td>
+<td align="left">TUN_press</td>
+<td align="right">7.0</td>
+<td align="left">Sahara</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="odd">
+<td align="left">77</td>
+<td align="left">TUN_press</td>
+<td align="right">8.0</td>
+<td align="left">Asia</td>
+<td align="right">2.3</td>
+</tr>
+<tr class="even">
+<td align="left">129</td>
+<td align="left">TUN_press</td>
+<td align="right">9.0</td>
+<td align="left">Middle East</td>
+<td align="right">1.7</td>
+</tr>
+<tr class="odd">
+<td align="left">135</td>
+<td align="left">TUN_press</td>
+<td align="right">10.0</td>
+<td align="left">Pacific Ocean</td>
+<td align="right">1.2</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="left">TUN_reali</td>
+<td align="right">1.0</td>
+<td align="left">Africa</td>
+<td align="right">40.0</td>
+</tr>
+<tr class="odd">
+<td align="left">69</td>
+<td align="left">TUN_reali</td>
+<td align="right">2.0</td>
+<td align="left">Europe</td>
+<td align="right">14.2</td>
+</tr>
+<tr class="even">
+<td align="left">46</td>
+<td align="left">TUN_reali</td>
+<td align="right">3.0</td>
+<td align="left">Maghreb</td>
+<td align="right">11.0</td>
+</tr>
+<tr class="odd">
+<td align="left">109</td>
+<td align="left">TUN_reali</td>
+<td align="right">4.0</td>
+<td align="left">Sahel</td>
+<td align="right">9.7</td>
+</tr>
+<tr class="even">
+<td align="left">86</td>
+<td align="left">TUN_reali</td>
+<td align="right">5.0</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">9.0</td>
+</tr>
+<tr class="odd">
+<td align="left">100</td>
+<td align="left">TUN_reali</td>
+<td align="right">6.0</td>
+<td align="left">Sahara</td>
+<td align="right">8.1</td>
+</tr>
+<tr class="even">
+<td align="left">116</td>
+<td align="left">TUN_reali</td>
+<td align="right">7.0</td>
+<td align="left">Middle East</td>
+<td align="right">2.9</td>
+</tr>
+<tr class="odd">
+<td align="left">36</td>
+<td align="left">TUN_reali</td>
+<td align="right">8.0</td>
+<td align="left">North Africa</td>
+<td align="right">2.6</td>
+</tr>
+<tr class="even">
+<td align="left">136</td>
+<td align="left">TUN_reali</td>
+<td align="right">9.0</td>
+<td align="left">Pacific Ocean</td>
+<td align="right">1.9</td>
+</tr>
+<tr class="odd">
+<td align="left">82</td>
+<td align="left">TUN_reali</td>
+<td align="right">10.0</td>
+<td align="left">Asia</td>
+<td align="right">0.6</td>
+</tr>
+<tr class="even">
+<td align="left">66</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">52.2</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">2.0</td>
+<td align="left">Asia Minor</td>
+<td align="right">17.5</td>
+</tr>
+<tr class="even">
+<td align="left">87</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">3.0</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">13.4</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">4.0</td>
+<td align="left">Africa</td>
+<td align="right">3.4</td>
+</tr>
+<tr class="even">
+<td align="left">81</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">5.0</td>
+<td align="left">Asia</td>
+<td align="right">2.4</td>
+</tr>
+<tr class="odd">
+<td align="left">99</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">6.0</td>
+<td align="left">Eurasia</td>
+<td align="right">2.0</td>
+</tr>
+<tr class="even">
+<td align="left">42</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">7.0</td>
+<td align="left">Southern Africa</td>
+<td align="right">1.6</td>
+</tr>
+<tr class="odd">
+<td align="left">95</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">8.0</td>
+<td align="left">Antarctica</td>
+<td align="right">1.2</td>
+</tr>
+<tr class="even">
+<td align="left">105</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">9.0</td>
+<td align="left">Sahara</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="odd">
+<td align="left">123</td>
+<td align="left">TUR_cumhu</td>
+<td align="right">10.0</td>
+<td align="left">Middle East</td>
+<td align="right">0.9</td>
+</tr>
+<tr class="even">
+<td align="left">67</td>
+<td align="left">TUR_yenis</td>
+<td align="right">1.0</td>
+<td align="left">Europe</td>
+<td align="right">46.8</td>
+</tr>
+<tr class="odd">
+<td align="left">92</td>
+<td align="left">TUR_yenis</td>
+<td align="right">2.0</td>
+<td align="left">Mediterranean Sea</td>
+<td align="right">21.1</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">TUR_yenis</td>
+<td align="right">3.0</td>
+<td align="left">Asia Minor</td>
+<td align="right">11.0</td>
+</tr>
+<tr class="odd">
+<td align="left">18</td>
+<td align="left">TUR_yenis</td>
+<td align="right">4.0</td>
+<td align="left">Africa</td>
+<td align="right">6.2</td>
+</tr>
+<tr class="even">
+<td align="left">79</td>
+<td align="left">TUR_yenis</td>
+<td align="right">5.0</td>
+<td align="left">Asia</td>
+<td align="right">2.6</td>
+</tr>
+<tr class="odd">
+<td align="left">98</td>
+<td align="left">TUR_yenis</td>
+<td align="right">6.0</td>
+<td align="left">Eurasia</td>
+<td align="right">2.1</td>
+</tr>
+<tr class="even">
+<td align="left">102</td>
+<td align="left">TUR_yenis</td>
+<td align="right">7.0</td>
+<td align="left">Sahara</td>
+<td align="right">1.4</td>
+</tr>
+<tr class="odd">
+<td align="left">117</td>
+<td align="left">TUR_yenis</td>
+<td align="right">8.0</td>
+<td align="left">Middle East</td>
+<td align="right">1.3</td>
+</tr>
+<tr class="even">
+<td align="left">40</td>
+<td align="left">TUR_yenis</td>
+<td align="right">9.0</td>
+<td align="left">Southern Africa</td>
+<td align="right">1.3</td>
+</tr>
+<tr class="odd">
+<td align="left">97</td>
+<td align="left">TUR_yenis</td>
+<td align="right">10.0</td>
+<td align="left">Antarctica</td>
+<td align="right">1.1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<script src="js/tidyverse.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="23-Wikidata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="31_geonetworks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ClaudeGrasland/media_cookbook/blob/master/24-Hypercube.Rmd",
+"text": "Source"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
