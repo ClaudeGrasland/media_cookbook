@@ -64,7 +64,7 @@
 <g clip-path='url(#cpNzIuMDB8MzYwLjAwfDAuMDB8NzIuMDA=)'>
 </g>
 <g clip-path='url(#cpOTEuMDF8MzYwLjAwfDcuMTN8NjcuMjU=)'>
-<text x='225.50' y='41.13' text-anchor='middle' style='font-size: 15.84px; font-family: Arial;' textLength='155.71px' lengthAdjust='spacingAndGlyphs'>Hierarchical clustering</text>
+<text x='225.50' y='41.19' text-anchor='middle' style='font-size: 15.84px; font-family: Arial;' textLength='155.64px' lengthAdjust='spacingAndGlyphs'>Hierarchical clustering</text>
 </g>
 <defs>
   <clipPath id='cpMzc5LjAxfDQzMi4wMHw3OS4xM3wzNTUuMjU='>
@@ -83,7 +83,7 @@
 </g>
 <g clip-path='url(#cpMzc5LjAxfDQzMi4wMHw3OS4xM3wzNTUuMjU=)'>
 <rect x='374.65' y='79.13' width='61.72' height='19.01' style='stroke-width: 0.75;' />
-<text x='388.90' y='91.47' style='font-size: 7.92px; font-family: Arial;' textLength='43.08px' lengthAdjust='spacingAndGlyphs'>inertia gain  </text>
+<text x='388.90' y='91.46' style='font-size: 7.92px; font-family: Arial;' textLength='43.08px' lengthAdjust='spacingAndGlyphs'>inertia gain  </text>
 </g>
 <defs>
   <clipPath id='cpOTEuMDF8MzYwLjAwfDc5LjEzfDM1NS4yNQ=='>
@@ -105,11 +105,11 @@
 <polyline points='139.29,283.15 139.29,280.78 158.45,280.78 158.45,283.15 ' style='stroke-width: 0.75;' />
 <polyline points='120.13,283.15 120.13,274.32 148.87,274.32 148.87,280.78 ' style='stroke-width: 0.75;' />
 <polyline points='100.97,283.15 100.97,259.04 134.50,259.04 134.50,274.32 ' style='stroke-width: 0.75;' />
-<text transform='translate(179.31,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='56.25px' lengthAdjust='spacingAndGlyphs'>tr_TUR_cumhur</text>
-<text transform='translate(198.47,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='52.74px' lengthAdjust='spacingAndGlyphs'>tr_TUR_yenisa</text>
+<text transform='translate(179.30,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='56.25px' lengthAdjust='spacingAndGlyphs'>tr_TUR_cumhur</text>
+<text transform='translate(198.46,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='52.74px' lengthAdjust='spacingAndGlyphs'>tr_TUR_yenisa</text>
 <polyline points='177.61,283.15 177.61,279.38 196.77,279.38 196.77,283.15 ' style='stroke-width: 0.75;' />
-<text transform='translate(217.63,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='49.23px' lengthAdjust='spacingAndGlyphs'>fr_FRA_figaro</text>
-<text transform='translate(236.79,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='55.38px' lengthAdjust='spacingAndGlyphs'>fr_FRA_lmonde</text>
+<text transform='translate(217.62,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='49.23px' lengthAdjust='spacingAndGlyphs'>fr_FRA_figaro</text>
+<text transform='translate(236.78,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='55.38px' lengthAdjust='spacingAndGlyphs'>fr_FRA_lmonde</text>
 <polyline points='215.92,283.15 215.92,257.75 235.08,257.75 235.08,283.15 ' style='stroke-width: 0.75;' />
 <text transform='translate(255.94,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='50.12px' lengthAdjust='spacingAndGlyphs'>en_NIR_beltel</text>
 <text transform='translate(275.10,289.74) rotate(-90)' text-anchor='end' style='font-size: 7.92px; font-family: Arial;' textLength='56.71px' lengthAdjust='spacingAndGlyphs'>en_GBR_guardi</text>
@@ -138,7 +138,7 @@
 <text transform='translate(79.60,113.00) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='15.39px' lengthAdjust='spacingAndGlyphs'>0.15</text>
 </g>
 <g clip-path='url(#cpNzIuMDB8MzYwLjAwfDcyLjAwfDM2MC4wMA==)'>
-<text x='225.50' y='78.98' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='91.85px' lengthAdjust='spacingAndGlyphs'>Cluster Dendrogram</text>
+<text x='225.50' y='78.96' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='91.84px' lengthAdjust='spacingAndGlyphs'>Cluster Dendrogram</text>
 <text transform='translate(60.60,217.19) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='22.86px' lengthAdjust='spacingAndGlyphs'>Height</text>
 </g>
 <g clip-path='url(#cpOTEuMDF8MzYwLjAwfDc5LjEzfDM1NS4yNQ==)'>

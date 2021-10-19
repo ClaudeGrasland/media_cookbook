@@ -679,6 +679,7 @@ qd <- extract_tags (qd = qd,
                      tolow = FALSE)
 saveRDS(qd,"quanteda/fr_FRA_figaro.RDS")
 qd1<-qd
+table(qd1$nbregs)
 ```
 ### Le Monde
 
@@ -693,6 +694,7 @@ qd <- extract_tags (qd = qd,
                      tolow = FALSE)
 saveRDS(qd,"quanteda/fr_FRA_lmonde.RDS")
 qd2<-qd
+table(qd2$nbregs)
 ```
 
 ### FAZ
