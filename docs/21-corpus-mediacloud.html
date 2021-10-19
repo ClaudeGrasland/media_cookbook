@@ -335,15 +335,21 @@ code span.wa { color: #bf0303; } /* Warning */
             <section class="normal" id="section-">
 <div id="c21_mediacloud" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Import from Media Cloud</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="21-corpus-mediacloud.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
-<span id="cb1-2"><a href="21-corpus-mediacloud.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="21-corpus-mediacloud.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="21-corpus-mediacloud.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb1-5"><a href="21-corpus-mediacloud.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-6"><a href="21-corpus-mediacloud.html#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="21-corpus-mediacloud.html#cb1-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-8"><a href="21-corpus-mediacloud.html#cb1-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-9"><a href="21-corpus-mediacloud.html#cb1-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">comment =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="21-corpus-mediacloud.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code></pre></div>
+<pre><code>Package version: 3.0.0
+Unicode version: 13.0
+ICU version: 69.1</code></pre>
+<pre><code>Parallel computing: 8 of 8 threads used.</code></pre>
+<pre><code>See https://quanteda.io for tutorials and examples.</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="21-corpus-mediacloud.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2"><a href="21-corpus-mediacloud.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-3"><a href="21-corpus-mediacloud.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span></code></pre></div>
+<pre><code>Warning: le package &#39;tidytext&#39; a été compilé avec la version R 4.1.1</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="21-corpus-mediacloud.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-2"><a href="21-corpus-mediacloud.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="21-corpus-mediacloud.html#cb7-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-4"><a href="21-corpus-mediacloud.html#cb7-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-5"><a href="21-corpus-mediacloud.html#cb7-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">comment =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p>(tbd : presentation of the MediaCloud project)</p>
 <p>Mediacloud can be freely used by researchers. All you have to do is to create an account at the following adress :</p>
 <p><a href="https://explorer.mediacloud.org" class="uri">https://explorer.mediacloud.org</a></p>
