@@ -24,7 +24,7 @@
 <meta name="author" content="Claude Grasland" />
 
 
-<meta name="date" content="2021-10-18" />
+<meta name="date" content="2021-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,31 +54,31 @@
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<script src="libs/d3v6-6.2.0/d3.v6.min.js"></script>
-<script src="libs/d3v6-6.2.0/d3-legend.min.js"></script>
-<script src="libs/d3v6-6.2.0/d3-labeler.js"></script>
+<script src="libs/d3v7-7.0.0/d3.v7.min.js"></script>
+<script src="libs/d3v7-7.0.0/d3-legend.min.js"></script>
+<script src="libs/d3v7-7.0.0/d3-labeler.js"></script>
 <link href="libs/d3.lasso-plugin-1.0.0/lasso.css" rel="stylesheet" />
 <script src="libs/d3.lasso-plugin-1.0.0/lasso.js"></script>
-<link href="libs/scatterD3-0.9.2/scatterD3.css" rel="stylesheet" />
-<script src="libs/scatterD3-0.9.2/scatterD3-utils.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-scales.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-dims.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-menu.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-axes.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-dots.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-arrows.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-labels.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-labels-lines.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-lines.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-ellipses.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-zoom.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-legend.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-lasso.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-exports.js"></script>
-<script src="libs/scatterD3-binding-0.9.2/scatterD3.js"></script>
-<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
-<script src="libs/vis-4.20.1/vis.min.js"></script>
-<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
+<link href="libs/scatterD3-1.0.0/scatterD3.css" rel="stylesheet" />
+<script src="libs/scatterD3-1.0.0/scatterD3-utils.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-scales.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-dims.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-menu.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-axes.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-dots.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-arrows.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-labels.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-labels-lines.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-lines.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-ellipses.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-zoom.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-legend.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-lasso.js"></script>
+<script src="libs/scatterD3-1.0.0/scatterD3-exports.js"></script>
+<script src="libs/scatterD3-binding-1.0.0/scatterD3.js"></script>
+<link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+<script src="libs/vis-9.1.0/vis-network.min.js"></script>
+<script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script>
 
 
 <style type="text/css">
@@ -335,15 +335,21 @@ code span.wa { color: #bf0303; } /* Warning */
             <section class="normal" id="section-">
 <div id="c21_mediacloud" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Import from Media Cloud</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="21-corpus-mediacloud.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
-<span id="cb1-2"><a href="21-corpus-mediacloud.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="21-corpus-mediacloud.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="21-corpus-mediacloud.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb1-5"><a href="21-corpus-mediacloud.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-6"><a href="21-corpus-mediacloud.html#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="21-corpus-mediacloud.html#cb1-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-8"><a href="21-corpus-mediacloud.html#cb1-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-9"><a href="21-corpus-mediacloud.html#cb1-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">comment =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="21-corpus-mediacloud.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code></pre></div>
+<pre><code>Package version: 3.0.0
+Unicode version: 13.0
+ICU version: 69.1</code></pre>
+<pre><code>Parallel computing: 8 of 8 threads used.</code></pre>
+<pre><code>See https://quanteda.io for tutorials and examples.</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="21-corpus-mediacloud.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2"><a href="21-corpus-mediacloud.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-3"><a href="21-corpus-mediacloud.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span></code></pre></div>
+<pre><code>Warning: le package &#39;tidytext&#39; a été compilé avec la version R 4.1.1</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="21-corpus-mediacloud.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-2"><a href="21-corpus-mediacloud.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="21-corpus-mediacloud.html#cb7-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">cache =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-4"><a href="21-corpus-mediacloud.html#cb7-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-5"><a href="21-corpus-mediacloud.html#cb7-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">comment =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p>(tbd : presentation of the MediaCloud project)</p>
 <p>Mediacloud can be freely used by researchers. All you have to do is to create an account at the following adress :</p>
 <p><a href="https://explorer.mediacloud.org" class="uri">https://explorer.mediacloud.org</a></p>
