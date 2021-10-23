@@ -430,10 +430,10 @@ We realize a test of the method described above on a preliminary dictionary of w
 
 ### Load the list of world regions
 
-We start from a provisional list of 65 world regions established by C. Grasland :
+We start from a provisional list of 65 world regions + 45 regional organisations established by C. Grasland :
 
 ```{r}
-ent<-read.table("dict/wikireg_V1.csv", 
+ent<-read.table("dict/wikireg_V3.csv", 
                 sep=";",
                 header=T,
                 encoding = "UTF-8")
@@ -447,10 +447,10 @@ We extract the definitions of the regions in the different languages.
 ## NOT RUN ###
 worldreg_def <- extract_def(ent$wikidata,c("fr","de","en","tr","ar"))
 write.table(x = worldreg_def,
-              file = "dict/worldreg001_def.csv",
+              file = "dict/worldreg003_def.csv",
               fileEncoding = "UTF-8",
               sep = ";")
-saveRDS(object = worldreg_def, file = "dict/worldreg001_def.RDS")
+saveRDS(object = worldreg_def, file = "dict/worldreg003_def.RDS")
 
 ```
 
@@ -461,10 +461,10 @@ saveRDS(object = worldreg_def, file = "dict/worldreg001_def.RDS")
 ## NOT RUN ###
 worldreg_dict <- extract_alias(ent$wikidata,c("fr","de","en","tr","ar"))
 write.table(x = worldreg_dict,
-              file = "dict/worldreg001_dict.csv",
+              file = "dict/worldreg003_dict.csv",
               fileEncoding = "UTF-8",
               sep = ";")
-saveRDS(object = worldreg_dict, file = "dict/worldreg001_dict.RDS")
+saveRDS(object = worldreg_dict, file = "dict/worldreg003_dict.RDS")
 
 ```
 
@@ -476,15 +476,15 @@ We need to add a supplementary dictionary of units that are introduced in order 
 ```{r, eval=FALSE}
 ## NOT RUN ###
 ent_ctrl <- c("Q258",   # Republic of southern Africa
-              "Q8908",   # Council of Europe
-              "Q314407")  # French Radio Europe 1
+              "Q314407",# French Radio Europe 1
+              "Q18760" )  # Europa League / UEFA
 
 worldreg_ctrl <- extract_alias(ent_ctrl,c("fr","de","en","tr","ar"))
 write.table(x = worldreg_ctrl,
-              file = "dict/worldreg001_ctrl.csv",
+              file = "dict/worldreg003_ctrl.csv",
               fileEncoding = "UTF-8",
               sep = ";")
-saveRDS(object = worldreg_ctrl, file = "dict/worldreg001_ctrl.RDS")
+saveRDS(object = worldreg_ctrl, file = "dict/worldreg003_ctrl.RDS")
 
 ```
 
@@ -523,13 +523,13 @@ toks<- tokens_split(toks, "'")
 
 
 ## Control dictionary
-ctrl<-readRDS("dict/worldreg001_ctrl.RDS")
+ctrl<-readRDS("dict/worldreg003_ctrl.RDS")
 ctrl<-ctrl[ctrl$lang=="fr" & is.na(ctrl$label)==F,]
 ctrl<-ctrl[ntoken(ctrl$label)>1,]
 toks<-tokens_compound(toks,pattern=phrase(ctrl$label))
 
 ## Target dictionary
-dict<-readRDS("dict/worldreg001_dict.RDS")
+dict<-readRDS("dict/worldreg003_dict.RDS")
 dict<-dict[dict$lang=="fr" & is.na(dict$label)==F,]
 target<-dict[ntoken(dict$label)>1,]
 toks<-tokens_compound(toks,pattern=phrase(target$label))
@@ -672,8 +672,8 @@ return(qd)
 
 ```{r, eval=FALSE}
 
-ctrl<-readRDS("dict/worldreg001_ctrl.RDS")
-dict<-readRDS("dict/worldreg001_dict.RDS")
+ctrl<-readRDS("dict/worldreg003_ctrl.RDS")
+dict<-readRDS("dict/worldreg003_dict.RDS")
 dict<-dict[dict$id != "Q2017699",]  # Correct Mistake
 
 qd <- readRDS("quanteda/fr_FRA_figaro.RDS")
@@ -685,12 +685,11 @@ qd <- extract_tags (qd = qd,
                      tolow = FALSE)
 saveRDS(qd,"quanteda/fr_FRA_figaro.RDS")
 qd1<-qd
-<<<<<<< HEAD
+
 table(qd$nbregs)
-=======
-table(qd1$nbregs)
->>>>>>> b4c5a27f49623043bcf80eb2e5854d8bc6d5616f
+
 ```
+
 ### Le Monde
 
 ```{r, eval=FALSE}
@@ -704,11 +703,9 @@ qd <- extract_tags (qd = qd,
                      tolow = FALSE)
 saveRDS(qd,"quanteda/fr_FRA_lmonde.RDS")
 qd2<-qd
-<<<<<<< HEAD
+
 table(qd$nbregs)
-=======
-table(qd2$nbregs)
->>>>>>> b4c5a27f49623043bcf80eb2e5854d8bc6d5616f
+
 ```
 
 ### FAZ
@@ -872,6 +869,7 @@ saveRDS(qd,"quanteda/fr_TUN_realit.RDS")
 qd12<-qd
 table(qd$nbregs)
 ```
+
 ### Economiste Maghrebin
 
 ```{r, eval=FALSE}
@@ -909,7 +907,7 @@ table(qd$nbregs)
 
 ```{r, eval=FALSE}
 qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12,qd13,qd14)
-saveRDS(qd,"quanteda/corpus_worldreg_001.RDS")
+saveRDS(qd,"quanteda/corpus_worldreg_003.RDS")
 table(qd$nbregs)
 ```
 
