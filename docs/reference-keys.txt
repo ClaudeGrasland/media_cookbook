@@ -117,3 +117,13 @@ without-france
 preferential-links
 with-france-1
 without-france-1
+algeria
+al-nahar
+el-kahber
+el-watan
+al-nahar-dza
+la-presse-2
+la-presse-3
+le-figaro-fra
+el-khabar-dza
+el-watan-dza
