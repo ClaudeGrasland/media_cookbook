@@ -1,0 +1,196 @@
+codeiso3;countryId;countryLabel;capitalId;capitalLabel
+AFG;Q889;Afghanistan;Q5838;Kabul
+AGO;Q916;Angola;Q3897;Luanda
+ALB;Q222;Albania;Q19689;Tirana
+AND;Q228;Andorra;Q1863;Andorra la Vella
+ARE;Q878;United Arab Emirates;Q1519;Abu Dhabi
+ARG;Q414;Argentina;Q1486;Buenos Aires
+ARM;Q399;Armenia;Q1953;Yerevan
+ATG;Q781;Antigua and Barbuda;Q36262;Saint John's
+AUS;Q408;Australia;Q3114;Canberra
+AUT;Q40;Austria;Q1741;Vienna
+AZE;Q227;Azerbaijan;Q9248;Baku
+BDI;Q967;Burundi;Q167551;Gitega
+BEL;Q31;Belgium;Q239;City of Brussels
+BEN;Q962;Benin;Q3799;Porto-Novo
+BFA;Q965;Burkina Faso;Q3777;Ouagadougou
+BGD;Q902;Bangladesh;Q1354;Dhaka
+BGR;Q219;Bulgaria;Q472;Sofia
+BHR;Q398;Bahrain;Q3882;Manama
+BHS;Q778;The Bahamas;Q2467;Nassau
+BIH;Q225;Bosnia and Herzegovina;Q11194;Sarajevo
+BLR;Q184;Belarus;Q2280;Minsk
+BLZ;Q242;Belize;Q3043;Belmopan
+BOL;Q750;Bolivia;Q1491;La Paz
+BRA;Q155;Brazil;Q2844;Brasília
+BRB;Q244;Barbados;Q36168;Bridgetown
+BRN;Q921;Brunei;Q9279;Bandar Seri Begawan
+BTN;Q917;Bhutan;Q9270;Thimphu
+BWA;Q963;Botswana;Q3919;Gaborone
+CAF;Q929;Central African Republic;Q3832;Bangui
+CAN;Q16;Canada;Q1930;Ottawa
+CHE;Q39;Switzerland;Q70;Bern
+CHL;Q298;Chile;Q2887;Santiago
+CHN;Q148;People's Republic of China;Q956;Beijing
+CIV;Q1008;Côte d'Ivoire;Q3768;Yamoussoukro
+CMR;Q1009;Cameroon;Q3808;Yaoundé
+COD;Q974;Democratic Republic of the Congo;Q3838;Kinshasa
+COG;Q971;Republic of the Congo;Q3844;Brazzaville
+COL;Q739;Colombia;Q2841;Bogotá
+COM;Q970;Comoros;Q3901;Moroni
+CPV;Q1011;Cape Verde;Q3751;Praia
+CRI;Q800;Costa Rica;Q3070;San José
+CUB;Q241;Cuba;Q1563;Havana
+CYP;Q229;Cyprus;Q3856;Nicosia
+CZE;Q213;Czech Republic;Q1085;Prague
+DEU;Q183;Germany;Q64;Berlin
+DJI;Q977;Djibouti;Q3604;Djibouti
+DMA;Q784;Dominica;Q36281;Roseau
+DNK;Q35;Denmark;Q1748;Copenhagen
+DOM;Q786;Dominican Republic;Q34820;Santo Domingo
+DZA;Q262;Algeria;Q3561;Algiers
+ECU;Q736;Ecuador;Q2900;Quito
+EGY;Q79;Egypt;Q85;Cairo
+ERI;Q986;Eritrea;Q3642;Asmara
+ESP;Q29;Spain;Q2807;Madrid
+EST;Q191;Estonia;Q1770;Tallinn
+ETH;Q115;Ethiopia;Q3624;Addis Ababa
+FIN;Q33;Finland;Q1757;Helsinki
+FJI;Q712;Fiji;Q38807;Suva
+FRA;Q142;France;Q90;Paris
+FSM;Q702;Federated States of Micronesia;Q42751;Palikir
+GAB;Q1000;Gabon;Q3825;Libreville
+GBR;Q145;United Kingdom;Q84;London
+GEO;Q230;Georgia;Q994;Tbilisi
+GHA;Q117;Ghana;Q3761;Accra
+GIN;Q1006;Guinea;Q3733;Conakry
+GMB;Q1005;The Gambia;Q3726;Banjul
+GNB;Q1007;Guinea-Bissau;Q3739;Bissau
+GNQ;Q983;Equatorial Guinea;Q3818;Malabo
+GRC;Q41;Greece;Q1524;Athens
+GRD;Q769;Grenada;Q41547;St. George's
+GTM;Q774;Guatemala;Q1555;Guatemala City
+GUY;Q734;Guyana;Q10717;Georgetown
+HND;Q783;Honduras;Q3238;Tegucigalpa
+HRV;Q224;Croatia;Q1435;Zagreb
+HTI;Q790;Haiti;Q34261;Port-au-Prince
+HUN;Q28;Hungary;Q1781;Budapest
+IDN;Q252;Indonesia;Q3630;Jakarta
+IND;Q668;India;Q987;New Delhi
+IRL;Q27;Ireland;Q1761;Dublin
+IRN;Q794;Iran;Q3616;Tehran
+IRQ;Q796;Iraq;Q1530;Baghdad
+ISL;Q189;Iceland;Q1764;Reykjavík
+ISR;Q801;Israel;Q1218;Jerusalem
+ITA;Q38;Italy;Q220;Rome
+JAM;Q766;Jamaica;Q34692;Kingston
+JOR;Q810;Jordan;Q3805;Amman
+JPN;Q17;Japan;Q1490;Tokyo
+KAZ;Q232;Kazakhstan;Q1520;Nur-Sultan
+KEN;Q114;Kenya;Q3870;Nairobi
+KGZ;Q813;Kyrgyzstan;Q9361;Bishkek
+KHM;Q424;Cambodia;Q1850;Phnom Penh
+KIR;Q710;Kiribati;Q131233;South Tarawa
+KNA;Q763;Saint Kitts and Nevis;Q41295;Basseterre
+KOR;Q884;South Korea;Q8684;Seoul
+KWT;Q817;Kuwait;Q35178;Kuwait City
+LAO;Q819;Laos;Q9326;Vientiane
+LBN;Q822;Lebanon;Q3820;Beirut
+LBR;Q1014;Liberia;Q3748;Monrovia
+LBY;Q1016;Libya;Q3579;Tripoli
+LCA;Q760;Saint Lucia;Q41699;Castries
+LIE;Q347;Liechtenstein;Q1844;Vaduz
+LKA;Q854;Sri Lanka;Q35381;Colombo
+LSO;Q1013;Lesotho;Q3909;Maseru
+LTU;Q37;Lithuania;Q216;Vilnius
+LUX;Q32;Luxembourg;Q1842;Luxembourg
+LVA;Q211;Latvia;Q1773;Riga
+MAR;Q1028;Morocco;Q3551;Rabat
+MCO;Q235;Monaco;Q55115;Monaco City
+MDA;Q217;Moldova;Q21197;Chișinău
+MDG;Q1019;Madagascar;Q3915;Antananarivo
+MDV;Q826;Maldives;Q9347;Malé
+MEX;Q96;Mexico;Q1489;Mexico City
+MHL;Q709;Marshall Islands;Q12919;Majuro
+MKD;Q221;North Macedonia;Q384;Skopje
+MLI;Q912;Mali;Q3703;Bamako
+MLT;Q233;Malta;Q23800;Valletta
+MMR;Q836;Myanmar;Q37400;Naypyidaw
+MNE;Q236;Montenegro;Q23564;Podgorica
+MNG;Q711;Mongolia;Q23430;Ulaanbaatar
+MOZ;Q1029;Mozambique;Q3889;Maputo
+MRT;Q1025;Mauritania;Q3688;Nouakchott
+MUS;Q1027;Mauritius;Q3929;Port Louis
+MWI;Q1020;Malawi;Q3876;Lilongwe
+MYS;Q833;Malaysia;Q1865;Kuala Lumpur
+NAM;Q1030;Namibia;Q3935;Windhoek
+NER;Q1032;Niger;Q3674;Niamey
+NGA;Q1033;Nigeria;Q3787;Abuja
+NIC;Q811;Nicaragua;Q3274;Managua
+NLD;Q29999;Kingdom of the Netherlands;Q727;Amsterdam
+NOR;Q20;Norway;Q585;Oslo
+NPL;Q837;Nepal;Q3037;Kathmandu
+NRU;Q697;Nauru;Q31026;Yaren District
+NZL;Q664;New Zealand;Q23661;Wellington
+OMN;Q842;Oman;Q3826;Muscat
+PAK;Q843;Pakistan;Q1362;Islamabad
+PAN;Q804;Panama;Q3306;Panama City
+PER;Q419;Peru;Q2868;Lima
+PHL;Q928;Philippines;Q1461;Manila
+PLW;Q695;Palau;Q515229;Ngerulmud
+PNG;Q691;Papua New Guinea;Q36526;Port Moresby
+POL;Q36;Poland;Q270;Warsaw
+PRK;Q423;North Korea;Q18808;Pyongyang
+PRT;Q45;Portugal;Q597;Lisbon
+PRY;Q733;Paraguay;Q2933;Asunción
+QAT;Q846;Qatar;Q3861;Doha
+ROU;Q218;Romania;Q19660;Bucharest
+RUS;Q159;Russia;Q649;Moscow
+RWA;Q1037;Rwanda;Q3859;Kigali
+SAU;Q851;Saudi Arabia;Q3692;Riyadh
+SDN;Q1049;Sudan;Q1963;Khartoum
+SEN;Q1041;Senegal;Q3718;Dakar
+SGP;Q334;Singapore;Q334;Singapore
+SLB;Q685;Solomon Islands;Q40921;Honiara
+SLE;Q1044;Sierra Leone;Q3780;Freetown
+SLV;Q792;El Salvador;Q3110;San Salvador
+SMR;Q238;San Marino;Q1848;San Marino
+SOM;Q1045;Somalia;Q2449;Mogadishu
+SRB;Q403;Serbia;Q3711;Belgrade
+SSD;Q958;South Sudan;Q1947;Juba
+STP;Q1039;São Tomé and Príncipe;Q3932;São Tomé
+SUR;Q730;Suriname;Q3001;Paramaribo
+SVK;Q214;Slovakia;Q1780;Bratislava
+SVN;Q215;Slovenia;Q437;Ljubljana
+SWE;Q34;Sweden;Q1754;Stockholm
+SWZ;Q1050;Eswatini;Q3904;Mbabane
+SYC;Q1042;Seychelles;Q3940;Victoria
+SYR;Q858;Syria;Q3766;Damascus
+TCD;Q657;Chad;Q3659;N'Djamena
+TGO;Q945;Togo;Q3792;Lomé
+THA;Q869;Thailand;Q1861;Bangkok
+TJK;Q863;Tajikistan;Q9365;Dushanbe
+TKM;Q874;Turkmenistan;Q23438;Ashgabat
+TLS;Q574;Timor-Leste;Q9310;Dili
+TON;Q678;Tonga;Q38834;Nuku'alofa
+TTO;Q754;Trinidad and Tobago;Q39178;Port of Spain
+TUN;Q948;Tunisia;Q3572;Tunis
+TUR;Q43;Turkey;Q3640;Ankara
+TUV;Q672;Tuvalu;Q34126;Funafuti
+TWN;Q865;Taiwan;Q1867;Taipei
+TZA;Q924;Tanzania;Q3866;Dodoma
+UGA;Q1036;Uganda;Q3894;Kampala
+UKR;Q212;Ukraine;Q1899;Kyiv
+URY;Q77;Uruguay;Q1335;Montevideo
+USA;Q30;United States of America;Q61;Washington, D.C.
+UZB;Q265;Uzbekistan;Q269;Tashkent
+VAT;Q237;Vatican City;;
+VCT;Q757;Saint Vincent and the Grenadines;Q41474;Kingstown
+VEN;Q717;Venezuela;Q1533;Caracas
+VNM;Q881;Vietnam;Q1858;Hanoi
+VUT;Q686;Vanuatu;Q37806;Port Vila
+WSM;Q683;Samoa;Q36260;Apia
+YEM;Q805;Yemen;Q2471;Sanaa
+ZAF;Q258;South Africa;Q3926;Pretoria
+ZMB;Q953;Zambia;Q3881;Lusaka
+ZWE;Q954;Zimbabwe;Q3921;Harare

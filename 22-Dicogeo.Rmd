@@ -1,0 +1,159 @@
+# Dictionary of geographical entities {#c22_Dicogeo}
+
+```{r}
+library(knitr)
+library(dplyr)
+library(WikidataR)
+library(quanteda)
+```
+
+
+
+
+
+## Dictionary of geographical entities
+
+We realize a test of the method described above on a preliminary dictionary of world regions combined with world states described by their names and capital cities
+
+
+### Load the list of world regions, organisation states and capital cities
+
+We start from a provisional list of 65 world regions based on continents (cont), other land area (14), sea regions (sea), regional organisations (org), states names (sta) and capital cities of states (cap).
+
+```{r}
+ent<-read.table("dict/wikigeo_V1.csv", 
+                sep=";",
+                header=T,
+                encoding = "UTF-8")
+table(ent$type)
+```
+
+
+### Extract définitions
+
+We extract the definitions of the regions in the different languages with the function *extract_def()*
+
+```{r, echo=FALSE}
+
+extract_def <- function(item = c("Q15", "Q246"),
+                        langs = c("fr","de","en","tr","ar")) {
+  # Create empty dataset
+  res<-data.frame()
+  res$id    <- as.character()
+  res$lang  <- as.character()
+  res$label <- as.character()
+  res$desc  <- as.character()
+  
+  
+  # Loop of items
+  n <- length(item)
+  for (i in 1:n) {
+    
+     # Extract item properties
+    item_prop <- get_property(item[i])[[1]]
+  
+   
+     # Loop  of language
+     p<-length(langs)
+     for (j in 1:p) {
+        id <- item[i]
+        lang  <- langs[j]
+        if(is.null(item_prop[["labels"]][[lang]]$value)==F) {label <- item_prop[["labels"]][[lang]]$value}
+           else { label <- NA}
+        if(is.null(item_prop[["descriptions"]][[lang]]$value)==F) {desc <- item_prop[["descriptions"]][[lang]]$value}
+           else { desc <- NA}
+        add <-data.frame(id,lang,label,desc)
+        res<- rbind(res,add) 
+        }
+  
+  }
+  # Export result
+return(res)
+
+}
+extract_alias <- function(items = c("Q15", "Q258"),
+                          langs = c("fr","de","en","tr","ar")) {
+  # Create empty dataset
+  res<-data.frame()
+  res$id    <- as.character()
+  res$lang  <- as.character()
+  res$label <- as.character()
+
+  
+  # Loop of items
+  n <- length(items)
+  for (i in 1:n) {
+    
+     # Extract item properties
+    item_prop <- get_property(items[i])[[1]]
+  
+   
+     # Loop  of language
+     p<-length(langs)
+     for (j in 1:p) {
+        id <- items[i]
+        lang  <- langs[j]
+        if(is.null(item_prop[["labels"]][[lang]]$value)==F) {label <- item_prop[["labels"]][[lang]]$value} else { label <- NA}
+        if(is.null(item_prop[["descriptions"]][[lang]]$value)==F) {desc <- item_prop[["descriptions"]][[lang]]$value}else { desc <- NA}
+        add <-data.frame(id,lang,label)
+        res<- rbind(res,add) 
+           # Loop of aliases
+              if (is.null(item_prop[["aliases"]][[lang]])==F) {
+                ali <- item_prop[["aliases"]][[lang]]$value
+                n<-length(ali)
+               for (k in 1:n) {
+                        label <- ali[k]
+                        add <-data.frame(id,lang,label)
+                        res<- rbind(res,add) 
+                  }
+              }
+        
+        }
+  
+  }
+  # Export result
+return(res)
+
+}
+```
+
+
+```{r, eval=FALSE}
+## NOT RUN : need several minutes !!!##
+worldgeo_def <- extract_def(ent$wikidata,c("fr","de","en","tr","ar"))
+names(ent)<-c("id","type_ent")
+worldgeo_def<-worldreg_def %>% left_join(ent)
+write.table(x = worldgeo_def,
+             row.names = FALSE,
+              file = "dict/worldgeo_def.csv",
+              fileEncoding = "UTF-8",
+              sep = ";")
+saveRDS(object = worldgeo_def, file = "dict/worldgeo_def.RDS")
+
+```
+
+The dictionary of entities is further analyzed manually and completed by an internal code of entities specific to IMAGEUN's project
+
+
+
+
+### Extract aliases and create dictionary
+
+```{r, eval=FALSE}
+## NOT RUN : very long time ...###
+worldgeo_def <- readRDS("dict/worldgeo_def.RDS")
+
+worldgeo_dict <- extract_alias(worldgeo_def$id, c("fr","de","en","tr","ar"))
+
+write.table(x = worldgeo_dict,
+              row.names = FALSE,
+              file = "dict/worldgeo_dict.csv",
+              fileEncoding = "UTF-8",
+              sep = ";")
+saveRDS(object = worldgeo_dict, file = "dict/worldgeo_dict.RDS")
+
+```
+
+
+
+

@@ -1,0 +1,248 @@
+# Hypercube {#c24_hypercube}
+
+```{r}
+library(knitr)
+library(dplyr)
+library(quanteda)
+library(data.table)
+library(tidytext)
+library(FactoMineR)
+library(Factoshiny)
+library(explor)
+```
+
+## Objectives
+
+We have created a list of tags relate to world regions for news published in 14 newspapers. We propose now to build an hypercube in order to explore the results.
+
+
+
+## Prepare data
+
+### Load corpus
+
+```{r}
+qd<-readRDS("quanteda/corpus_worldreg_001.RDS")
+
+```
+
+### Load hypercube function
+```{r}
+
+
+hypercube <-function(qd = qd,
+                     when = "date",
+                     when_cut = "year",
+                     who = "source",
+                     where1 = "tags",
+                     where2 = "tags")
+                     
+  {   
+
+# create data.table accroding to parameter chosen
+  don<-docvars(qd)
+
+  df<-data.table(id = docid(qd),
+                 who = don[,who],
+                 when = as.character(cut(don[,when],breaks=when_cut)),
+                 where1 = don[,where1],
+                 where2 = don[,where2])
+
+
+
+# add code _no_ for empty fields
+df$where1[df$where1==""]<-"_no_"
+df$where2[df$where2==""]<-"_no_"
+
+
+# unnest where1
+  df<-unnest_tokens(df,where1,where1,to_lower=F)
+  
+# unnest where2
+  df<-unnest_tokens(df,where2,where2,to_lower=F)  
+  
+# define number of occurence by id
+  nb<-df[,.N,list(id)] %>%  mutate(wgt = 1/N) %>% select(-N)
+  df<-df %>% left_join(nb) 
+  
+  rm(nb)
+ 
+# Aggregate
+  hc<- df[,.( tags = .N, news=sum(wgt)) ,.(who, when,where1,where2)]
+  
+# Convert date to time
+  hc$when<-as.Date(hc$when)
+  
+# return hypercube
+  return(hc)
+
+}
+
+
+```
+
+
+### Create Hypercube
+```{r}
+
+hc_reg <- hypercube(qd = qd,
+                     when = "date",
+                     when_cut = "months",
+                     who = "source",
+                     where1 = "regs",
+                     where2 = "regs")
+
+kable(head(hc_reg))
+
+```
+### Load Wikidata entity names
+
+```{r}
+reg_def<-readRDS("dict/worldreg001_def.RDS")
+tab_def<-dcast(reg_def, formula =id~lang, value.var="label")
+kable(head(tab_def))
+
+```
+
+
+## World Region
+
+### Which % of news ?
+
+What is the percentage of news where at less one world region is mentionned ?
+
+```{r}
+hc_reg$tagged<-hc_reg$where1!="_no_"
+
+df<-hc_reg[,list(nb = sum(news)), list(who, tagged)] %>% 
+     dcast(formula =  who~tagged, value.var = "nb") 
+names(df)<-c("media","No", "Yes")
+df$Tot = df$No+df$Yes
+df$Pct = 100*df$Yes/df$Tot
+df<-df[order(df$Pct)]
+kable(df, digits=2)
+```
+
+We observe that the share is comprised between 0.44% (*Belfast Telegraph*, Ulster) and 2.29% (*The Guardian*, United Kingdom). 
+
+### Which regions are the most mentionned ?
+
+Iw we put together all newspapers, we obtain the following table
+
+```{r}
+
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(where1)] 
+df<-merge(tab_def,df,by.x="id",by.y="where1",all.x=F,all.y=T)
+df<-df[order(df$nb, decreasing = T),]
+row.names(df)<-1:dim(df)[1]
+
+kable(df, digits=0,row.names = T)
+```
+
+
+
+### Top regions by media
+
+We eliminate Q828 (Americas) as it refers generally to a country
+
+```{r}
+
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(where1, who)] %>% 
+     group_by(who) %>%
+     filter(where1 != "Q828")%>%
+     mutate(pct = 100*nb/sum(nb),
+            rnk = rank(-nb))
+
+reg_def_en<-reg_def[reg_def$lang=="en",c(1,3)]
+df<-merge(df,reg_def_en,by.x="where1",by.y="id")
+
+res <- df %>% filter(rnk < 11) %>% select(who, rnk,label, pct) %>% mutate(who=substr(who,4,12))
+res<-res[order(res$who, res$rnk),]
+
+  
+kable(res,digits=c(0,1))
+
+```
+
+
+
+## Analysis of the Media x Region table
+
+### Matrix creation
+
+```{r}
+# Matrix
+reg_med <-hc_reg[where1 !="_no_",list(nb = sum(news)), list(where1, who)] %>%
+  dcast(formula = where1~who, value.var = "nb",fill = 0)
+mat<-as.matrix(reg_med[,-1])
+
+# Labels
+lab<-reg_med[,1] %>% rename(id=where1) %>% left_join(tab_def)
+
+# Row.names (choose the language you want !)
+row.names(mat)<-lab$en
+
+# Filter ambiguous units
+mat<-mat[row.names(mat) != "Americas",]
+mat<-mat[row.names(mat) != "Asia Minor",]
+mat<-mat[row.names(mat) != "Southern Africa",]
+
+mat[1:5,1:5]
+
+```
+
+### Matrix selection
+
+```{r}
+# Select units > 20
+sel<-mat[apply(mat,1,sum)>20,]
+
+# Exclude units mentionned by less than 3 media
+sel <- sel[apply(sel>0,1,sum)>1,]
+
+```
+
+### Correspondance analysis
+
+```{r}
+afc <- CA(sel, graph = F)
+#explor(afc)
+```
+
+#### Factors 1-2
+```{r}
+res <- explor::prepare_results(afc)
+explor::CA_var_plot(res, xax = 1, yax = 2, lev_sup = FALSE, var_sup = FALSE,
+    var_sup_choice = , var_hide = "None", var_lab_min_contrib = 0, col_var = "Position",
+    symbol_var = NULL, size_var = "Contrib", size_range = c(52.5, 700), labels_size = 10,
+    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-1.15,
+        1.94), ylim = c(-1.52, 1.56))
+```
+
+#### Factors 3-4
+```{r}
+res <- explor::prepare_results(afc)
+explor::CA_var_plot(res, xax = 3, yax = 4, lev_sup = FALSE, var_sup = FALSE,
+    var_sup_choice = , var_hide = "None", var_lab_min_contrib = 0, col_var = "Position",
+    symbol_var = NULL, size_var = "Contrib", size_range = c(52.5, 700), labels_size = 10,
+    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-1.76,
+        1.08), ylim = c(-1.38, 1.46))
+```
+### Cluster analysis 1 (world regions)
+
+
+```{r}
+cah1 <- HCPC(afc,nb.clust = 5,graph = FALSE)
+plot.HCPC(cah1,choice="tree")
+```
+
+### Cluster analysis 2 (medias)
+
+
+```{r}
+cah2 <- HCPC(afc,nb.clust = 5,graph = FALSE,cluster.CA = "columns")
+plot.HCPC(cah2,choice="tree")
+```
+
