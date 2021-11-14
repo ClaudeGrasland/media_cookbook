@@ -21,7 +21,7 @@ We realize a test of the method described above on a preliminary dictionary of w
 We start from a provisional list of 65 world regions based on continents (cont), other land area (14), sea regions (sea), regional organisations (org), states names (sta) and capital cities of states (cap).
 
 ```{r}
-ent<-read.table("dict/wikigeo_V1.csv", 
+ent<-read.table("dict/worldgeo_codes.csv", 
                 sep=";",
                 header=T,
                 encoding = "UTF-8")

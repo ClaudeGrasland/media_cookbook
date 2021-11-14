@@ -141,8 +141,8 @@ Q929;Central African Republic;sta;ST_CAF
 Q16;Canada;sta;ST_CAN
 Q39;Switzerland;sta;ST_CHE
 Q298;Chile;sta;ST_CHL
-Q148;People's Republic of China;sta;ST_CHN
-Q1008;Côte d'Ivoire;sta;ST_CIV
+Q148;China;sta;ST_CHN
+Q1008;Côte d Ivoire;sta;ST_CIV
 Q1009;Cameroon;sta;ST_CMR
 Q974;Democratic Republic of the Congo;sta;ST_COD
 Q971;Republic of the Congo;sta;ST_COG
@@ -311,7 +311,7 @@ Q1863;Andorra la Vella;cap;CA_AND
 Q1519;Abu Dhabi;cap;CA_ARE
 Q1486;Buenos Aires;cap;CA_ARG
 Q1953;Yerevan;cap;CA_ARM
-Q36262;Saint John's;cap;CA_ATG
+Q36262;Saint John s;cap;CA_ATG
 Q3114;Canberra;cap;CA_AUS
 Q1741;Vienna;cap;CA_AUT
 Q9248;Baku;cap;CA_AZE
@@ -373,7 +373,7 @@ Q3726;Banjul;cap;CA_GMB
 Q3739;Bissau;cap;CA_GNB
 Q3818;Malabo;cap;CA_GNQ
 Q1524;Athens;cap;CA_GRC
-Q41547;St. George's;cap;CA_GRD
+Q41547;St. George s;cap;CA_GRD
 Q1555;Guatemala City;cap;CA_GTM
 Q10717;Georgetown;cap;CA_GUY
 Q3238;Tegucigalpa;cap;CA_HND
@@ -471,13 +471,13 @@ Q1754;Stockholm;cap;CA_SWE
 Q3904;Mbabane;cap;CA_SWZ
 Q3940;Victoria;cap;CA_SYC
 Q3766;Damascus;cap;CA_SYR
-Q3659;N'Djamena;cap;CA_TCD
+Q3659;N Djamena;cap;CA_TCD
 Q3792;Lomé;cap;CA_TGO
 Q1861;Bangkok;cap;CA_THA
 Q9365;Dushanbe;cap;CA_TJK
 Q23438;Ashgabat;cap;CA_TKM
 Q9310;Dili;cap;CA_TLS
-Q38834;Nuku'alofa;cap;CA_TON
+Q38834;Nuku alofa;cap;CA_TON
 Q39178;Port of Spain;cap;CA_TTO
 Q3572;Tunis;cap;CA_TUN
 Q3640;Ankara;cap;CA_TUR

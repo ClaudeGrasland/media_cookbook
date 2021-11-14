@@ -1,4 +1,4 @@
-# Wikidata {#c23_taggeo}
+# Geographical tags {#c23_taggeo}
 
 ```{r}
 library(knitr)
@@ -9,22 +9,21 @@ library(quanteda)
 
 
 
-
-
-## Detection of world regions
+## Detection of geographical entities
 
 
 
-We have  elaborated a function where the user can decide (optionally) to split some groups and/or to use lower case. 
+We have  elaborated a function for the extraction of geographical units based on the dictionary elaborated in previous section (dict) according to the language (lang), the decision to split some tokens (split) to move or not to lower case (tolow)  and the possibility to add a list of compounds to be realized (comps) in order to eliminate ambiguities. 
 
 
 ```{r}
 extract_tags <- function(qd = qd,                      # the corpus of interest
                          lang = "fr",                  # the language to be used
-                         dict = dict,                  # the dictionary of target entities
-                         comps = c("Afrique du sud"),  # compounds
+                         dict = dict,                  # the dictionary of target 
+                         code = "id" ,                  # variable used for coding
                          split  = c("'","’","-"),       # split list
-                         tolow = FALSE                  # Tokenize text
+                         tolow = FALSE  ,                # Tokenize text
+                         comps = c("Afrique du sud")  # compounds
                          )
 { 
 
@@ -38,8 +37,11 @@ if(length(split) > 0) { reg<-paste(split, collapse = '|')
                        x <- gsub(reg," ",x)}  
 if(tolow) { x <- tolower(x)} 
 toks<-tokens(x)
-#toks
 
+# compounds
+if(length(split) > 0) { reg<-paste(split, collapse = '|')
+                       comps<- gsub(reg," ",comps)}  
+if(tolow)       {comps <- tolower(comps)}  
 toks<-tokens_compound(toks,pattern=phrase(comps))
 
   
@@ -57,7 +59,7 @@ toks<-tokens_compound(toks,pattern=phrase(labels))
  # create quanteda dictionary
 keys <-gsub(" ","_",labels)
 qd_dict<-as.list(keys)
-names(qd_dict)<-dict$id
+names(qd_dict)<-dict[[code]]
 qd_dict<-dictionary(qd_dict,tolower = FALSE)
 
 # Identify geo tags (states or reg or org ...)
@@ -65,15 +67,17 @@ toks_tags <- tokens_lookup(toks, qd_dict, case_insensitive = F)
 toks_tags <- lapply(toks_tags, unique)
 toks_tags<-as.tokens(toks_tags)
 list_tags<-function(x){res<-paste(x, collapse=' ')}
-qd$regs<-as.character(lapply(toks_tags,FUN=list_tags))
-qd$nbregs<-ntoken(toks_tags)
+docvars(qd)[["tags"]]<-as.character(lapply(toks_tags,FUN=list_tags))
+docvars(qd)[["nbtags"]]<-ntoken(toks_tags)
 
 
 
 # Export results
 return(qd)
  }
-             
+ 
+
+            
 ```
 
 ### Le Figaro (FRA)
@@ -81,24 +85,33 @@ return(qd)
 ```{r, eval=FALSE}
 
 
-dict<-read.table("dict/worldreg003bis_dict.csv", header=T, sep=";",encoding="UTF-8")
-
+dict<-readRDS("dict/worldgeo_dict_V4.RDS")
 
 
 qd <- readRDS("quanteda/fr_FRA_figaro.RDS")
-frcomps<-c("Afrique du Sud", "Afrique du sud","Europe 1", "Atlantic city")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
+frcomps<-c("Europe 1", "Atlantic city", 
+           "Loire-Atlantique", "Pyrénées-Atlantique", "Pyrénées-Atlantiques",
+           "Alpes-de-Haute-Provence", "Hautes-Alpes", "Rhöne-Alpes","Alpes-Maritimes",
+           "Chantiers de l'Atlantique", "TGV Atlantique",
+           "Bourse de Paris", "Paris SG", "Ville de Paris", "Grand Paris")
 
 qd <- extract_tags (qd = qd,
                      lang="fr",
                      dict = dict,
+                     code = "code",
                      split = c("'","’","-"),
                      comps = frcomps,
                      tolow = FALSE)
-saveRDS(qd,"quanteda/fr_FRA_figaro.RDS")
+saveRDS(qd,"quanteda/fr_FRA_figaro_geo.RDS")
 qd1<-qd
 
-table(qd$nbregs)
-x<-data.frame(text=as.character(qd),regs=qd$regs,nbregs=qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),regs=qd$tags,nbregs=qd$nbtags)
+
+
 
 ```
 
@@ -107,19 +120,21 @@ x<-data.frame(text=as.character(qd),regs=qd$regs,nbregs=qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/fr_FRA_lmonde.RDS")
-
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
 
 qd <- extract_tags (qd = qd,
                      lang="fr",
                      dict = dict,
+                    code = "code",
                     comps = frcomps,                   
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/fr_FRA_lmonde.RDS")
+saveRDS(qd,"quanteda/fr_FRA_lmonde_geo.RDS")
 qd2<-qd
 
-table(qd$nbregs)
-
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### FAZ
@@ -127,18 +142,21 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/de_DEU_frankf.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
 
 decomps <- c("Europa League")
 qd <- extract_tags (qd = qd,
                      lang="de",
                      dict = dict,
+                     code = "code",
                      comps = decomps,
                      split = c("'","’","-"),
                     tolow = FALSE)
-saveRDS(qd,"quanteda/de_DEU_frankf.RDS")
+saveRDS(qd,"quanteda/de_DEU_frankf_geo.RDS")
 qd3<-qd
-table(qd$nbregs)
-
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### Süddeutsche Zeitung
@@ -146,16 +164,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/de_DEU_suddeu.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
 
 qd <- extract_tags (qd = qd,
                      lang="de",
                      dict = dict,
+                     code = "code",
                      comps = decomps,
                      split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/de_DEU_suddeu.RDS")
+saveRDS(qd,"quanteda/de_DEU_suddeu_geo.RDS")
 qd4<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 
@@ -164,18 +186,22 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/en_GBR_guardi.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
 
-encomps<-c("Atlantic City", "Cathay Pacific")
+encomps<-c("Atlantic City", "Cathay Pacific", "Virgin Atlantic")
 
 qd <- extract_tags (qd = qd,
                      lang="en",
                      dict = dict,
+                    code = "code",
                      comps = encomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/en_GBR_guardi.RDS")
+saveRDS(qd,"quanteda/en_GBR_guardi_geo.RDS")
 qd5<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### Daily Telegraph
@@ -183,15 +209,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/en_GBR_telegr.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="en",
                      dict = dict,
+                    code = "code",
                      comps = encomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/en_GBR_telegr.RDS")
+saveRDS(qd,"quanteda/en_GBR_telegr_geo.RDS")
 qd6<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### Belfast Telegraph
@@ -199,15 +230,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/en_NIR_beltel.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="en",
                      dict = dict,
+                    code = "code",
                      comps = encomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/en_NIR_beltel.RDS")
+saveRDS(qd,"quanteda/en_NIR_beltel_geo.RDS")
 qd7<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### Irish Times
@@ -215,15 +251,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/en_IRL_irtime.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="en",
                      dict = dict,
+                    code = "code",
                      comps = encomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/en_IRL_irtime.RDS")
+saveRDS(qd,"quanteda/en_IRL_irtime_geo.RDS")
 qd8<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### Cumhuryet
@@ -231,18 +272,22 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/tr_TUR_cumhur.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
 
-trcomps <- c("Cathay Pacific")
+trcomps <- c("Cathay Pacific", "Avrupa Ligi")
 
 qd <- extract_tags (qd = qd,
                      lang="tr",
                      dict = dict,
+                    code = "code",
                      comps = trcomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/tr_TUR_cumhur.RDS")
+saveRDS(qd,"quanteda/tr_TUR_cumhur_geo.RDS")
 qd9<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### Yeni Safak
@@ -250,15 +295,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/tr_TUR_yenisa.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="tr",
                      dict = dict,
+                    code = "code",
                      comps = trcomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/tr_TUR_yenisa.RDS")
+saveRDS(qd,"quanteda/tr_TUR_yenisa_geo.RDS")
 qd10<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### Babnet
@@ -266,17 +316,21 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/ar_TUN_babnet.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
 
 arcomps <- c("Cathay Pacific")
 qd <- extract_tags (qd = qd,
                      lang="ar",
                      dict = dict,
+                    code = "code",
                      comps = arcomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/ar_TUN_babnet.RDS")
+saveRDS(qd,"quanteda/ar_TUN_babnet_geo.RDS")
 qd11<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### Réalités
@@ -284,15 +338,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/fr_TUN_realit.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="fr",
                      dict = dict,
+                    code = "code",
                      comps = frcomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/fr_TUN_realit.RDS")
+saveRDS(qd,"quanteda/fr_TUN_realit_geo.RDS")
 qd12<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### Economiste Maghrebin
@@ -300,15 +359,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/fr_TUN_ecomag.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="fr",
                      dict = dict,
+                    code = "code",
                      comps = frcomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/fr_TUN_ecomag.RDS")
+saveRDS(qd,"quanteda/fr_TUN_ecomag_geo.RDS")
 qd13<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### La Presse
@@ -316,15 +380,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/fr_TUN_presse.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="fr",
                      dict = dict,
+                    code = "code",
                      comps = frcomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/fr_TUN_presse.RDS")
+saveRDS(qd,"quanteda/fr_TUN_presse_geo.RDS")
 qd14<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 
@@ -333,15 +402,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/ar_DZA_alnaha.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="ar",
                      dict = dict,
+                    code = "code",
                      comps = arcomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/ar_DZA_alnaha.RDS")
+saveRDS(qd,"quanteda/ar_DZA_alnaha_geo.RDS")
 qd15<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 ### El Khabar (DZA)
@@ -349,14 +423,19 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/ar_DZA_elkahb.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="ar",
                      dict = dict,
+                    code = "code",
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/ar_DZA_elkahb.RDS")
+saveRDS(qd,"quanteda/ar_DZA_elkahb_geo.RDS")
 qd16<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 
@@ -365,15 +444,20 @@ table(qd$nbregs)
 ```{r, eval=FALSE}
 
 qd <- readRDS("quanteda/fr_DZA_elwata.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
 qd <- extract_tags (qd = qd,
                      lang="fr",
                      dict = dict,
+                    code = "code",
                      comps = frcomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
-saveRDS(qd,"quanteda/fr_DZA_elwata.RDS")
+saveRDS(qd,"quanteda/fr_DZA_elwata_geo.RDS")
 qd17<-qd
-table(qd$nbregs)
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
 
@@ -396,7 +480,7 @@ table(qd$nbregs)
 
 ```{r, eval=FALSE}
 qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12,qd13,qd14,qd15,qd16,qd17)
-saveRDS(qd,"quanteda/corpus_worldreg_004.RDS")
-table(qd$nbregs)
+saveRDS(qd,"quanteda/corpus_worldgeo_001.RDS")
+table(qd$nbtags)
 ```
 

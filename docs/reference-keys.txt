@@ -174,3 +174,4 @@ c12_mediacloud_to_quanteda
 c21_wikidata
 c22_Dicogeo
 c23_taggeo
+load-the-list-of-world-regions-organisation-states-and-capital-cities
