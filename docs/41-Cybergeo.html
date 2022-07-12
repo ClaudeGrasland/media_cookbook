@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Cybergeo | The media cookbook</title>
+  <meta name="description" content="A reminder of some experiments made in 2021" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Cybergeo | The media cookbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A reminder of some experiments made in 2021" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Cybergeo | The media cookbook" />
+  
+  <meta name="twitter:description" content="A reminder of some experiments made in 2021" />
+  
+
+<meta name="author" content="Claude Grasland" />
+
+
+<meta name="date" content="2022-07-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="30-Hypercube.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/d3v6-6.2.0/d3.v6.min.js"></script>
+<script src="libs/d3v6-6.2.0/d3-legend.min.js"></script>
+<script src="libs/d3v6-6.2.0/d3-labeler.js"></script>
+<link href="libs/d3.lasso-plugin-1.0.0/lasso.css" rel="stylesheet" />
+<script src="libs/d3.lasso-plugin-1.0.0/lasso.js"></script>
+<link href="libs/scatterD3-0.9.2/scatterD3.css" rel="stylesheet" />
+<script src="libs/scatterD3-0.9.2/scatterD3-utils.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-scales.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-dims.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-menu.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-axes.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-dots.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-arrows.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-labels.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-labels-lines.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-lines.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-ellipses.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-zoom.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-legend.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-lasso.js"></script>
+<script src="libs/scatterD3-0.9.2/scatterD3-exports.js"></script>
+<script src="libs/scatterD3-binding-0.9.2/scatterD3.js"></script>
+
+
+
+
+<link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">The Media Cookbook  <em>C. Grasland (2021)</em></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html"><i class="fa fa-check"></i><b>2</b> Import from Media Cloud</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html#selection-of-media-with-source-manager"><i class="fa fa-check"></i><b>2.1</b> Selection of media with source manager</a></li>
+<li class="chapter" data-level="2.2" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html#checking-the-stability-through-time"><i class="fa fa-check"></i><b>2.2</b> Checking the stability through time</a></li>
+<li class="chapter" data-level="2.3" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html#selection-of-news-specifically-related-to-a-topic-option"><i class="fa fa-check"></i><b>2.3</b> Selection of news specifically related to a topic (option)</a></li>
+<li class="chapter" data-level="2.4" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html#download-and-storage-of-news"><i class="fa fa-check"></i><b>2.4</b> Download and storage of news</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html"><i class="fa fa-check"></i><b>3</b> quanteda corpus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#example"><i class="fa fa-check"></i><b>3.1</b> Example</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#importation-of-text-to-r"><i class="fa fa-check"></i><b>3.1.1</b> Importation of text to R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#encoding-problems"><i class="fa fa-check"></i><b>3.1.2</b> encoding problems</a></li>
+<li class="chapter" data-level="3.1.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#transformation-in-quanteda-format"><i class="fa fa-check"></i><b>3.1.3</b> Transformation in quanteda format</a></li>
+<li class="chapter" data-level="3.1.4" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#storage-of-the-quanteda-object"><i class="fa fa-check"></i><b>3.1.4</b> Storage of the quanteda object</a></li>
+<li class="chapter" data-level="3.1.5" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.1.5</b> Backtransformation of quanteda to data.table or tibble</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#germany"><i class="fa fa-check"></i><b>3.2</b> Germany</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#frankfurter-allgemeine-zeitung"><i class="fa fa-check"></i><b>3.2.1</b> Frankfurter Allgemeine Zeitung</a></li>
+<li class="chapter" data-level="3.2.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#süddeutsche-zeitung"><i class="fa fa-check"></i><b>3.2.2</b> Süddeutsche Zeitung</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#france"><i class="fa fa-check"></i><b>3.3</b> France</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#le-figaro"><i class="fa fa-check"></i><b>3.3.1</b> Le Figaro</a></li>
+<li class="chapter" data-level="3.3.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#le-monde"><i class="fa fa-check"></i><b>3.3.2</b> Le Monde</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#royaume-uni"><i class="fa fa-check"></i><b>3.4</b> Royaume-Uni</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-guardian"><i class="fa fa-check"></i><b>3.4.1</b> The Guardian</a></li>
+<li class="chapter" data-level="3.4.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-daily-telegraph"><i class="fa fa-check"></i><b>3.4.2</b> The Daily Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#ireland"><i class="fa fa-check"></i><b>3.5</b> Ireland</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-irish-time"><i class="fa fa-check"></i><b>3.5.1</b> The Irish Time</a></li>
+<li class="chapter" data-level="3.5.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-belfast-telegraph"><i class="fa fa-check"></i><b>3.5.2</b> The Belfast Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#turkey"><i class="fa fa-check"></i><b>3.6</b> Turkey</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-yeni-sati"><i class="fa fa-check"></i><b>3.6.1</b> The Yeni Sati</a></li>
+<li class="chapter" data-level="3.6.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#cumhuryet"><i class="fa fa-check"></i><b>3.6.2</b> Cumhuryet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#tunisia"><i class="fa fa-check"></i><b>3.7</b> Tunisia</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#réalités"><i class="fa fa-check"></i><b>3.7.1</b> Réalités</a></li>
+<li class="chapter" data-level="3.7.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#léconomiste-maghrebin"><i class="fa fa-check"></i><b>3.7.2</b> L’économiste Maghrebin</a></li>
+<li class="chapter" data-level="3.7.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#la-presse"><i class="fa fa-check"></i><b>3.7.3</b> La Presse</a></li>
+<li class="chapter" data-level="3.7.4" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#babnet"><i class="fa fa-check"></i><b>3.7.4</b> Babnet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#algeria"><i class="fa fa-check"></i><b>3.8</b> Algeria</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#al-nahar"><i class="fa fa-check"></i><b>3.8.1</b> Al Nahar</a></li>
+<li class="chapter" data-level="3.8.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#el-kahber"><i class="fa fa-check"></i><b>3.8.2</b> El Kahber</a></li>
+<li class="chapter" data-level="3.8.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#el-watan"><i class="fa fa-check"></i><b>3.8.3</b> El Watan</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="21-Wikidata.html"><a href="21-Wikidata.html"><i class="fa fa-check"></i><b>4</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="21-Wikidata.html"><a href="21-Wikidata.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="21-Wikidata.html"><a href="21-Wikidata.html#wikidata"><i class="fa fa-check"></i><b>4.2</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="21-Wikidata.html"><a href="21-Wikidata.html#codification-of-entities"><i class="fa fa-check"></i><b>4.2.1</b> Codification of entities</a></li>
+<li class="chapter" data-level="4.2.2" data-path="21-Wikidata.html"><a href="21-Wikidata.html#informations-on-entities"><i class="fa fa-check"></i><b>4.2.2</b> Informations on entities</a></li>
+<li class="chapter" data-level="4.2.3" data-path="21-Wikidata.html"><a href="21-Wikidata.html#wikipedia-entities-as-nodes-of-an-ontolongy"><i class="fa fa-check"></i><b>4.2.3</b> Wikipedia entities as nodes of an ontolongy</a></li>
+<li class="chapter" data-level="4.2.4" data-path="21-Wikidata.html"><a href="21-Wikidata.html#a-tool-for-cross-linguistical-experiments"><i class="fa fa-check"></i><b>4.2.4</b> A tool for cross-linguistical experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="21-Wikidata.html"><a href="21-Wikidata.html#the-package-wikidatar"><i class="fa fa-check"></i><b>4.3</b> The package WikidataR</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="21-Wikidata.html"><a href="21-Wikidata.html#basic-operations"><i class="fa fa-check"></i><b>4.3.1</b> Basic operations</a></li>
+<li class="chapter" data-level="4.3.2" data-path="21-Wikidata.html"><a href="21-Wikidata.html#elaboration-of-a-cross_linguistic-dictionnary"><i class="fa fa-check"></i><b>4.3.2</b> Elaboration of a cross_linguistic dictionnary</a></li>
+<li class="chapter" data-level="4.3.3" data-path="21-Wikidata.html"><a href="21-Wikidata.html#extraction-of-aliases"><i class="fa fa-check"></i><b>4.3.3</b> Extraction of aliases</a></li>
+<li class="chapter" data-level="4.3.4" data-path="21-Wikidata.html"><a href="21-Wikidata.html#conclusion"><i class="fa fa-check"></i><b>4.3.4</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html"><i class="fa fa-check"></i><b>5</b> Dictionary of geographical entities</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html#dictionary-of-geographical-entities"><i class="fa fa-check"></i><b>5.1</b> Dictionary of geographical entities</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html#load-the-list-of-world-regions-organisation-states-and-capital-cities"><i class="fa fa-check"></i><b>5.1.1</b> Load the list of world regions, organisation states and capital cities</a></li>
+<li class="chapter" data-level="5.1.2" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html#extract-définitions"><i class="fa fa-check"></i><b>5.1.2</b> Extract définitions</a></li>
+<li class="chapter" data-level="5.1.3" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html#extract-aliases-and-create-dictionary"><i class="fa fa-check"></i><b>5.1.3</b> Extract aliases and create dictionary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="23-Taggeo.html"><a href="23-Taggeo.html"><i class="fa fa-check"></i><b>6</b> Geographical tags</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="23-Taggeo.html"><a href="23-Taggeo.html#manual-correctio-n-of-dictionnary"><i class="fa fa-check"></i><b>6.1</b> Manual correctio n of dictionnary</a></li>
+<li class="chapter" data-level="6.2" data-path="23-Taggeo.html"><a href="23-Taggeo.html#detection-of-geographical-entities"><i class="fa fa-check"></i><b>6.2</b> Detection of geographical entities</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="23-Taggeo.html"><a href="23-Taggeo.html#le-figaro-fra"><i class="fa fa-check"></i><b>6.2.1</b> Le Figaro (FRA)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="23-Taggeo.html"><a href="23-Taggeo.html#le-monde-1"><i class="fa fa-check"></i><b>6.2.2</b> Le Monde</a></li>
+<li class="chapter" data-level="6.2.3" data-path="23-Taggeo.html"><a href="23-Taggeo.html#faz"><i class="fa fa-check"></i><b>6.2.3</b> FAZ</a></li>
+<li class="chapter" data-level="6.2.4" data-path="23-Taggeo.html"><a href="23-Taggeo.html#süddeutsche-zeitung-1"><i class="fa fa-check"></i><b>6.2.4</b> Süddeutsche Zeitung</a></li>
+<li class="chapter" data-level="6.2.5" data-path="23-Taggeo.html"><a href="23-Taggeo.html#guardian"><i class="fa fa-check"></i><b>6.2.5</b> Guardian</a></li>
+<li class="chapter" data-level="6.2.6" data-path="23-Taggeo.html"><a href="23-Taggeo.html#daily-telegraph"><i class="fa fa-check"></i><b>6.2.6</b> Daily Telegraph</a></li>
+<li class="chapter" data-level="6.2.7" data-path="23-Taggeo.html"><a href="23-Taggeo.html#belfast-telegraph"><i class="fa fa-check"></i><b>6.2.7</b> Belfast Telegraph</a></li>
+<li class="chapter" data-level="6.2.8" data-path="23-Taggeo.html"><a href="23-Taggeo.html#irish-times"><i class="fa fa-check"></i><b>6.2.8</b> Irish Times</a></li>
+<li class="chapter" data-level="6.2.9" data-path="23-Taggeo.html"><a href="23-Taggeo.html#cumhuryet-1"><i class="fa fa-check"></i><b>6.2.9</b> Cumhuryet</a></li>
+<li class="chapter" data-level="6.2.10" data-path="23-Taggeo.html"><a href="23-Taggeo.html#yeni-safak"><i class="fa fa-check"></i><b>6.2.10</b> Yeni Safak</a></li>
+<li class="chapter" data-level="6.2.11" data-path="23-Taggeo.html"><a href="23-Taggeo.html#al-nahar-dza"><i class="fa fa-check"></i><b>6.2.11</b> Al Nahar (DZA)</a></li>
+<li class="chapter" data-level="6.2.12" data-path="23-Taggeo.html"><a href="23-Taggeo.html#el-khabar-dza"><i class="fa fa-check"></i><b>6.2.12</b> El Khabar (DZA)</a></li>
+<li class="chapter" data-level="6.2.13" data-path="23-Taggeo.html"><a href="23-Taggeo.html#global-corpus"><i class="fa fa-check"></i><b>6.2.13</b> Global corpus</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="30-Hypercube.html"><a href="30-Hypercube.html"><i class="fa fa-check"></i><b>7</b> Hypercube</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="30-Hypercube.html"><a href="30-Hypercube.html#objectives"><i class="fa fa-check"></i><b>7.1</b> Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="30-Hypercube.html"><a href="30-Hypercube.html#prepare-data"><i class="fa fa-check"></i><b>7.2</b> Prepare data</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="30-Hypercube.html"><a href="30-Hypercube.html#load-corpus"><i class="fa fa-check"></i><b>7.2.1</b> Load corpus</a></li>
+<li class="chapter" data-level="7.2.2" data-path="30-Hypercube.html"><a href="30-Hypercube.html#load-hypercube-function"><i class="fa fa-check"></i><b>7.2.2</b> Load hypercube function</a></li>
+<li class="chapter" data-level="7.2.3" data-path="30-Hypercube.html"><a href="30-Hypercube.html#create-hypercube"><i class="fa fa-check"></i><b>7.2.3</b> Create Hypercube</a></li>
+<li class="chapter" data-level="7.2.4" data-path="30-Hypercube.html"><a href="30-Hypercube.html#load-wikidata-entity-names"><i class="fa fa-check"></i><b>7.2.4</b> Load Wikidata entity names</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="30-Hypercube.html"><a href="30-Hypercube.html#geographical-entities"><i class="fa fa-check"></i><b>7.3</b> Geographical entities</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="30-Hypercube.html"><a href="30-Hypercube.html#which-of-news"><i class="fa fa-check"></i><b>7.3.1</b> Which % of news ?</a></li>
+<li class="chapter" data-level="7.3.2" data-path="30-Hypercube.html"><a href="30-Hypercube.html#which-entities-are-the-most-mentionned"><i class="fa fa-check"></i><b>7.3.2</b> Which entities are the most mentionned ?</a></li>
+<li class="chapter" data-level="7.3.3" data-path="30-Hypercube.html"><a href="30-Hypercube.html#top-non-state-entities-by-media"><i class="fa fa-check"></i><b>7.3.3</b> Top non state entities by media</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html"><i class="fa fa-check"></i><b>8</b> Cybergeo</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#introduction-2"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#experience-1-specific-vocabulary-of-world-regions"><i class="fa fa-check"></i><b>8.2</b> Experience 1 : Specific vocabulary of world regions</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#europeeu-q46-q458"><i class="fa fa-check"></i><b>8.2.1</b> Europe/EU (Q46 / Q458)</a></li>
+<li class="chapter" data-level="8.2.2" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#mediterranea-q4918"><i class="fa fa-check"></i><b>8.2.2</b> Mediterranea (Q4918)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#experience-2-a-cross-language-analysis-of-regional-entities"><i class="fa fa-check"></i><b>8.3</b> Experience 2 : A <strong>Cross-</strong>Language analysis of regional entities</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#data-aggregation"><i class="fa fa-check"></i><b>8.3.1</b> Data aggregation</a></li>
+<li class="chapter" data-level="8.3.2" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#top-50-regions-in-full-corpus"><i class="fa fa-check"></i><b>8.3.2</b> Top 50 regions in full corpus</a></li>
+<li class="chapter" data-level="8.3.3" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#german-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.3</b> German newspapers - Top 10 regions</a></li>
+<li class="chapter" data-level="8.3.4" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#french-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.4</b> French newspapers - Top 10 regions</a></li>
+<li class="chapter" data-level="8.3.5" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#uk-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.5</b> UK newspapers - Top 10 regions</a></li>
+<li class="chapter" data-level="8.3.6" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#irish-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.6</b> Irish newspapers - Top 10 regions</a></li>
+<li class="chapter" data-level="8.3.7" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#turkish-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.7</b> Turkish newspapers - Top 10 regions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#algerian-newspapers"><i class="fa fa-check"></i><b>8.4</b> Algerian newspapers</a></li>
+<li class="chapter" data-level="8.5" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#correspondance-analysis"><i class="fa fa-check"></i><b>8.5</b> Correspondance analysis</a></li>
+<li class="chapter" data-level="8.6" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#factor-1-2"><i class="fa fa-check"></i><b>8.6</b> Factor 1-2</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#factors-3-4"><i class="fa fa-check"></i><b>8.6.1</b> Factors 3-4</a></li>
+<li class="chapter" data-level="8.6.2" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#cluster-analysisworld-regions"><i class="fa fa-check"></i><b>8.6.2</b> Cluster analysis(world regions)</a></li>
+<li class="chapter" data-level="8.6.3" data-path="41-Cybergeo.html"><a href="41-Cybergeo.html#cluster-analysis-medias"><i class="fa fa-check"></i><b>8.6.3</b> Cluster analysis (medias)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The media cookbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c31_cybergeo" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Cybergeo</h1>
+<div id="introduction-2" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction</h2>
+<p>We analyze macroregions throughon a <strong>selection of 110 entities</strong> :</p>
+<ol style="list-style-type: decimal">
+<li>65 entities related to <strong>continent and “natural” Earth divisions</strong> :</li>
+</ol>
+<ul>
+<li><em>continents</em> : Asia, Africa, Europa, …</li>
+<li><em>subcontinents</em> : North Africa, Western Europe,..</li>
+<li><em>peninsula/ archipel/ …</em> : Scandinavia, Caraïbes, …</li>
+<li><em>bioclimatic area</em> : Sahara, Amazonia, Sahel</li>
+<li><em>mountains/plain/…</em> : Alps, Balkans, Ands, …</li>
+<li><em>Oceans/Seas/Gulf</em> : Atlantic, Arctic, Mediterranea, …</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>45 <strong>regional organizations</strong> mentionned by Wikimedia : NATO, EU, CEI, NAFTA, …</li>
+</ol>
+<p>Warning : This analysis does not offer perfect guarantee of quality because :</p>
+<ol style="list-style-type: decimal">
+<li>The list of entities has not been validated by the IMAGEUN’s partners</li>
+<li>The dictionary established in the different languages has not been controled by native speakers</li>
+</ol>
+<p>We use a corpus of text where target wikipedia entities has been recognized. Xe keep only world regions and we eliminate the states</p>
+<table>
+<colgroup>
+<col width="55%" />
+<col width="9%" />
+<col width="7%" />
+<col width="23%" />
+<col width="4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">text</th>
+<th align="left">source</th>
+<th align="left">date</th>
+<th align="left">regs</th>
+<th align="right">nbregs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Europa und Südamerika: EU und Mercosur beschließen weltweit größte Freihandelszone</td>
+<td align="left">de_DEU_suddeu</td>
+<td align="left">2019-06-28</td>
+<td align="left">CO_EUR CO_AMR_south OR_EU OR_Merco</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Asie, Afrique, Europe: la nouvelle stratégie de l’État islamique</td>
+<td align="left">fr_FRA_figaro</td>
+<td align="left">2019-05-03</td>
+<td align="left">CO_ASI CO_AFR CO_EUR</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Présidentielle américaine: Europe, Asie, Otan. Le monde retient son souffle</td>
+<td align="left">fr_FRA_figaro</td>
+<td align="left">2020-11-02</td>
+<td align="left">CO_EUR CO_ASI OR_NATO</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">‘Rolling emergency’ of locust swarms decimating Africa, Asia and Middle East</td>
+<td align="left">en_GBR_guardi</td>
+<td align="left">2020-06-08</td>
+<td align="left">CO_AFR CO_ASI LA_east_middle</td>
+<td align="right">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="experience-1-specific-vocabulary-of-world-regions" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Experience 1 : Specific vocabulary of world regions</h2>
+<div id="europeeu-q46-q458" class="section level3" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Europe/EU (Q46 / Q458)</h3>
+<p><img src="Media-Cookbook_files/figure-html/unnamed-chunk-3-1.svg" width="40%" /><img src="Media-Cookbook_files/figure-html/unnamed-chunk-3-2.svg" width="40%" /><img src="Media-Cookbook_files/figure-html/unnamed-chunk-3-3.svg" width="40%" /><img src="Media-Cookbook_files/figure-html/unnamed-chunk-3-4.svg" width="40%" /></p>
+</div>
+<div id="mediterranea-q4918" class="section level3" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Mediterranea (Q4918)</h3>
+<p><img src="Media-Cookbook_files/figure-html/unnamed-chunk-4-1.svg" width="40%" /><img src="Media-Cookbook_files/figure-html/unnamed-chunk-4-2.svg" width="40%" /><img src="Media-Cookbook_files/figure-html/unnamed-chunk-4-3.svg" width="40%" /><img src="Media-Cookbook_files/figure-html/unnamed-chunk-4-4.svg" width="40%" /></p>
+</div>
+</div>
+<div id="experience-2-a-cross-language-analysis-of-regional-entities" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Experience 2 : A <strong>Cross-</strong>Language analysis of regional entities</h2>
+<div id="data-aggregation" class="section level3" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Data aggregation</h3>
+<p>For the experience 2, we create a new object called <strong>hypercube</strong> where the text of news has been removed and where we keep only the number of <em>tags</em> or proportion of <em>news</em> speaking from one or several regions (<em>where1</em>, <em>where2</em>), by media (<em>who</em>) and by time period (<em>when</em>)</p>
+<pre><code>Joining, by = &quot;id&quot;</code></pre>
+</div>
+<div id="top-50-regions-in-full-corpus" class="section level3" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> Top 50 regions in full corpus</h3>
+<p>We can propose firstly a table of top entities in the whole corpus of newspapers.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">code</th>
+<th align="left">type</th>
+<th align="left">label</th>
+<th align="right">nb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">OR_EU</td>
+<td align="left">org</td>
+<td align="left">Union européenne</td>
+<td align="right">7621</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">CO_EUR</td>
+<td align="left">cont</td>
+<td align="left">Europe</td>
+<td align="right">5347</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">CO_AFR</td>
+<td align="left">cont</td>
+<td align="left">Afrique</td>
+<td align="right">1373</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">SE_medit</td>
+<td align="left">sea</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">960</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">OR_NATO</td>
+<td align="left">org</td>
+<td align="left">OTAN</td>
+<td align="right">829</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">CO_ASI_minor</td>
+<td align="left">cont</td>
+<td align="left">Asie mineure</td>
+<td align="right">499</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left">SE_black</td>
+<td align="left">sea</td>
+<td align="left">mer Noire</td>
+<td align="right">477</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left">CO_ASI</td>
+<td align="left">cont</td>
+<td align="left">Asie</td>
+<td align="right">350</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="left">LA_east_middle</td>
+<td align="left">land</td>
+<td align="left">Moyen-Orient</td>
+<td align="right">348</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">LA_alpen</td>
+<td align="left">land</td>
+<td align="left">Alpes</td>
+<td align="right">253</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="left">CO_AMR</td>
+<td align="left">cont</td>
+<td align="left">Amérique</td>
+<td align="right">230</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="left">LA_sahel</td>
+<td align="left">land</td>
+<td align="left">Sahel</td>
+<td align="right">209</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="left">SE_arcti</td>
+<td align="left">sea</td>
+<td align="left">Arctique</td>
+<td align="right">201</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="left">CO_AMR_latin</td>
+<td align="left">cont</td>
+<td align="left">Amérique latine</td>
+<td align="right">148</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="left">LA_amazon</td>
+<td align="left">land</td>
+<td align="left">Amazonie</td>
+<td align="right">139</td>
+</tr>
+<tr class="even">
+<td align="left">16</td>
+<td align="left">CO_ANT</td>
+<td align="left">cont</td>
+<td align="left">Antarctique</td>
+<td align="right">116</td>
+</tr>
+<tr class="odd">
+<td align="left">17</td>
+<td align="left">OR_CoEur</td>
+<td align="left">org</td>
+<td align="left">Conseil de l’Europe</td>
+<td align="right">94</td>
+</tr>
+<tr class="even">
+<td align="left">18</td>
+<td align="left">SE_carai</td>
+<td align="left">sea</td>
+<td align="left">Caraïbes</td>
+<td align="right">93</td>
+</tr>
+<tr class="odd">
+<td align="left">19</td>
+<td align="left">LA_sahara</td>
+<td align="left">land</td>
+<td align="left">Sahara</td>
+<td align="right">84</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="left">SE_polyn</td>
+<td align="left">sea</td>
+<td align="left">Polynésie</td>
+<td align="right">83</td>
+</tr>
+<tr class="odd">
+<td align="left">21</td>
+<td align="left">LA_east_near</td>
+<td align="left">land</td>
+<td align="left">Proche-Orient</td>
+<td align="right">82</td>
+</tr>
+<tr class="even">
+<td align="left">22</td>
+<td align="left">LA_maghr</td>
+<td align="left">land</td>
+<td align="left">Machrek</td>
+<td align="right">80</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="left">CO_AMR_south</td>
+<td align="left">cont</td>
+<td align="left">Amérique du Sud</td>
+<td align="right">78</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="left">CO_ERA</td>
+<td align="left">cont</td>
+<td align="left">Eurasie</td>
+<td align="right">70</td>
+</tr>
+<tr class="odd">
+<td align="left">25</td>
+<td align="left">LA_balka</td>
+<td align="left">land</td>
+<td align="left">Balkans</td>
+<td align="right">59</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="left">CO_AFR_west</td>
+<td align="left">cont</td>
+<td align="left">Afrique de l’Ouest</td>
+<td align="right">58</td>
+</tr>
+<tr class="odd">
+<td align="left">27</td>
+<td align="left">CO_AMR_centr</td>
+<td align="left">cont</td>
+<td align="left">Amérique centrale</td>
+<td align="right">54</td>
+</tr>
+<tr class="even">
+<td align="left">28</td>
+<td align="left">OR_Merco</td>
+<td align="left">org</td>
+<td align="left">marché commun du Sud</td>
+<td align="right">53</td>
+</tr>
+<tr class="odd">
+<td align="left">29</td>
+<td align="left">OR_comwl</td>
+<td align="left">org</td>
+<td align="left">Commonwealth</td>
+<td align="right">44</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="left">OR_ArLig</td>
+<td align="left">org</td>
+<td align="left">Ligue arabe</td>
+<td align="right">43</td>
+</tr>
+<tr class="odd">
+<td align="left">31</td>
+<td align="left">CO_AMR_north</td>
+<td align="left">cont</td>
+<td align="left">Amérique du Nord</td>
+<td align="right">42</td>
+</tr>
+<tr class="even">
+<td align="left">32</td>
+<td align="left">CO_AMR_north</td>
+<td align="left">cont</td>
+<td align="left">Amérique septentrionale</td>
+<td align="right">42</td>
+</tr>
+<tr class="odd">
+<td align="left">33</td>
+<td align="left">CO_ASI_south_east</td>
+<td align="left">cont</td>
+<td align="left">Asie du Sud-Est</td>
+<td align="right">42</td>
+</tr>
+<tr class="even">
+<td align="left">34</td>
+<td align="left">LA_cauca</td>
+<td align="left">land</td>
+<td align="left">Caucase</td>
+<td align="right">41</td>
+</tr>
+<tr class="odd">
+<td align="left">35</td>
+<td align="left">SE_antil</td>
+<td align="left">sea</td>
+<td align="left">Antilles</td>
+<td align="right">41</td>
+</tr>
+<tr class="even">
+<td align="left">36</td>
+<td align="left">LA_himal</td>
+<td align="left">land</td>
+<td align="left">Himalaya</td>
+<td align="right">40</td>
+</tr>
+<tr class="odd">
+<td align="left">37</td>
+<td align="left">SE_china_south</td>
+<td align="left">sea</td>
+<td align="left">mer de Chine méridionale</td>
+<td align="right">40</td>
+</tr>
+<tr class="even">
+<td align="left">38</td>
+<td align="left">OR_AfrUn</td>
+<td align="left">org</td>
+<td align="left">Union africaine</td>
+<td align="right">36</td>
+</tr>
+<tr class="odd">
+<td align="left">39</td>
+<td align="left">SE_persi</td>
+<td align="left">sea</td>
+<td align="left">golfe Persique</td>
+<td align="right">34</td>
+</tr>
+<tr class="even">
+<td align="left">40</td>
+<td align="left">CO_ASI_centr</td>
+<td align="left">cont</td>
+<td align="left">Asie centrale</td>
+<td align="right">32</td>
+</tr>
+<tr class="odd">
+<td align="left">41</td>
+<td align="left">CO_EUR_east</td>
+<td align="left">cont</td>
+<td align="left">Europe médiane</td>
+<td align="right">32</td>
+</tr>
+<tr class="even">
+<td align="left">42</td>
+<td align="left">CO_ASI_pacif</td>
+<td align="left">cont</td>
+<td align="left">Asie-Pacifique</td>
+<td align="right">28</td>
+</tr>
+<tr class="odd">
+<td align="left">43</td>
+<td align="left">SE_india</td>
+<td align="left">sea</td>
+<td align="left">océan Indien</td>
+<td align="right">26</td>
+</tr>
+<tr class="even">
+<td align="left">44</td>
+<td align="left">CO_AFR_ssahr</td>
+<td align="left">cont</td>
+<td align="left">Afrique subsaharienne</td>
+<td align="right">24</td>
+</tr>
+<tr class="odd">
+<td align="left">45</td>
+<td align="left">CO_AFR_east</td>
+<td align="left">cont</td>
+<td align="left">Afrique de l’Est</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">46</td>
+<td align="left">OR_ECWAS</td>
+<td align="left">org</td>
+<td align="left">communauté économique des États de l’Afrique de l’Ouest</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">47</td>
+<td align="left">LA_scand</td>
+<td align="left">land</td>
+<td align="left">Scandinavie</td>
+<td align="right">19</td>
+</tr>
+<tr class="even">
+<td align="left">48</td>
+<td align="left">CO_EUR_centr</td>
+<td align="left">cont</td>
+<td align="left">Europe centrale</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">49</td>
+<td align="left">CO_EUR_south</td>
+<td align="left">cont</td>
+<td align="left">Europe du Sud</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">50</td>
+<td align="left">CO_AFR_north</td>
+<td align="left">cont</td>
+<td align="left">Afrique du Nord</td>
+<td align="right">14</td>
+</tr>
+</tbody>
+</table>
+<p>The frequence of each region is measured in index 100 equal to the most mentionned region.</p>
+</div>
+<div id="german-newspapers---top-10-regions" class="section level3" number="8.3.3">
+<h3><span class="header-section-number">8.3.3</span> German newspapers - Top 10 regions</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="right">tab1</th>
+<th align="left">FAZ_Region</th>
+<th align="right">FAZ pct</th>
+<th align="left">Süd. Zeit._Region</th>
+<th align="right">Süd. Zeit. pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Union européenne</td>
+<td align="right">100.0</td>
+<td align="left">Union européenne</td>
+<td align="right">100.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Europe</td>
+<td align="right">51.0</td>
+<td align="left">Europe</td>
+<td align="right">38.6</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">OTAN</td>
+<td align="right">10.7</td>
+<td align="left">Moyen-Orient</td>
+<td align="right">8.1</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">Afrique</td>
+<td align="right">7.0</td>
+<td align="left">OTAN</td>
+<td align="right">7.3</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">4.1</td>
+<td align="left">Afrique</td>
+<td align="right">6.7</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">Asie</td>
+<td align="right">3.5</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">5.6</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">Moyen-Orient</td>
+<td align="right">3.0</td>
+<td align="left">Alpes</td>
+<td align="right">3.7</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">Alpes</td>
+<td align="right">2.9</td>
+<td align="left">Proche-Orient</td>
+<td align="right">1.9</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">Europe médiane</td>
+<td align="right">1.6</td>
+<td align="left">Amérique du Sud</td>
+<td align="right">1.9</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">Arctique</td>
+<td align="right">1.4</td>
+<td align="left">Asie</td>
+<td align="right">1.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="french-newspapers---top-10-regions" class="section level3" number="8.3.4">
+<h3><span class="header-section-number">8.3.4</span> French newspapers - Top 10 regions</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="right">tab1</th>
+<th align="left">Figaro_Region</th>
+<th align="right">Figaro pct</th>
+<th align="left">Le Monde_Region</th>
+<th align="right">Le Monde pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Europe</td>
+<td align="right">100.0</td>
+<td align="left">Europe</td>
+<td align="right">100.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Union européenne</td>
+<td align="right">98.3</td>
+<td align="left">Union européenne</td>
+<td align="right">70.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Amérique</td>
+<td align="right">15.1</td>
+<td align="left">Afrique</td>
+<td align="right">41.9</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">14.1</td>
+<td align="left">Sahel</td>
+<td align="right">13.9</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Afrique</td>
+<td align="right">12.3</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">11.7</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">Alpes</td>
+<td align="right">10.9</td>
+<td align="left">Alpes</td>
+<td align="right">10.5</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">OTAN</td>
+<td align="right">9.4</td>
+<td align="left">Amérique</td>
+<td align="right">8.9</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">Amazonie</td>
+<td align="right">9.4</td>
+<td align="left">OTAN</td>
+<td align="right">6.9</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">Sahel</td>
+<td align="right">8.5</td>
+<td align="left">Amazonie</td>
+<td align="right">6.0</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">Polynésie</td>
+<td align="right">5.9</td>
+<td align="left">Proche-Orient</td>
+<td align="right">6.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="uk-newspapers---top-10-regions" class="section level3" number="8.3.5">
+<h3><span class="header-section-number">8.3.5</span> UK newspapers - Top 10 regions</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="right">tab1</th>
+<th align="left">Guardian_Region</th>
+<th align="right">Guardian pct</th>
+<th align="left">Daily Telegraph_Region</th>
+<th align="right">Daily Telegraph pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Union européenne</td>
+<td align="right">100.0</td>
+<td align="left">Union européenne</td>
+<td align="right">100.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Europe</td>
+<td align="right">58.4</td>
+<td align="left">Europe</td>
+<td align="right">52.3</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Afrique</td>
+<td align="right">14.5</td>
+<td align="left">Afrique</td>
+<td align="right">14.6</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">Arctique</td>
+<td align="right">10.1</td>
+<td align="left">Asie</td>
+<td align="right">5.2</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Moyen-Orient</td>
+<td align="right">9.7</td>
+<td align="left">Moyen-Orient</td>
+<td align="right">2.9</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">OTAN</td>
+<td align="right">6.4</td>
+<td align="left">Arctique</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">Amérique latine</td>
+<td align="right">4.6</td>
+<td align="left">Commonwealth</td>
+<td align="right">2.1</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">Asie</td>
+<td align="right">4.4</td>
+<td align="left">OTAN</td>
+<td align="right">2.1</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">Antarctique</td>
+<td align="right">3.8</td>
+<td align="left">Caraïbes</td>
+<td align="right">2.1</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">Caraïbes</td>
+<td align="right">3.3</td>
+<td align="left">Amérique latine</td>
+<td align="right">1.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="irish-newspapers---top-10-regions" class="section level3" number="8.3.6">
+<h3><span class="header-section-number">8.3.6</span> Irish newspapers - Top 10 regions</h3>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="21%" />
+<col width="18%" />
+<col width="28%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">tab1</th>
+<th align="left">Irish Times_Region</th>
+<th align="right">Irish Times pct</th>
+<th align="left">Belfast Telegraph_Region</th>
+<th align="right">Belfast Telegraph pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1.0</td>
+<td align="left">Union européenne</td>
+<td align="right">100.0</td>
+<td align="left">Union européenne</td>
+<td align="right">100.0</td>
+</tr>
+<tr class="even">
+<td align="right">2.0</td>
+<td align="left">Europe</td>
+<td align="right">31.0</td>
+<td align="left">Europe</td>
+<td align="right">30.7</td>
+</tr>
+<tr class="odd">
+<td align="right">3.0</td>
+<td align="left">Afrique</td>
+<td align="right">2.9</td>
+<td align="left">Afrique</td>
+<td align="right">3.7</td>
+</tr>
+<tr class="even">
+<td align="right">4.0</td>
+<td align="left">OTAN</td>
+<td align="right">2.3</td>
+<td align="left">Commonwealth</td>
+<td align="right">3.1</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="left">Asie</td>
+<td align="right">2.1</td>
+<td align="left">Arctique</td>
+<td align="right">3.1</td>
+</tr>
+<tr class="even">
+<td align="right">6.0</td>
+<td align="left">Moyen-Orient</td>
+<td align="right">1.8</td>
+<td align="left">OTAN</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="odd">
+<td align="right">7.0</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">1.4</td>
+<td align="left">Moyen-Orient</td>
+<td align="right">2.4</td>
+</tr>
+<tr class="even">
+<td align="right">8.0</td>
+<td align="left">Machrek</td>
+<td align="right">1.0</td>
+<td align="left">Asie</td>
+<td align="right">2.3</td>
+</tr>
+<tr class="odd">
+<td align="right">9.5</td>
+<td align="left">Amérique latine</td>
+<td align="right">0.8</td>
+<td align="left">Caraïbes</td>
+<td align="right">1.7</td>
+</tr>
+<tr class="even">
+<td align="right">9.5</td>
+<td align="left">Alpes</td>
+<td align="right">0.8</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">0.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="turkish-newspapers---top-10-regions" class="section level3" number="8.3.7">
+<h3><span class="header-section-number">8.3.7</span> Turkish newspapers - Top 10 regions</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="right">tab1</th>
+<th align="left">Cumhuryet_Region</th>
+<th align="right">Cumhuryet pct</th>
+<th align="left">Yeni Savak_Region</th>
+<th align="right">Yeni Savak pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Europe</td>
+<td align="right">100.0</td>
+<td align="left">Europe</td>
+<td align="right">100.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Union européenne</td>
+<td align="right">68.5</td>
+<td align="left">Union européenne</td>
+<td align="right">82.8</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Asie mineure</td>
+<td align="right">39.3</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">53.3</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">31.4</td>
+<td align="left">mer Noire</td>
+<td align="right">41.0</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">OTAN</td>
+<td align="right">24.8</td>
+<td align="left">OTAN</td>
+<td align="right">34.1</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">mer Noire</td>
+<td align="right">23.0</td>
+<td align="left">Asie mineure</td>
+<td align="right">28.4</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">Afrique</td>
+<td align="right">7.9</td>
+<td align="left">Afrique</td>
+<td align="right">17.5</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">Asie</td>
+<td align="right">5.9</td>
+<td align="left">Asie</td>
+<td align="right">6.3</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">Eurasie</td>
+<td align="right">4.4</td>
+<td align="left">Eurasie</td>
+<td align="right">5.3</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">Antarctique</td>
+<td align="right">2.7</td>
+<td align="left">Antarctique</td>
+<td align="right">3.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="algerian-newspapers" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Algerian newspapers</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="right">tab1</th>
+<th align="left">Al Nahar (ar)</th>
+<th align="right">pct1</th>
+<th align="left">El Kahbar (ar)</th>
+<th align="right">pct2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Afrique</td>
+<td align="right">100.0</td>
+<td align="left">Afrique</td>
+<td align="right">100.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Europe</td>
+<td align="right">68.7</td>
+<td align="left">Europe</td>
+<td align="right">34.9</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Union européenne</td>
+<td align="right">29.2</td>
+<td align="left">Union européenne</td>
+<td align="right">13.7</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">Sahel</td>
+<td align="right">10.6</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">6.4</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Asie</td>
+<td align="right">9.6</td>
+<td align="left">Asie</td>
+<td align="right">5.7</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">Moyen-Orient</td>
+<td align="right">6.3</td>
+<td align="left">Moyen-Orient</td>
+<td align="right">4.6</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="left">Ligue arabe</td>
+<td align="right">6.3</td>
+<td align="left">Machrek</td>
+<td align="right">3.2</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">mer Méditerranée</td>
+<td align="right">5.1</td>
+<td align="left">Sahel</td>
+<td align="right">3.2</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="left">Amazonie</td>
+<td align="right">2.9</td>
+<td align="left">Ligue arabe</td>
+<td align="right">2.1</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">Machrek</td>
+<td align="right">2.9</td>
+<td align="left">OTAN</td>
+<td align="right">1.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="correspondance-analysis" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Correspondance analysis</h2>
+</div>
+<div id="factor-1-2" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Factor 1-2</h2>
+<div id="htmlwidget-75b19daa833716d8620d" style="width:672px;height:480px;" class="scatterD3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-75b19daa833716d8620d">{"x":{"data":{"x":[0.293,0.345,0.208,0.256,0.322,0.346,0.339,0.37,0.252,0.299,-0.868,-0.88,0.299,0.483,0.318,0.534,0.543,0.371,0.408,0.302,-0.256,0.002,-1.051,-1.715,-0.159,0.522,-1.727,-0.055,0.407,0.521,0.526,-0.009,-0.77,0.337,0.531,0.488,0.588,-0.043,0.546,0.204,-0.19,-0.038,0.255,0.549,-0.616,0.698,0.519,0.56,-1.609,0.472,0.387,0.233,-0.878,-0.532,0.525],"y":[1.388,1.821,-0.267,-0.284,-0.125,-0.142,-0.432,-0.455,0.084,0.455,-0.039,0.039,1.366,0.476,0.561,0.268,-0.055,0.008,-0.082,-0.119,-0.123,0.205,-0.005,-0.021,-0.103,-0.217,0,0.041,-0.266,0.099,0.566,-0.259,-0.055,0.041,0.357,-0.049,0.523,0.181,0.913,0.381,1.506,0.068,-0.35,-0.028,-0.089,-0.755,0.385,-0.22,0.03,-0.262,-0.141,0.067,0.129,-0.281,0.379],"lab":["ar_DZA_alnaha","ar_DZA_elkahb","de_DEU_frankf","de_DEU_suddeu","en_GBR_guardi","en_GBR_telegr","en_IRL_irtime","en_NIR_beltel","fr_FRA_figaro","fr_FRA_lmonde","tr_TUR_cumhur","tr_TUR_yenisa","Afrique","Afrique subsaharienne","Afrique de l'Ouest","Amérique","Amérique centrale","Amérique latine","Amérique du Nord","Amérique du Sud","Antarctique","Asie","Asie centrale","Asie mineure","Asie-Pacifique","Asie du Sud-Est","Eurasie","Europe","Europe médiane","Alpes","Amazonie","Balkans","Caucase","Moyen-Orient","Proche-Orient","Himalaya","Machrek","Sahara","Sahel","Union africaine","Ligue arabe","Conseil de l'Europe","Union européenne","marché commun du Sud","OTAN","Commonwealth","Antilles","Arctique","mer Noire","Caraïbes","mer de Chine méridionale","océan Indien","mer Méditerranée","golfe Persique","Polynésie"],"col_var":["Column","Column","Column","Column","Column","Column","Column","Column","Column","Column","Column","Column","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row"],"size_var":[25.936,42.795,5.481,3.764,3.965,2.663,15.086,9.049,4.611,11.982,36.399,38.269,66.096,0.241,0.56,1.654,0.307,0.389,0.14,0.163,0.188,0.366,0.683,27.921,0.02,0.263,3.988,0.529,0.159,1.368,1.841,0.099,0.466,0.767,0.699,0.185,1.069,0.072,5.519,0.158,2.454,0.014,32.692,0.305,6.146,1.019,0.362,1.441,23.495,0.552,0.135,0.03,14.465,0.246,0.732],"type_var":["point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point"],"key_var":["Column-ar_DZA_alnaha","Column-ar_DZA_elkahb","Column-de_DEU_frankf","Column-de_DEU_suddeu","Column-en_GBR_guardi","Column-en_GBR_telegr","Column-en_IRL_irtime","Column-en_NIR_beltel","Column-fr_FRA_figaro","Column-fr_FRA_lmonde","Column-tr_TUR_cumhur","Column-tr_TUR_yenisa","Row-Afrique","Row-Afrique subsaharienne","Row-Afrique de l'Ouest","Row-Amérique","Row-Amérique centrale","Row-Amérique latine","Row-Amérique du Nord","Row-Amérique du Sud","Row-Antarctique","Row-Asie","Row-Asie centrale","Row-Asie mineure","Row-Asie-Pacifique","Row-Asie du Sud-Est","Row-Eurasie","Row-Europe","Row-Europe médiane","Row-Alpes","Row-Amazonie","Row-Balkans","Row-Caucase","Row-Moyen-Orient","Row-Proche-Orient","Row-Himalaya","Row-Machrek","Row-Sahara","Row-Sahel","Row-Union africaine","Row-Ligue arabe","Row-Conseil de l'Europe","Row-Union européenne","Row-marché commun du Sud","Row-OTAN","Row-Commonwealth","Row-Antilles","Row-Arctique","Row-mer Noire","Row-Caraïbes","Row-mer de Chine méridionale","Row-océan Indien","Row-mer Méditerranée","Row-golfe Persique","Row-Polynésie"],"tooltip_text":["<strong>ar_DZA_alnaha<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.293<br /> <strong>Axis 2 :<\/strong> 1.388<br /> <strong>Cosinus carré:<\/strong> 0.854<br /> <strong>Contribution:<\/strong> 25.936<br /> <strong>Effectif:<\/strong> 523","<strong>ar_DZA_elkahb<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.345<br /> <strong>Axis 2 :<\/strong> 1.821<br /> <strong>Cosinus carré:<\/strong> 0.826<br /> <strong>Contribution:<\/strong> 42.795<br /> <strong>Effectif:<\/strong> 505","<strong>de_DEU_frankf<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.208<br /> <strong>Axis 2 :<\/strong> -0.267<br /> <strong>Cosinus carré:<\/strong> 0.508<br /> <strong>Contribution:<\/strong> 5.481<br /> <strong>Effectif:<\/strong> 2108.5","<strong>de_DEU_suddeu<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.256<br /> <strong>Axis 2 :<\/strong> -0.284<br /> <strong>Cosinus carré:<\/strong> 0.5<br /> <strong>Contribution:<\/strong> 3.764<br /> <strong>Effectif:<\/strong> 1155.5","<strong>en_GBR_guardi<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.322<br /> <strong>Axis 2 :<\/strong> -0.125<br /> <strong>Cosinus carré:<\/strong> 0.307<br /> <strong>Contribution:<\/strong> 3.965<br /> <strong>Effectif:<\/strong> 1684","<strong>en_GBR_telegr<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.346<br /> <strong>Axis 2 :<\/strong> -0.142<br /> <strong>Cosinus carré:<\/strong> 0.456<br /> <strong>Contribution:<\/strong> 2.663<br /> <strong>Effectif:<\/strong> 959","<strong>en_IRL_irtime<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.339<br /> <strong>Axis 2 :<\/strong> -0.432<br /> <strong>Cosinus carré:<\/strong> 0.714<br /> <strong>Contribution:<\/strong> 15.086<br /> <strong>Effectif:<\/strong> 2213","<strong>en_NIR_beltel<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.37<br /> <strong>Axis 2 :<\/strong> -0.455<br /> <strong>Cosinus carré:<\/strong> 0.592<br /> <strong>Contribution:<\/strong> 9.049<br /> <strong>Effectif:<\/strong> 1166","<strong>fr_FRA_figaro<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.252<br /> <strong>Axis 2 :<\/strong> 0.084<br /> <strong>Cosinus carré:<\/strong> 0.168<br /> <strong>Contribution:<\/strong> 4.611<br /> <strong>Effectif:<\/strong> 3345.5","<strong>fr_FRA_lmonde<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.299<br /> <strong>Axis 2 :<\/strong> 0.455<br /> <strong>Cosinus carré:<\/strong> 0.553<br /> <strong>Contribution:<\/strong> 11.982<br /> <strong>Effectif:<\/strong> 1748.5","<strong>tr_TUR_cumhur<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> -0.868<br /> <strong>Axis 2 :<\/strong> -0.039<br /> <strong>Cosinus carré:<\/strong> 0.924<br /> <strong>Contribution:<\/strong> 36.399<br /> <strong>Effectif:<\/strong> 2534.5","<strong>tr_TUR_yenisa<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> -0.88<br /> <strong>Axis 2 :<\/strong> 0.039<br /> <strong>Cosinus carré:<\/strong> 0.931<br /> <strong>Contribution:<\/strong> 38.269<br /> <strong>Effectif:<\/strong> 2591","<strong>Afrique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.299<br /> <strong>Axis 2 :<\/strong> 1.366<br /> <strong>Cosinus carré:<\/strong> 0.877<br /> <strong>Contribution:<\/strong> 66.096<br /> <strong>Effectif:<\/strong> 1372.83333333333","<strong>Afrique subsaharienne<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.483<br /> <strong>Axis 2 :<\/strong> 0.476<br /> <strong>Cosinus carré:<\/strong> 0.178<br /> <strong>Contribution:<\/strong> 0.241<br /> <strong>Effectif:<\/strong> 24","<strong>Afrique de l'Ouest<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.318<br /> <strong>Axis 2 :<\/strong> 0.561<br /> <strong>Cosinus carré:<\/strong> 0.398<br /> <strong>Contribution:<\/strong> 0.56<br /> <strong>Effectif:<\/strong> 57.5","<strong>Amérique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.534<br /> <strong>Axis 2 :<\/strong> 0.268<br /> <strong>Cosinus carré:<\/strong> 0.161<br /> <strong>Contribution:<\/strong> 1.654<br /> <strong>Effectif:<\/strong> 229.5","<strong>Amérique centrale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.543<br /> <strong>Axis 2 :<\/strong> -0.055<br /> <strong>Cosinus carré:<\/strong> 0.34<br /> <strong>Contribution:<\/strong> 0.307<br /> <strong>Effectif:<\/strong> 54","<strong>Amérique latine<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.371<br /> <strong>Axis 2 :<\/strong> 0.008<br /> <strong>Cosinus carré:<\/strong> 0.233<br /> <strong>Contribution:<\/strong> 0.389<br /> <strong>Effectif:<\/strong> 148.5","<strong>Amérique du Nord<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.408<br /> <strong>Axis 2 :<\/strong> -0.082<br /> <strong>Cosinus carré:<\/strong> 0.243<br /> <strong>Contribution:<\/strong> 0.14<br /> <strong>Effectif:<\/strong> 42","<strong>Amérique du Sud<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.302<br /> <strong>Axis 2 :<\/strong> -0.119<br /> <strong>Cosinus carré:<\/strong> 0.228<br /> <strong>Contribution:<\/strong> 0.163<br /> <strong>Effectif:<\/strong> 78.25","<strong>Antarctique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.256<br /> <strong>Axis 2 :<\/strong> -0.123<br /> <strong>Cosinus carré:<\/strong> 0.169<br /> <strong>Contribution:<\/strong> 0.188<br /> <strong>Effectif:<\/strong> 115.5","<strong>Asie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.002<br /> <strong>Axis 2 :<\/strong> 0.205<br /> <strong>Cosinus carré:<\/strong> 0.433<br /> <strong>Contribution:<\/strong> 0.366<br /> <strong>Effectif:<\/strong> 349.5","<strong>Asie centrale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -1.051<br /> <strong>Axis 2 :<\/strong> -0.005<br /> <strong>Cosinus carré:<\/strong> 0.872<br /> <strong>Contribution:<\/strong> 0.683<br /> <strong>Effectif:<\/strong> 32.5","<strong>Asie mineure<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -1.715<br /> <strong>Axis 2 :<\/strong> -0.021<br /> <strong>Cosinus carré:<\/strong> 0.91<br /> <strong>Contribution:<\/strong> 27.921<br /> <strong>Effectif:<\/strong> 499.166666666667","<strong>Asie-Pacifique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.159<br /> <strong>Axis 2 :<\/strong> -0.103<br /> <strong>Cosinus carré:<\/strong> 0.031<br /> <strong>Contribution:<\/strong> 0.02<br /> <strong>Effectif:<\/strong> 27.5","<strong>Asie du Sud-Est<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.522<br /> <strong>Axis 2 :<\/strong> -0.217<br /> <strong>Cosinus carré:<\/strong> 0.28<br /> <strong>Contribution:<\/strong> 0.263<br /> <strong>Effectif:<\/strong> 41.5","<strong>Eurasie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -1.727<br /> <strong>Axis 2 :<\/strong> 0<br /> <strong>Cosinus carré:<\/strong> 0.992<br /> <strong>Contribution:<\/strong> 3.988<br /> <strong>Effectif:<\/strong> 70.3333333333333","<strong>Europe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.055<br /> <strong>Axis 2 :<\/strong> 0.041<br /> <strong>Cosinus carré:<\/strong> 0.202<br /> <strong>Contribution:<\/strong> 0.529<br /> <strong>Effectif:<\/strong> 5347.41666666667","<strong>Europe médiane<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.407<br /> <strong>Axis 2 :<\/strong> -0.266<br /> <strong>Cosinus carré:<\/strong> 0.101<br /> <strong>Contribution:<\/strong> 0.159<br /> <strong>Effectif:<\/strong> 32.5","<strong>Alpes<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.521<br /> <strong>Axis 2 :<\/strong> 0.099<br /> <strong>Cosinus carré:<\/strong> 0.265<br /> <strong>Contribution:<\/strong> 1.368<br /> <strong>Effectif:<\/strong> 253","<strong>Amazonie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.526<br /> <strong>Axis 2 :<\/strong> 0.566<br /> <strong>Cosinus carré:<\/strong> 0.242<br /> <strong>Contribution:<\/strong> 1.841<br /> <strong>Effectif:<\/strong> 139.166666666667","<strong>Balkans<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.009<br /> <strong>Axis 2 :<\/strong> -0.259<br /> <strong>Cosinus carré:<\/strong> 0.16<br /> <strong>Contribution:<\/strong> 0.099<br /> <strong>Effectif:<\/strong> 59","<strong>Caucase<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.77<br /> <strong>Axis 2 :<\/strong> -0.055<br /> <strong>Cosinus carré:<\/strong> 0.646<br /> <strong>Contribution:<\/strong> 0.466<br /> <strong>Effectif:<\/strong> 41","<strong>Moyen-Orient<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.337<br /> <strong>Axis 2 :<\/strong> 0.041<br /> <strong>Cosinus carré:<\/strong> 0.282<br /> <strong>Contribution:<\/strong> 0.767<br /> <strong>Effectif:<\/strong> 348","<strong>Proche-Orient<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.531<br /> <strong>Axis 2 :<\/strong> 0.357<br /> <strong>Cosinus carré:<\/strong> 0.182<br /> <strong>Contribution:<\/strong> 0.699<br /> <strong>Effectif:<\/strong> 82","<strong>Himalaya<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.488<br /> <strong>Axis 2 :<\/strong> -0.049<br /> <strong>Cosinus carré:<\/strong> 0.365<br /> <strong>Contribution:<\/strong> 0.185<br /> <strong>Effectif:<\/strong> 40.5","<strong>Machrek<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.588<br /> <strong>Axis 2 :<\/strong> 0.523<br /> <strong>Cosinus carré:<\/strong> 0.575<br /> <strong>Contribution:<\/strong> 1.069<br /> <strong>Effectif:<\/strong> 80","<strong>Sahara<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.043<br /> <strong>Axis 2 :<\/strong> 0.181<br /> <strong>Cosinus carré:<\/strong> 0.068<br /> <strong>Contribution:<\/strong> 0.072<br /> <strong>Effectif:<\/strong> 84","<strong>Sahel<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.546<br /> <strong>Axis 2 :<\/strong> 0.913<br /> <strong>Cosinus carré:<\/strong> 0.557<br /> <strong>Contribution:<\/strong> 5.519<br /> <strong>Effectif:<\/strong> 209","<strong>Union africaine<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.204<br /> <strong>Axis 2 :<\/strong> 0.381<br /> <strong>Cosinus carré:<\/strong> 0.238<br /> <strong>Contribution:<\/strong> 0.158<br /> <strong>Effectif:<\/strong> 36","<strong>Ligue arabe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.19<br /> <strong>Axis 2 :<\/strong> 1.506<br /> <strong>Cosinus carré:<\/strong> 0.57<br /> <strong>Contribution:<\/strong> 2.454<br /> <strong>Effectif:<\/strong> 43","<strong>Conseil de l'Europe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.038<br /> <strong>Axis 2 :<\/strong> 0.068<br /> <strong>Cosinus carré:<\/strong> 0.008<br /> <strong>Contribution:<\/strong> 0.014<br /> <strong>Effectif:<\/strong> 94.3333333333333","<strong>Union européenne<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.255<br /> <strong>Axis 2 :<\/strong> -0.35<br /> <strong>Cosinus carré:<\/strong> 0.842<br /> <strong>Contribution:<\/strong> 32.692<br /> <strong>Effectif:<\/strong> 7620.75","<strong>marché commun du Sud<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.549<br /> <strong>Axis 2 :<\/strong> -0.028<br /> <strong>Cosinus carré:<\/strong> 0.269<br /> <strong>Contribution:<\/strong> 0.305<br /> <strong>Effectif:<\/strong> 52.9166666666667","<strong>OTAN<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.616<br /> <strong>Axis 2 :<\/strong> -0.089<br /> <strong>Cosinus carré:<\/strong> 0.873<br /> <strong>Contribution:<\/strong> 6.146<br /> <strong>Effectif:<\/strong> 829.333333333333","<strong>Commonwealth<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.698<br /> <strong>Axis 2 :<\/strong> -0.755<br /> <strong>Cosinus carré:<\/strong> 0.199<br /> <strong>Contribution:<\/strong> 1.019<br /> <strong>Effectif:<\/strong> 43.5","<strong>Antilles<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.519<br /> <strong>Axis 2 :<\/strong> 0.385<br /> <strong>Cosinus carré:<\/strong> 0.141<br /> <strong>Contribution:<\/strong> 0.362<br /> <strong>Effectif:<\/strong> 41","<strong>Arctique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.56<br /> <strong>Axis 2 :<\/strong> -0.22<br /> <strong>Cosinus carré:<\/strong> 0.276<br /> <strong>Contribution:<\/strong> 1.441<br /> <strong>Effectif:<\/strong> 201","<strong>mer Noire<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -1.609<br /> <strong>Axis 2 :<\/strong> 0.03<br /> <strong>Cosinus carré:<\/strong> 0.95<br /> <strong>Contribution:<\/strong> 23.495<br /> <strong>Effectif:<\/strong> 477.333333333333","<strong>Caraïbes<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.472<br /> <strong>Axis 2 :<\/strong> -0.262<br /> <strong>Cosinus carré:<\/strong> 0.351<br /> <strong>Contribution:<\/strong> 0.552<br /> <strong>Effectif:<\/strong> 93","<strong>mer de Chine méridionale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.387<br /> <strong>Axis 2 :<\/strong> -0.141<br /> <strong>Cosinus carré:<\/strong> 0.108<br /> <strong>Contribution:<\/strong> 0.135<br /> <strong>Effectif:<\/strong> 40.5","<strong>océan Indien<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.233<br /> <strong>Axis 2 :<\/strong> 0.067<br /> <strong>Cosinus carré:<\/strong> 0.075<br /> <strong>Contribution:<\/strong> 0.03<br /> <strong>Effectif:<\/strong> 26","<strong>mer Méditerranée<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.878<br /> <strong>Axis 2 :<\/strong> 0.129<br /> <strong>Cosinus carré:<\/strong> 0.918<br /> <strong>Contribution:<\/strong> 14.465<br /> <strong>Effectif:<\/strong> 960.166666666667","<strong>golfe Persique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.532<br /> <strong>Axis 2 :<\/strong> -0.281<br /> <strong>Cosinus carré:<\/strong> 0.295<br /> <strong>Contribution:<\/strong> 0.246<br /> <strong>Effectif:<\/strong> 33.5","<strong>Polynésie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.525<br /> <strong>Axis 2 :<\/strong> 0.379<br /> <strong>Cosinus carré:<\/strong> 0.155<br /> <strong>Contribution:<\/strong> 0.732<br /> <strong>Effectif:<\/strong> 83"]},"settings":{"x_log":false,"y_log":false,"labels_size":8,"labels_positions":"auto","point_size":56,"point_opacity":1,"opacities":null,"hover_size":1,"hover_opacity":null,"xlab":"Axis 1 (39.62%)","ylab":"Axis 2 (30.27%)","has_labels":true,"col_lab":"Position","col_continuous":false,"col_levels":null,"colors":null,"ellipses":false,"ellipses_data":[],"symbol_lab":"if (is.null(symbol_var)) NULL else var_data[, symbol_var]","symbol_levels":null,"symbols":null,"size_range":[52.5,700],"size_lab":"Contrib","sizes":null,"opacity_lab":"NULL","opacities.1":null,"unit_circle":false,"has_color_var":true,"has_symbol_var":false,"has_size_var":true,"has_opacity_var":false,"has_url_var":false,"has_legend":true,"has_tooltips":true,"tooltip_text":["<strong>ar_DZA_alnaha<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.293<br /> <strong>Axis 2 :<\/strong> 1.388<br /> <strong>Cosinus carré:<\/strong> 0.854<br /> <strong>Contribution:<\/strong> 25.936<br /> <strong>Effectif:<\/strong> 523","<strong>ar_DZA_elkahb<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.345<br /> <strong>Axis 2 :<\/strong> 1.821<br /> <strong>Cosinus carré:<\/strong> 0.826<br /> <strong>Contribution:<\/strong> 42.795<br /> <strong>Effectif:<\/strong> 505","<strong>de_DEU_frankf<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.208<br /> <strong>Axis 2 :<\/strong> -0.267<br /> <strong>Cosinus carré:<\/strong> 0.508<br /> <strong>Contribution:<\/strong> 5.481<br /> <strong>Effectif:<\/strong> 2108.5","<strong>de_DEU_suddeu<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.256<br /> <strong>Axis 2 :<\/strong> -0.284<br /> <strong>Cosinus carré:<\/strong> 0.5<br /> <strong>Contribution:<\/strong> 3.764<br /> <strong>Effectif:<\/strong> 1155.5","<strong>en_GBR_guardi<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.322<br /> <strong>Axis 2 :<\/strong> -0.125<br /> <strong>Cosinus carré:<\/strong> 0.307<br /> <strong>Contribution:<\/strong> 3.965<br /> <strong>Effectif:<\/strong> 1684","<strong>en_GBR_telegr<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.346<br /> <strong>Axis 2 :<\/strong> -0.142<br /> <strong>Cosinus carré:<\/strong> 0.456<br /> <strong>Contribution:<\/strong> 2.663<br /> <strong>Effectif:<\/strong> 959","<strong>en_IRL_irtime<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.339<br /> <strong>Axis 2 :<\/strong> -0.432<br /> <strong>Cosinus carré:<\/strong> 0.714<br /> <strong>Contribution:<\/strong> 15.086<br /> <strong>Effectif:<\/strong> 2213","<strong>en_NIR_beltel<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.37<br /> <strong>Axis 2 :<\/strong> -0.455<br /> <strong>Cosinus carré:<\/strong> 0.592<br /> <strong>Contribution:<\/strong> 9.049<br /> <strong>Effectif:<\/strong> 1166","<strong>fr_FRA_figaro<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.252<br /> <strong>Axis 2 :<\/strong> 0.084<br /> <strong>Cosinus carré:<\/strong> 0.168<br /> <strong>Contribution:<\/strong> 4.611<br /> <strong>Effectif:<\/strong> 3345.5","<strong>fr_FRA_lmonde<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> 0.299<br /> <strong>Axis 2 :<\/strong> 0.455<br /> <strong>Cosinus carré:<\/strong> 0.553<br /> <strong>Contribution:<\/strong> 11.982<br /> <strong>Effectif:<\/strong> 1748.5","<strong>tr_TUR_cumhur<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> -0.868<br /> <strong>Axis 2 :<\/strong> -0.039<br /> <strong>Cosinus carré:<\/strong> 0.924<br /> <strong>Contribution:<\/strong> 36.399<br /> <strong>Effectif:<\/strong> 2534.5","<strong>tr_TUR_yenisa<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 1 :<\/strong> -0.88<br /> <strong>Axis 2 :<\/strong> 0.039<br /> <strong>Cosinus carré:<\/strong> 0.931<br /> <strong>Contribution:<\/strong> 38.269<br /> <strong>Effectif:<\/strong> 2591","<strong>Afrique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.299<br /> <strong>Axis 2 :<\/strong> 1.366<br /> <strong>Cosinus carré:<\/strong> 0.877<br /> <strong>Contribution:<\/strong> 66.096<br /> <strong>Effectif:<\/strong> 1372.83333333333","<strong>Afrique subsaharienne<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.483<br /> <strong>Axis 2 :<\/strong> 0.476<br /> <strong>Cosinus carré:<\/strong> 0.178<br /> <strong>Contribution:<\/strong> 0.241<br /> <strong>Effectif:<\/strong> 24","<strong>Afrique de l'Ouest<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.318<br /> <strong>Axis 2 :<\/strong> 0.561<br /> <strong>Cosinus carré:<\/strong> 0.398<br /> <strong>Contribution:<\/strong> 0.56<br /> <strong>Effectif:<\/strong> 57.5","<strong>Amérique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.534<br /> <strong>Axis 2 :<\/strong> 0.268<br /> <strong>Cosinus carré:<\/strong> 0.161<br /> <strong>Contribution:<\/strong> 1.654<br /> <strong>Effectif:<\/strong> 229.5","<strong>Amérique centrale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.543<br /> <strong>Axis 2 :<\/strong> -0.055<br /> <strong>Cosinus carré:<\/strong> 0.34<br /> <strong>Contribution:<\/strong> 0.307<br /> <strong>Effectif:<\/strong> 54","<strong>Amérique latine<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.371<br /> <strong>Axis 2 :<\/strong> 0.008<br /> <strong>Cosinus carré:<\/strong> 0.233<br /> <strong>Contribution:<\/strong> 0.389<br /> <strong>Effectif:<\/strong> 148.5","<strong>Amérique du Nord<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.408<br /> <strong>Axis 2 :<\/strong> -0.082<br /> <strong>Cosinus carré:<\/strong> 0.243<br /> <strong>Contribution:<\/strong> 0.14<br /> <strong>Effectif:<\/strong> 42","<strong>Amérique du Sud<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.302<br /> <strong>Axis 2 :<\/strong> -0.119<br /> <strong>Cosinus carré:<\/strong> 0.228<br /> <strong>Contribution:<\/strong> 0.163<br /> <strong>Effectif:<\/strong> 78.25","<strong>Antarctique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.256<br /> <strong>Axis 2 :<\/strong> -0.123<br /> <strong>Cosinus carré:<\/strong> 0.169<br /> <strong>Contribution:<\/strong> 0.188<br /> <strong>Effectif:<\/strong> 115.5","<strong>Asie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.002<br /> <strong>Axis 2 :<\/strong> 0.205<br /> <strong>Cosinus carré:<\/strong> 0.433<br /> <strong>Contribution:<\/strong> 0.366<br /> <strong>Effectif:<\/strong> 349.5","<strong>Asie centrale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -1.051<br /> <strong>Axis 2 :<\/strong> -0.005<br /> <strong>Cosinus carré:<\/strong> 0.872<br /> <strong>Contribution:<\/strong> 0.683<br /> <strong>Effectif:<\/strong> 32.5","<strong>Asie mineure<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -1.715<br /> <strong>Axis 2 :<\/strong> -0.021<br /> <strong>Cosinus carré:<\/strong> 0.91<br /> <strong>Contribution:<\/strong> 27.921<br /> <strong>Effectif:<\/strong> 499.166666666667","<strong>Asie-Pacifique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.159<br /> <strong>Axis 2 :<\/strong> -0.103<br /> <strong>Cosinus carré:<\/strong> 0.031<br /> <strong>Contribution:<\/strong> 0.02<br /> <strong>Effectif:<\/strong> 27.5","<strong>Asie du Sud-Est<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.522<br /> <strong>Axis 2 :<\/strong> -0.217<br /> <strong>Cosinus carré:<\/strong> 0.28<br /> <strong>Contribution:<\/strong> 0.263<br /> <strong>Effectif:<\/strong> 41.5","<strong>Eurasie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -1.727<br /> <strong>Axis 2 :<\/strong> 0<br /> <strong>Cosinus carré:<\/strong> 0.992<br /> <strong>Contribution:<\/strong> 3.988<br /> <strong>Effectif:<\/strong> 70.3333333333333","<strong>Europe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.055<br /> <strong>Axis 2 :<\/strong> 0.041<br /> <strong>Cosinus carré:<\/strong> 0.202<br /> <strong>Contribution:<\/strong> 0.529<br /> <strong>Effectif:<\/strong> 5347.41666666667","<strong>Europe médiane<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.407<br /> <strong>Axis 2 :<\/strong> -0.266<br /> <strong>Cosinus carré:<\/strong> 0.101<br /> <strong>Contribution:<\/strong> 0.159<br /> <strong>Effectif:<\/strong> 32.5","<strong>Alpes<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.521<br /> <strong>Axis 2 :<\/strong> 0.099<br /> <strong>Cosinus carré:<\/strong> 0.265<br /> <strong>Contribution:<\/strong> 1.368<br /> <strong>Effectif:<\/strong> 253","<strong>Amazonie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.526<br /> <strong>Axis 2 :<\/strong> 0.566<br /> <strong>Cosinus carré:<\/strong> 0.242<br /> <strong>Contribution:<\/strong> 1.841<br /> <strong>Effectif:<\/strong> 139.166666666667","<strong>Balkans<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.009<br /> <strong>Axis 2 :<\/strong> -0.259<br /> <strong>Cosinus carré:<\/strong> 0.16<br /> <strong>Contribution:<\/strong> 0.099<br /> <strong>Effectif:<\/strong> 59","<strong>Caucase<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.77<br /> <strong>Axis 2 :<\/strong> -0.055<br /> <strong>Cosinus carré:<\/strong> 0.646<br /> <strong>Contribution:<\/strong> 0.466<br /> <strong>Effectif:<\/strong> 41","<strong>Moyen-Orient<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.337<br /> <strong>Axis 2 :<\/strong> 0.041<br /> <strong>Cosinus carré:<\/strong> 0.282<br /> <strong>Contribution:<\/strong> 0.767<br /> <strong>Effectif:<\/strong> 348","<strong>Proche-Orient<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.531<br /> <strong>Axis 2 :<\/strong> 0.357<br /> <strong>Cosinus carré:<\/strong> 0.182<br /> <strong>Contribution:<\/strong> 0.699<br /> <strong>Effectif:<\/strong> 82","<strong>Himalaya<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.488<br /> <strong>Axis 2 :<\/strong> -0.049<br /> <strong>Cosinus carré:<\/strong> 0.365<br /> <strong>Contribution:<\/strong> 0.185<br /> <strong>Effectif:<\/strong> 40.5","<strong>Machrek<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.588<br /> <strong>Axis 2 :<\/strong> 0.523<br /> <strong>Cosinus carré:<\/strong> 0.575<br /> <strong>Contribution:<\/strong> 1.069<br /> <strong>Effectif:<\/strong> 80","<strong>Sahara<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.043<br /> <strong>Axis 2 :<\/strong> 0.181<br /> <strong>Cosinus carré:<\/strong> 0.068<br /> <strong>Contribution:<\/strong> 0.072<br /> <strong>Effectif:<\/strong> 84","<strong>Sahel<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.546<br /> <strong>Axis 2 :<\/strong> 0.913<br /> <strong>Cosinus carré:<\/strong> 0.557<br /> <strong>Contribution:<\/strong> 5.519<br /> <strong>Effectif:<\/strong> 209","<strong>Union africaine<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.204<br /> <strong>Axis 2 :<\/strong> 0.381<br /> <strong>Cosinus carré:<\/strong> 0.238<br /> <strong>Contribution:<\/strong> 0.158<br /> <strong>Effectif:<\/strong> 36","<strong>Ligue arabe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.19<br /> <strong>Axis 2 :<\/strong> 1.506<br /> <strong>Cosinus carré:<\/strong> 0.57<br /> <strong>Contribution:<\/strong> 2.454<br /> <strong>Effectif:<\/strong> 43","<strong>Conseil de l'Europe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.038<br /> <strong>Axis 2 :<\/strong> 0.068<br /> <strong>Cosinus carré:<\/strong> 0.008<br /> <strong>Contribution:<\/strong> 0.014<br /> <strong>Effectif:<\/strong> 94.3333333333333","<strong>Union européenne<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.255<br /> <strong>Axis 2 :<\/strong> -0.35<br /> <strong>Cosinus carré:<\/strong> 0.842<br /> <strong>Contribution:<\/strong> 32.692<br /> <strong>Effectif:<\/strong> 7620.75","<strong>marché commun du Sud<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.549<br /> <strong>Axis 2 :<\/strong> -0.028<br /> <strong>Cosinus carré:<\/strong> 0.269<br /> <strong>Contribution:<\/strong> 0.305<br /> <strong>Effectif:<\/strong> 52.9166666666667","<strong>OTAN<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.616<br /> <strong>Axis 2 :<\/strong> -0.089<br /> <strong>Cosinus carré:<\/strong> 0.873<br /> <strong>Contribution:<\/strong> 6.146<br /> <strong>Effectif:<\/strong> 829.333333333333","<strong>Commonwealth<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.698<br /> <strong>Axis 2 :<\/strong> -0.755<br /> <strong>Cosinus carré:<\/strong> 0.199<br /> <strong>Contribution:<\/strong> 1.019<br /> <strong>Effectif:<\/strong> 43.5","<strong>Antilles<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.519<br /> <strong>Axis 2 :<\/strong> 0.385<br /> <strong>Cosinus carré:<\/strong> 0.141<br /> <strong>Contribution:<\/strong> 0.362<br /> <strong>Effectif:<\/strong> 41","<strong>Arctique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.56<br /> <strong>Axis 2 :<\/strong> -0.22<br /> <strong>Cosinus carré:<\/strong> 0.276<br /> <strong>Contribution:<\/strong> 1.441<br /> <strong>Effectif:<\/strong> 201","<strong>mer Noire<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -1.609<br /> <strong>Axis 2 :<\/strong> 0.03<br /> <strong>Cosinus carré:<\/strong> 0.95<br /> <strong>Contribution:<\/strong> 23.495<br /> <strong>Effectif:<\/strong> 477.333333333333","<strong>Caraïbes<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.472<br /> <strong>Axis 2 :<\/strong> -0.262<br /> <strong>Cosinus carré:<\/strong> 0.351<br /> <strong>Contribution:<\/strong> 0.552<br /> <strong>Effectif:<\/strong> 93","<strong>mer de Chine méridionale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.387<br /> <strong>Axis 2 :<\/strong> -0.141<br /> <strong>Cosinus carré:<\/strong> 0.108<br /> <strong>Contribution:<\/strong> 0.135<br /> <strong>Effectif:<\/strong> 40.5","<strong>océan Indien<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.233<br /> <strong>Axis 2 :<\/strong> 0.067<br /> <strong>Cosinus carré:<\/strong> 0.075<br /> <strong>Contribution:<\/strong> 0.03<br /> <strong>Effectif:<\/strong> 26","<strong>mer Méditerranée<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.878<br /> <strong>Axis 2 :<\/strong> 0.129<br /> <strong>Cosinus carré:<\/strong> 0.918<br /> <strong>Contribution:<\/strong> 14.465<br /> <strong>Effectif:<\/strong> 960.166666666667","<strong>golfe Persique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> -0.532<br /> <strong>Axis 2 :<\/strong> -0.281<br /> <strong>Cosinus carré:<\/strong> 0.295<br /> <strong>Contribution:<\/strong> 0.246<br /> <strong>Effectif:<\/strong> 33.5","<strong>Polynésie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 1 :<\/strong> 0.525<br /> <strong>Axis 2 :<\/strong> 0.379<br /> <strong>Cosinus carré:<\/strong> 0.155<br /> <strong>Contribution:<\/strong> 0.732<br /> <strong>Effectif:<\/strong> 83"],"tooltip_position_x":"right","tooltip_position_y":"bottom","has_custom_tooltips":true,"click_callback":null,"init_callback":null,"zoom_callback":null,"zoom_on":null,"zoom_on_level":null,"disable_wheel":false,"fixed":true,"legend_width":150,"left_margin":30,"html_id":"scatterD3-EIPDCCVL","xlim":[-2,1],"ylim":[-1,2.1],"x_categorical":false,"y_categorical":false,"x_levels":null,"y_levels":null,"menu":true,"lasso":false,"lasso_callback":null,"dom_id_reset_zoom":"scatterD3-reset-zoom","dom_id_svg_export":null,"dom_id_lasso_toggle":null,"transitions":true,"axes_font_size":"100%","legend_font_size":"100%","caption":null,"lines":{"slope":[0,null],"intercept":[0,0],"stroke_dasharray":[5,5]},"hashes":{"x":"bc8ab89df74ea516b2d164a238667586d8caf8ec4f8ff1d41956d4e7f4f4a8dc","y":"1a818ff531b808672d35dec35772b683d6f2f1b0ca2eb1dc9a2d2b885927708d","lab":"0b9d8d7da9bf428b80c2b4b22a180c7257bfec6f13e114754a4857e6b0faccaf","key_var":"2abf99bce565f938ecb70b04126c2b7fbdd54d2e158ee3541f444b759d1444a2","col_var":"f330888131b25fc6f09c331b3f823d24831337744e13cf22b04a154ad7698f24","symbol_var":"71557d1c8bac9bbe3cbec8d00bb223a2f372279827064095447e569fbf5a760a","size_var":"ffa284cb7ccd71db1d91ac74cd147c7109a6441164385335273124928c37b8ba","ellipses_data":"28df520b992b4a4bead0a7a527ee2f4fc64fbcc2892ab364f676113761cbeefc","opacity_var":"71557d1c8bac9bbe3cbec8d00bb223a2f372279827064095447e569fbf5a760a","lines":"f84bf8f8ee4b4297d647ec13b5d4362c022c90688f8d9efa8b45e3c4bef3e7fa","labels_positions":"db472a8d1bfeba7ae899342b3bc05fc748ad32b6091bff1656d992bd94e6a53b"}}},"evals":[],"jsHooks":[]}</script>
+<div id="factors-3-4" class="section level3" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Factors 3-4</h3>
+<div id="htmlwidget-28619cc0bb6b3c2c41bf" style="width:672px;height:480px;" class="scatterD3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-28619cc0bb6b3c2c41bf">{"x":{"data":{"x":[0.484,0.808,0.136,0.156,0.131,0.249,0.251,0.333,-0.575,-0.416,0.002,0.044,0.518,-0.936,-0.504,-1.311,-0.315,-0.32,-0.274,0.279,-0.006,0.135,-0.12,0.047,-0.146,-0.219,0.069,-0.11,-0.136,-0.836,-1.307,0.016,-0.174,0.128,-1.112,-0.411,0.293,-0.654,-0.829,-0.688,0.642,-0.746,0.172,-0.708,-0.023,0.787,-1.548,-0.087,0.036,0.062,0.006,-0.238,-0.151,0.255,-1.458],"y":[-0.062,-0.053,-0.187,-0.113,0.473,0.076,-0.131,0.047,-0.015,-0.027,0.078,-0.057,-0.03,0.228,-0.203,0.054,0.553,0.466,0.547,0.047,0.557,0.051,-0.184,0.165,0.904,-0.441,0.063,0.019,-0.748,-0.138,-0.135,-0.297,-0.177,0.284,-0.263,-0.137,0.435,0.085,-0.091,-0.091,-0.261,0.001,-0.062,-0.371,-0.063,0.469,-0.139,0.921,-0.018,0.647,0.898,0.239,-0.071,-0.277,-0.095],"lab":["ar_DZA_alnaha","ar_DZA_elkahb","de_DEU_frankf","de_DEU_suddeu","en_GBR_guardi","en_GBR_telegr","en_IRL_irtime","en_NIR_beltel","fr_FRA_figaro","fr_FRA_lmonde","tr_TUR_cumhur","tr_TUR_yenisa","Afrique","Afrique subsaharienne","Afrique de l'Ouest","Amérique","Amérique centrale","Amérique latine","Amérique du Nord","Amérique du Sud","Antarctique","Asie","Asie centrale","Asie mineure","Asie-Pacifique","Asie du Sud-Est","Eurasie","Europe","Europe médiane","Alpes","Amazonie","Balkans","Caucase","Moyen-Orient","Proche-Orient","Himalaya","Machrek","Sahara","Sahel","Union africaine","Ligue arabe","Conseil de l'Europe","Union européenne","marché commun du Sud","OTAN","Commonwealth","Antilles","Arctique","mer Noire","Caraïbes","mer de Chine méridionale","océan Indien","mer Méditerranée","golfe Persique","Polynésie"],"col_var":["Column","Column","Column","Column","Column","Column","Column","Column","Column","Column","Column","Column","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row","Row"],"size_var":[5.729,14.649,15.397,3.972,70.861,3.627,13.123,6.147,48.446,13.448,2.837,1.763,16.334,1.149,1.078,17.369,3.293,6.622,2.463,0.297,6.629,0.448,0.224,2.571,4.184,1.578,0.066,3.15,3.393,8.619,10.86,0.964,0.292,5.427,5.479,0.44,3.107,1.684,6.587,0.799,1.318,2.292,15.239,2.505,0.637,2.945,4.437,31.597,0.054,7.21,6.043,0.338,1.862,0.57,7.847],"type_var":["point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point","point"],"key_var":["Column-ar_DZA_alnaha","Column-ar_DZA_elkahb","Column-de_DEU_frankf","Column-de_DEU_suddeu","Column-en_GBR_guardi","Column-en_GBR_telegr","Column-en_IRL_irtime","Column-en_NIR_beltel","Column-fr_FRA_figaro","Column-fr_FRA_lmonde","Column-tr_TUR_cumhur","Column-tr_TUR_yenisa","Row-Afrique","Row-Afrique subsaharienne","Row-Afrique de l'Ouest","Row-Amérique","Row-Amérique centrale","Row-Amérique latine","Row-Amérique du Nord","Row-Amérique du Sud","Row-Antarctique","Row-Asie","Row-Asie centrale","Row-Asie mineure","Row-Asie-Pacifique","Row-Asie du Sud-Est","Row-Eurasie","Row-Europe","Row-Europe médiane","Row-Alpes","Row-Amazonie","Row-Balkans","Row-Caucase","Row-Moyen-Orient","Row-Proche-Orient","Row-Himalaya","Row-Machrek","Row-Sahara","Row-Sahel","Row-Union africaine","Row-Ligue arabe","Row-Conseil de l'Europe","Row-Union européenne","Row-marché commun du Sud","Row-OTAN","Row-Commonwealth","Row-Antilles","Row-Arctique","Row-mer Noire","Row-Caraïbes","Row-mer de Chine méridionale","Row-océan Indien","Row-mer Méditerranée","Row-golfe Persique","Row-Polynésie"],"tooltip_text":["<strong>ar_DZA_alnaha<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.484<br /> <strong>Axis 4 :<\/strong> -0.062<br /> <strong>Cosinus carré:<\/strong> 0.101<br /> <strong>Contribution:<\/strong> 5.729<br /> <strong>Effectif:<\/strong> 523","<strong>ar_DZA_elkahb<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.808<br /> <strong>Axis 4 :<\/strong> -0.053<br /> <strong>Cosinus carré:<\/strong> 0.158<br /> <strong>Contribution:<\/strong> 14.649<br /> <strong>Effectif:<\/strong> 505","<strong>de_DEU_frankf<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.136<br /> <strong>Axis 4 :<\/strong> -0.187<br /> <strong>Cosinus carré:<\/strong> 0.237<br /> <strong>Contribution:<\/strong> 15.397<br /> <strong>Effectif:<\/strong> 2108.5","<strong>de_DEU_suddeu<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.156<br /> <strong>Axis 4 :<\/strong> -0.113<br /> <strong>Cosinus carré:<\/strong> 0.127<br /> <strong>Contribution:<\/strong> 3.972<br /> <strong>Effectif:<\/strong> 1155.5","<strong>en_GBR_guardi<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.131<br /> <strong>Axis 4 :<\/strong> 0.473<br /> <strong>Cosinus carré:<\/strong> 0.622<br /> <strong>Contribution:<\/strong> 70.861<br /> <strong>Effectif:<\/strong> 1684","<strong>en_GBR_telegr<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.249<br /> <strong>Axis 4 :<\/strong> 0.076<br /> <strong>Cosinus carré:<\/strong> 0.221<br /> <strong>Contribution:<\/strong> 3.627<br /> <strong>Effectif:<\/strong> 959","<strong>en_IRL_irtime<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.251<br /> <strong>Axis 4 :<\/strong> -0.131<br /> <strong>Cosinus carré:<\/strong> 0.19<br /> <strong>Contribution:<\/strong> 13.123<br /> <strong>Effectif:<\/strong> 2213","<strong>en_NIR_beltel<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.333<br /> <strong>Axis 4 :<\/strong> 0.047<br /> <strong>Cosinus carré:<\/strong> 0.195<br /> <strong>Contribution:<\/strong> 6.147<br /> <strong>Effectif:<\/strong> 1166","<strong>fr_FRA_figaro<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> -0.575<br /> <strong>Axis 4 :<\/strong> -0.015<br /> <strong>Cosinus carré:<\/strong> 0.789<br /> <strong>Contribution:<\/strong> 48.446<br /> <strong>Effectif:<\/strong> 3345.5","<strong>fr_FRA_lmonde<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> -0.416<br /> <strong>Axis 4 :<\/strong> -0.027<br /> <strong>Cosinus carré:<\/strong> 0.323<br /> <strong>Contribution:<\/strong> 13.448<br /> <strong>Effectif:<\/strong> 1748.5","<strong>tr_TUR_cumhur<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.002<br /> <strong>Axis 4 :<\/strong> 0.078<br /> <strong>Cosinus carré:<\/strong> 0.007<br /> <strong>Contribution:<\/strong> 2.837<br /> <strong>Effectif:<\/strong> 2534.5","<strong>tr_TUR_yenisa<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.044<br /> <strong>Axis 4 :<\/strong> -0.057<br /> <strong>Cosinus carré:<\/strong> 0.006<br /> <strong>Contribution:<\/strong> 1.763<br /> <strong>Effectif:<\/strong> 2591","<strong>Afrique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.518<br /> <strong>Axis 4 :<\/strong> -0.03<br /> <strong>Cosinus carré:<\/strong> 0.12<br /> <strong>Contribution:<\/strong> 16.334<br /> <strong>Effectif:<\/strong> 1372.83333333333","<strong>Afrique subsaharienne<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.936<br /> <strong>Axis 4 :<\/strong> 0.228<br /> <strong>Cosinus carré:<\/strong> 0.36<br /> <strong>Contribution:<\/strong> 1.149<br /> <strong>Effectif:<\/strong> 24","<strong>Afrique de l'Ouest<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.504<br /> <strong>Axis 4 :<\/strong> -0.203<br /> <strong>Cosinus carré:<\/strong> 0.283<br /> <strong>Contribution:<\/strong> 1.078<br /> <strong>Effectif:<\/strong> 57.5","<strong>Amérique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.311<br /> <strong>Axis 4 :<\/strong> 0.054<br /> <strong>Cosinus carré:<\/strong> 0.778<br /> <strong>Contribution:<\/strong> 17.369<br /> <strong>Effectif:<\/strong> 229.5","<strong>Amérique centrale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.315<br /> <strong>Axis 4 :<\/strong> 0.553<br /> <strong>Cosinus carré:<\/strong> 0.464<br /> <strong>Contribution:<\/strong> 3.293<br /> <strong>Effectif:<\/strong> 54","<strong>Amérique latine<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.32<br /> <strong>Axis 4 :<\/strong> 0.466<br /> <strong>Cosinus carré:<\/strong> 0.541<br /> <strong>Contribution:<\/strong> 6.622<br /> <strong>Effectif:<\/strong> 148.5","<strong>Amérique du Nord<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.274<br /> <strong>Axis 4 :<\/strong> 0.547<br /> <strong>Cosinus carré:<\/strong> 0.527<br /> <strong>Contribution:<\/strong> 2.463<br /> <strong>Effectif:<\/strong> 42","<strong>Amérique du Sud<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.279<br /> <strong>Axis 4 :<\/strong> 0.047<br /> <strong>Cosinus carré:<\/strong> 0.173<br /> <strong>Contribution:<\/strong> 0.297<br /> <strong>Effectif:<\/strong> 78.25","<strong>Antarctique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.006<br /> <strong>Axis 4 :<\/strong> 0.557<br /> <strong>Cosinus carré:<\/strong> 0.646<br /> <strong>Contribution:<\/strong> 6.629<br /> <strong>Effectif:<\/strong> 115.5","<strong>Asie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.135<br /> <strong>Axis 4 :<\/strong> 0.051<br /> <strong>Cosinus carré:<\/strong> 0.214<br /> <strong>Contribution:<\/strong> 0.448<br /> <strong>Effectif:<\/strong> 349.5","<strong>Asie centrale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.12<br /> <strong>Axis 4 :<\/strong> -0.184<br /> <strong>Cosinus carré:<\/strong> 0.038<br /> <strong>Contribution:<\/strong> 0.224<br /> <strong>Effectif:<\/strong> 32.5","<strong>Asie mineure<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.047<br /> <strong>Axis 4 :<\/strong> 0.165<br /> <strong>Cosinus carré:<\/strong> 0.009<br /> <strong>Contribution:<\/strong> 2.571<br /> <strong>Effectif:<\/strong> 499.166666666667","<strong>Asie-Pacifique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.146<br /> <strong>Axis 4 :<\/strong> 0.904<br /> <strong>Cosinus carré:<\/strong> 0.747<br /> <strong>Contribution:<\/strong> 4.184<br /> <strong>Effectif:<\/strong> 27.5","<strong>Asie du Sud-Est<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.219<br /> <strong>Axis 4 :<\/strong> -0.441<br /> <strong>Cosinus carré:<\/strong> 0.212<br /> <strong>Contribution:<\/strong> 1.578<br /> <strong>Effectif:<\/strong> 41.5","<strong>Eurasie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.069<br /> <strong>Axis 4 :<\/strong> 0.063<br /> <strong>Cosinus carré:<\/strong> 0.003<br /> <strong>Contribution:<\/strong> 0.066<br /> <strong>Effectif:<\/strong> 70.3333333333333","<strong>Europe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.11<br /> <strong>Axis 4 :<\/strong> 0.019<br /> <strong>Cosinus carré:<\/strong> 0.534<br /> <strong>Contribution:<\/strong> 3.15<br /> <strong>Effectif:<\/strong> 5347.41666666667","<strong>Europe médiane<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.136<br /> <strong>Axis 4 :<\/strong> -0.748<br /> <strong>Cosinus carré:<\/strong> 0.247<br /> <strong>Contribution:<\/strong> 3.393<br /> <strong>Effectif:<\/strong> 32.5","<strong>Alpes<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.836<br /> <strong>Axis 4 :<\/strong> -0.138<br /> <strong>Cosinus carré:<\/strong> 0.678<br /> <strong>Contribution:<\/strong> 8.619<br /> <strong>Effectif:<\/strong> 253","<strong>Amazonie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.307<br /> <strong>Axis 4 :<\/strong> -0.135<br /> <strong>Cosinus carré:<\/strong> 0.699<br /> <strong>Contribution:<\/strong> 10.86<br /> <strong>Effectif:<\/strong> 139.166666666667","<strong>Balkans<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.016<br /> <strong>Axis 4 :<\/strong> -0.297<br /> <strong>Cosinus carré:<\/strong> 0.211<br /> <strong>Contribution:<\/strong> 0.964<br /> <strong>Effectif:<\/strong> 59","<strong>Caucase<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.174<br /> <strong>Axis 4 :<\/strong> -0.177<br /> <strong>Cosinus carré:<\/strong> 0.067<br /> <strong>Contribution:<\/strong> 0.292<br /> <strong>Effectif:<\/strong> 41","<strong>Moyen-Orient<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.128<br /> <strong>Axis 4 :<\/strong> 0.284<br /> <strong>Cosinus carré:<\/strong> 0.237<br /> <strong>Contribution:<\/strong> 5.427<br /> <strong>Effectif:<\/strong> 348","<strong>Proche-Orient<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.112<br /> <strong>Axis 4 :<\/strong> -0.263<br /> <strong>Cosinus carré:<\/strong> 0.581<br /> <strong>Contribution:<\/strong> 5.479<br /> <strong>Effectif:<\/strong> 82","<strong>Himalaya<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.411<br /> <strong>Axis 4 :<\/strong> -0.137<br /> <strong>Cosinus carré:<\/strong> 0.285<br /> <strong>Contribution:<\/strong> 0.44<br /> <strong>Effectif:<\/strong> 40.5","<strong>Machrek<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.293<br /> <strong>Axis 4 :<\/strong> 0.435<br /> <strong>Cosinus carré:<\/strong> 0.256<br /> <strong>Contribution:<\/strong> 3.107<br /> <strong>Effectif:<\/strong> 80","<strong>Sahara<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.654<br /> <strong>Axis 4 :<\/strong> 0.085<br /> <strong>Cosinus carré:<\/strong> 0.851<br /> <strong>Contribution:<\/strong> 1.684<br /> <strong>Effectif:<\/strong> 84","<strong>Sahel<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.829<br /> <strong>Axis 4 :<\/strong> -0.091<br /> <strong>Cosinus carré:<\/strong> 0.342<br /> <strong>Contribution:<\/strong> 6.587<br /> <strong>Effectif:<\/strong> 209","<strong>Union africaine<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.688<br /> <strong>Axis 4 :<\/strong> -0.091<br /> <strong>Cosinus carré:<\/strong> 0.616<br /> <strong>Contribution:<\/strong> 0.799<br /> <strong>Effectif:<\/strong> 36","<strong>Ligue arabe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.642<br /> <strong>Axis 4 :<\/strong> -0.261<br /> <strong>Cosinus carré:<\/strong> 0.119<br /> <strong>Contribution:<\/strong> 1.318<br /> <strong>Effectif:<\/strong> 43","<strong>Conseil de l'Europe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.746<br /> <strong>Axis 4 :<\/strong> 0.001<br /> <strong>Cosinus carré:<\/strong> 0.712<br /> <strong>Contribution:<\/strong> 2.292<br /> <strong>Effectif:<\/strong> 94.3333333333333","<strong>Union européenne<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.172<br /> <strong>Axis 4 :<\/strong> -0.062<br /> <strong>Cosinus carré:<\/strong> 0.149<br /> <strong>Contribution:<\/strong> 15.239<br /> <strong>Effectif:<\/strong> 7620.75","<strong>marché commun du Sud<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.708<br /> <strong>Axis 4 :<\/strong> -0.371<br /> <strong>Cosinus carré:<\/strong> 0.567<br /> <strong>Contribution:<\/strong> 2.505<br /> <strong>Effectif:<\/strong> 52.9166666666667","<strong>OTAN<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.023<br /> <strong>Axis 4 :<\/strong> -0.063<br /> <strong>Cosinus carré:<\/strong> 0.01<br /> <strong>Contribution:<\/strong> 0.637<br /> <strong>Effectif:<\/strong> 829.333333333333","<strong>Commonwealth<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.787<br /> <strong>Axis 4 :<\/strong> 0.469<br /> <strong>Cosinus carré:<\/strong> 0.158<br /> <strong>Contribution:<\/strong> 2.945<br /> <strong>Effectif:<\/strong> 43.5","<strong>Antilles<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.548<br /> <strong>Axis 4 :<\/strong> -0.139<br /> <strong>Cosinus carré:<\/strong> 0.818<br /> <strong>Contribution:<\/strong> 4.437<br /> <strong>Effectif:<\/strong> 41","<strong>Arctique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.087<br /> <strong>Axis 4 :<\/strong> 0.921<br /> <strong>Cosinus carré:<\/strong> 0.652<br /> <strong>Contribution:<\/strong> 31.597<br /> <strong>Effectif:<\/strong> 201","<strong>mer Noire<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.036<br /> <strong>Axis 4 :<\/strong> -0.018<br /> <strong>Cosinus carré:<\/strong> 0<br /> <strong>Contribution:<\/strong> 0.054<br /> <strong>Effectif:<\/strong> 477.333333333333","<strong>Caraïbes<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.062<br /> <strong>Axis 4 :<\/strong> 0.647<br /> <strong>Cosinus carré:<\/strong> 0.508<br /> <strong>Contribution:<\/strong> 7.21<br /> <strong>Effectif:<\/strong> 93","<strong>mer de Chine méridionale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.006<br /> <strong>Axis 4 :<\/strong> 0.898<br /> <strong>Cosinus carré:<\/strong> 0.512<br /> <strong>Contribution:<\/strong> 6.043<br /> <strong>Effectif:<\/strong> 40.5","<strong>océan Indien<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.238<br /> <strong>Axis 4 :<\/strong> 0.239<br /> <strong>Cosinus carré:<\/strong> 0.145<br /> <strong>Contribution:<\/strong> 0.338<br /> <strong>Effectif:<\/strong> 26","<strong>mer Méditerranée<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.151<br /> <strong>Axis 4 :<\/strong> -0.071<br /> <strong>Cosinus carré:<\/strong> 0.033<br /> <strong>Contribution:<\/strong> 1.862<br /> <strong>Effectif:<\/strong> 960.166666666667","<strong>golfe Persique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.255<br /> <strong>Axis 4 :<\/strong> -0.277<br /> <strong>Cosinus carré:<\/strong> 0.115<br /> <strong>Contribution:<\/strong> 0.57<br /> <strong>Effectif:<\/strong> 33.5","<strong>Polynésie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.458<br /> <strong>Axis 4 :<\/strong> -0.095<br /> <strong>Cosinus carré:<\/strong> 0.787<br /> <strong>Contribution:<\/strong> 7.847<br /> <strong>Effectif:<\/strong> 83"]},"settings":{"x_log":false,"y_log":false,"labels_size":8,"labels_positions":"auto","point_size":56,"point_opacity":1,"opacities":null,"hover_size":1,"hover_opacity":null,"xlab":"Axis 3 (17.24%)","ylab":"Axis 4 (4.07%)","has_labels":true,"col_lab":"Position","col_continuous":false,"col_levels":null,"colors":null,"ellipses":false,"ellipses_data":[],"symbol_lab":"if (is.null(symbol_var)) NULL else var_data[, symbol_var]","symbol_levels":null,"symbols":null,"size_range":[52.5,700],"size_lab":"Contrib","sizes":null,"opacity_lab":"NULL","opacities.1":null,"unit_circle":false,"has_color_var":true,"has_symbol_var":false,"has_size_var":true,"has_opacity_var":false,"has_url_var":false,"has_legend":true,"has_tooltips":true,"tooltip_text":["<strong>ar_DZA_alnaha<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.484<br /> <strong>Axis 4 :<\/strong> -0.062<br /> <strong>Cosinus carré:<\/strong> 0.101<br /> <strong>Contribution:<\/strong> 5.729<br /> <strong>Effectif:<\/strong> 523","<strong>ar_DZA_elkahb<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.808<br /> <strong>Axis 4 :<\/strong> -0.053<br /> <strong>Cosinus carré:<\/strong> 0.158<br /> <strong>Contribution:<\/strong> 14.649<br /> <strong>Effectif:<\/strong> 505","<strong>de_DEU_frankf<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.136<br /> <strong>Axis 4 :<\/strong> -0.187<br /> <strong>Cosinus carré:<\/strong> 0.237<br /> <strong>Contribution:<\/strong> 15.397<br /> <strong>Effectif:<\/strong> 2108.5","<strong>de_DEU_suddeu<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.156<br /> <strong>Axis 4 :<\/strong> -0.113<br /> <strong>Cosinus carré:<\/strong> 0.127<br /> <strong>Contribution:<\/strong> 3.972<br /> <strong>Effectif:<\/strong> 1155.5","<strong>en_GBR_guardi<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.131<br /> <strong>Axis 4 :<\/strong> 0.473<br /> <strong>Cosinus carré:<\/strong> 0.622<br /> <strong>Contribution:<\/strong> 70.861<br /> <strong>Effectif:<\/strong> 1684","<strong>en_GBR_telegr<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.249<br /> <strong>Axis 4 :<\/strong> 0.076<br /> <strong>Cosinus carré:<\/strong> 0.221<br /> <strong>Contribution:<\/strong> 3.627<br /> <strong>Effectif:<\/strong> 959","<strong>en_IRL_irtime<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.251<br /> <strong>Axis 4 :<\/strong> -0.131<br /> <strong>Cosinus carré:<\/strong> 0.19<br /> <strong>Contribution:<\/strong> 13.123<br /> <strong>Effectif:<\/strong> 2213","<strong>en_NIR_beltel<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.333<br /> <strong>Axis 4 :<\/strong> 0.047<br /> <strong>Cosinus carré:<\/strong> 0.195<br /> <strong>Contribution:<\/strong> 6.147<br /> <strong>Effectif:<\/strong> 1166","<strong>fr_FRA_figaro<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> -0.575<br /> <strong>Axis 4 :<\/strong> -0.015<br /> <strong>Cosinus carré:<\/strong> 0.789<br /> <strong>Contribution:<\/strong> 48.446<br /> <strong>Effectif:<\/strong> 3345.5","<strong>fr_FRA_lmonde<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> -0.416<br /> <strong>Axis 4 :<\/strong> -0.027<br /> <strong>Cosinus carré:<\/strong> 0.323<br /> <strong>Contribution:<\/strong> 13.448<br /> <strong>Effectif:<\/strong> 1748.5","<strong>tr_TUR_cumhur<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.002<br /> <strong>Axis 4 :<\/strong> 0.078<br /> <strong>Cosinus carré:<\/strong> 0.007<br /> <strong>Contribution:<\/strong> 2.837<br /> <strong>Effectif:<\/strong> 2534.5","<strong>tr_TUR_yenisa<\/strong><br /> <strong>Position:<\/strong> Column<br /> <strong>Axis 3 :<\/strong> 0.044<br /> <strong>Axis 4 :<\/strong> -0.057<br /> <strong>Cosinus carré:<\/strong> 0.006<br /> <strong>Contribution:<\/strong> 1.763<br /> <strong>Effectif:<\/strong> 2591","<strong>Afrique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.518<br /> <strong>Axis 4 :<\/strong> -0.03<br /> <strong>Cosinus carré:<\/strong> 0.12<br /> <strong>Contribution:<\/strong> 16.334<br /> <strong>Effectif:<\/strong> 1372.83333333333","<strong>Afrique subsaharienne<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.936<br /> <strong>Axis 4 :<\/strong> 0.228<br /> <strong>Cosinus carré:<\/strong> 0.36<br /> <strong>Contribution:<\/strong> 1.149<br /> <strong>Effectif:<\/strong> 24","<strong>Afrique de l'Ouest<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.504<br /> <strong>Axis 4 :<\/strong> -0.203<br /> <strong>Cosinus carré:<\/strong> 0.283<br /> <strong>Contribution:<\/strong> 1.078<br /> <strong>Effectif:<\/strong> 57.5","<strong>Amérique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.311<br /> <strong>Axis 4 :<\/strong> 0.054<br /> <strong>Cosinus carré:<\/strong> 0.778<br /> <strong>Contribution:<\/strong> 17.369<br /> <strong>Effectif:<\/strong> 229.5","<strong>Amérique centrale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.315<br /> <strong>Axis 4 :<\/strong> 0.553<br /> <strong>Cosinus carré:<\/strong> 0.464<br /> <strong>Contribution:<\/strong> 3.293<br /> <strong>Effectif:<\/strong> 54","<strong>Amérique latine<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.32<br /> <strong>Axis 4 :<\/strong> 0.466<br /> <strong>Cosinus carré:<\/strong> 0.541<br /> <strong>Contribution:<\/strong> 6.622<br /> <strong>Effectif:<\/strong> 148.5","<strong>Amérique du Nord<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.274<br /> <strong>Axis 4 :<\/strong> 0.547<br /> <strong>Cosinus carré:<\/strong> 0.527<br /> <strong>Contribution:<\/strong> 2.463<br /> <strong>Effectif:<\/strong> 42","<strong>Amérique du Sud<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.279<br /> <strong>Axis 4 :<\/strong> 0.047<br /> <strong>Cosinus carré:<\/strong> 0.173<br /> <strong>Contribution:<\/strong> 0.297<br /> <strong>Effectif:<\/strong> 78.25","<strong>Antarctique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.006<br /> <strong>Axis 4 :<\/strong> 0.557<br /> <strong>Cosinus carré:<\/strong> 0.646<br /> <strong>Contribution:<\/strong> 6.629<br /> <strong>Effectif:<\/strong> 115.5","<strong>Asie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.135<br /> <strong>Axis 4 :<\/strong> 0.051<br /> <strong>Cosinus carré:<\/strong> 0.214<br /> <strong>Contribution:<\/strong> 0.448<br /> <strong>Effectif:<\/strong> 349.5","<strong>Asie centrale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.12<br /> <strong>Axis 4 :<\/strong> -0.184<br /> <strong>Cosinus carré:<\/strong> 0.038<br /> <strong>Contribution:<\/strong> 0.224<br /> <strong>Effectif:<\/strong> 32.5","<strong>Asie mineure<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.047<br /> <strong>Axis 4 :<\/strong> 0.165<br /> <strong>Cosinus carré:<\/strong> 0.009<br /> <strong>Contribution:<\/strong> 2.571<br /> <strong>Effectif:<\/strong> 499.166666666667","<strong>Asie-Pacifique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.146<br /> <strong>Axis 4 :<\/strong> 0.904<br /> <strong>Cosinus carré:<\/strong> 0.747<br /> <strong>Contribution:<\/strong> 4.184<br /> <strong>Effectif:<\/strong> 27.5","<strong>Asie du Sud-Est<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.219<br /> <strong>Axis 4 :<\/strong> -0.441<br /> <strong>Cosinus carré:<\/strong> 0.212<br /> <strong>Contribution:<\/strong> 1.578<br /> <strong>Effectif:<\/strong> 41.5","<strong>Eurasie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.069<br /> <strong>Axis 4 :<\/strong> 0.063<br /> <strong>Cosinus carré:<\/strong> 0.003<br /> <strong>Contribution:<\/strong> 0.066<br /> <strong>Effectif:<\/strong> 70.3333333333333","<strong>Europe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.11<br /> <strong>Axis 4 :<\/strong> 0.019<br /> <strong>Cosinus carré:<\/strong> 0.534<br /> <strong>Contribution:<\/strong> 3.15<br /> <strong>Effectif:<\/strong> 5347.41666666667","<strong>Europe médiane<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.136<br /> <strong>Axis 4 :<\/strong> -0.748<br /> <strong>Cosinus carré:<\/strong> 0.247<br /> <strong>Contribution:<\/strong> 3.393<br /> <strong>Effectif:<\/strong> 32.5","<strong>Alpes<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.836<br /> <strong>Axis 4 :<\/strong> -0.138<br /> <strong>Cosinus carré:<\/strong> 0.678<br /> <strong>Contribution:<\/strong> 8.619<br /> <strong>Effectif:<\/strong> 253","<strong>Amazonie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.307<br /> <strong>Axis 4 :<\/strong> -0.135<br /> <strong>Cosinus carré:<\/strong> 0.699<br /> <strong>Contribution:<\/strong> 10.86<br /> <strong>Effectif:<\/strong> 139.166666666667","<strong>Balkans<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.016<br /> <strong>Axis 4 :<\/strong> -0.297<br /> <strong>Cosinus carré:<\/strong> 0.211<br /> <strong>Contribution:<\/strong> 0.964<br /> <strong>Effectif:<\/strong> 59","<strong>Caucase<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.174<br /> <strong>Axis 4 :<\/strong> -0.177<br /> <strong>Cosinus carré:<\/strong> 0.067<br /> <strong>Contribution:<\/strong> 0.292<br /> <strong>Effectif:<\/strong> 41","<strong>Moyen-Orient<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.128<br /> <strong>Axis 4 :<\/strong> 0.284<br /> <strong>Cosinus carré:<\/strong> 0.237<br /> <strong>Contribution:<\/strong> 5.427<br /> <strong>Effectif:<\/strong> 348","<strong>Proche-Orient<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.112<br /> <strong>Axis 4 :<\/strong> -0.263<br /> <strong>Cosinus carré:<\/strong> 0.581<br /> <strong>Contribution:<\/strong> 5.479<br /> <strong>Effectif:<\/strong> 82","<strong>Himalaya<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.411<br /> <strong>Axis 4 :<\/strong> -0.137<br /> <strong>Cosinus carré:<\/strong> 0.285<br /> <strong>Contribution:<\/strong> 0.44<br /> <strong>Effectif:<\/strong> 40.5","<strong>Machrek<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.293<br /> <strong>Axis 4 :<\/strong> 0.435<br /> <strong>Cosinus carré:<\/strong> 0.256<br /> <strong>Contribution:<\/strong> 3.107<br /> <strong>Effectif:<\/strong> 80","<strong>Sahara<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.654<br /> <strong>Axis 4 :<\/strong> 0.085<br /> <strong>Cosinus carré:<\/strong> 0.851<br /> <strong>Contribution:<\/strong> 1.684<br /> <strong>Effectif:<\/strong> 84","<strong>Sahel<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.829<br /> <strong>Axis 4 :<\/strong> -0.091<br /> <strong>Cosinus carré:<\/strong> 0.342<br /> <strong>Contribution:<\/strong> 6.587<br /> <strong>Effectif:<\/strong> 209","<strong>Union africaine<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.688<br /> <strong>Axis 4 :<\/strong> -0.091<br /> <strong>Cosinus carré:<\/strong> 0.616<br /> <strong>Contribution:<\/strong> 0.799<br /> <strong>Effectif:<\/strong> 36","<strong>Ligue arabe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.642<br /> <strong>Axis 4 :<\/strong> -0.261<br /> <strong>Cosinus carré:<\/strong> 0.119<br /> <strong>Contribution:<\/strong> 1.318<br /> <strong>Effectif:<\/strong> 43","<strong>Conseil de l'Europe<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.746<br /> <strong>Axis 4 :<\/strong> 0.001<br /> <strong>Cosinus carré:<\/strong> 0.712<br /> <strong>Contribution:<\/strong> 2.292<br /> <strong>Effectif:<\/strong> 94.3333333333333","<strong>Union européenne<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.172<br /> <strong>Axis 4 :<\/strong> -0.062<br /> <strong>Cosinus carré:<\/strong> 0.149<br /> <strong>Contribution:<\/strong> 15.239<br /> <strong>Effectif:<\/strong> 7620.75","<strong>marché commun du Sud<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.708<br /> <strong>Axis 4 :<\/strong> -0.371<br /> <strong>Cosinus carré:<\/strong> 0.567<br /> <strong>Contribution:<\/strong> 2.505<br /> <strong>Effectif:<\/strong> 52.9166666666667","<strong>OTAN<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.023<br /> <strong>Axis 4 :<\/strong> -0.063<br /> <strong>Cosinus carré:<\/strong> 0.01<br /> <strong>Contribution:<\/strong> 0.637<br /> <strong>Effectif:<\/strong> 829.333333333333","<strong>Commonwealth<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.787<br /> <strong>Axis 4 :<\/strong> 0.469<br /> <strong>Cosinus carré:<\/strong> 0.158<br /> <strong>Contribution:<\/strong> 2.945<br /> <strong>Effectif:<\/strong> 43.5","<strong>Antilles<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.548<br /> <strong>Axis 4 :<\/strong> -0.139<br /> <strong>Cosinus carré:<\/strong> 0.818<br /> <strong>Contribution:<\/strong> 4.437<br /> <strong>Effectif:<\/strong> 41","<strong>Arctique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.087<br /> <strong>Axis 4 :<\/strong> 0.921<br /> <strong>Cosinus carré:<\/strong> 0.652<br /> <strong>Contribution:<\/strong> 31.597<br /> <strong>Effectif:<\/strong> 201","<strong>mer Noire<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.036<br /> <strong>Axis 4 :<\/strong> -0.018<br /> <strong>Cosinus carré:<\/strong> 0<br /> <strong>Contribution:<\/strong> 0.054<br /> <strong>Effectif:<\/strong> 477.333333333333","<strong>Caraïbes<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.062<br /> <strong>Axis 4 :<\/strong> 0.647<br /> <strong>Cosinus carré:<\/strong> 0.508<br /> <strong>Contribution:<\/strong> 7.21<br /> <strong>Effectif:<\/strong> 93","<strong>mer de Chine méridionale<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.006<br /> <strong>Axis 4 :<\/strong> 0.898<br /> <strong>Cosinus carré:<\/strong> 0.512<br /> <strong>Contribution:<\/strong> 6.043<br /> <strong>Effectif:<\/strong> 40.5","<strong>océan Indien<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.238<br /> <strong>Axis 4 :<\/strong> 0.239<br /> <strong>Cosinus carré:<\/strong> 0.145<br /> <strong>Contribution:<\/strong> 0.338<br /> <strong>Effectif:<\/strong> 26","<strong>mer Méditerranée<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -0.151<br /> <strong>Axis 4 :<\/strong> -0.071<br /> <strong>Cosinus carré:<\/strong> 0.033<br /> <strong>Contribution:<\/strong> 1.862<br /> <strong>Effectif:<\/strong> 960.166666666667","<strong>golfe Persique<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> 0.255<br /> <strong>Axis 4 :<\/strong> -0.277<br /> <strong>Cosinus carré:<\/strong> 0.115<br /> <strong>Contribution:<\/strong> 0.57<br /> <strong>Effectif:<\/strong> 33.5","<strong>Polynésie<\/strong><br /> <strong>Position:<\/strong> Row<br /> <strong>Axis 3 :<\/strong> -1.458<br /> <strong>Axis 4 :<\/strong> -0.095<br /> <strong>Cosinus carré:<\/strong> 0.787<br /> <strong>Contribution:<\/strong> 7.847<br /> <strong>Effectif:<\/strong> 83"],"tooltip_position_x":"right","tooltip_position_y":"bottom","has_custom_tooltips":true,"click_callback":null,"init_callback":null,"zoom_callback":null,"zoom_on":null,"zoom_on_level":null,"disable_wheel":false,"fixed":true,"legend_width":150,"left_margin":30,"html_id":"scatterD3-VRKDXWYC","xlim":[-2.17,1.7],"ylim":[-1.86,2.01],"x_categorical":false,"y_categorical":false,"x_levels":null,"y_levels":null,"menu":true,"lasso":false,"lasso_callback":null,"dom_id_reset_zoom":"scatterD3-reset-zoom","dom_id_svg_export":null,"dom_id_lasso_toggle":null,"transitions":true,"axes_font_size":"100%","legend_font_size":"100%","caption":null,"lines":{"slope":[0,null],"intercept":[0,0],"stroke_dasharray":[5,5]},"hashes":{"x":"d36fd8648c3d9d15e6b7ff54197c5fc215d7b0f69f1e3d3c73f2498bb13d2ddd","y":"81ce838f813e8058b485a786b732517ca5083e85989af9abd2b81b7674bdafad","lab":"0b9d8d7da9bf428b80c2b4b22a180c7257bfec6f13e114754a4857e6b0faccaf","key_var":"2abf99bce565f938ecb70b04126c2b7fbdd54d2e158ee3541f444b759d1444a2","col_var":"f330888131b25fc6f09c331b3f823d24831337744e13cf22b04a154ad7698f24","symbol_var":"71557d1c8bac9bbe3cbec8d00bb223a2f372279827064095447e569fbf5a760a","size_var":"f0c60813d91d0afb1ac1db3975aeee2ff13ed314913c426b8e9dfdb368ceee3b","ellipses_data":"28df520b992b4a4bead0a7a527ee2f4fc64fbcc2892ab364f676113761cbeefc","opacity_var":"71557d1c8bac9bbe3cbec8d00bb223a2f372279827064095447e569fbf5a760a","lines":"f84bf8f8ee4b4297d647ec13b5d4362c022c90688f8d9efa8b45e3c4bef3e7fa","labels_positions":"db472a8d1bfeba7ae899342b3bc05fc748ad32b6091bff1656d992bd94e6a53b"}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="cluster-analysisworld-regions" class="section level3" number="8.6.2">
+<h3><span class="header-section-number">8.6.2</span> Cluster analysis(world regions)</h3>
+<p><img src="Media-Cookbook_files/figure-html/unnamed-chunk-15-1.svg" width="672" /></p>
+</div>
+<div id="cluster-analysis-medias" class="section level3" number="8.6.3">
+<h3><span class="header-section-number">8.6.3</span> Cluster analysis (medias)</h3>
+<p><img src="Media-Cookbook_files/figure-html/unnamed-chunk-16-1.svg" width="672" /></p>
+
+</div>
+</div>
+</div>
+<script src="js/tidyverse.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="30-Hypercube.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ClaudeGrasland/media_cookbook/blob/master/41-Cybergeo.Rmd",
+"text": "Source"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
