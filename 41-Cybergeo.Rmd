@@ -65,153 +65,9 @@ tab_def$label[tab_def$code=="OR_NATO"]<-"OTAN"
 
 ```
 
-## Experience 1 : Specific vocabulary of world regions
-
-### Europe/EU (Q46 / Q458)
-
-```{r, out.width="40%"}
-ent = c("OR_EU", "CO_EUR")
-
-qd2<-corpus_subset(qd,str_count(regs,ent)>0 ) 
 
 
-lang="fr"
-country = "FRA"
-mystop="french"
-sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) %in% country  )
-toks <- sel %>%
-    tokens(remove_punct = TRUE) %>%
-   tokens_split(separator="'") %>%
-    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
-     tokens_select(min_nchar = 3)
-fcmat <- fcm(toks, context = "window", tri = FALSE)
-feat <- names(topfeatures(fcmat, 30))
-fcm_select(fcmat, pattern = feat) %>%
-    textplot_network(min_freq = 0.2) 
-
-
-
-lang="de"
-country="DEU"
-mystop="german"
-year=2019
-sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) == country  )
-toks <- sel %>%
-    tokens(remove_punct = TRUE) %>%
-   tokens_split(separator="'") %>%
-    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
-     tokens_select(min_nchar = 3)
-fcmat <- fcm(toks, context = "window", tri = FALSE)
-feat <- names(topfeatures(fcmat, 30))
-fcm_select(fcmat, pattern = feat) %>%
-    textplot_network(min_freq = 0.2)
-
-lang="ar"
-country = "DZA"
-mystop="french"
-sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) %in% country  )
-toks <- sel %>%
-    tokens(remove_punct = TRUE) %>%
-   tokens_split(separator="'") %>%
-    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
-     tokens_select(min_nchar = 3)
-fcmat <- fcm(toks, context = "window", tri = FALSE)
-feat <- names(topfeatures(fcmat, 30))
-fcm_select(fcmat, pattern = feat) %>%
-    textplot_network(min_freq = 0.2) 
-
-
-
-lang="tr"
-country="TUR"
-mystop="french"
-year= 2019
-
-sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) == country )
-toks <- sel %>%
-    tokens(remove_punct = TRUE) %>%
-   tokens_split(separator="'") %>%
-    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
-     tokens_select(min_nchar = 3)
-fcmat <- fcm(toks, context = "window", tri = FALSE)
-feat <- names(topfeatures(fcmat, 30))
-fcm_select(fcmat, pattern = feat) %>%
-    textplot_network(min_freq = 0.2)
-
-
-```
-
-### Mediterranea (Q4918)
-
-```{r, out.width="40%"}
-ent = "SE_medit"
-qd2<-corpus_subset(qd,str_count(regs,ent)>0 ) 
-
-
-lang="fr"
-country = "FRA"
-mystop="french"
-sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) %in% country  )
-toks <- sel %>%
-    tokens(remove_punct = TRUE) %>%
-   tokens_split(separator="'") %>%
-    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
-     tokens_select(min_nchar = 3)
-fcmat <- fcm(toks, context = "window", tri = FALSE)
-feat <- names(topfeatures(fcmat, 30))
-fcm_select(fcmat, pattern = feat) %>%
-    textplot_network(min_freq = 0.2)
-
-
-lang="de"
-country="DEU"
-mystop="german"
-sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) == country  )
-toks <- sel %>%
-    tokens(remove_punct = TRUE) %>%
-   tokens_split(separator="'") %>%
-    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
-     tokens_select(min_nchar = 3)
-fcmat <- fcm(toks, context = "window", tri = FALSE)
-feat <- names(topfeatures(fcmat, 30))
-fcm_select(fcmat, pattern = feat) %>%
-    textplot_network(min_freq = 0.2)
-
-lang="ar"
-country = "DZA"
-mystop="french"
-sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) %in% country  )
-toks <- sel %>%
-    tokens(remove_punct = TRUE) %>%
-   tokens_split(separator="'") %>%
-    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
-     tokens_select(min_nchar = 3)
-fcmat <- fcm(toks, context = "window", tri = FALSE)
-feat <- names(topfeatures(fcmat, 30))
-fcm_select(fcmat, pattern = feat) %>%
-    textplot_network(min_freq = 0.2) 
-
-
-
-lang="tr"
-country="TUR"
-mystop="french"
-year= 2019
-sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) == country )
-toks <- sel %>%
-    tokens(remove_punct = TRUE) %>%
-   tokens_split(separator="'") %>%
-    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
-     tokens_select(min_nchar = 3)
-fcmat <- fcm(toks, context = "window", tri = FALSE)
-feat <- names(topfeatures(fcmat, 30))
-fcm_select(fcmat, pattern = feat) %>%
-    textplot_network(min_freq = 0.2)
-
-
-```
-
-## Experience 2 : A **Cross-**Language analysis of regional entities
+## Top macro-regions
 
 
 ### Data aggregation
@@ -454,7 +310,7 @@ kable(tab,digits=1, row.names = F)
 
 ```
 
-## Algerian newspapers
+### Algerian newspapers
 
 ```{r}
 
@@ -487,9 +343,9 @@ kable(tab,digits=c(0,1,1,1,1,1), row.names = F)
 
 
 
-## Correspondance analysis 
+## Synthesis  
 
-## Factor 1-2
+### Factor 1-2
 
 
 ```{r}
@@ -557,4 +413,148 @@ cah2 <- HCPC(afc,nb.clust = 6,graph = FALSE,cluster.CA = "columns")
 plot.HCPC(cah2,choice="tree")
 ```
 
+## Specific vocabulary
 
+### Europe/EU (Q46 / Q458)
+
+```{r, out.width="40%"}
+ent = c("OR_EU", "CO_EUR")
+
+qd2<-corpus_subset(qd,str_count(regs,ent)>0 ) 
+
+
+lang="fr"
+country = "FRA"
+mystop="french"
+sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) %in% country  )
+toks <- sel %>%
+    tokens(remove_punct = TRUE) %>%
+   tokens_split(separator="'") %>%
+    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
+     tokens_select(min_nchar = 3)
+fcmat <- fcm(toks, context = "window", tri = FALSE)
+feat <- names(topfeatures(fcmat, 30))
+fcm_select(fcmat, pattern = feat) %>%
+    textplot_network(min_freq = 0.2) 
+
+
+
+lang="de"
+country="DEU"
+mystop="german"
+year=2019
+sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) == country  )
+toks <- sel %>%
+    tokens(remove_punct = TRUE) %>%
+   tokens_split(separator="'") %>%
+    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
+     tokens_select(min_nchar = 3)
+fcmat <- fcm(toks, context = "window", tri = FALSE)
+feat <- names(topfeatures(fcmat, 30))
+fcm_select(fcmat, pattern = feat) %>%
+    textplot_network(min_freq = 0.2)
+
+lang="ar"
+country = "DZA"
+mystop="french"
+sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) %in% country  )
+toks <- sel %>%
+    tokens(remove_punct = TRUE) %>%
+   tokens_split(separator="'") %>%
+    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
+     tokens_select(min_nchar = 3)
+fcmat <- fcm(toks, context = "window", tri = FALSE)
+feat <- names(topfeatures(fcmat, 30))
+fcm_select(fcmat, pattern = feat) %>%
+    textplot_network(min_freq = 0.2) 
+
+
+
+lang="tr"
+country="TUR"
+mystop="french"
+year= 2019
+
+sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) == country )
+toks <- sel %>%
+    tokens(remove_punct = TRUE) %>%
+   tokens_split(separator="'") %>%
+    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
+     tokens_select(min_nchar = 3)
+fcmat <- fcm(toks, context = "window", tri = FALSE)
+feat <- names(topfeatures(fcmat, 30))
+fcm_select(fcmat, pattern = feat) %>%
+    textplot_network(min_freq = 0.2)
+
+
+```
+
+### Mediterranea (Q4918)
+
+```{r, out.width="40%"}
+ent = "SE_medit"
+qd2<-corpus_subset(qd,str_count(regs,ent)>0 ) 
+
+
+lang="fr"
+country = "FRA"
+mystop="french"
+sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) %in% country  )
+toks <- sel %>%
+    tokens(remove_punct = TRUE) %>%
+   tokens_split(separator="'") %>%
+    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
+     tokens_select(min_nchar = 3)
+fcmat <- fcm(toks, context = "window", tri = FALSE)
+feat <- names(topfeatures(fcmat, 30))
+fcm_select(fcmat, pattern = feat) %>%
+    textplot_network(min_freq = 0.2)
+
+
+lang="de"
+country="DEU"
+mystop="german"
+sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) == country  )
+toks <- sel %>%
+    tokens(remove_punct = TRUE) %>%
+   tokens_split(separator="'") %>%
+    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
+     tokens_select(min_nchar = 3)
+fcmat <- fcm(toks, context = "window", tri = FALSE)
+feat <- names(topfeatures(fcmat, 30))
+fcm_select(fcmat, pattern = feat) %>%
+    textplot_network(min_freq = 0.2)
+
+lang="ar"
+country = "DZA"
+mystop="french"
+sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) %in% country  )
+toks <- sel %>%
+    tokens(remove_punct = TRUE) %>%
+   tokens_split(separator="'") %>%
+    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
+     tokens_select(min_nchar = 3)
+fcmat <- fcm(toks, context = "window", tri = FALSE)
+feat <- names(topfeatures(fcmat, 30))
+fcm_select(fcmat, pattern = feat) %>%
+    textplot_network(min_freq = 0.2) 
+
+
+
+lang="tr"
+country="TUR"
+mystop="french"
+year= 2019
+sel<-corpus_subset(qd2, substr(source,1,2)==lang & substr(source,4,6) == country )
+toks <- sel %>%
+    tokens(remove_punct = TRUE) %>%
+   tokens_split(separator="'") %>%
+    tokens_remove(pattern = stopwords(mystop), padding = FALSE) %>%
+     tokens_select(min_nchar = 3)
+fcmat <- fcm(toks, context = "window", tri = FALSE)
+feat <- names(topfeatures(fcmat, 30))
+fcm_select(fcmat, pattern = feat) %>%
+    textplot_network(min_freq = 0.2)
+
+
+```
