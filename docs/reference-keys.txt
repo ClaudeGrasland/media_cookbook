@@ -84,3 +84,4 @@ geographical-entities
 which-of-news
 which-entities-are-the-most-mentionned
 top-non-state-entities-by-media
+manual-correctio-n-of-dictionnary

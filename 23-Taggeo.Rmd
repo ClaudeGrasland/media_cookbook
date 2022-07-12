@@ -7,6 +7,20 @@ library(WikidataR)
 library(quanteda)
 ```
 
+## Manual correctio n of dictionnary
+
+The dictionnary elaboated by automatic procedures has been manually corrected and the new version is upload.
+
+```{r}
+dict<-read.table("dict/worldgeo_dict_V4bis.csv", 
+                 header=T, 
+                 sep=";",
+                 encoding = "UTF-8",
+                 quote = '"')
+```
+
+
+
 
 
 ## Detection of geographical entities
@@ -85,7 +99,7 @@ return(qd)
 ```{r, eval=FALSE}
 
 
-dict<-readRDS("dict/worldgeo_dict_V4.RDS")
+#dict<-readRDS("dict/worldgeo_dict_V4.RDS")
 
 
 qd <- readRDS("quanteda/fr_FRA_figaro.RDS")
@@ -311,96 +325,13 @@ table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
 
-### Babnet
 
-```{r, eval=FALSE}
-
-qd <- readRDS("quanteda/ar_TUN_babnet.RDS")
-docvars(qd)<-docvars(qd)[c("source","date")]
-qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
-
-arcomps <- c("Cathay Pacific")
-qd <- extract_tags (qd = qd,
-                     lang="ar",
-                     dict = dict,
-                    code = "code",
-                     comps = arcomps,
-                   split = c("'","’","-"),
-                     tolow = FALSE)
-saveRDS(qd,"quanteda/ar_TUN_babnet_geo.RDS")
-qd11<-qd
-table(qd$nbtags)
-x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
-```
-
-### Réalités
-
-```{r, eval=FALSE}
-
-qd <- readRDS("quanteda/fr_TUN_realit.RDS")
-docvars(qd)<-docvars(qd)[c("source","date")]
-qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
-
-qd <- extract_tags (qd = qd,
-                     lang="fr",
-                     dict = dict,
-                    code = "code",
-                     comps = frcomps,
-                   split = c("'","’","-"),
-                     tolow = FALSE)
-saveRDS(qd,"quanteda/fr_TUN_realit_geo.RDS")
-qd12<-qd
-table(qd$nbtags)
-x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
-```
-
-### Economiste Maghrebin
-
-```{r, eval=FALSE}
-
-qd <- readRDS("quanteda/fr_TUN_ecomag.RDS")
-docvars(qd)<-docvars(qd)[c("source","date")]
-qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
-
-qd <- extract_tags (qd = qd,
-                     lang="fr",
-                     dict = dict,
-                    code = "code",
-                     comps = frcomps,
-                   split = c("'","’","-"),
-                     tolow = FALSE)
-saveRDS(qd,"quanteda/fr_TUN_ecomag_geo.RDS")
-qd13<-qd
-table(qd$nbtags)
-x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
-```
-
-### La Presse
-
-```{r, eval=FALSE}
-
-qd <- readRDS("quanteda/fr_TUN_presse.RDS")
-docvars(qd)<-docvars(qd)[c("source","date")]
-qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
-
-qd <- extract_tags (qd = qd,
-                     lang="fr",
-                     dict = dict,
-                    code = "code",
-                     comps = frcomps,
-                   split = c("'","’","-"),
-                     tolow = FALSE)
-saveRDS(qd,"quanteda/fr_TUN_presse_geo.RDS")
-qd14<-qd
-table(qd$nbtags)
-x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
-```
 
 
 ### Al Nahar (DZA)
 
 ```{r, eval=FALSE}
-
+arcomps = c("الصحراء الغربية")
 qd <- readRDS("quanteda/ar_DZA_alnaha.RDS")
 docvars(qd)<-docvars(qd)[c("source","date")]
 qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
@@ -413,7 +344,7 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/ar_DZA_alnaha_geo.RDS")
-qd15<-qd
+qd11<-qd
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -433,45 +364,10 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/ar_DZA_elkahb_geo.RDS")
-qd16<-qd
+qd12<-qd
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
-
-
-### El Watan (DZA)
-
-```{r, eval=FALSE}
-
-qd <- readRDS("quanteda/fr_DZA_elwata.RDS")
-docvars(qd)<-docvars(qd)[c("source","date")]
-qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
-
-qd <- extract_tags (qd = qd,
-                     lang="fr",
-                     dict = dict,
-                    code = "code",
-                     comps = frcomps,
-                   split = c("'","’","-"),
-                     tolow = FALSE)
-saveRDS(qd,"quanteda/fr_DZA_elwata_geo.RDS")
-qd17<-qd
-table(qd$nbtags)
-x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -479,8 +375,8 @@ x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ### Global corpus
 
 ```{r, eval=FALSE}
-qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12,qd13,qd14,qd15,qd16,qd17)
-saveRDS(qd,"quanteda/corpus_worldgeo_001.RDS")
+qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12)
+saveRDS(qd,"quanteda/corpus_worldgeo_V2.RDS")
 table(qd$nbtags)
 ```
 

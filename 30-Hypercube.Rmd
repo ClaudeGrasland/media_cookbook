@@ -22,7 +22,7 @@ We have created a list of tags relate to world regions for news published in 14 
 ### Load corpus
 
 ```{r}
-qd<-readRDS("quanteda/corpus_worldgeo_001.RDS")
+qd<-readRDS("quanteda/corpus_worldgeo_V2.RDS")
 
 ```
 
@@ -101,7 +101,7 @@ kable(head(hc_reg))
 reg_def<-readRDS("dict/worldgeo_def_V1.RDS")
 
 # Choose language
-tab_def<-reg_def %>% filter(lang == "en")
+tab_def<-reg_def %>% filter(lang == "fr")
 kable(head(tab_def))
 ```
 
@@ -139,7 +139,7 @@ df<-merge(tab_def,df,by.x="code",by.y="where1",all.x=F,all.y=T)
 df<-df[order(df$nb, decreasing = T),]
 row.names(df)<-1:dim(df)[1]
 
-kable(df, digits=0,row.names = T)
+kable(head(df,30), digits=0,row.names = T)
 ```
 
 
