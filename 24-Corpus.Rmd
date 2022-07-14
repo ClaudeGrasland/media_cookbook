@@ -1,4 +1,4 @@
-# Frequencye {#c24_frequency}
+# Corpus {#c24_corpus}
 
 ```{r}
 library(knitr)
@@ -11,7 +11,7 @@ library(ggplot2)
 
 ## Objectives
 
-The aim of this section is to separate states and world region and to evaluate the relative frequencies of wrold regions by media an through time.
+The aim of this section is to separate states and world region and to evaluate the relative frequencies of world regions by media an through time.
 
 
 
