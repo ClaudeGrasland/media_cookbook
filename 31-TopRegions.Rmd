@@ -245,7 +245,7 @@ kable(tab,digits=c(0,1,1,1,1,1), row.names = F)
 
 
 
-## Synthesis 
+## Synthesis by correspondance analysis and Hierarchical Clustering
 
 The synthesis is realized with regions
 
@@ -320,6 +320,24 @@ cah2 <- HCPC(afc,nb.clust = 4,graph = FALSE,cluster.CA = "columns")
 plot.HCPC(cah2,choice="tree")
 ```
 
+## Synthesis by chi-square & heatmap
+
+An alternative approach based on the computation of chi-square and the classification of residuals (censoredd between -3 and +3)
+
+```{r,fig.height=8, fig.width =6}
+library(pheatmap)
+x<-chisq.test(sel)
+res<-as.matrix(x$residuals)
+exp<-as.matrix(x$expected)
+res[exp<2]<-0
+res[res>3]<-3
+res[res< -3]<- -3
+
+#pdf(file = "test.pdf")
+pheatmap(res, cutree_rows = 7,cutree_cols = 6)
+#dev.off()
+
+```
 
 
 

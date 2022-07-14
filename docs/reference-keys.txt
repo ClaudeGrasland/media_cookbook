@@ -95,3 +95,6 @@ factor-1-2
 factors-3-4
 cluster-analysis-world-regions
 cluster-analysis-medias
+synthetic-heatmap
+synthesis-by-correspondance-analysis-and-hierarchical-clustering
+synthesis-by-chi-square-heatmap
