@@ -1,0 +1,203 @@
+# Frequencye {#c24_frequency}
+
+```{r}
+library(knitr)
+library(dplyr)
+library(quanteda)
+library(data.table)
+library(tidytext)
+library(ggplot2)
+```
+
+## Objectives
+
+The aim of this section is to separate states and world region and to evaluate the relative frequencies of wrold regions by media an through time.
+
+
+
+## Prepare data
+
+
+```{r, warning=F, eval=FALSE}
+qd<-readRDS("quanteda/corpus_worldgeo_V2.RDS")
+qd$regs<-qd$tags
+qd$regs<-gsub("ST_...","",qd$tags)
+qd$regs<-gsub("CA_...","",qd$regs)
+qd$nbregs<-ntoken(tokens(as.character(qd$regs)))
+td<-tidy(qd)
+
+
+
+hypercube <-function(qd = qd,
+                     when = "date",
+                     when_cut = "year",
+                     who = "source",
+                     where1 = "tags",
+                     where2 = "tags")
+                     
+  {   
+
+# create data.table accroding to parameter chosen
+  don<-docvars(qd)
+
+  df<-data.table(id = docid(qd),
+                 who = don[,who],
+                 when = as.character(cut(don[,when],breaks=when_cut)),
+                 where1 = don[,where1],
+                 where2 = don[,where2])
+
+
+
+# add code _no_ for empty fields
+df$where1[df$where1==""]<-"_no_"
+df$where2[df$where2==""]<-"_no_"
+
+
+# unnest where1
+  df<-unnest_tokens(df,where1,where1,to_lower=F)
+  
+# unnest where2
+  df<-unnest_tokens(df,where2,where2,to_lower=F)  
+  
+# define number of occurence by id
+  nb<-df[,.N,list(id)] %>%  mutate(wgt = 1/N) %>% select(-N)
+  df<-df %>% left_join(nb) 
+  
+  rm(nb)
+ 
+# Aggregate
+  hc<- df[,.( tags = .N, news=sum(wgt)) ,.(who, when,where1,where2)]
+  
+# Convert date to time
+  hc$when<-as.Date(hc$when)
+  
+# return hypercube
+  return(hc)
+
+}
+
+hc_reg <- hypercube(qd = qd,
+                     when = "date",
+                     when_cut = "months",
+                     who = "source",
+                     where1 = "regs",
+                     where2 = "regs")
+
+saveRDS(hc_reg,"hypercube/hc_reg.RDS")
+```
+## Distribution des nouvelles par média au cours du temps
+
+```{r, warnings=F, message=FALSE}
+hc_reg<-readRDS("hypercube/hc_reg.RDS")
+
+hc_reg$OK<-as.factor(hc_reg$where1!="_no_") 
+levels(hc_reg$OK)<-c("Non","Oui")
+
+month<-hc_reg[,.(nb<-sum(news)),.(when,who,OK)] %>%
+  dcast(formula = who+when~OK, value.var = "V1",fill = 0) %>%
+  mutate(Media=who,
+         Date = when,
+         Total=Non+Oui,
+         Frequence = Oui,
+         Pourcentage = 100*Frequence/Total) %>%
+  select(Media,Date, Total,Frequence, Pourcentage) %>%
+  filter(is.na(Date)==F, Date < as.Date("2021-07-01"))
+
+
+#kable(month,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant une macro-région")
+
+ggplot(month,aes(x=Date,y=Total,color=Media)) + 
+       geom_line(lwd=0.5) +
+
+ggtitle("Nombre de nouvelles par média (Jan. 2019-  Juin 2021)",
+               subtitle = "source : Mediacloud)" )
+```
+
+
+
+
+
+## Fréquences des macro-régions par journal
+
+```{r, warnings=F, message=FALSE}
+hc_reg<-readRDS("hypercube/hc_reg.RDS")
+
+hc_reg$OK<-as.factor(hc_reg$where1!="_no_") 
+levels(hc_reg$OK)<-c("Non","Oui")
+
+med<-hc_reg[,.(nb<-sum(news)),.(who,OK)] %>%
+  dcast(formula = who~OK, value.var = "V1") %>% 
+  mutate(Media = who,
+         Total=Non+Oui,
+         Frequence = Oui,
+         Pourcentage = 100*Frequence/Total) %>%
+  select(Media, Total,Frequence, Pourcentage)
+
+tot<-med[1,]
+tot$Media<-"Total"
+tot$Total<-sum(med$Total)
+tot$Frequence<-sum(med$Frequence)
+tot$Pourcentage<-100*tot$Frequence/tot$Total
+
+tabres<-rbind(med,tot)
+kable(tabres,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant une macro-région")
+```
+
+-**Commentaire** : Sur un total de 916024 titres de nouvelles, 20619 contenaient au moins une macro-région, ce qui représente une proportion de 2.28% soit environ une nouvelle sur cinquante. Cette proportion varoe de 1 à 4% selon les journaux. 
+
+
+## Fréquence des macro-régions par mois
+
+```{r, warnings=F, message=FALSE}
+hc_reg<-readRDS("hypercube/hc_reg.RDS")
+
+hc_reg$OK<-as.factor(hc_reg$where1!="_no_") 
+levels(hc_reg$OK)<-c("Non","Oui")
+
+month<-hc_reg[,.(nb<-sum(news)),.(when,OK)] %>%
+  dcast(formula = when~OK, value.var = "V1") %>% 
+  mutate(Date = when,
+         Total=Non+Oui,
+         Frequence = Oui,
+         Pourcentage = 100*Frequence/Total) %>%
+  select(Date, Total,Frequence, Pourcentage) %>%
+  filter(is.na(Date)==F, Date < as.Date("2021-07-01"))
+
+
+kable(month,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant une macro-région")
+
+ggplot(month,aes(x=Date,y=Pourcentage)) + 
+       geom_line(col="red",lwd=0.5) +
+       geom_point(col="black") +
+       geom_smooth() +
+       ggtitle("Les macro-régions dans les nouvelles de presse quotienne (Jan. 2019-  Juin 2021)",
+               subtitle = "12 médias de France, Allemagne, Turquie, Tunisie, Irlande et Royaume-Uni (source : Mediacloud)" )
+```
+
+## Distribution des nouvelles sur les macro-régions par média au cours du temps
+
+```{r, warnings=F, message=FALSE}
+hc_reg<-readRDS("hypercube/hc_reg.RDS")
+
+hc_reg$OK<-as.factor(hc_reg$where1!="_no_") 
+levels(hc_reg$OK)<-c("Non","Oui")
+
+month<-hc_reg[,.(nb<-sum(news)),.(when,who,OK)] %>%
+  dcast(formula = who+when~OK, value.var = "V1",fill = 0) %>%
+  mutate(Media=who,
+         Date = when,
+         Total=Non+Oui,
+         Frequence = Oui,
+         Pourcentage = 100*Frequence/Total) %>%
+  select(Media,Date, Total,Frequence, Pourcentage) %>%
+  filter(is.na(Date)==F, Date < as.Date("2021-07-01"))
+
+
+#kable(month,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant une macro-région")
+
+ggplot(month,aes(x=Date,y=Pourcentage,color=Media)) + 
+       geom_smooth(lwd=0.6,fill=NA) +
+
+ggtitle("Part des nouvelles sur les macro-régions par média (Jan. 2019-  Juin 2021)",
+               subtitle = "source : Mediacloud" )
+```
