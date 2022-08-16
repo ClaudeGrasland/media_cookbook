@@ -29,7 +29,11 @@ hc_reg$news_wgt<-hc_reg$news*hc_reg$coeff
 reg_def<-readRDS("dict/worldgeo_def_V1.RDS")
 tab_def<-reg_def %>% filter(lang=="fr") %>% select(code,type,label)
 tab_def$label[tab_def$code=="OR_NATO"]<-"OTAN"
-
+tab_def$label[tab_def$code=="OR_Merco"]<-"MERCOSUR"
+tab_def$label[tab_def$code=="LA_Mashr"]<-"Machrek"
+tab_def$label[tab_def$code=="LA_Maghr"]<-"Maghreb"
+tab_def$label[tab_def$code=="SE_china_south"]<-"Mer de Chine S."
+tab_def$label[tab_def$code=="SE_china_east"]<-"Mer de Chine O."
 ```
 
 ## Top 50 regions in full corpus
@@ -219,7 +223,7 @@ kable(tab,digits=1, row.names = F)
 # Compute
 df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(who, where1)] %>% 
      group_by(who) %>%
-     filter(where1 != "Q828")%>%
+     filter(where1 != "LA_sahara")%>%
      mutate(pct = 100*nb/max(nb),
             rnk = rank(-nb))
 
@@ -232,13 +236,14 @@ tab1<-res[1:10,2]
 names(tab1) <- c("Rank")
 tab2<-res[1:10,c(3,4)]
 names(tab2)<-c("Al Chorouk (ar)","pct1")
-tab3<-res[11:20,c(3,4)]
+tab3<-res[12:21,c(3,4)]
 names(tab3)<-c("El Kahbar (ar)","pct2")
+tab4<-res[22:31,c(3,4)]
+names(tab4)<-c("ElWatan (fr)","pct3")
 
+tab<-cbind(tab1,tab2,tab3,tab4)
 
-tab<-cbind(tab1,tab2,tab3)
-
-kable(tab,digits=c(0,1,1,1,1,1), row.names = F)
+kable(tab,digits=c(0,1,1,1,1,1,1,1), row.names = F)
 
 ```
 
@@ -265,7 +270,7 @@ lab<-merge(lab,tab_def,all.x=T,all.y=F) %>% filter(duplicated(code)==F)
 row.names(mat)<-lab$label
 
 # Filter ambiguous units
-#mat<-mat[row.names(mat) != "Americas",]
+mat<-mat[row.names(mat) != "Sahara",]
 #mat<-mat[row.names(mat) != "Asia Minor",]
 #mat<-mat[row.names(mat) != "Southern Africa",]
 #mat<-mat[row.names(mat) != "Europe",]
@@ -290,8 +295,8 @@ res <- explor::prepare_results(afc)
 explor::CA_var_plot(res, xax = 1, yax = 2, lev_sup = FALSE, var_sup = FALSE,
     var_sup_choice = , var_hide = "None", var_lab_min_contrib = 0, col_var = "Position",
     symbol_var = NULL, size_var = "Contrib", size_range = c(52.5, 700), labels_size = 8,
-    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-1,
-        2), ylim = c(-1.5, 1))
+    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-1.25,
+        2.5), ylim = c(-1.25, 2.5))
 
 ```
 
@@ -302,8 +307,8 @@ res <- explor::prepare_results(afc)
 explor::CA_var_plot(res, xax = 3, yax = 4, lev_sup = FALSE, var_sup = FALSE,
     var_sup_choice = , var_hide = "None", var_lab_min_contrib = 0, col_var = "Position",
     symbol_var = NULL, size_var = "Contrib", size_range = c(52.5, 700), labels_size = 8,
-    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-2.17,
-        1.7), ylim = c(-1.86, 2.01))
+    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-2,
+        1.5), ylim = c(-2, 1.5))
 ```
 
 ### Cluster analysis (world regions)
@@ -329,12 +334,15 @@ library(pheatmap)
 x<-chisq.test(sel)
 res<-as.matrix(x$residuals)
 exp<-as.matrix(x$expected)
-res[exp<2]<-0
-res[res>3]<-3
-res[res< -3]<- -3
+res[exp<0.5]<-0
+res[res>3]<-2
+res[res< -3]<- -2
 
+pheatmap(res, cutree_rows = 6,cutree_cols = 5)
+
+# save pdf
 pdf(file = "test.pdf")
-pheatmap(res, cutree_rows = 7,cutree_cols = 6)
+  pheatmap(res, cutree_rows = 6,cutree_cols = 5)
 dev.off()
 
 ```

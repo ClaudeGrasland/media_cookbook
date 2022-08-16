@@ -120,7 +120,7 @@ qd <- extract_tags (qd = qd,
                      comps = frcomps,
                      tolow = FALSE)
 saveRDS(qd,"quanteda/fr_FRA_figaro_geo.RDS")
-qd1<-qd
+
 
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),regs=qd$tags,nbregs=qd$nbtags)
@@ -145,7 +145,7 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/fr_FRA_lmonde_geo.RDS")
-qd2<-qd
+
 
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
@@ -168,7 +168,7 @@ qd <- extract_tags (qd = qd,
                      split = c("'","’","-"),
                     tolow = FALSE)
 saveRDS(qd,"quanteda/de_DEU_frankf_geo.RDS")
-qd3<-qd
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -189,7 +189,7 @@ qd <- extract_tags (qd = qd,
                      split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/de_DEU_suddeu_geo.RDS")
-qd4<-qd
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -213,7 +213,7 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/en_GBR_guardi_geo.RDS")
-qd5<-qd
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -234,7 +234,7 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/en_GBR_telegr_geo.RDS")
-qd6<-qd
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -255,7 +255,7 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/en_NIR_beltel_geo.RDS")
-qd7<-qd
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -276,7 +276,7 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/en_IRL_irtime_geo.RDS")
-qd8<-qd
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -299,7 +299,7 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/tr_TUR_cumhur_geo.RDS")
-qd9<-qd
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -320,7 +320,7 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/tr_TUR_yenisa_geo.RDS")
-qd10<-qd
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -345,7 +345,7 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/ar_DZA_elkahb_geo.RDS")
-qd11<-qd
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -365,7 +365,36 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/ar_DZA_chorou_geo.RDS")
-qd12<-qd
+
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
+```
+
+
+### El Watan
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/fr_DZA_elwata.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
+frcomps<-c("Europe 1", "Atlantic city", 
+           "Loire-Atlantique", "Pyrénées-Atlantique", "Pyrénées-Atlantiques",
+           "Alpes-de-Haute-Provence", "Hautes-Alpes", "Rhöne-Alpes","Alpes-Maritimes",
+           "Chantiers de l'Atlantique", "TGV Atlantique",
+           "Bourse de Paris", "Paris SG", "Ville de Paris", "Grand Paris")
+
+qd <- extract_tags (qd = qd,
+                     lang="fr",
+                     dict = dict,
+                    code = "code",
+                    comps = frcomps,                   
+                   split = c("'","’","-"),
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/fr_DZA_elwata_geo.RDS")
+
+
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ```
@@ -375,8 +404,23 @@ x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 ### Global corpus
 
 ```{r, eval=FALSE}
-qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12)
+qd1<-readRDS("quanteda/fr_FRA_figaro_geo.RDS")
+qd2<-readRDS("quanteda/fr_FRA_lmonde_geo.RDS")
+qd3<-readRDS("quanteda/de_DEU_suddeu_geo.RDS")
+qd4<-readRDS("quanteda/de_DEU_frankf_geo.RDS")
+qd5<-readRDS("quanteda/en_GBR_guardi_geo.RDS")
+qd6<-readRDS("quanteda/en_GBR_telegr_geo.RDS")
+qd7<-readRDS("quanteda/en_NIR_beltel_geo.RDS")
+qd8<-readRDS("quanteda/en_IRL_irtime_geo.RDS")
+qd9<-readRDS("quanteda/tr_TUR_cumhur_geo.RDS")
+qd10<-readRDS("quanteda/tr_TUR_yenisa_geo.RDS")
+qd11<-readRDS("quanteda/fr_DZA_elwata_geo.RDS")
+qd12<-readRDS("quanteda/ar_DZA_alnaha_geo.RDS")
+qd13<-readRDS("quanteda/ar_DZA_chorou_geo.RDS")
+
+qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12,qd13)
 saveRDS(qd,"quanteda/corpus_worldgeo_V3.RDS")
 table(qd$nbtags)
+
 ```
 

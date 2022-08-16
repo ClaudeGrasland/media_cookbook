@@ -8,6 +8,7 @@ library(data.table)
 library(tidytext)
 library(ggplot2)
 library(readr)
+library(stringr)
 ```
 
 ## Objectives
