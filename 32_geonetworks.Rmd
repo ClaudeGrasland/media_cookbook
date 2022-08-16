@@ -1,0 +1,392 @@
+# Geonetworks {#c31_geonetworks}
+
+```{r, echo = FALSE, comment = FALSE, warning = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = FALSE, warning = FALSE, message = FALSE)
+library(quanteda, quiet=T)
+library(readr)
+library(knitr)
+library(ggplot2)
+library(data.table)
+library(lubridate, quiet=T)
+library(tidytext, quiet=T)
+library(stringr)
+library(visNetwork, quietly = T)
+library(dplyr)
+```
+
+
+### Load Hypercube State x Regions
+
+```{r}
+hc_sta_reg<-readRDS("hypercube/hc_sta_reg.RDS")
+```
+
+We load the hypercube describing the association between regions and states in the same titles of news
+
+
+
+
+
+
+###  Select links
+ We want to produce a selection of the hypercube data set and to normalize the datain order to keep only two columns of location corresponding to `where1`, `where2`. The function will also help us to select data according to the dimensions  who and when and the possible selection or exclusion of elements from where1 and where2
+
+```{r}
+hc_filter <- function(don = hc,
+                      who = "who",
+                      when = "when",
+                      where1 = "where1",
+                      where2 = "where2",
+                      wgt = "tags",
+                      self = FALSE,
+                      when_start = NA,
+                      when_end = NA,
+                      who_exc = NA,
+                      who_inc = NA,
+                      where1_exc = NA,
+                      where1_inc = NA,
+                      where2_exc = NA,
+                      where2_inc = NA)
+
+  {                          
+  
+    df<-data.table(who = don[[who]],
+                   when = don[[when]],
+                   where1 = don[[where1]],
+                   where2 = don[[where2]],
+                   wgt = don[[wgt]])
+    
+    # Select time period
+        if (is.na(when_start)==FALSE) { 
+        df <- df[when >= as.Date(when_start), ]}
+        if (is.na(when_end)==FALSE) { 
+        df <- df[when <= as.Date(when_end), ]}
+    # Select who
+        if (is.na(who_exc)==FALSE) { 
+        df <- df[!(who %in% who_exc), ]}
+        if (is.na(who_inc)==FALSE) { 
+        df <- df[(who %in% who_inc), ]}
+    # Select where1
+        if (is.na(where1_exc)==FALSE) { 
+        df <- df[!(where1 %in% where1_exc), ]}
+        if (is.na(where1_inc)==FALSE) { 
+        df <- df[(where1 %in% where1_inc), ]}
+    # Select where2
+        if (is.na(where2_exc)==FALSE) { 
+        df <- df[!(where2 %in% where2_exc), ]}
+        if (is.na(where2_inc)==FALSE) { 
+        df <- df[(where2 %in% where2_inc), ]}
+    # eliminate internal links
+       if (self==FALSE) { 
+        df <- df[(where1 != where2), ]}
+    return(df)
+  
+}
+```
+
+Application now: 
+
+```{r}
+hc<-hc_filter(don = hc_sta_reg,
+              who_inc = c("fr_FRA_figaro", "fr_FRA_lmonde"),
+              wgt = "tags",
+              where1_exc = c("_no_"),
+              where2_exc = c("_no_"),
+              self = FALSE
+)
+```
+
+
+
+`
+
+### Create interaction matrix
+
+Now, we transform the data in a matrix of interaction (i,j,Fij) whre we fill with 0 the empty cells. After that we eliminate the lines and columns wich do not fulfill one of the two conditions of salience and diversity : 
+
+- **Salience (s1,s2)** : For example, we will eliminate a country that has not be mentioned at less 20 times in the news. To do that, we compute the marginal sums of the matrix in lines (1) and columns (2) and we check if the condition is fulfilled.  
+- **Diversity (n1,n2,k)** : We consider that a linkage between units i and j exist if Fij > k. Then we compute the number of links where the condition is verified in lines (1) and columns. To do that we compute a boolean matrix where the value are 0 if Fij < k and 1 if Fi >= k. And we verify if the marginal sums of the matrix verify the conditions n1 and n2.
+
+The default values are 
+
+- s1 = s2 = 5
+- n1 = n2 = 3
+- k = 0
+
+They depend from the type of weight used. The previous parameter are adapted to the case where we use fractions of news as weighting criteria. They should be higher if we decide to use the number of tags. 
+
+
+To do that, we create a specific function called `build_mat` .
+
+```{r}
+build_int <- function(don = don,       # a dataframe with columns i, j , Fij
+                      i = "where1",
+                      j = "where2",
+                      Fij = "wgt",
+                      s1 = 3,
+                      s2 = 3,
+                      n1 = 1,
+                      n2 = 1,
+                      k = 0)
+
+{  
+  df<-data.table(i=don[[i]],j=don[[j]],Fij=don[[Fij]])
+  int <-df[,.(Fij=sum(Fij)),.(i,j)]
+  int<-dcast(int,formula = i~j,fill = 0)
+  mat<-as.matrix(int[,-1])
+  row.names(mat)<-int$i
+  mat<-mat[apply(mat,1,sum)>=s1,apply(mat,2,sum)>=s2 ]
+  m0<-mat
+  m0[m0<k]<-0
+  m0[m0>=k]<-1
+  mat<-mat[apply(m0,1,sum)>=n1,apply(m0,2,sum)>=n2 ]
+  int<-melt(mat)
+  names(int) <-c("i","j","Fij")
+  return(int)
+}
+
+```
+
+Application now: 
+
+```{r}
+int <- build_int(don = hc,
+                 s1=3,
+                 s2=3,
+                 n1=1,
+                 n2=1,
+                 k=0)
+head(int)
+```
+
+
+
+
+
+
+
+### Estimate random model
+
+We can now solve the model and compute the most important and significant residuals according to various criteria. We will therefore build a model where i, j and Fij will be completed by a column Eij which describe the expected number of news where i and j would be associated if the allocation was made randomly.
+
+It is important to check if the size of the matrix is not too large, in order to avoid computational crash ... As a security, we introduce a parameter `maxsize = 100000` defined by the product of numer of lines and columns... If you decide to increase this parameter, it is at your own risk ...
+
+
+When i and j describe the same spatial units (e.g. state x state or reg x reg), it can be important to eliminate the diagonal if it is empty or if we decide to focus only on external relations between geographical objects. For this reason, we introduce a parameter `diag` = TRUE or FALSE in the function `rand_int()` that solves the model
+
+We can eventually add to the data set further columns related to the residuals measures in different forms if we activate the parameter `resid=TRUE` :
+
+- Rabs_ij = Fij-Eij : absolute residuals
+- Rrel_ij = Fij/Eij : relative residuals
+- Rchi_ij = sign(R_absij) x (Rabs_ij)^2 / Eij
+
+
+```{r}
+
+rand_int <- function(int = int, # A table with columns i, j Fij
+                     maxsize = 100000,
+                     diag    = FALSE,
+                     resid   = FALSE) {
+    # Eliminate diagonal ?
+    if (diag==FALSE) { 
+        int <- int[as.character(int$i) != as.character(int$j), ]}
+  
+    # Compute model if size not too large
+    if (dim(int)[1] < maxsize) {
+       # Proceed to poisson regression model
+       mod <- glm( formula = Fij ~ i + j,family = "poisson", data = int)
+  
+       # Add residuals if requested
+       if(resid == TRUE)   { 
+          # Add estimates
+          int$Eij <- mod$fitted.values
+
+          # Add absolute residuals
+          int$Rabs_ij <- int$Fij-int$Eij
+
+          # Add relative residuals
+          int$Rrel_ij <- int$Fij/int$Eij
+
+          # Add chi-square residuals
+          int$Rchi_ij <-  (int$Rabs_ij)**2 / int$Eij
+          int$Rchi_ij[int$Rabs_ij<0]<- -int$Rchi_ij[int$Rabs_ij<0]
+          }
+         
+    } else { paste ("Table > 100000 -  \n 
+                     modify maxsize =  parameter \n
+                     if you are sure that your computer can do it !")}
+  # Export results
+  int$i<-as.character(int$i)
+  int$j<-as.character(int$j)
+  return(int)
+  
+ }
+
+```
+
+#### Application
+
+```{r}
+mod<-rand_int(int,
+              resid = TRUE,
+              diag = FALSE)
+```
+
+We can have a look at the more important positive residuals in absolute value : 
+
+```{r}
+tab<-mod[order(-mod$Rabs_ij),]
+tab<-tab[(tab$i > tab$j),]
+kable(head(tab,10) , digits=2, caption = "Positive residuals")
+```
+
+
+
+
+
+## Visualization
+
+
+### Function
+
+We have created a prototype of geonetwork visualization function with different parameters making possible to display different graphs.
+
+
+```{r}
+geo_network<- function(don = mod,
+                       from = "i",
+                        to = "j", 
+                        size = "Fij",
+                        minsize = 1,
+                        maxsize = NA,
+                        test = "Fij",
+                        mintest = 1,
+                        loops  = FALSE, 
+                        title = "Network")
+
+{
+  # check
+ don<-mod 
+ from<-"i"
+ to<-"j"
+ size<-"Fij"
+ test<-"Fij"
+ minsize<-5
+ maxsize<-NA
+ mintest<-1
+  
+  
+int<-data.frame(i = as.character(don[,from]),
+                j = as.character(don[,to]),
+                size = don[,size],
+                test = don[,test]
+                )
+if (is.na(minsize)==FALSE) {int =int[int$size >= minsize,]} 
+if (is.na(maxsize)==FALSE) {int =int[int$size <= maxsize,]} 
+if (is.na(mintest)==FALSE) {int =int[int$test >= mintest,]}
+
+#nodes<-data.frame(code = unique(c(int$i,int$j)))
+#nodes$code<-as.character(nodes$code)
+#nodes$id<-1:length(nodes$code)
+#nodes$label<-nodes$code
+
+nodesi<-data.frame(code = unique(c(int$i)))
+nodesi$code<-as.character(nodesi$code)
+nodesi$id<-1:length(nodesi$code)
+nodesi$label<-nodesi$code
+tot<-int %>% group_by(i) %>% summarize(size =sum (size)) %>% select (code=i,size)
+tot$code<-as.factor(tot$code)
+nodesi <- left_join(nodesi,tot) %>% mutate(value = sqrt(2+10 *size/max(size)))
+
+nodesj<-data.frame(code = unique(c(int$j)))
+nodesj$code<-as.character(nodesj$code)
+nodesj$id<-1:length(nodesj$code)+length(nodesi$code)
+nodesj$label<-nodesj$code
+tot<-int %>% group_by(j) %>% summarize(size =sum (size)) %>% select (code=j,size)
+tot$code<-as.factor(tot$code)
+nodesj <- left_join(nodesj,tot) %>% mutate(value = sqrt(1+10 *size/max(size)))
+
+nodes<-rbind(nodesi,nodesj)
+
+
+# Adjust edge codes
+edges <- int %>% mutate(width = 5+30*size / max(size)) %>%
+                left_join(nodes %>% select(i=code, from = id)) %>%  
+                left_join(nodes %>% select(j=code, to = id )) 
+
+# compute nodesize
+tot<-int %>% group_by(i) %>% summarize(size =sum (size)) %>% select (code=i,size)
+#tot$code<-as.factor(tot$code)
+#nodes <- left_join(nodes,tot) %>% mutate(value = sqrt(10 *size/max(size)))
+
+
+#sel_nodes <-nodes %>% filter(code %in% unique(c(sel_edges$i,sel_edges$j)))
+
+# eliminate loops
+
+if(loops == FALSE) {edges <- edges[edges$from < edges$to,]}
+
+net<- visNetwork(nodes, 
+                  edges, 
+                  main = title,
+height = "700px", 
+                  width = "100%")   %>%   
+   visNodes(scaling =list(min =20, max=60, 
+                          label=list(min=20,max=80, 
+                                    maxVisible = 20)))%>%
+       visOptions(highlightNearest = TRUE,
+     #               selectedBy = "group", 
+    #               manipulation = TRUE,
+                  nodesIdSelection = TRUE) %>%
+        visInteraction(navigationButtons = TRUE) %>%
+         visLegend() %>%
+      visIgraphLayout(layout ="layout.fruchterman.reingold",smooth = TRUE)
+
+net
+ return(net)
+ } 
+
+```
+
+
+
+### Raw network
+
+We can firstly provide a basic view of the network using the default parameters wich visualize all connections greater to zero.
+
+#### With France
+
+```{r}
+geo_network(mod,
+            size = "Fij",
+            minsize = 2,
+            test = "Fij",
+            mintest = 5)
+
+```
+
+
+### Preferential links 
+
+But we can also visualize the most significant links by changing the criteria of size and introducing a test of significance :
+
+#### With France
+
+```{r}
+geo_network(mod,
+            size = "Rabs_ij",
+            minsize = 2,
+            test = "Rchi_ij",
+            mintest = 3.84)
+```
+
+
+#### Without France
+
+```{r}
+geo_network(mod2,
+            size = "Rabs_ij",
+            minsize = 2,
+            test = "Rchi_ij",
+            mintest = 3.84)
+```
