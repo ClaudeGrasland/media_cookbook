@@ -20,7 +20,7 @@ The aim of this section is to separate states and world region and to evaluate t
 
 
 ```{r, warning=F, eval=FALSE}
-qd<-readRDS("quanteda/corpus_worldgeo_V2.RDS")
+qd<-readRDS("quanteda/corpus_worldgeo_V3.RDS")
 
 # Extract regs
 qd$regs<-qd$tags
@@ -127,12 +127,12 @@ saveRDS(hc_sta_reg,"hypercube/hc_sta_reg.RDS")
 ## Distribution des nouvelles par média au cours du temps
 
 ```{r, warnings=F, message=FALSE}
-hc_reg<-readRDS("hypercube/hc_reg.RDS")
+hc<-readRDS("hypercube/hc_reg.RDS")
 
-hc_reg$OK<-as.factor(hc_reg$where1!="_no_") 
-levels(hc_reg$OK)<-c("Non","Oui")
+hc$OK<-as.factor(hc$where1!="_no_") 
+levels(hc$OK)<-c("Non","Oui")
 
-month<-hc_reg[,.(nb<-sum(news)),.(when,who,OK)] %>%
+month<-hc[,.(nb<-sum(news)),.(when,who,OK)] %>%
   dcast(formula = who+when~OK, value.var = "V1",fill = 0) %>%
   mutate(Media=who,
          Date = when,
@@ -159,12 +159,12 @@ ggtitle("Nombre de nouvelles par média (Jan. 2019-  Juin 2021)",
 ## Fréquences des macro-régions par journal
 
 ```{r, warnings=F, message=FALSE}
-hc_reg<-readRDS("hypercube/hc_reg.RDS")
+hc<-readRDS("hypercube/hc_reg.RDS")
 
-hc_reg$OK<-as.factor(hc_reg$where1!="_no_") 
-levels(hc_reg$OK)<-c("Non","Oui")
+hc$OK<-as.factor(hc$where1!="_no_") 
+levels(hc$OK)<-c("Non","Oui")
 
-med<-hc_reg[,.(nb<-sum(news)),.(who,OK)] %>%
+med<-hc[,.(nb<-sum(news)),.(who,OK)] %>%
   dcast(formula = who~OK, value.var = "V1") %>% 
   mutate(Media = who,
          Total=Non+Oui,
@@ -182,7 +182,7 @@ tabres<-rbind(med,tot)
 kable(tabres,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant une macro-région")
 ```
 
--**Commentaire** : Sur un total de 916024 titres de nouvelles, 20619 contenaient au moins une macro-région, ce qui représente une proportion de 2.28% soit environ une nouvelle sur cinquante. Cette proportion varoe de 1 à 4% selon les journaux. 
+ 
 
 
 
@@ -211,7 +211,7 @@ tot$Pourcentage<-100*tot$Frequence/tot$Total
 tabres<-rbind(med,tot)
 kable(tabres,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant un pays étranger")
 ```
--**Commentaire** : Sur un total de 916024 titres de nouvelles, 136060 mentionnaient au moins un nom ou une capitale de pays étranger, ce qui représente une proportion de 14.45% soit environ une nouvelle sur sept. Cette proportion varie de 8 à 22 % selon les journaux.
+
 
 ## Fréquences des mentions simaultanées d'états et de région par journal
 
@@ -239,6 +239,5 @@ tabres<-rbind(med,tot)
 kable(tabres,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant à la fois un pays (étranger ou non) et une macro-région")
 ```
 
--**Commentaire** : Sur un total de 916024 titres de nouvelles, 6200 contenaient à la fois une macro-région et un nom de pays (étranger ou non), ce qui représente une proportion de 0.68% soit environ une nouvelle sur qinze. Cette proportion varoe de 0.2 à 1.2% selon les journaux.
 
 

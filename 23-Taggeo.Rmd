@@ -328,26 +328,7 @@ x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 
 
 
-### Al Nahar (DZA)
 
-```{r, eval=FALSE}
-arcomps = c("الصحراء الغربية")
-qd <- readRDS("quanteda/ar_DZA_alnaha.RDS")
-docvars(qd)<-docvars(qd)[c("source","date")]
-qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
-
-qd <- extract_tags (qd = qd,
-                     lang="ar",
-                     dict = dict,
-                    code = "code",
-                     comps = arcomps,
-                   split = c("'","’","-"),
-                     tolow = FALSE)
-saveRDS(qd,"quanteda/ar_DZA_alnaha_geo.RDS")
-qd11<-qd
-table(qd$nbtags)
-x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
-```
 
 ### El Khabar (DZA)
 
@@ -364,6 +345,26 @@ qd <- extract_tags (qd = qd,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/ar_DZA_elkahb_geo.RDS")
+qd11<-qd
+table(qd$nbtags)
+x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
+```
+
+### Al Chorouk (DZA)
+
+```{r, eval=FALSE}
+
+qd <- readRDS("quanteda/ar_DZA_chorou.RDS")
+docvars(qd)<-docvars(qd)[c("source","date")]
+qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
+
+qd <- extract_tags (qd = qd,
+                     lang="ar",
+                     dict = dict,
+                    code = "code",
+                   split = c("'","’","-"),
+                     tolow = FALSE)
+saveRDS(qd,"quanteda/ar_DZA_chorou_geo.RDS")
 qd12<-qd
 table(qd$nbtags)
 x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
@@ -371,12 +372,11 @@ x<-data.frame(text=as.character(qd),tags=qd$tags,nbtags=qd$nbtags)
 
 
 
-
 ### Global corpus
 
 ```{r, eval=FALSE}
 qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12)
-saveRDS(qd,"quanteda/corpus_worldgeo_V2.RDS")
+saveRDS(qd,"quanteda/corpus_worldgeo_V3.RDS")
 table(qd$nbtags)
 ```
 

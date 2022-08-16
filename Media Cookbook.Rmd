@@ -40,109 +40,16 @@ The aim of this cookbook is to exchange ideas and programs between members of th
 
 <!--chapter:end:index.Rmd-->
 
+
 # Import from Media Cloud {#c11_mediacloud}
 
-```{r}
-library(quanteda)
-library(dplyr)
-library(ggplot2)
-library(tidytext)
-library(knitr)
-
-knitr::opts_chunk$set(cache = TRUE,
-                      echo = TRUE,
-                      comment = "")
-
-
-```
-
-
-
-
-
-
-(tbd : presentation of the MediaCloud project)
-
-Mediacloud can be freely used by researchers. All you have to do is to create an account at the following adress :
-
-https://explorer.mediacloud.org
-
-
-You have different ways to get title of news. We will focus here on a simple example of data obtained through the mediacloud interface. We suppose that you want to extract news from the Tunisian newspapers speaking from Europe.
-
+Placeholder
 
 
 ## Selection of media with source manager
-
-We use the application called *Source Manager* and we introduce a research by collection which is the most convenient to explore what is available in a country. In our example, the target country is Tunisia and we have three collections that are propsed : 
-
-```{r, echo=FALSE}
-knitr::include_graphics("pics/mc_source_001.png")
-```
-
-We have selected the collection named "Tunisia National" because we are interested in the most important newspapers of the country. 
-
-```{r, echo=FALSE}
-knitr::include_graphics("pics/mc_source_002.png")
-```
-The buble graphic on the right indicates immediately the media that has produced the highest number of news, but it is wise to explore in more details the list on the left which indicates for each media the statting date of data collection. 
-
-When a media appears interesting, we click on its name to obtain a brief summary of the metadata. For example, in the case of *L'économiste Maghrebin* the metadata indicates :
-
-```{r, echo=FALSE}
-knitr::include_graphics("pics/mc_source_003.png")
-```
-
-The media looks promising,  but before to go further, it can be better to have a look at the website of the media to have a more concrete idea of the content if we don't know in advance what it is about in terms of content, what is the ideological orientation, etc. 
-
-
-```{r, echo=FALSE}
-knitr::include_graphics("pics/ecomag.png")
-```
-
-Here we can see that this is an ecnomic journal, published in french, with news organized in concentric geographic circles (Nation > Maghreb > Africa > World) which is precisely what we are looking for in the IMAGEUN project. We will further complete the informations about this, but before to do that we have to check in more details if the production of the media is regular through time with another tool offered by mediacloud, the explorer.
-
 ## Checking the stability through time
-
-We have clicked on *search in explorer* on the metadata page of the Source Manager and obtain a news interfacce where we modify the date to cover the full period of collection of the media (or our period of interest). In the research field, we let the search term `*` which indicates a research on all news.
-
-```{r, echo=FALSE}
-knitr::include_graphics("pics/mc_explo_001.png")
-```
-
-
-Below your request, you obtain a graphic entitled *Attention Over Time* with the distribution of the number of news published per day which help you to verify if the distribution of news is regular through time. You just have to modify the type of graphic in order to visualize *Story Count* and you can choose the time span you want (day, week or month) for the evaluation of the regularity of news flow. In our example, we notice that at daily level they are some brief period of break in 2019, but the flow is reasonnabely regular with approximatively 5 news per day at the beginning and 10 to 20 in the final period. We also notice a classical week cycle with a decrease of news published during the week-end. 
-
-```{r, echo=FALSE}
-knitr::include_graphics("pics/mc_explo_002.png")
-```
-
-Going down, you will find a news panel entitled *Total Attention* which gives you the total number of stories found. In our example, we have a total of 13626 stories produced by our media over the period.
-
-
-
-
 ## Selection of news specifically related to a topic (option)
-
-You can eventually use Mediacloud to check the number of news produced about a specific topic, for example Europe or European Union or EU. The request shouldbe put in lower case with "" for compounds. Detailed explanation are available in the [query guide](https://mediacloud.org/support/query-guide).
-
-```{r, echo=FALSE}
-knitr::include_graphics("pics/mc_explo_003.png")
-```
-This time you can use the graphic option *Stories percentage* rather than *Story count* if you want to viusalize the salience of the topic through time.
-
-```{r, echo=FALSE}
-knitr::include_graphics("pics/mc_explo_004.png")
-```
-
-In our example, we have 369 news that appears to be related to our request about Europe or EU with a relatively regular pattern at month level of 1 to 3 \% of news and exceptionaly 5 to 7 \%.
-
 ## Download and storage of news
-
-According to your selection (all news or a specific topic) you will download more or less title. Here, me make the choice to get all news, which means that we have to repeat the original request with `*`.
-
-Finally, by clicking on the button *Download all story URLS*, you can get a .csv file that you can easily load in your favorite programming language as we will see in the next section.
-
 
 <!--chapter:end:11-corpus-mediacloud.Rmd-->
 
@@ -181,6 +88,7 @@ Placeholder
 ## Algeria
 ### Al Nahar
 ### El Kahber
+### al Chorouk
 ### El Watan
 
 <!--chapter:end:12-mediacloud_to_quanteda.Rmd-->
@@ -237,8 +145,8 @@ Placeholder
 ### Irish Times
 ### Cumhuryet
 ### Yeni Safak
-### Al Nahar (DZA)
 ### El Khabar (DZA)
+### Al Chorouk (DZA)
 ### Global corpus
 
 <!--chapter:end:23-Taggeo.Rmd-->
@@ -258,29 +166,349 @@ Placeholder
 
 <!--chapter:end:24-Corpus.Rmd-->
 
-
 # Top World regions {#c31_cybergeo}
 
-Placeholder
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
+library(knitr)
+library(dplyr, quietly=TRUE)
+library(data.table)
+library(FactoMineR)
+```
 
 
 ## Data
+
+We laod an **hypercube** where the text of news has been removed and where we keep only the number of *tags* or proportion of *news* speaking from one or several regions (*where1*, *where2*), by media (*who*) and by time period (*when*)
+
+```{r}
+# Load Hypercube and select period
+hc_reg<-readRDS("hypercube/hc_reg.RDS")
+hc_reg %>% filter(is.na(when)==F, when < as.Date("2021-01-01"))
+
+
+# Define weights correction for equal contribution of media
+wgt<-hc_reg[,list(coeff = sum(news)), list(who)]  %>% 
+      mutate(coeff=mean(coeff)/coeff)
+hc_reg<-left_join(hc_reg,wgt)
+hc_reg$news_wgt<-hc_reg$news*hc_reg$coeff
+
+# Load table of label and choose language
+reg_def<-readRDS("dict/worldgeo_def_V1.RDS")
+tab_def<-reg_def %>% filter(lang=="fr") %>% select(code,type,label)
+tab_def$label[tab_def$code=="OR_NATO"]<-"OTAN"
+
+```
+
 ## Top 50 regions in full corpus
+
+
 ### Unweighted
+
+We can propose firstly a table of top entities in the whole corpus of newspapers with index 100 for the first entity.
+
+```{r}
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(where1)] 
+df<-merge(tab_def,df,by.x="code",by.y="where1",all.x=F,all.y=T)
+df<-df[order(df$nb, decreasing = T),]
+row.names(df)<-1:dim(df)[1]
+df$index<-100*df$nb/max(df$nb)
+
+kable(head(df,50), digits=c(NA,NA,NA,0,2),row.names = T)
+```
+
 ### Weighted
+
+
+```{r}
+df<-hc_reg[where1 !="_no_",list(nb = sum(news_wgt)), list(where1)] 
+df<-merge(tab_def,df,by.x="code",by.y="where1",all.x=F,all.y=T)
+df<-df[order(df$nb, decreasing = T),]
+row.names(df)<-1:dim(df)[1]
+df$index<-100*df$nb/max(df$nb)
+
+kable(head(df,50), digits=c(NA,NA,NA,0,2),row.names = T)
+```
+
+
 ## Top 10 regions by media
+
 ### German newspapers - Top 10 regions
+
+```{r}
+
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(who, where1)] %>% 
+     group_by(who) %>%
+     filter(where1 != "Q828")%>%
+     mutate(pct = 100*nb/max(nb),
+            rnk = rank(-nb))
+
+df_sel <- df %>% filter(substr(who,4,6)=="DEU", rnk < 11)
+df_sel<-merge(df_sel,tab_def,by.x="where1",by.y="code")
+
+res <- df_sel %>% filter(rnk < 11) %>% select(who, rnk,label, pct) %>% mutate(who=substr(who,4,12))
+res<-res[order(res$who, res$rnk),]
+tab1<-res[1:10,2]
+names(tab1) <- c("Rank")
+tab2<-res[1:10,c(3,4)]
+names(tab2)<-c(paste("FAZ","Region",sep="_"),paste("FAZ","pct",sep=" "))
+tab3<-res[11:20,c(3,4)]
+names(tab3)<-c(paste("Süd. Zeit.","Region",sep="_"),paste("Süd. Zeit.","pct",sep=" "))
+tab<-cbind(tab1,tab2,tab3)
+
+kable(tab,digits=1, row.names = F)
+
+```
+
 ### French newspapers - Top 10 regions
+
+```{r}
+
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(who, where1)] %>% 
+     group_by(who) %>%
+     filter(where1 != "Q828")%>%
+     mutate(pct = 100*nb/max(nb),
+            rnk = rank(-nb))
+
+df_sel <- df %>% filter(substr(who,4,6)=="FRA", rnk < 11)
+df_sel<-merge(df_sel,tab_def,by.x="where1",by.y="code")
+
+res <- df_sel %>% filter(rnk < 11) %>% select(who, rnk,label, pct) %>% mutate(who=substr(who,4,12))
+res<-res[order(res$who, res$rnk),]
+tab1<-res[1:10,2]
+names(tab1) <- c("Rank")
+tab2<-res[1:10,c(3,4)]
+names(tab2)<-c(paste("Figaro","Region",sep="_"),paste("Figaro","pct",sep=" "))
+tab3<-res[11:20,c(3,4)]
+names(tab3)<-c(paste("Le Monde","Region",sep="_"),paste("Le Monde","pct",sep=" "))
+tab<-cbind(tab1,tab2,tab3)
+
+kable(tab,digits=1, row.names = F)
+
+```
+
 ### UK newspapers - Top 10 regions
+
+```{r}
+
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(who, where1)] %>% 
+     group_by(who) %>%
+     filter(where1 != "Q828")%>%
+     mutate(pct = 100*nb/max(nb),
+            rnk = rank(-nb))
+
+df_sel <- df %>% filter(substr(who,4,6)=="GBR", rnk < 11)
+df_sel<-merge(df_sel,tab_def,by.x="where1",by.y="code")
+
+res <- df_sel %>% filter(rnk < 11) %>% select(who, rnk,label, pct) %>% mutate(who=substr(who,4,12))
+res<-res[order(res$who, res$rnk),]
+tab1<-res[1:10,2]
+names(tab1) <- c("Rank")
+tab2<-res[1:10,c(3,4)]
+names(tab2)<-c(paste("Guardian","Region",sep="_"),paste("Guardian","pct",sep=" "))
+tab3<-res[11:20,c(3,4)]
+names(tab3)<-c(paste("Daily Telegraph","Region",sep="_"),paste("Daily Telegraph","pct",sep=" "))
+tab<-cbind(tab1,tab2,tab3)
+
+kable(tab,digits=1, row.names = F)
+
+```
+
 ### Irish newspapers - Top 10 regions
+
+```{r}
+
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(who, where1)] %>% 
+     group_by(who) %>%
+     filter(where1 != "Q828")%>%
+     mutate(pct = 100*nb/max(nb),
+            rnk = rank(-nb))
+
+df_sel <- df %>% filter(substr(who,4,6) %in% c("IRL","NIR"), rnk < 11)
+df_sel<-merge(df_sel,tab_def,by.x="where1",by.y="code")
+
+res <- df_sel %>% filter(rnk < 11) %>% select(who, rnk,label, pct) %>% mutate(who=substr(who,4,12))
+res<-res[order(res$who, res$rnk),]
+tab1<-res[1:10,2]
+names(tab1) <- c("Rank")
+tab2<-res[1:10,c(3,4)]
+names(tab2)<-c(paste("Irish Times","Region",sep="_"),paste("Irish Times","pct",sep=" "))
+tab3<-res[11:20,c(3,4)]
+names(tab3)<-c(paste("Belfast Telegraph","Region",sep="_"),paste("Belfast Telegraph","pct",sep=" "))
+tab<-cbind(tab1,tab2,tab3)
+
+kable(tab,digits=1, row.names = F)
+
+```
+
+
+
+
+
 ### Turkish newspapers - Top 10 regions
+
+
+```{r}
+
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(who, where1)] %>% 
+     group_by(who) %>%
+#     filter(where1 != "Q828")%>%
+     mutate(pct = 100*nb/max(nb),
+            rnk = rank(-nb))
+
+df_sel <- df %>% filter(substr(who,4,6)=="TUR", rnk < 11)
+df_sel<-merge(df_sel,tab_def,by.x="where1",by.y="code")
+
+
+res <- df_sel %>% filter(rnk < 11) %>% select(who, rnk,label, pct) %>% mutate(who=substr(who,4,12))
+res<-res[order(res$who, res$rnk),]
+tab1<-res[1:10,2]
+names(tab1) <- c("Rank")
+tab2<-res[1:10,c(3,4)]
+names(tab2)<-c(paste("Cumhuryet","Region",sep="_"),paste("Cumhuryet","pct",sep=" "))
+tab3<-res[11:20,c(3,4)]
+names(tab3)<-c(paste("Yeni Savak","Region",sep="_"),paste("Yeni Savak","pct",sep=" "))
+tab<-cbind(tab1,tab2,tab3)
+
+kable(tab,digits=1, row.names = F)
+
+```
+
 ### Algerian newspapers
+
+```{r}
+
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(who, where1)] %>% 
+     group_by(who) %>%
+     filter(where1 != "Q828")%>%
+     mutate(pct = 100*nb/max(nb),
+            rnk = rank(-nb))
+
+df_sel <- df %>% filter(substr(who,4,6)=="DZA", rnk < 11)
+df_sel<-merge(df_sel,tab_def,by.x="where1",by.y="code")
+
+res <- df_sel %>% filter(rnk < 11) %>% select(who, rnk,label, pct) %>% mutate(who=substr(who,4,12))
+res<-res[order(res$who, res$rnk),]
+tab1<-res[1:10,2]
+names(tab1) <- c("Rank")
+tab2<-res[1:10,c(3,4)]
+names(tab2)<-c("Al Chorouk (ar)","pct1")
+tab3<-res[11:20,c(3,4)]
+names(tab3)<-c("El Kahbar (ar)","pct2")
+
+
+tab<-cbind(tab1,tab2,tab3)
+
+kable(tab,digits=c(0,1,1,1,1,1), row.names = F)
+
+```
+
+
+
+
 ## Synthesis by correspondance analysis and Hierarchical Clustering
+
+The synthesis is realized with regions
+
 ### Factor 1-2
+
+
+```{r}
+# Matrix
+reg_med <-hc_reg[where1 !="_no_",list(nb = sum(news_wgt)), list(where1, who)] %>%
+  dcast(formula = where1~who, value.var = "nb",fill = 0) %>% filter(where1 !="CO_AFR_south")
+mat<-as.matrix(reg_med[,-1])
+
+# Labels
+lab<-reg_med[,1] %>% rename(code=where1) %>% unique()
+lab<-merge(lab,tab_def,all.x=T,all.y=F) %>% filter(duplicated(code)==F)
+# Row.names (choose the language you want !)
+row.names(mat)<-lab$label
+
+# Filter ambiguous units
+#mat<-mat[row.names(mat) != "Americas",]
+#mat<-mat[row.names(mat) != "Asia Minor",]
+#mat<-mat[row.names(mat) != "Southern Africa",]
+#mat<-mat[row.names(mat) != "Europe",]
+#mat<-mat[row.names(mat) != "European Union",]
+
+
+# Select units > 40
+sel<-mat[apply(mat,1,sum)>20,]
+
+# Exclude units mentionned by less than 3 media
+sel <- sel[apply(sel>3,1,sum)>2,]
+
+
+
+
+
+afc <- CA(sel, graph = F)
+#library(explor)
+#explor(afc)
+
+res <- explor::prepare_results(afc)
+explor::CA_var_plot(res, xax = 1, yax = 2, lev_sup = FALSE, var_sup = FALSE,
+    var_sup_choice = , var_hide = "None", var_lab_min_contrib = 0, col_var = "Position",
+    symbol_var = NULL, size_var = "Contrib", size_range = c(52.5, 700), labels_size = 8,
+    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-1,
+        2), ylim = c(-1.5, 1))
+
+```
+
 ### Factors 3-4
+
+```{r}
+res <- explor::prepare_results(afc)
+explor::CA_var_plot(res, xax = 3, yax = 4, lev_sup = FALSE, var_sup = FALSE,
+    var_sup_choice = , var_hide = "None", var_lab_min_contrib = 0, col_var = "Position",
+    symbol_var = NULL, size_var = "Contrib", size_range = c(52.5, 700), labels_size = 8,
+    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-2.17,
+        1.7), ylim = c(-1.86, 2.01))
+```
+
 ### Cluster analysis (world regions)
+
+```{r}
+cah1 <- HCPC(afc,nb.clust = 5,graph = FALSE)
+plot.HCPC(cah1,choice="tree")
+```
+
 ### Cluster analysis (medias)
+
+```{r}
+cah2 <- HCPC(afc,nb.clust = 4,graph = FALSE,cluster.CA = "columns")
+plot.HCPC(cah2,choice="tree")
+```
+
 ## Synthesis by chi-square & heatmap
+
+An alternative approach based on the computation of chi-square and the classification of residuals (censoredd between -3 and +3)
+
+```{r,fig.height=8, fig.width =6}
+library(pheatmap)
+x<-chisq.test(sel)
+res<-as.matrix(x$residuals)
+exp<-as.matrix(x$expected)
+res[exp<2]<-0
+res[res>3]<-3
+res[res< -3]<- -3
+
+pdf(file = "test.pdf")
+pheatmap(res, cutree_rows = 7,cutree_cols = 6)
+dev.off()
+
+```
+
+
+
 
 <!--chapter:end:31-TopRegions.Rmd-->
 

@@ -43,6 +43,7 @@ We have selected the collection named "Tunisia National" because we are interest
 ```{r, echo=FALSE}
 knitr::include_graphics("pics/mc_source_002.png")
 ```
+
 The buble graphic on the right indicates immediately the media that has produced the highest number of news, but it is wise to explore in more details the list on the left which indicates for each media the statting date of data collection. 
 
 When a media appears interesting, we click on its name to obtain a brief summary of the metadata. For example, in the case of *L'économiste Maghrebin* the metadata indicates :

@@ -231,8 +231,8 @@ res<-res[order(res$who, res$rnk),]
 tab1<-res[1:10,2]
 names(tab1) <- c("Rank")
 tab2<-res[1:10,c(3,4)]
-names(tab2)<-c("Al Nahar (ar)","pct1")
-tab3<-res[12:21,c(3,4)]
+names(tab2)<-c("Al Chorouk (ar)","pct1")
+tab3<-res[11:20,c(3,4)]
 names(tab3)<-c("El Kahbar (ar)","pct2")
 
 
@@ -290,8 +290,8 @@ res <- explor::prepare_results(afc)
 explor::CA_var_plot(res, xax = 1, yax = 2, lev_sup = FALSE, var_sup = FALSE,
     var_sup_choice = , var_hide = "None", var_lab_min_contrib = 0, col_var = "Position",
     symbol_var = NULL, size_var = "Contrib", size_range = c(52.5, 700), labels_size = 8,
-    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-2,
-        1), ylim = c(-1, 2.1))
+    point_size = 56, transitions = TRUE, labels_positions = "auto", xlim = c(-1,
+        2), ylim = c(-1.5, 1))
 
 ```
 
@@ -333,9 +333,9 @@ res[exp<2]<-0
 res[res>3]<-3
 res[res< -3]<- -3
 
-#pdf(file = "test.pdf")
+pdf(file = "test.pdf")
 pheatmap(res, cutree_rows = 7,cutree_cols = 6)
-#dev.off()
+dev.off()
 
 ```
 

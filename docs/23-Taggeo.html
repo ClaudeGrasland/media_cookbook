@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Geographical tags | The media cookbook</title>
+  <meta name="description" content="A reminder of some experiments made in 2021" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Geographical tags | The media cookbook" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A reminder of some experiments made in 2021" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Geographical tags | The media cookbook" />
+  
+  <meta name="twitter:description" content="A reminder of some experiments made in 2021" />
+  
+
+<meta name="author" content="Claude Grasland" />
+
+
+<meta name="date" content="2022-08-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="22-Dicogeo.html"/>
+<link rel="next" href="24-Corpus.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">The Media Cookbook  <em>C. Grasland (2021)</em></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html"><i class="fa fa-check"></i><b>2</b> Import from Media Cloud</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html#selection-of-media-with-source-manager"><i class="fa fa-check"></i><b>2.1</b> Selection of media with source manager</a></li>
+<li class="chapter" data-level="2.2" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html#checking-the-stability-through-time"><i class="fa fa-check"></i><b>2.2</b> Checking the stability through time</a></li>
+<li class="chapter" data-level="2.3" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html#selection-of-news-specifically-related-to-a-topic-option"><i class="fa fa-check"></i><b>2.3</b> Selection of news specifically related to a topic (option)</a></li>
+<li class="chapter" data-level="2.4" data-path="11-corpus-mediacloud.html"><a href="11-corpus-mediacloud.html#download-and-storage-of-news"><i class="fa fa-check"></i><b>2.4</b> Download and storage of news</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html"><i class="fa fa-check"></i><b>3</b> quanteda corpus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#example"><i class="fa fa-check"></i><b>3.1</b> Example</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#importation-of-text-to-r"><i class="fa fa-check"></i><b>3.1.1</b> Importation of text to R</a></li>
+<li class="chapter" data-level="3.1.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#encoding-problems"><i class="fa fa-check"></i><b>3.1.2</b> encoding problems</a></li>
+<li class="chapter" data-level="3.1.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#transformation-in-quanteda-format"><i class="fa fa-check"></i><b>3.1.3</b> Transformation in quanteda format</a></li>
+<li class="chapter" data-level="3.1.4" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#storage-of-the-quanteda-object"><i class="fa fa-check"></i><b>3.1.4</b> Storage of the quanteda object</a></li>
+<li class="chapter" data-level="3.1.5" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#backtransformation-of-quanteda-to-data.table-or-tibble"><i class="fa fa-check"></i><b>3.1.5</b> Backtransformation of quanteda to data.table or tibble</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#germany"><i class="fa fa-check"></i><b>3.2</b> Germany</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#frankfurter-allgemeine-zeitung"><i class="fa fa-check"></i><b>3.2.1</b> Frankfurter Allgemeine Zeitung</a></li>
+<li class="chapter" data-level="3.2.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#süddeutsche-zeitung"><i class="fa fa-check"></i><b>3.2.2</b> Süddeutsche Zeitung</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#france"><i class="fa fa-check"></i><b>3.3</b> France</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#le-figaro"><i class="fa fa-check"></i><b>3.3.1</b> Le Figaro</a></li>
+<li class="chapter" data-level="3.3.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#le-monde"><i class="fa fa-check"></i><b>3.3.2</b> Le Monde</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#royaume-uni"><i class="fa fa-check"></i><b>3.4</b> Royaume-Uni</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-guardian"><i class="fa fa-check"></i><b>3.4.1</b> The Guardian</a></li>
+<li class="chapter" data-level="3.4.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-daily-telegraph"><i class="fa fa-check"></i><b>3.4.2</b> The Daily Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#ireland"><i class="fa fa-check"></i><b>3.5</b> Ireland</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-irish-time"><i class="fa fa-check"></i><b>3.5.1</b> The Irish Time</a></li>
+<li class="chapter" data-level="3.5.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-belfast-telegraph"><i class="fa fa-check"></i><b>3.5.2</b> The Belfast Telegraph</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#turkey"><i class="fa fa-check"></i><b>3.6</b> Turkey</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#the-yeni-sati"><i class="fa fa-check"></i><b>3.6.1</b> The Yeni Sati</a></li>
+<li class="chapter" data-level="3.6.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#cumhuryet"><i class="fa fa-check"></i><b>3.6.2</b> Cumhuryet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#tunisia"><i class="fa fa-check"></i><b>3.7</b> Tunisia</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#réalités"><i class="fa fa-check"></i><b>3.7.1</b> Réalités</a></li>
+<li class="chapter" data-level="3.7.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#léconomiste-maghrebin"><i class="fa fa-check"></i><b>3.7.2</b> L’économiste Maghrebin</a></li>
+<li class="chapter" data-level="3.7.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#la-presse"><i class="fa fa-check"></i><b>3.7.3</b> La Presse</a></li>
+<li class="chapter" data-level="3.7.4" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#babnet"><i class="fa fa-check"></i><b>3.7.4</b> Babnet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#algeria"><i class="fa fa-check"></i><b>3.8</b> Algeria</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#al-nahar"><i class="fa fa-check"></i><b>3.8.1</b> Al Nahar</a></li>
+<li class="chapter" data-level="3.8.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#el-kahber"><i class="fa fa-check"></i><b>3.8.2</b> El Kahber</a></li>
+<li class="chapter" data-level="3.8.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#al-chorouk"><i class="fa fa-check"></i><b>3.8.3</b> al Chorouk</a></li>
+<li class="chapter" data-level="3.8.4" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#el-watan"><i class="fa fa-check"></i><b>3.8.4</b> El Watan</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="21-Wikidata.html"><a href="21-Wikidata.html"><i class="fa fa-check"></i><b>4</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="21-Wikidata.html"><a href="21-Wikidata.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="21-Wikidata.html"><a href="21-Wikidata.html#wikidata"><i class="fa fa-check"></i><b>4.2</b> Wikidata</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="21-Wikidata.html"><a href="21-Wikidata.html#codification-of-entities"><i class="fa fa-check"></i><b>4.2.1</b> Codification of entities</a></li>
+<li class="chapter" data-level="4.2.2" data-path="21-Wikidata.html"><a href="21-Wikidata.html#informations-on-entities"><i class="fa fa-check"></i><b>4.2.2</b> Informations on entities</a></li>
+<li class="chapter" data-level="4.2.3" data-path="21-Wikidata.html"><a href="21-Wikidata.html#wikipedia-entities-as-nodes-of-an-ontolongy"><i class="fa fa-check"></i><b>4.2.3</b> Wikipedia entities as nodes of an ontolongy</a></li>
+<li class="chapter" data-level="4.2.4" data-path="21-Wikidata.html"><a href="21-Wikidata.html#a-tool-for-cross-linguistical-experiments"><i class="fa fa-check"></i><b>4.2.4</b> A tool for cross-linguistical experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="21-Wikidata.html"><a href="21-Wikidata.html#the-package-wikidatar"><i class="fa fa-check"></i><b>4.3</b> The package WikidataR</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="21-Wikidata.html"><a href="21-Wikidata.html#basic-operations"><i class="fa fa-check"></i><b>4.3.1</b> Basic operations</a></li>
+<li class="chapter" data-level="4.3.2" data-path="21-Wikidata.html"><a href="21-Wikidata.html#elaboration-of-a-cross_linguistic-dictionnary"><i class="fa fa-check"></i><b>4.3.2</b> Elaboration of a cross_linguistic dictionnary</a></li>
+<li class="chapter" data-level="4.3.3" data-path="21-Wikidata.html"><a href="21-Wikidata.html#extraction-of-aliases"><i class="fa fa-check"></i><b>4.3.3</b> Extraction of aliases</a></li>
+<li class="chapter" data-level="4.3.4" data-path="21-Wikidata.html"><a href="21-Wikidata.html#conclusion"><i class="fa fa-check"></i><b>4.3.4</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html"><i class="fa fa-check"></i><b>5</b> Dictionary of geographical entities</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html#dictionary-of-geographical-entities"><i class="fa fa-check"></i><b>5.1</b> Dictionary of geographical entities</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html#load-the-list-of-world-regions-organisation-states-and-capital-cities"><i class="fa fa-check"></i><b>5.1.1</b> Load the list of world regions, organisation states and capital cities</a></li>
+<li class="chapter" data-level="5.1.2" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html#extract-définitions"><i class="fa fa-check"></i><b>5.1.2</b> Extract définitions</a></li>
+<li class="chapter" data-level="5.1.3" data-path="22-Dicogeo.html"><a href="22-Dicogeo.html#extract-aliases-and-create-dictionary"><i class="fa fa-check"></i><b>5.1.3</b> Extract aliases and create dictionary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="23-Taggeo.html"><a href="23-Taggeo.html"><i class="fa fa-check"></i><b>6</b> Geographical tags</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="23-Taggeo.html"><a href="23-Taggeo.html#manual-correctio-n-of-dictionnary"><i class="fa fa-check"></i><b>6.1</b> Manual correctio n of dictionnary</a></li>
+<li class="chapter" data-level="6.2" data-path="23-Taggeo.html"><a href="23-Taggeo.html#detection-of-geographical-entities"><i class="fa fa-check"></i><b>6.2</b> Detection of geographical entities</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="23-Taggeo.html"><a href="23-Taggeo.html#le-figaro-fra"><i class="fa fa-check"></i><b>6.2.1</b> Le Figaro (FRA)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="23-Taggeo.html"><a href="23-Taggeo.html#le-monde-1"><i class="fa fa-check"></i><b>6.2.2</b> Le Monde</a></li>
+<li class="chapter" data-level="6.2.3" data-path="23-Taggeo.html"><a href="23-Taggeo.html#faz"><i class="fa fa-check"></i><b>6.2.3</b> FAZ</a></li>
+<li class="chapter" data-level="6.2.4" data-path="23-Taggeo.html"><a href="23-Taggeo.html#süddeutsche-zeitung-1"><i class="fa fa-check"></i><b>6.2.4</b> Süddeutsche Zeitung</a></li>
+<li class="chapter" data-level="6.2.5" data-path="23-Taggeo.html"><a href="23-Taggeo.html#guardian"><i class="fa fa-check"></i><b>6.2.5</b> Guardian</a></li>
+<li class="chapter" data-level="6.2.6" data-path="23-Taggeo.html"><a href="23-Taggeo.html#daily-telegraph"><i class="fa fa-check"></i><b>6.2.6</b> Daily Telegraph</a></li>
+<li class="chapter" data-level="6.2.7" data-path="23-Taggeo.html"><a href="23-Taggeo.html#belfast-telegraph"><i class="fa fa-check"></i><b>6.2.7</b> Belfast Telegraph</a></li>
+<li class="chapter" data-level="6.2.8" data-path="23-Taggeo.html"><a href="23-Taggeo.html#irish-times"><i class="fa fa-check"></i><b>6.2.8</b> Irish Times</a></li>
+<li class="chapter" data-level="6.2.9" data-path="23-Taggeo.html"><a href="23-Taggeo.html#cumhuryet-1"><i class="fa fa-check"></i><b>6.2.9</b> Cumhuryet</a></li>
+<li class="chapter" data-level="6.2.10" data-path="23-Taggeo.html"><a href="23-Taggeo.html#yeni-safak"><i class="fa fa-check"></i><b>6.2.10</b> Yeni Safak</a></li>
+<li class="chapter" data-level="6.2.11" data-path="23-Taggeo.html"><a href="23-Taggeo.html#el-khabar-dza"><i class="fa fa-check"></i><b>6.2.11</b> El Khabar (DZA)</a></li>
+<li class="chapter" data-level="6.2.12" data-path="23-Taggeo.html"><a href="23-Taggeo.html#al-chorouk-dza"><i class="fa fa-check"></i><b>6.2.12</b> Al Chorouk (DZA)</a></li>
+<li class="chapter" data-level="6.2.13" data-path="23-Taggeo.html"><a href="23-Taggeo.html#global-corpus"><i class="fa fa-check"></i><b>6.2.13</b> Global corpus</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="24-Corpus.html"><a href="24-Corpus.html"><i class="fa fa-check"></i><b>7</b> Corpus</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="24-Corpus.html"><a href="24-Corpus.html#objectives"><i class="fa fa-check"></i><b>7.1</b> Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="24-Corpus.html"><a href="24-Corpus.html#prepare-data"><i class="fa fa-check"></i><b>7.2</b> Prepare data</a></li>
+<li class="chapter" data-level="7.3" data-path="24-Corpus.html"><a href="24-Corpus.html#distribution-des-nouvelles-par-média-au-cours-du-temps"><i class="fa fa-check"></i><b>7.3</b> Distribution des nouvelles par média au cours du temps</a></li>
+<li class="chapter" data-level="7.4" data-path="24-Corpus.html"><a href="24-Corpus.html#fréquences-des-macro-régions-par-journal"><i class="fa fa-check"></i><b>7.4</b> Fréquences des macro-régions par journal</a></li>
+<li class="chapter" data-level="7.5" data-path="24-Corpus.html"><a href="24-Corpus.html#fréquences-des-mentions-de-pays-étrangers-par-journal"><i class="fa fa-check"></i><b>7.5</b> Fréquences des mentions de pays étrangers par journal</a></li>
+<li class="chapter" data-level="7.6" data-path="24-Corpus.html"><a href="24-Corpus.html#fréquences-des-mentions-simaultanées-détats-et-de-région-par-journal"><i class="fa fa-check"></i><b>7.6</b> Fréquences des mentions simaultanées d’états et de région par journal</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="31-TopRegions.html"><a href="31-TopRegions.html"><i class="fa fa-check"></i><b>8</b> Top World regions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="31-TopRegions.html"><a href="31-TopRegions.html#data"><i class="fa fa-check"></i><b>8.1</b> Data</a></li>
+<li class="chapter" data-level="8.2" data-path="31-TopRegions.html"><a href="31-TopRegions.html#top-50-regions-in-full-corpus"><i class="fa fa-check"></i><b>8.2</b> Top 50 regions in full corpus</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="31-TopRegions.html"><a href="31-TopRegions.html#unweighted"><i class="fa fa-check"></i><b>8.2.1</b> Unweighted</a></li>
+<li class="chapter" data-level="8.2.2" data-path="31-TopRegions.html"><a href="31-TopRegions.html#weighted"><i class="fa fa-check"></i><b>8.2.2</b> Weighted</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="31-TopRegions.html"><a href="31-TopRegions.html#top-10-regions-by-media"><i class="fa fa-check"></i><b>8.3</b> Top 10 regions by media</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="31-TopRegions.html"><a href="31-TopRegions.html#german-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.1</b> German newspapers - Top 10 regions</a></li>
+<li class="chapter" data-level="8.3.2" data-path="31-TopRegions.html"><a href="31-TopRegions.html#french-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.2</b> French newspapers - Top 10 regions</a></li>
+<li class="chapter" data-level="8.3.3" data-path="31-TopRegions.html"><a href="31-TopRegions.html#uk-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.3</b> UK newspapers - Top 10 regions</a></li>
+<li class="chapter" data-level="8.3.4" data-path="31-TopRegions.html"><a href="31-TopRegions.html#irish-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.4</b> Irish newspapers - Top 10 regions</a></li>
+<li class="chapter" data-level="8.3.5" data-path="31-TopRegions.html"><a href="31-TopRegions.html#turkish-newspapers---top-10-regions"><i class="fa fa-check"></i><b>8.3.5</b> Turkish newspapers - Top 10 regions</a></li>
+<li class="chapter" data-level="8.3.6" data-path="31-TopRegions.html"><a href="31-TopRegions.html#algerian-newspapers"><i class="fa fa-check"></i><b>8.3.6</b> Algerian newspapers</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="31-TopRegions.html"><a href="31-TopRegions.html#synthesis-by-correspondance-analysis-and-hierarchical-clustering"><i class="fa fa-check"></i><b>8.4</b> Synthesis by correspondance analysis and Hierarchical Clustering</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="31-TopRegions.html"><a href="31-TopRegions.html#factor-1-2"><i class="fa fa-check"></i><b>8.4.1</b> Factor 1-2</a></li>
+<li class="chapter" data-level="8.4.2" data-path="31-TopRegions.html"><a href="31-TopRegions.html#factors-3-4"><i class="fa fa-check"></i><b>8.4.2</b> Factors 3-4</a></li>
+<li class="chapter" data-level="8.4.3" data-path="31-TopRegions.html"><a href="31-TopRegions.html#cluster-analysis-world-regions"><i class="fa fa-check"></i><b>8.4.3</b> Cluster analysis (world regions)</a></li>
+<li class="chapter" data-level="8.4.4" data-path="31-TopRegions.html"><a href="31-TopRegions.html#cluster-analysis-medias"><i class="fa fa-check"></i><b>8.4.4</b> Cluster analysis (medias)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="31-TopRegions.html"><a href="31-TopRegions.html#synthesis-by-chi-square-heatmap"><i class="fa fa-check"></i><b>8.5</b> Synthesis by chi-square &amp; heatmap</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The media cookbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c23_taggeo" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Geographical tags<a href="23-Taggeo.html#c23_taggeo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="23-Taggeo.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-2"><a href="23-Taggeo.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="23-Taggeo.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span></code></pre></div>
+<pre><code>Warning: le package &#39;WikidataR&#39; a été compilé avec la version R 4.2.1</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="23-Taggeo.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code></pre></div>
+<div id="manual-correctio-n-of-dictionnary" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Manual correctio n of dictionnary<a href="23-Taggeo.html#manual-correctio-n-of-dictionnary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The dictionnary elaboated by automatic procedures has been manually corrected and the new version is upload.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="23-Taggeo.html#cb4-1" aria-hidden="true" tabindex="-1"></a>dict<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;dict/worldgeo_dict_V4bis.csv&quot;</span>, </span>
+<span id="cb4-2"><a href="23-Taggeo.html#cb4-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">header=</span>T, </span>
+<span id="cb4-3"><a href="23-Taggeo.html#cb4-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sep=</span><span class="st">&quot;;&quot;</span>,</span>
+<span id="cb4-4"><a href="23-Taggeo.html#cb4-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
+<span id="cb4-5"><a href="23-Taggeo.html#cb4-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">quote =</span> <span class="st">&#39;&quot;&#39;</span>)</span></code></pre></div>
+</div>
+<div id="detection-of-geographical-entities" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Detection of geographical entities<a href="23-Taggeo.html#detection-of-geographical-entities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have elaborated a function for the extraction of geographical units based on the dictionary elaborated in previous section (dict) according to the language (lang), the decision to split some tokens (split) to move or not to lower case (tolow) and the possibility to add a list of compounds to be realized (comps) in order to eliminate ambiguities.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="23-Taggeo.html#cb5-1" aria-hidden="true" tabindex="-1"></a>extract_tags <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">qd =</span> qd,                      <span class="co"># the corpus of interest</span></span>
+<span id="cb5-2"><a href="23-Taggeo.html#cb5-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">lang =</span> <span class="st">&quot;fr&quot;</span>,                  <span class="co"># the language to be used</span></span>
+<span id="cb5-3"><a href="23-Taggeo.html#cb5-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">dict =</span> dict,                  <span class="co"># the dictionary of target </span></span>
+<span id="cb5-4"><a href="23-Taggeo.html#cb5-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">code =</span> <span class="st">&quot;id&quot;</span> ,                  <span class="co"># variable used for coding</span></span>
+<span id="cb5-5"><a href="23-Taggeo.html#cb5-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">split  =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),       <span class="co"># split list</span></span>
+<span id="cb5-6"><a href="23-Taggeo.html#cb5-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">tolow =</span> <span class="cn">FALSE</span>  ,                <span class="co"># Tokenize text</span></span>
+<span id="cb5-7"><a href="23-Taggeo.html#cb5-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">comps =</span> <span class="fu">c</span>(<span class="st">&quot;Afrique du sud&quot;</span>)  <span class="co"># compounds</span></span>
+<span id="cb5-8"><a href="23-Taggeo.html#cb5-8" aria-hidden="true" tabindex="-1"></a>                         )</span>
+<span id="cb5-9"><a href="23-Taggeo.html#cb5-9" aria-hidden="true" tabindex="-1"></a>{ </span>
+<span id="cb5-10"><a href="23-Taggeo.html#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="23-Taggeo.html#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="23-Taggeo.html#cb5-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-13"><a href="23-Taggeo.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize  </span></span>
+<span id="cb5-14"><a href="23-Taggeo.html#cb5-14" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">as.character</span>(qd)</span>
+<span id="cb5-15"><a href="23-Taggeo.html#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="23-Taggeo.html#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="23-Taggeo.html#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(split) <span class="sc">&gt;</span> <span class="dv">0</span>) { reg<span class="ot">&lt;-</span><span class="fu">paste</span>(split, <span class="at">collapse =</span> <span class="st">&#39;|&#39;</span>)</span>
+<span id="cb5-18"><a href="23-Taggeo.html#cb5-18" aria-hidden="true" tabindex="-1"></a>                       x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(reg,<span class="st">&quot; &quot;</span>,x)}  </span>
+<span id="cb5-19"><a href="23-Taggeo.html#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(tolow) { x <span class="ot">&lt;-</span> <span class="fu">tolower</span>(x)} </span>
+<span id="cb5-20"><a href="23-Taggeo.html#cb5-20" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens</span>(x)</span>
+<span id="cb5-21"><a href="23-Taggeo.html#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="23-Taggeo.html#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># compounds</span></span>
+<span id="cb5-23"><a href="23-Taggeo.html#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(split) <span class="sc">&gt;</span> <span class="dv">0</span>) { reg<span class="ot">&lt;-</span><span class="fu">paste</span>(split, <span class="at">collapse =</span> <span class="st">&#39;|&#39;</span>)</span>
+<span id="cb5-24"><a href="23-Taggeo.html#cb5-24" aria-hidden="true" tabindex="-1"></a>                       comps<span class="ot">&lt;-</span> <span class="fu">gsub</span>(reg,<span class="st">&quot; &quot;</span>,comps)}  </span>
+<span id="cb5-25"><a href="23-Taggeo.html#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(tolow)       {comps <span class="ot">&lt;-</span> <span class="fu">tolower</span>(comps)}  </span>
+<span id="cb5-26"><a href="23-Taggeo.html#cb5-26" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens_compound</span>(toks,<span class="at">pattern=</span><span class="fu">phrase</span>(comps))</span>
+<span id="cb5-27"><a href="23-Taggeo.html#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="23-Taggeo.html#cb5-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-29"><a href="23-Taggeo.html#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dictionaries and create compounds</span></span>
+<span id="cb5-30"><a href="23-Taggeo.html#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="23-Taggeo.html#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Target dictionary</span></span>
+<span id="cb5-32"><a href="23-Taggeo.html#cb5-32" aria-hidden="true" tabindex="-1"></a>dict<span class="ot">&lt;-</span>dict[dict<span class="sc">$</span>lang<span class="sc">==</span>lang <span class="sc">&amp;</span> <span class="fu">is.na</span>(dict<span class="sc">$</span>label)<span class="sc">==</span>F,]</span>
+<span id="cb5-33"><a href="23-Taggeo.html#cb5-33" aria-hidden="true" tabindex="-1"></a>target<span class="ot">&lt;-</span>dict[<span class="fu">ntoken</span>(dict<span class="sc">$</span>label)<span class="sc">&gt;</span><span class="dv">1</span>,]</span>
+<span id="cb5-34"><a href="23-Taggeo.html#cb5-34" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span>dict<span class="sc">$</span>label</span>
+<span id="cb5-35"><a href="23-Taggeo.html#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(split) <span class="sc">&gt;</span> <span class="dv">0</span>) { reg<span class="ot">&lt;-</span><span class="fu">paste</span>(split, <span class="at">collapse =</span> <span class="st">&#39;|&#39;</span>)</span>
+<span id="cb5-36"><a href="23-Taggeo.html#cb5-36" aria-hidden="true" tabindex="-1"></a>                       labels<span class="ot">&lt;-</span> <span class="fu">gsub</span>(reg,<span class="st">&quot; &quot;</span>,labels)}  </span>
+<span id="cb5-37"><a href="23-Taggeo.html#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(tolow)       {labels <span class="ot">&lt;-</span> <span class="fu">tolower</span>(labels)}  </span>
+<span id="cb5-38"><a href="23-Taggeo.html#cb5-38" aria-hidden="true" tabindex="-1"></a>toks<span class="ot">&lt;-</span><span class="fu">tokens_compound</span>(toks,<span class="at">pattern=</span><span class="fu">phrase</span>(labels))</span>
+<span id="cb5-39"><a href="23-Taggeo.html#cb5-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-40"><a href="23-Taggeo.html#cb5-40" aria-hidden="true" tabindex="-1"></a> <span class="co"># create quanteda dictionary</span></span>
+<span id="cb5-41"><a href="23-Taggeo.html#cb5-41" aria-hidden="true" tabindex="-1"></a>keys <span class="ot">&lt;-</span><span class="fu">gsub</span>(<span class="st">&quot; &quot;</span>,<span class="st">&quot;_&quot;</span>,labels)</span>
+<span id="cb5-42"><a href="23-Taggeo.html#cb5-42" aria-hidden="true" tabindex="-1"></a>qd_dict<span class="ot">&lt;-</span><span class="fu">as.list</span>(keys)</span>
+<span id="cb5-43"><a href="23-Taggeo.html#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(qd_dict)<span class="ot">&lt;-</span>dict[[code]]</span>
+<span id="cb5-44"><a href="23-Taggeo.html#cb5-44" aria-hidden="true" tabindex="-1"></a>qd_dict<span class="ot">&lt;-</span><span class="fu">dictionary</span>(qd_dict,<span class="at">tolower =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-45"><a href="23-Taggeo.html#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="23-Taggeo.html#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify geo tags (states or reg or org ...)</span></span>
+<span id="cb5-47"><a href="23-Taggeo.html#cb5-47" aria-hidden="true" tabindex="-1"></a>toks_tags <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(toks, qd_dict, <span class="at">case_insensitive =</span> F)</span>
+<span id="cb5-48"><a href="23-Taggeo.html#cb5-48" aria-hidden="true" tabindex="-1"></a>toks_tags <span class="ot">&lt;-</span> <span class="fu">lapply</span>(toks_tags, unique)</span>
+<span id="cb5-49"><a href="23-Taggeo.html#cb5-49" aria-hidden="true" tabindex="-1"></a>toks_tags<span class="ot">&lt;-</span><span class="fu">as.tokens</span>(toks_tags)</span>
+<span id="cb5-50"><a href="23-Taggeo.html#cb5-50" aria-hidden="true" tabindex="-1"></a>list_tags<span class="ot">&lt;-</span><span class="cf">function</span>(x){res<span class="ot">&lt;-</span><span class="fu">paste</span>(x, <span class="at">collapse=</span><span class="st">&#39; &#39;</span>)}</span>
+<span id="cb5-51"><a href="23-Taggeo.html#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)[[<span class="st">&quot;tags&quot;</span>]]<span class="ot">&lt;-</span><span class="fu">as.character</span>(<span class="fu">lapply</span>(toks_tags,<span class="at">FUN=</span>list_tags))</span>
+<span id="cb5-52"><a href="23-Taggeo.html#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)[[<span class="st">&quot;nbtags&quot;</span>]]<span class="ot">&lt;-</span><span class="fu">ntoken</span>(toks_tags)</span>
+<span id="cb5-53"><a href="23-Taggeo.html#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="23-Taggeo.html#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-55"><a href="23-Taggeo.html#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-56"><a href="23-Taggeo.html#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Export results</span></span>
+<span id="cb5-57"><a href="23-Taggeo.html#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(qd)</span>
+<span id="cb5-58"><a href="23-Taggeo.html#cb5-58" aria-hidden="true" tabindex="-1"></a> }</span></code></pre></div>
+<div id="le-figaro-fra" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Le Figaro (FRA)<a href="23-Taggeo.html#le-figaro-fra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="23-Taggeo.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dict&lt;-readRDS(&quot;dict/worldgeo_dict_V4.RDS&quot;)</span></span>
+<span id="cb6-2"><a href="23-Taggeo.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="23-Taggeo.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="23-Taggeo.html#cb6-4" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_figaro.RDS&quot;</span>)</span>
+<span id="cb6-5"><a href="23-Taggeo.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb6-6"><a href="23-Taggeo.html#cb6-6" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb6-7"><a href="23-Taggeo.html#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="23-Taggeo.html#cb6-8" aria-hidden="true" tabindex="-1"></a>frcomps<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Europe 1&quot;</span>, <span class="st">&quot;Atlantic city&quot;</span>, </span>
+<span id="cb6-9"><a href="23-Taggeo.html#cb6-9" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Loire-Atlantique&quot;</span>, <span class="st">&quot;Pyrénées-Atlantique&quot;</span>, <span class="st">&quot;Pyrénées-Atlantiques&quot;</span>,</span>
+<span id="cb6-10"><a href="23-Taggeo.html#cb6-10" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Alpes-de-Haute-Provence&quot;</span>, <span class="st">&quot;Hautes-Alpes&quot;</span>, <span class="st">&quot;Rhöne-Alpes&quot;</span>,<span class="st">&quot;Alpes-Maritimes&quot;</span>,</span>
+<span id="cb6-11"><a href="23-Taggeo.html#cb6-11" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Chantiers de l&#39;Atlantique&quot;</span>, <span class="st">&quot;TGV Atlantique&quot;</span>,</span>
+<span id="cb6-12"><a href="23-Taggeo.html#cb6-12" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;Bourse de Paris&quot;</span>, <span class="st">&quot;Paris SG&quot;</span>, <span class="st">&quot;Ville de Paris&quot;</span>, <span class="st">&quot;Grand Paris&quot;</span>)</span>
+<span id="cb6-13"><a href="23-Taggeo.html#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="23-Taggeo.html#cb6-14" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb6-15"><a href="23-Taggeo.html#cb6-15" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;fr&quot;</span>,</span>
+<span id="cb6-16"><a href="23-Taggeo.html#cb6-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb6-17"><a href="23-Taggeo.html#cb6-17" aria-hidden="true" tabindex="-1"></a>                     <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb6-18"><a href="23-Taggeo.html#cb6-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb6-19"><a href="23-Taggeo.html#cb6-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">comps =</span> frcomps,</span>
+<span id="cb6-20"><a href="23-Taggeo.html#cb6-20" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-21"><a href="23-Taggeo.html#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/fr_FRA_figaro_geo.RDS&quot;</span>)</span>
+<span id="cb6-22"><a href="23-Taggeo.html#cb6-22" aria-hidden="true" tabindex="-1"></a>qd1<span class="ot">&lt;-</span>qd</span>
+<span id="cb6-23"><a href="23-Taggeo.html#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="23-Taggeo.html#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb6-25"><a href="23-Taggeo.html#cb6-25" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">regs=</span>qd<span class="sc">$</span>tags,<span class="at">nbregs=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="le-monde-1" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Le Monde<a href="23-Taggeo.html#le-monde-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="23-Taggeo.html#cb7-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_lmonde.RDS&quot;</span>)</span>
+<span id="cb7-2"><a href="23-Taggeo.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb7-3"><a href="23-Taggeo.html#cb7-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb7-4"><a href="23-Taggeo.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="23-Taggeo.html#cb7-5" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb7-6"><a href="23-Taggeo.html#cb7-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;fr&quot;</span>,</span>
+<span id="cb7-7"><a href="23-Taggeo.html#cb7-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb7-8"><a href="23-Taggeo.html#cb7-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb7-9"><a href="23-Taggeo.html#cb7-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">comps =</span> frcomps,                   </span>
+<span id="cb7-10"><a href="23-Taggeo.html#cb7-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb7-11"><a href="23-Taggeo.html#cb7-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-12"><a href="23-Taggeo.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/fr_FRA_lmonde_geo.RDS&quot;</span>)</span>
+<span id="cb7-13"><a href="23-Taggeo.html#cb7-13" aria-hidden="true" tabindex="-1"></a>qd2<span class="ot">&lt;-</span>qd</span>
+<span id="cb7-14"><a href="23-Taggeo.html#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="23-Taggeo.html#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb7-16"><a href="23-Taggeo.html#cb7-16" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="faz" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> FAZ<a href="23-Taggeo.html#faz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="23-Taggeo.html#cb8-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/de_DEU_frankf.RDS&quot;</span>)</span>
+<span id="cb8-2"><a href="23-Taggeo.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb8-3"><a href="23-Taggeo.html#cb8-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb8-4"><a href="23-Taggeo.html#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="23-Taggeo.html#cb8-5" aria-hidden="true" tabindex="-1"></a>decomps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Europa League&quot;</span>)</span>
+<span id="cb8-6"><a href="23-Taggeo.html#cb8-6" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb8-7"><a href="23-Taggeo.html#cb8-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;de&quot;</span>,</span>
+<span id="cb8-8"><a href="23-Taggeo.html#cb8-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb8-9"><a href="23-Taggeo.html#cb8-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb8-10"><a href="23-Taggeo.html#cb8-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">comps =</span> decomps,</span>
+<span id="cb8-11"><a href="23-Taggeo.html#cb8-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb8-12"><a href="23-Taggeo.html#cb8-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-13"><a href="23-Taggeo.html#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/de_DEU_frankf_geo.RDS&quot;</span>)</span>
+<span id="cb8-14"><a href="23-Taggeo.html#cb8-14" aria-hidden="true" tabindex="-1"></a>qd3<span class="ot">&lt;-</span>qd</span>
+<span id="cb8-15"><a href="23-Taggeo.html#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb8-16"><a href="23-Taggeo.html#cb8-16" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="süddeutsche-zeitung-1" class="section level3 hasAnchor" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Süddeutsche Zeitung<a href="23-Taggeo.html#süddeutsche-zeitung-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="23-Taggeo.html#cb9-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/de_DEU_suddeu.RDS&quot;</span>)</span>
+<span id="cb9-2"><a href="23-Taggeo.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb9-3"><a href="23-Taggeo.html#cb9-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb9-4"><a href="23-Taggeo.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="23-Taggeo.html#cb9-5" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb9-6"><a href="23-Taggeo.html#cb9-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;de&quot;</span>,</span>
+<span id="cb9-7"><a href="23-Taggeo.html#cb9-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb9-8"><a href="23-Taggeo.html#cb9-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb9-9"><a href="23-Taggeo.html#cb9-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">comps =</span> decomps,</span>
+<span id="cb9-10"><a href="23-Taggeo.html#cb9-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb9-11"><a href="23-Taggeo.html#cb9-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-12"><a href="23-Taggeo.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/de_DEU_suddeu_geo.RDS&quot;</span>)</span>
+<span id="cb9-13"><a href="23-Taggeo.html#cb9-13" aria-hidden="true" tabindex="-1"></a>qd4<span class="ot">&lt;-</span>qd</span>
+<span id="cb9-14"><a href="23-Taggeo.html#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb9-15"><a href="23-Taggeo.html#cb9-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="guardian" class="section level3 hasAnchor" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> Guardian<a href="23-Taggeo.html#guardian" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="23-Taggeo.html#cb10-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_GBR_guardi.RDS&quot;</span>)</span>
+<span id="cb10-2"><a href="23-Taggeo.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb10-3"><a href="23-Taggeo.html#cb10-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb10-4"><a href="23-Taggeo.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="23-Taggeo.html#cb10-5" aria-hidden="true" tabindex="-1"></a>encomps<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Atlantic City&quot;</span>, <span class="st">&quot;Cathay Pacific&quot;</span>, <span class="st">&quot;Virgin Atlantic&quot;</span>)</span>
+<span id="cb10-6"><a href="23-Taggeo.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="23-Taggeo.html#cb10-7" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb10-8"><a href="23-Taggeo.html#cb10-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;en&quot;</span>,</span>
+<span id="cb10-9"><a href="23-Taggeo.html#cb10-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb10-10"><a href="23-Taggeo.html#cb10-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb10-11"><a href="23-Taggeo.html#cb10-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">comps =</span> encomps,</span>
+<span id="cb10-12"><a href="23-Taggeo.html#cb10-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb10-13"><a href="23-Taggeo.html#cb10-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-14"><a href="23-Taggeo.html#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/en_GBR_guardi_geo.RDS&quot;</span>)</span>
+<span id="cb10-15"><a href="23-Taggeo.html#cb10-15" aria-hidden="true" tabindex="-1"></a>qd5<span class="ot">&lt;-</span>qd</span>
+<span id="cb10-16"><a href="23-Taggeo.html#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb10-17"><a href="23-Taggeo.html#cb10-17" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="daily-telegraph" class="section level3 hasAnchor" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Daily Telegraph<a href="23-Taggeo.html#daily-telegraph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="23-Taggeo.html#cb11-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_GBR_telegr.RDS&quot;</span>)</span>
+<span id="cb11-2"><a href="23-Taggeo.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb11-3"><a href="23-Taggeo.html#cb11-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb11-4"><a href="23-Taggeo.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="23-Taggeo.html#cb11-5" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb11-6"><a href="23-Taggeo.html#cb11-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;en&quot;</span>,</span>
+<span id="cb11-7"><a href="23-Taggeo.html#cb11-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb11-8"><a href="23-Taggeo.html#cb11-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb11-9"><a href="23-Taggeo.html#cb11-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">comps =</span> encomps,</span>
+<span id="cb11-10"><a href="23-Taggeo.html#cb11-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb11-11"><a href="23-Taggeo.html#cb11-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb11-12"><a href="23-Taggeo.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/en_GBR_telegr_geo.RDS&quot;</span>)</span>
+<span id="cb11-13"><a href="23-Taggeo.html#cb11-13" aria-hidden="true" tabindex="-1"></a>qd6<span class="ot">&lt;-</span>qd</span>
+<span id="cb11-14"><a href="23-Taggeo.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb11-15"><a href="23-Taggeo.html#cb11-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="belfast-telegraph" class="section level3 hasAnchor" number="6.2.7">
+<h3><span class="header-section-number">6.2.7</span> Belfast Telegraph<a href="23-Taggeo.html#belfast-telegraph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="23-Taggeo.html#cb12-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_NIR_beltel.RDS&quot;</span>)</span>
+<span id="cb12-2"><a href="23-Taggeo.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb12-3"><a href="23-Taggeo.html#cb12-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb12-4"><a href="23-Taggeo.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="23-Taggeo.html#cb12-5" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb12-6"><a href="23-Taggeo.html#cb12-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;en&quot;</span>,</span>
+<span id="cb12-7"><a href="23-Taggeo.html#cb12-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb12-8"><a href="23-Taggeo.html#cb12-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb12-9"><a href="23-Taggeo.html#cb12-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">comps =</span> encomps,</span>
+<span id="cb12-10"><a href="23-Taggeo.html#cb12-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb12-11"><a href="23-Taggeo.html#cb12-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-12"><a href="23-Taggeo.html#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/en_NIR_beltel_geo.RDS&quot;</span>)</span>
+<span id="cb12-13"><a href="23-Taggeo.html#cb12-13" aria-hidden="true" tabindex="-1"></a>qd7<span class="ot">&lt;-</span>qd</span>
+<span id="cb12-14"><a href="23-Taggeo.html#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb12-15"><a href="23-Taggeo.html#cb12-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="irish-times" class="section level3 hasAnchor" number="6.2.8">
+<h3><span class="header-section-number">6.2.8</span> Irish Times<a href="23-Taggeo.html#irish-times" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="23-Taggeo.html#cb13-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_IRL_irtime.RDS&quot;</span>)</span>
+<span id="cb13-2"><a href="23-Taggeo.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb13-3"><a href="23-Taggeo.html#cb13-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb13-4"><a href="23-Taggeo.html#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="23-Taggeo.html#cb13-5" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb13-6"><a href="23-Taggeo.html#cb13-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;en&quot;</span>,</span>
+<span id="cb13-7"><a href="23-Taggeo.html#cb13-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb13-8"><a href="23-Taggeo.html#cb13-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb13-9"><a href="23-Taggeo.html#cb13-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">comps =</span> encomps,</span>
+<span id="cb13-10"><a href="23-Taggeo.html#cb13-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb13-11"><a href="23-Taggeo.html#cb13-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-12"><a href="23-Taggeo.html#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/en_IRL_irtime_geo.RDS&quot;</span>)</span>
+<span id="cb13-13"><a href="23-Taggeo.html#cb13-13" aria-hidden="true" tabindex="-1"></a>qd8<span class="ot">&lt;-</span>qd</span>
+<span id="cb13-14"><a href="23-Taggeo.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb13-15"><a href="23-Taggeo.html#cb13-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="cumhuryet-1" class="section level3 hasAnchor" number="6.2.9">
+<h3><span class="header-section-number">6.2.9</span> Cumhuryet<a href="23-Taggeo.html#cumhuryet-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="23-Taggeo.html#cb14-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_cumhur.RDS&quot;</span>)</span>
+<span id="cb14-2"><a href="23-Taggeo.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb14-3"><a href="23-Taggeo.html#cb14-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb14-4"><a href="23-Taggeo.html#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="23-Taggeo.html#cb14-5" aria-hidden="true" tabindex="-1"></a>trcomps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Cathay Pacific&quot;</span>, <span class="st">&quot;Avrupa Ligi&quot;</span>)</span>
+<span id="cb14-6"><a href="23-Taggeo.html#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="23-Taggeo.html#cb14-7" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb14-8"><a href="23-Taggeo.html#cb14-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;tr&quot;</span>,</span>
+<span id="cb14-9"><a href="23-Taggeo.html#cb14-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb14-10"><a href="23-Taggeo.html#cb14-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb14-11"><a href="23-Taggeo.html#cb14-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">comps =</span> trcomps,</span>
+<span id="cb14-12"><a href="23-Taggeo.html#cb14-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb14-13"><a href="23-Taggeo.html#cb14-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-14"><a href="23-Taggeo.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/tr_TUR_cumhur_geo.RDS&quot;</span>)</span>
+<span id="cb14-15"><a href="23-Taggeo.html#cb14-15" aria-hidden="true" tabindex="-1"></a>qd9<span class="ot">&lt;-</span>qd</span>
+<span id="cb14-16"><a href="23-Taggeo.html#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb14-17"><a href="23-Taggeo.html#cb14-17" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="yeni-safak" class="section level3 hasAnchor" number="6.2.10">
+<h3><span class="header-section-number">6.2.10</span> Yeni Safak<a href="23-Taggeo.html#yeni-safak" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="23-Taggeo.html#cb15-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_yenisa.RDS&quot;</span>)</span>
+<span id="cb15-2"><a href="23-Taggeo.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb15-3"><a href="23-Taggeo.html#cb15-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb15-4"><a href="23-Taggeo.html#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="23-Taggeo.html#cb15-5" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb15-6"><a href="23-Taggeo.html#cb15-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;tr&quot;</span>,</span>
+<span id="cb15-7"><a href="23-Taggeo.html#cb15-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb15-8"><a href="23-Taggeo.html#cb15-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb15-9"><a href="23-Taggeo.html#cb15-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">comps =</span> trcomps,</span>
+<span id="cb15-10"><a href="23-Taggeo.html#cb15-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb15-11"><a href="23-Taggeo.html#cb15-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-12"><a href="23-Taggeo.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/tr_TUR_yenisa_geo.RDS&quot;</span>)</span>
+<span id="cb15-13"><a href="23-Taggeo.html#cb15-13" aria-hidden="true" tabindex="-1"></a>qd10<span class="ot">&lt;-</span>qd</span>
+<span id="cb15-14"><a href="23-Taggeo.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb15-15"><a href="23-Taggeo.html#cb15-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="el-khabar-dza" class="section level3 hasAnchor" number="6.2.11">
+<h3><span class="header-section-number">6.2.11</span> El Khabar (DZA)<a href="23-Taggeo.html#el-khabar-dza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="23-Taggeo.html#cb16-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/ar_DZA_elkahb.RDS&quot;</span>)</span>
+<span id="cb16-2"><a href="23-Taggeo.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb16-3"><a href="23-Taggeo.html#cb16-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb16-4"><a href="23-Taggeo.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="23-Taggeo.html#cb16-5" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb16-6"><a href="23-Taggeo.html#cb16-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;ar&quot;</span>,</span>
+<span id="cb16-7"><a href="23-Taggeo.html#cb16-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb16-8"><a href="23-Taggeo.html#cb16-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb16-9"><a href="23-Taggeo.html#cb16-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb16-10"><a href="23-Taggeo.html#cb16-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-11"><a href="23-Taggeo.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/ar_DZA_elkahb_geo.RDS&quot;</span>)</span>
+<span id="cb16-12"><a href="23-Taggeo.html#cb16-12" aria-hidden="true" tabindex="-1"></a>qd11<span class="ot">&lt;-</span>qd</span>
+<span id="cb16-13"><a href="23-Taggeo.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb16-14"><a href="23-Taggeo.html#cb16-14" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="al-chorouk-dza" class="section level3 hasAnchor" number="6.2.12">
+<h3><span class="header-section-number">6.2.12</span> Al Chorouk (DZA)<a href="23-Taggeo.html#al-chorouk-dza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="23-Taggeo.html#cb17-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/ar_DZA_chorou.RDS&quot;</span>)</span>
+<span id="cb17-2"><a href="23-Taggeo.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
+<span id="cb17-3"><a href="23-Taggeo.html#cb17-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
+<span id="cb17-4"><a href="23-Taggeo.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="23-Taggeo.html#cb17-5" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">extract_tags</span> (<span class="at">qd =</span> qd,</span>
+<span id="cb17-6"><a href="23-Taggeo.html#cb17-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">lang=</span><span class="st">&quot;ar&quot;</span>,</span>
+<span id="cb17-7"><a href="23-Taggeo.html#cb17-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dict =</span> dict,</span>
+<span id="cb17-8"><a href="23-Taggeo.html#cb17-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">code =</span> <span class="st">&quot;code&quot;</span>,</span>
+<span id="cb17-9"><a href="23-Taggeo.html#cb17-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">split =</span> <span class="fu">c</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;’&quot;</span>,<span class="st">&quot;-&quot;</span>),</span>
+<span id="cb17-10"><a href="23-Taggeo.html#cb17-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tolow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb17-11"><a href="23-Taggeo.html#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/ar_DZA_chorou_geo.RDS&quot;</span>)</span>
+<span id="cb17-12"><a href="23-Taggeo.html#cb17-12" aria-hidden="true" tabindex="-1"></a>qd12<span class="ot">&lt;-</span>qd</span>
+<span id="cb17-13"><a href="23-Taggeo.html#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
+<span id="cb17-14"><a href="23-Taggeo.html#cb17-14" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+</div>
+<div id="global-corpus" class="section level3 hasAnchor" number="6.2.13">
+<h3><span class="header-section-number">6.2.13</span> Global corpus<a href="23-Taggeo.html#global-corpus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="23-Taggeo.html#cb18-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">c</span>(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12)</span>
+<span id="cb18-2"><a href="23-Taggeo.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/corpus_worldgeo_V3.RDS&quot;</span>)</span>
+<span id="cb18-3"><a href="23-Taggeo.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+
+</div>
+</div>
+</div>
+<script src="js/tidyverse.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="22-Dicogeo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="24-Corpus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ClaudeGrasland/media_cookbook/blob/master/23-Taggeo.Rmd",
+"text": "Source"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

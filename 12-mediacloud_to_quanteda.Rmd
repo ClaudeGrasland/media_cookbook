@@ -343,6 +343,7 @@ summary(qd,5)
 paste(qd[1:5])
 
 ```
+
 ### Le Monde
 
 ```{r, eval=FALSE, include=FALSE}
@@ -454,6 +455,7 @@ summary(qd,5)
 paste(qd[1:5])
 
 ```
+
 ### The Daily Telegraph
 
 ```{r, eval=FALSE, include=FALSE}
@@ -566,6 +568,7 @@ summary(qd,5)
 paste(qd[1:5])
 
 ```
+
 ### The Belfast Telegraph
 
 ```{r, eval=FALSE, include=FALSE}
@@ -678,6 +681,7 @@ summary(qd,5)
 paste(qd[1:5])
 
 ```
+
 ### Cumhuryet
 
 ```{r, eval=FALSE, include=FALSE}
@@ -807,6 +811,7 @@ summary(qd,5)
 paste(qd[1:5])
 
 ```
+
 ### L'économiste Maghrebin
 
 ```{r, eval=FALSE, include=FALSE}
@@ -1064,6 +1069,7 @@ summary(qd,5)
 paste(qd[1:5])
 
 ```
+
 ### El Kahber
 
 ```{r, eval=FALSE, include=FALSE}
@@ -1127,6 +1133,75 @@ summary(qd,5)
 paste(qd[1:5])
 
 ```
+
+
+### al Chorouk
+
+```{r, eval=FALSE, include=FALSE}
+
+store <- "corpus/DZA/"
+media <- "ar_DZA_chorou"
+
+### (1) Load .csv file
+type <-".csv"
+
+fic <- paste(store,media,type,sep="")
+
+df<-read.csv(fic,
+             sep=",",
+             header=T,
+             encoding = "UTF-8",
+             stringsAsFactors = F)
+
+### (2) solve encoding problems
+
+df$text<-df$title
+
+df$text<-gsub('&#171;&#160;','',df$text)
+df$text<-gsub('&#160;&#187;','',df$text)
+df$text<-gsub('&#8220;','',df$text)
+df$text<-gsub('&#8221;','',df$text)
+df$text<-gsub('&#8216;','',df$text)
+df$text<-gsub('&#8243;','',df$text)
+
+
+
+### (3) transform in quanteda
+
+# Create Quanteda corpus
+qd<-corpus(df,docid_field = "stories_id")
+
+# Select docvar fields and rename media
+qd$date <-as.Date(qd$publish_date)
+qd$source <-media
+docvars(qd)<-docvars(qd)[,c("source","date")]
+
+# Add global meta
+meta(qd,"meta_source")<-"Media Cloud "
+meta(qd,"meta_time")<-"Download the 2021-09-30"
+meta(qd,"meta_author")<-"Elaborated by Claude Grasland"
+meta(qd,"project")<-"ANR-DFG Project IMAGEUN"
+
+### (4) Store as quanteda object
+store <- "quanteda/"
+type<- ".RDS"
+myfile <- paste(store,media,type,sep="")
+saveRDS(qd,myfile)
+
+
+```
+
+
+```{r}
+qd<-readRDS("quanteda/ar_DZA_chorou.RDS")
+summary(qd,5)
+paste(qd[1:5])
+
+```
+
+
+
+
 ### El Watan
 
 ```{r, eval=FALSE, include=FALSE}
