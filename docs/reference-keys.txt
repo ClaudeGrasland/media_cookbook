@@ -1,5 +1,3 @@
-tab:unnamed-chunk-96
-tab:unnamed-chunk-97
 introduction
 c11_mediacloud
 selection-of-media-with-source-manager
@@ -76,8 +74,8 @@ objectives
 prepare-data
 distribution-des-nouvelles-par-média-au-cours-du-temps
 fréquences-des-macro-régions-par-journal
-fréquence-des-macro-régions-par-mois
-distribution-des-nouvelles-sur-les-macro-régions-par-média-au-cours-du-temps
+fréquences-des-mentions-de-pays-étrangers-par-journal
+fréquences-des-mentions-simaultanées-détats-et-de-région-par-journal
 c31_cybergeo
 data
 top-50-regions-in-full-corpus
@@ -90,11 +88,9 @@ uk-newspapers---top-10-regions
 irish-newspapers---top-10-regions
 turkish-newspapers---top-10-regions
 algerian-newspapers
-synthesis
+synthesis-by-correspondance-analysis-and-hierarchical-clustering
 factor-1-2
 factors-3-4
 cluster-analysis-world-regions
 cluster-analysis-medias
-synthetic-heatmap
-synthesis-by-correspondance-analysis-and-hierarchical-clustering
 synthesis-by-chi-square-heatmap
