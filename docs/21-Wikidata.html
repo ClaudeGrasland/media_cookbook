@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Wikidata | The media cookbook</title>
   <meta name="description" content="A reminder of some experiments made in 2021" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Wikidata | The media cookbook" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A reminder of some experiments made in 2021" />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Claude Grasland" />
 
 
-<meta name="date" content="2022-07-14" />
+<meta name="date" content="2022-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="12-mediacloud_to_quanteda.html"/>
 <link rel="next" href="22-Dicogeo.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,31 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-<script src="libs/d3v6-6.2.0/d3.v6.min.js"></script>
-<script src="libs/d3v6-6.2.0/d3-legend.min.js"></script>
-<script src="libs/d3v6-6.2.0/d3-labeler.js"></script>
-<link href="libs/d3.lasso-plugin-1.0.0/lasso.css" rel="stylesheet" />
-<script src="libs/d3.lasso-plugin-1.0.0/lasso.js"></script>
-<link href="libs/scatterD3-0.9.2/scatterD3.css" rel="stylesheet" />
-<script src="libs/scatterD3-0.9.2/scatterD3-utils.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-scales.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-dims.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-menu.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-axes.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-dots.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-arrows.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-labels.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-labels-lines.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-lines.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-ellipses.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-zoom.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-legend.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-lasso.js"></script>
-<script src="libs/scatterD3-0.9.2/scatterD3-exports.js"></script>
-<script src="libs/scatterD3-binding-0.9.2/scatterD3.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -217,7 +193,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <ul>
 <li class="chapter" data-level="3.8.1" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#al-nahar"><i class="fa fa-check"></i><b>3.8.1</b> Al Nahar</a></li>
 <li class="chapter" data-level="3.8.2" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#el-kahber"><i class="fa fa-check"></i><b>3.8.2</b> El Kahber</a></li>
-<li class="chapter" data-level="3.8.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#el-watan"><i class="fa fa-check"></i><b>3.8.3</b> El Watan</a></li>
+<li class="chapter" data-level="3.8.3" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#al-chorouk"><i class="fa fa-check"></i><b>3.8.3</b> al Chorouk</a></li>
+<li class="chapter" data-level="3.8.4" data-path="12-mediacloud_to_quanteda.html"><a href="12-mediacloud_to_quanteda.html#el-watan"><i class="fa fa-check"></i><b>3.8.4</b> El Watan</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="21-Wikidata.html"><a href="21-Wikidata.html"><i class="fa fa-check"></i><b>4</b> Wikidata</a>
@@ -273,8 +250,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="7.2" data-path="24-Corpus.html"><a href="24-Corpus.html#prepare-data"><i class="fa fa-check"></i><b>7.2</b> Prepare data</a></li>
 <li class="chapter" data-level="7.3" data-path="24-Corpus.html"><a href="24-Corpus.html#distribution-des-nouvelles-par-média-au-cours-du-temps"><i class="fa fa-check"></i><b>7.3</b> Distribution des nouvelles par média au cours du temps</a></li>
 <li class="chapter" data-level="7.4" data-path="24-Corpus.html"><a href="24-Corpus.html#fréquences-des-macro-régions-par-journal"><i class="fa fa-check"></i><b>7.4</b> Fréquences des macro-régions par journal</a></li>
-<li class="chapter" data-level="7.5" data-path="24-Corpus.html"><a href="24-Corpus.html#fréquence-des-macro-régions-par-mois"><i class="fa fa-check"></i><b>7.5</b> Fréquence des macro-régions par mois</a></li>
-<li class="chapter" data-level="7.6" data-path="24-Corpus.html"><a href="24-Corpus.html#distribution-des-nouvelles-sur-les-macro-régions-par-média-au-cours-du-temps"><i class="fa fa-check"></i><b>7.6</b> Distribution des nouvelles sur les macro-régions par média au cours du temps</a></li>
+<li class="chapter" data-level="7.5" data-path="24-Corpus.html"><a href="24-Corpus.html#fréquences-des-mentions-de-pays-étrangers-par-journal"><i class="fa fa-check"></i><b>7.5</b> Fréquences des mentions de pays étrangers par journal</a></li>
+<li class="chapter" data-level="7.6" data-path="24-Corpus.html"><a href="24-Corpus.html#fréquences-des-mentions-simaultanées-détats-et-de-région-par-journal"><i class="fa fa-check"></i><b>7.6</b> Fréquences des mentions simaultanées d’états et de région par journal</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="31-TopRegions.html"><a href="31-TopRegions.html"><i class="fa fa-check"></i><b>8</b> Top World regions</a>
 <ul>
@@ -319,15 +296,16 @@ code span.wa { color: #bf0303; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="c21_wikidata" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Wikidata</h1>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="21-Wikidata.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb99-2"><a href="21-Wikidata.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb99-3"><a href="21-Wikidata.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span>
-<span id="cb99-4"><a href="21-Wikidata.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code></pre></div>
+<div id="c21_wikidata" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Wikidata<a href="21-Wikidata.html#c21_wikidata" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="21-Wikidata.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-2"><a href="21-Wikidata.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="21-Wikidata.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span></code></pre></div>
+<pre><code>Warning: le package &#39;WikidataR&#39; a été compilé avec la version R 4.2.1</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="21-Wikidata.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code></pre></div>
 <p><strong>Authors</strong> : Claude Grasland &amp; Etienne Toureille</p>
-<div id="introduction-1" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<div id="introduction-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction<a href="21-Wikidata.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The objective of thisdocument is to explore the possibility of Wikidata for the production of multilingual dictionaries of world regions and more generally regional imaginations. In order to test the interest of this approach, we will try to produce multilingual dictionaries for the identification of five groups of entities :</p>
 <ul>
 <li>Europe and its subregions</li>
@@ -345,24 +323,24 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>arabic : applied to media of Tunisia</li>
 </ul>
 </div>
-<div id="wikidata" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Wikidata</h2>
+<div id="wikidata" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Wikidata<a href="21-Wikidata.html#wikidata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a> defines itself as</p>
 <ul>
 <li>a free and open knowledge base that can be read and edited by both humans and machines.</li>
 <li>as central storage for the structured data of its Wikimedia sister projects including Wikipedia, Wikivoyage, Wiktionary, Wikisource, and others.</li>
 <li>a support to many other sites and services beyond just Wikimedia projects! The content of Wikidata is available under a free license, exported using standard formats, and can be interlinked to other open data sets on the linked data web.</li>
 </ul>
-<div id="codification-of-entities" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Codification of entities</h3>
+<div id="codification-of-entities" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Codification of entities<a href="21-Wikidata.html#codification-of-entities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The first interest of wikidata is to provide unique code of identifications of objects. For example a research about “Africa” will produce a list of different objects characterized by a unique code :</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="21-Wikidata.html#cb100-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/Wikidata001.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="21-Wikidata.html#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/Wikidata001.png&quot;</span>)</span></code></pre></div>
 <p><img src="pics/Wikidata001.png" width="353" /></p>
 </div>
-<div id="informations-on-entities" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Informations on entities</h3>
+<div id="informations-on-entities" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Informations on entities<a href="21-Wikidata.html#informations-on-entities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Once we have selected an entity (e.g. <strong>Q15</strong>) we obtain a new page with more detailed informations in english but also in all other languages available in Wikipedia.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="21-Wikidata.html#cb101-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/Wikidata002.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="21-Wikidata.html#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pics/Wikidata002.png&quot;</span>)</span></code></pre></div>
 <p><img src="pics/Wikidata002.png" width="500" /></p>
 <p>A lot of information are available concerning the entity but, at this stage, the most important ones for our research are :</p>
 <ol style="list-style-type: decimal">
@@ -373,21 +351,21 @@ code span.wa { color: #bf0303; } /* Warning */
 </ol>
 <p>Of course we should not take for granted the answers proposed by wikidata (as noticed by Georg, Wikipedia is a matter of research for IMAGEUN …) but without any doubt, it offers a very good opportunity to clarify our questions and help us to build tools for recognition of world regions and other geographical imaginations in a multilingual perspective.</p>
 </div>
-<div id="wikipedia-entities-as-nodes-of-an-ontolongy" class="section level3" number="4.2.3">
-<h3><span class="header-section-number">4.2.3</span> Wikipedia entities as nodes of an ontolongy</h3>
+<div id="wikipedia-entities-as-nodes-of-an-ontolongy" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Wikipedia entities as nodes of an ontolongy<a href="21-Wikidata.html#wikipedia-entities-as-nodes-of-an-ontolongy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It appears crucial to introduce here a clear distinction between <strong>Wikipedia entities</strong> and <strong>textual units</strong> associated to the names and definiton of this units.</p>
 <p>A <strong>wikipedia entity</strong> like <em>Q15</em> is an <strong>element of an ontology</strong> designed by its author for specific purposes. The specificity of the wikidata ontology is the fact that it is a <strong>multilinligual web</strong> where Q15 is a <strong>node of the web</strong> present in different linguistic layers. It means that we don’t have a single name or a single definition of Q15, except if we adopt the neocolonial perspective to choose the english language as reference. Depending on the context (i.e. the language or sub-language), Q15 could be defined as :</p>
 <ul>
-<li>(fr) : A <em>“continent”</em> named <em>“Afrique”</em>"</li>
+<li>(fr) : A <em>“continent”</em> named <em>“Afrique”</em>”</li>
 <li>(en) : A <em>“continent on the Earth’s northern and southern hemispheres”</em> named <em>“Africa”</em> or <em>“African continent”</em></li>
 <li>(de) : A <em>“Kontinent auf der Nord- und Südhalbkugel der Erde”</em> named <em>“Afrika”</em></li>
 <li>(tr) : A <em>“Dünya’nın kuzey ve güney yarıkürelerindeki bir kıta”</em> named <em>“Afrika”</em> or <em>“Afrika kıtası”</em></li>
-<li>(ar) : The <em>" ثاني أكبر قارات العالم من حيث المساحة وعدد السكان، تأتي في المرتبة الثانية بعد آسيا"</em> <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> named <em>“إفريقيا”</em> or <em>“القارة الأفريقية”</em></li>
+<li>(ar) : The <em>” ثاني أكبر قارات العالم من حيث المساحة وعدد السكان، تأتي في المرتبة الثانية بعد آسيا”</em> <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> named <em>“إفريقيا”</em> or <em>“القارة الأفريقية”</em></li>
 </ul>
 <p>In other words the <strong>existence of the same code of wikipedia entities does not offer any guarantee of concordance between the geographical objects found in news published in different languages or different countries</strong>. But - and it is the important point - it help us to point similarities and differences between set of geographical entities that are more or less comparable in each language.</p>
 </div>
-<div id="a-tool-for-cross-linguistical-experiments" class="section level3" number="4.2.4">
-<h3><span class="header-section-number">4.2.4</span> A tool for cross-linguistical experiments</h3>
+<div id="a-tool-for-cross-linguistical-experiments" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> A tool for cross-linguistical experiments<a href="21-Wikidata.html#a-tool-for-cross-linguistical-experiments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Having in mind the limits of the equivalence of entities across languages, it can nevertheless be an interesting experience to select a set of wikipedia entities (Q15, Q258, Q4412 …) and to examine their relative frequency in our different media from different countries with different languages. A typical hypothesis could be something like :</p>
 <ul>
 <li>Is <em>Q15</em> more mentionned than <em>Q46</em> in Tunisian newspapers ?</li>
@@ -403,28 +381,28 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 </div>
 </div>
-<div id="the-package-wikidatar" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> The package WikidataR</h2>
+<div id="the-package-wikidatar" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> The package WikidataR<a href="21-Wikidata.html#the-package-wikidatar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The package <a href="https://cran.r-project.org/web/packages/WikidataR/WikidataR.pdf">WikidataR</a> is an interface for the use of the Wikidata API in R language. Equivalent tools are available in Python and other languages for those non familiar with R. And it is of course possible to use directly the API. The first step is to install the most recent version of the R package <code>WikidataR</code> which install also related packages of interest.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="21-Wikidata.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;WikidataR&quot;)</span></span>
-<span id="cb102-2"><a href="21-Wikidata.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span></code></pre></div>
-<div id="basic-operations" class="section level3" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Basic operations</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="21-Wikidata.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;WikidataR&quot;)</span></span>
+<span id="cb6-2"><a href="21-Wikidata.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span></code></pre></div>
+<div id="basic-operations" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Basic operations<a href="21-Wikidata.html#basic-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>(based on Etienne Toureille previous experiments)</p>
-<div id="identification-of-entities-of-interest" class="section level4" number="4.3.1.1">
-<h4><span class="header-section-number">4.3.1.1</span> identification of entities of interest</h4>
+<div id="identification-of-entities-of-interest" class="section level4 hasAnchor" number="4.3.1.1">
+<h4><span class="header-section-number">4.3.1.1</span> identification of entities of interest<a href="21-Wikidata.html#identification-of-entities-of-interest" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The function <code>find_item</code> will help to find all wikipedia entities (=items) associated to a textual unit (word or group of word) in given language. Let’s start with the research of entities associated to “<em>Afrique</em>” in french language :</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="21-Wikidata.html#cb103-1" aria-hidden="true" tabindex="-1"></a>mytext <span class="ot">&lt;-</span> <span class="st">&quot;Afrique&quot;</span></span>
-<span id="cb103-2"><a href="21-Wikidata.html#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-3"><a href="21-Wikidata.html#cb103-3" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">find_item</span>(<span class="at">search_term =</span> mytext,</span>
-<span id="cb103-4"><a href="21-Wikidata.html#cb103-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">language =</span> <span class="st">&quot;fr&quot;</span>,</span>
-<span id="cb103-5"><a href="21-Wikidata.html#cb103-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">limit=</span><span class="dv">30</span>)</span>
-<span id="cb103-6"><a href="21-Wikidata.html#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(items)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="21-Wikidata.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mytext <span class="ot">&lt;-</span> <span class="st">&quot;Afrique&quot;</span></span>
+<span id="cb7-2"><a href="21-Wikidata.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="21-Wikidata.html#cb7-3" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">find_item</span>(<span class="at">search_term =</span> mytext,</span>
+<span id="cb7-4"><a href="21-Wikidata.html#cb7-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">language =</span> <span class="st">&quot;fr&quot;</span>,</span>
+<span id="cb7-5"><a href="21-Wikidata.html#cb7-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">limit=</span><span class="dv">30</span>)</span>
+<span id="cb7-6"><a href="21-Wikidata.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(items)</span></code></pre></div>
 <pre><code>[1] &quot;find_item&quot;</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="21-Wikidata.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(items)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="21-Wikidata.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(items)</span></code></pre></div>
 <pre><code>[1] 30</code></pre>
 <p>The resulting object is an object from type <code>find_item</code> which is in practice a <code>list</code> describing the entities that has been recognized associated to the textual unit that we have chosen. In the french cas, we have found 50 entities that match with our textual unit. Let’s have a look at the first one :</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="21-Wikidata.html#cb107-1" aria-hidden="true" tabindex="-1"></a>items[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="21-Wikidata.html#cb11-1" aria-hidden="true" tabindex="-1"></a>items[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>$id
 [1] &quot;Q15&quot;
 
@@ -482,65 +460,65 @@ $aliases
 $aliases[[1]]
 [1] &quot;Afrique&quot;</code></pre>
 <p>As we can see we can easily identify the code the label and description in english but also the text responsible from the matching answer in french. We can therefore create a function <code>item_info</code> that extract all elements of interest and put them in a table in order to have a complete view.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="21-Wikidata.html#cb109-1" aria-hidden="true" tabindex="-1"></a>item_info <span class="ot">&lt;-</span> <span class="cf">function</span>(my_item){ </span>
-<span id="cb109-2"><a href="21-Wikidata.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb109-3"><a href="21-Wikidata.html#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-4"><a href="21-Wikidata.html#cb109-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>id) <span class="sc">==</span> F){item_id <span class="ot">=</span> my_item<span class="sc">$</span>id}</span>
-<span id="cb109-5"><a href="21-Wikidata.html#cb109-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_id  <span class="ot">=</span> <span class="cn">NA</span>}</span>
-<span id="cb109-6"><a href="21-Wikidata.html#cb109-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb109-7"><a href="21-Wikidata.html#cb109-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>label) <span class="sc">==</span>F){item_label <span class="ot">=</span> my_item<span class="sc">$</span>label}</span>
-<span id="cb109-8"><a href="21-Wikidata.html#cb109-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_label  <span class="ot">=</span> <span class="cn">NA</span>}</span>
-<span id="cb109-9"><a href="21-Wikidata.html#cb109-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb109-10"><a href="21-Wikidata.html#cb109-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>desc) <span class="sc">==</span> F) {item_desc<span class="ot">=</span> my_item<span class="sc">$</span>desc}</span>
-<span id="cb109-11"><a href="21-Wikidata.html#cb109-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_desc  <span class="ot">=</span> <span class="cn">NA</span>}</span>
-<span id="cb109-12"><a href="21-Wikidata.html#cb109-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb109-13"><a href="21-Wikidata.html#cb109-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>match<span class="sc">$</span>lang) <span class="sc">==</span>F){item_lang <span class="ot">=</span> my_item<span class="sc">$</span>match<span class="sc">$</span>lang}</span>
-<span id="cb109-14"><a href="21-Wikidata.html#cb109-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_lang  <span class="ot">=</span> <span class="cn">NA</span>}</span>
-<span id="cb109-15"><a href="21-Wikidata.html#cb109-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb109-16"><a href="21-Wikidata.html#cb109-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>match<span class="sc">$</span>text) <span class="sc">==</span>F){item_text <span class="ot">=</span> my_item<span class="sc">$</span>match<span class="sc">$</span>text}</span>
-<span id="cb109-17"><a href="21-Wikidata.html#cb109-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_text  <span class="ot">=</span> <span class="cn">NA</span>}</span>
-<span id="cb109-18"><a href="21-Wikidata.html#cb109-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-19"><a href="21-Wikidata.html#cb109-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb109-20"><a href="21-Wikidata.html#cb109-20" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>(item_id,item_label,item_desc,item_lang,item_text)</span>
-<span id="cb109-21"><a href="21-Wikidata.html#cb109-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb109-22"><a href="21-Wikidata.html#cb109-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res) </span>
-<span id="cb109-23"><a href="21-Wikidata.html#cb109-23" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="21-Wikidata.html#cb13-1" aria-hidden="true" tabindex="-1"></a>item_info <span class="ot">&lt;-</span> <span class="cf">function</span>(my_item){ </span>
+<span id="cb13-2"><a href="21-Wikidata.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-3"><a href="21-Wikidata.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="21-Wikidata.html#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>id) <span class="sc">==</span> F){item_id <span class="ot">=</span> my_item<span class="sc">$</span>id}</span>
+<span id="cb13-5"><a href="21-Wikidata.html#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_id  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb13-6"><a href="21-Wikidata.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-7"><a href="21-Wikidata.html#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>label) <span class="sc">==</span>F){item_label <span class="ot">=</span> my_item<span class="sc">$</span>label}</span>
+<span id="cb13-8"><a href="21-Wikidata.html#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_label  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb13-9"><a href="21-Wikidata.html#cb13-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-10"><a href="21-Wikidata.html#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>desc) <span class="sc">==</span> F) {item_desc<span class="ot">=</span> my_item<span class="sc">$</span>desc}</span>
+<span id="cb13-11"><a href="21-Wikidata.html#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_desc  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb13-12"><a href="21-Wikidata.html#cb13-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-13"><a href="21-Wikidata.html#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>match<span class="sc">$</span>lang) <span class="sc">==</span>F){item_lang <span class="ot">=</span> my_item<span class="sc">$</span>match<span class="sc">$</span>lang}</span>
+<span id="cb13-14"><a href="21-Wikidata.html#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_lang  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb13-15"><a href="21-Wikidata.html#cb13-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-16"><a href="21-Wikidata.html#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(my_item<span class="sc">$</span>match<span class="sc">$</span>text) <span class="sc">==</span>F){item_text <span class="ot">=</span> my_item<span class="sc">$</span>match<span class="sc">$</span>text}</span>
+<span id="cb13-17"><a href="21-Wikidata.html#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> {item_text  <span class="ot">=</span> <span class="cn">NA</span>}</span>
+<span id="cb13-18"><a href="21-Wikidata.html#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="21-Wikidata.html#cb13-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-20"><a href="21-Wikidata.html#cb13-20" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>(item_id,item_label,item_desc,item_lang,item_text)</span>
+<span id="cb13-21"><a href="21-Wikidata.html#cb13-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-22"><a href="21-Wikidata.html#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res) </span>
+<span id="cb13-23"><a href="21-Wikidata.html#cb13-23" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
 <p>For example :</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="21-Wikidata.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">item_info</span>(items[[<span class="dv">1</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="21-Wikidata.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">item_info</span>(items[[<span class="dv">1</span>]])</span></code></pre></div>
 <pre><code>  item_id item_label                                                  item_desc
 1     Q15     Africa continent on the Earth&#39;s northern and southern hemispheres
   item_lang item_text
 1        fr   Afrique</code></pre>
 <p>We build then a second function that extract all the wikipedia entities associated to a textual unit for a given language</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="21-Wikidata.html#cb112-1" aria-hidden="true" tabindex="-1"></a>extract_entities <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">mytext=</span> <span class="st">&quot;Afrique&quot;</span>,</span>
-<span id="cb112-2"><a href="21-Wikidata.html#cb112-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">mylang =</span> <span class="st">&quot;fr&quot;</span>,</span>
-<span id="cb112-3"><a href="21-Wikidata.html#cb112-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">maxres =</span> <span class="dv">20</span>) {</span>
-<span id="cb112-4"><a href="21-Wikidata.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract items</span></span>
-<span id="cb112-5"><a href="21-Wikidata.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  items <span class="ot">&lt;-</span> <span class="fu">find_item</span>(<span class="at">search_term =</span>  mytext,</span>
-<span id="cb112-6"><a href="21-Wikidata.html#cb112-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">language      =</span>  mylang,</span>
-<span id="cb112-7"><a href="21-Wikidata.html#cb112-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">limit         =</span>  maxres)</span>
-<span id="cb112-8"><a href="21-Wikidata.html#cb112-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb112-9"><a href="21-Wikidata.html#cb112-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create empty dataset</span></span>
-<span id="cb112-10"><a href="21-Wikidata.html#cb112-10" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb112-11"><a href="21-Wikidata.html#cb112-11" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_id    <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb112-12"><a href="21-Wikidata.html#cb112-12" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_label <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb112-13"><a href="21-Wikidata.html#cb112-13" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_desc <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb112-14"><a href="21-Wikidata.html#cb112-14" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_lang  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb112-15"><a href="21-Wikidata.html#cb112-15" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_text  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb112-16"><a href="21-Wikidata.html#cb112-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb112-17"><a href="21-Wikidata.html#cb112-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fill dataset</span></span>
-<span id="cb112-18"><a href="21-Wikidata.html#cb112-18" aria-hidden="true" tabindex="-1"></a>  k<span class="ot">&lt;-</span><span class="fu">length</span>(items)</span>
-<span id="cb112-19"><a href="21-Wikidata.html#cb112-19" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
-<span id="cb112-20"><a href="21-Wikidata.html#cb112-20" aria-hidden="true" tabindex="-1"></a>           res <span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,<span class="fu">item_info</span>(items[[i]]))</span>
-<span id="cb112-21"><a href="21-Wikidata.html#cb112-21" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb112-22"><a href="21-Wikidata.html#cb112-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb112-23"><a href="21-Wikidata.html#cb112-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return dataset</span></span>
-<span id="cb112-24"><a href="21-Wikidata.html#cb112-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb112-25"><a href="21-Wikidata.html#cb112-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb112-26"><a href="21-Wikidata.html#cb112-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="21-Wikidata.html#cb16-1" aria-hidden="true" tabindex="-1"></a>extract_entities <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">mytext=</span> <span class="st">&quot;Afrique&quot;</span>,</span>
+<span id="cb16-2"><a href="21-Wikidata.html#cb16-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">mylang =</span> <span class="st">&quot;fr&quot;</span>,</span>
+<span id="cb16-3"><a href="21-Wikidata.html#cb16-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">maxres =</span> <span class="dv">20</span>) {</span>
+<span id="cb16-4"><a href="21-Wikidata.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract items</span></span>
+<span id="cb16-5"><a href="21-Wikidata.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  items <span class="ot">&lt;-</span> <span class="fu">find_item</span>(<span class="at">search_term =</span>  mytext,</span>
+<span id="cb16-6"><a href="21-Wikidata.html#cb16-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">language      =</span>  mylang,</span>
+<span id="cb16-7"><a href="21-Wikidata.html#cb16-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">limit         =</span>  maxres)</span>
+<span id="cb16-8"><a href="21-Wikidata.html#cb16-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-9"><a href="21-Wikidata.html#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create empty dataset</span></span>
+<span id="cb16-10"><a href="21-Wikidata.html#cb16-10" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb16-11"><a href="21-Wikidata.html#cb16-11" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_id    <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb16-12"><a href="21-Wikidata.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_label <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb16-13"><a href="21-Wikidata.html#cb16-13" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_desc <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb16-14"><a href="21-Wikidata.html#cb16-14" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_lang  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb16-15"><a href="21-Wikidata.html#cb16-15" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>item_text  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb16-16"><a href="21-Wikidata.html#cb16-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-17"><a href="21-Wikidata.html#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fill dataset</span></span>
+<span id="cb16-18"><a href="21-Wikidata.html#cb16-18" aria-hidden="true" tabindex="-1"></a>  k<span class="ot">&lt;-</span><span class="fu">length</span>(items)</span>
+<span id="cb16-19"><a href="21-Wikidata.html#cb16-19" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb16-20"><a href="21-Wikidata.html#cb16-20" aria-hidden="true" tabindex="-1"></a>           res <span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,<span class="fu">item_info</span>(items[[i]]))</span>
+<span id="cb16-21"><a href="21-Wikidata.html#cb16-21" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb16-22"><a href="21-Wikidata.html#cb16-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-23"><a href="21-Wikidata.html#cb16-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return dataset</span></span>
+<span id="cb16-24"><a href="21-Wikidata.html#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb16-25"><a href="21-Wikidata.html#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-26"><a href="21-Wikidata.html#cb16-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>For example :</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="21-Wikidata.html#cb113-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">extract_entities</span>(<span class="st">&quot;Afrique&quot;</span>,<span class="st">&quot;fr&quot;</span>,<span class="dv">20</span>)</span>
-<span id="cb113-2"><a href="21-Wikidata.html#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="21-Wikidata.html#cb17-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">extract_entities</span>(<span class="st">&quot;Afrique&quot;</span>,<span class="st">&quot;fr&quot;</span>,<span class="dv">20</span>)</span>
+<span id="cb17-2"><a href="21-Wikidata.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="6%" />
@@ -674,7 +652,7 @@ $aliases[[1]]
 <tr class="odd">
 <td align="left">Q210682</td>
 <td align="left">French West Africa</td>
-<td align="left">French colonial federation (1895–1958)</td>
+<td align="left">French colonial federation in west Africa from 1895 to 1958</td>
 <td align="left">fr</td>
 <td align="left">Afrique-Occidentale française</td>
 </tr>
@@ -707,10 +685,10 @@ $aliases[[1]]
 <li><strong>the control entites</strong> : that we have to identify or eliminate if we want to identify correctly our target entities like the country of South Africa</li>
 </ul>
 <p>In the case of Africa, we could for example establish a more limited list</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="21-Wikidata.html#cb114-1" aria-hidden="true" tabindex="-1"></a>entit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q4412&quot;</span>,<span class="st">&quot;Q132959&quot;</span>, <span class="st">&quot;Q27394&quot;</span>,<span class="st">&quot;Q27407&quot;</span>,<span class="st">&quot;Q27381&quot;</span>,<span class="st">&quot;Q27433&quot;</span>,<span class="st">&quot;Q258&quot;</span>)</span>
-<span id="cb114-2"><a href="21-Wikidata.html#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb114-3"><a href="21-Wikidata.html#cb114-3" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>tab <span class="sc">%&gt;%</span> <span class="fu">filter</span>(item_id <span class="sc">%in%</span> entit)</span>
-<span id="cb114-4"><a href="21-Wikidata.html#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="21-Wikidata.html#cb18-1" aria-hidden="true" tabindex="-1"></a>entit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q4412&quot;</span>,<span class="st">&quot;Q132959&quot;</span>, <span class="st">&quot;Q27394&quot;</span>,<span class="st">&quot;Q27407&quot;</span>,<span class="st">&quot;Q27381&quot;</span>,<span class="st">&quot;Q27433&quot;</span>,<span class="st">&quot;Q258&quot;</span>)</span>
+<span id="cb18-2"><a href="21-Wikidata.html#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="21-Wikidata.html#cb18-3" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span>tab <span class="sc">%&gt;%</span> <span class="fu">filter</span>(item_id <span class="sc">%in%</span> entit)</span>
+<span id="cb18-4"><a href="21-Wikidata.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="6%" />
@@ -790,10 +768,10 @@ $aliases[[1]]
 <p>But this list which was based on the french textual units associated to “Afrique” should certainly be completed by equivalent list established for other languages with different seeds (“Africa” in english, “Afrika” in german, …)</p>
 </div>
 </div>
-<div id="elaboration-of-a-cross_linguistic-dictionnary" class="section level3" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Elaboration of a cross_linguistic dictionnary</h3>
+<div id="elaboration-of-a-cross_linguistic-dictionnary" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Elaboration of a cross_linguistic dictionnary<a href="21-Wikidata.html#elaboration-of-a-cross_linguistic-dictionnary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Admitting that we have established a list of wikipedia entities of interest, we can now turn to the creation of a dictionary for the identification of these entities in different languages. We will use for that purpose the powerful function <code>get_properties</code></p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="21-Wikidata.html#cb115-1" aria-hidden="true" tabindex="-1"></a>item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(<span class="st">&quot;Q15&quot;</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="21-Wikidata.html#cb19-1" aria-hidden="true" tabindex="-1"></a>item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(<span class="st">&quot;Q15&quot;</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
 <p>The result is a very large object (list of list) which provide all the informations (or links toward these information) in all languages wher the object is available. The problem is therefore to understand the structure of this object and to extract exactly what we need. In our case, we want to extract for each language of interest.</p>
 <p>The information will be separated in two datasets :</p>
 <ul>
@@ -801,48 +779,48 @@ $aliases[[1]]
 <li>dictionary of labels and aliases</li>
 </ul>
 <p>We create two functions dedicated to each of the tasks</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="21-Wikidata.html#cb116-1" aria-hidden="true" tabindex="-1"></a>extract_def <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">item =</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q246&quot;</span>),</span>
-<span id="cb116-2"><a href="21-Wikidata.html#cb116-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">langs =</span> <span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>)) {</span>
-<span id="cb116-3"><a href="21-Wikidata.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create empty dataset</span></span>
-<span id="cb116-4"><a href="21-Wikidata.html#cb116-4" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb116-5"><a href="21-Wikidata.html#cb116-5" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>id    <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb116-6"><a href="21-Wikidata.html#cb116-6" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>lang  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb116-7"><a href="21-Wikidata.html#cb116-7" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb116-8"><a href="21-Wikidata.html#cb116-8" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>desc  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb116-9"><a href="21-Wikidata.html#cb116-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb116-10"><a href="21-Wikidata.html#cb116-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb116-11"><a href="21-Wikidata.html#cb116-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop of items</span></span>
-<span id="cb116-12"><a href="21-Wikidata.html#cb116-12" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(item)</span>
-<span id="cb116-13"><a href="21-Wikidata.html#cb116-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
-<span id="cb116-14"><a href="21-Wikidata.html#cb116-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb116-15"><a href="21-Wikidata.html#cb116-15" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Extract item properties</span></span>
-<span id="cb116-16"><a href="21-Wikidata.html#cb116-16" aria-hidden="true" tabindex="-1"></a>    item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(item[i])[[<span class="dv">1</span>]]</span>
-<span id="cb116-17"><a href="21-Wikidata.html#cb116-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb116-18"><a href="21-Wikidata.html#cb116-18" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb116-19"><a href="21-Wikidata.html#cb116-19" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Loop  of language</span></span>
-<span id="cb116-20"><a href="21-Wikidata.html#cb116-20" aria-hidden="true" tabindex="-1"></a>     p<span class="ot">&lt;-</span><span class="fu">length</span>(langs)</span>
-<span id="cb116-21"><a href="21-Wikidata.html#cb116-21" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p) {</span>
-<span id="cb116-22"><a href="21-Wikidata.html#cb116-22" aria-hidden="true" tabindex="-1"></a>        id <span class="ot">&lt;-</span> item[i]</span>
-<span id="cb116-23"><a href="21-Wikidata.html#cb116-23" aria-hidden="true" tabindex="-1"></a>        lang  <span class="ot">&lt;-</span> langs[j]</span>
-<span id="cb116-24"><a href="21-Wikidata.html#cb116-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {label <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value}</span>
-<span id="cb116-25"><a href="21-Wikidata.html#cb116-25" aria-hidden="true" tabindex="-1"></a>           <span class="cf">else</span> { label <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
-<span id="cb116-26"><a href="21-Wikidata.html#cb116-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {desc <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value}</span>
-<span id="cb116-27"><a href="21-Wikidata.html#cb116-27" aria-hidden="true" tabindex="-1"></a>           <span class="cf">else</span> { desc <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
-<span id="cb116-28"><a href="21-Wikidata.html#cb116-28" aria-hidden="true" tabindex="-1"></a>        add <span class="ot">&lt;-</span><span class="fu">data.frame</span>(id,lang,label,desc)</span>
-<span id="cb116-29"><a href="21-Wikidata.html#cb116-29" aria-hidden="true" tabindex="-1"></a>        res<span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,add) </span>
-<span id="cb116-30"><a href="21-Wikidata.html#cb116-30" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb116-31"><a href="21-Wikidata.html#cb116-31" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb116-32"><a href="21-Wikidata.html#cb116-32" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb116-33"><a href="21-Wikidata.html#cb116-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Export result</span></span>
-<span id="cb116-34"><a href="21-Wikidata.html#cb116-34" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(res)</span>
-<span id="cb116-35"><a href="21-Wikidata.html#cb116-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-36"><a href="21-Wikidata.html#cb116-36" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="21-Wikidata.html#cb20-1" aria-hidden="true" tabindex="-1"></a>extract_def <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">item =</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q246&quot;</span>),</span>
+<span id="cb20-2"><a href="21-Wikidata.html#cb20-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">langs =</span> <span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>)) {</span>
+<span id="cb20-3"><a href="21-Wikidata.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create empty dataset</span></span>
+<span id="cb20-4"><a href="21-Wikidata.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb20-5"><a href="21-Wikidata.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>id    <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb20-6"><a href="21-Wikidata.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>lang  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb20-7"><a href="21-Wikidata.html#cb20-7" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb20-8"><a href="21-Wikidata.html#cb20-8" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>desc  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb20-9"><a href="21-Wikidata.html#cb20-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-10"><a href="21-Wikidata.html#cb20-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-11"><a href="21-Wikidata.html#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop of items</span></span>
+<span id="cb20-12"><a href="21-Wikidata.html#cb20-12" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(item)</span>
+<span id="cb20-13"><a href="21-Wikidata.html#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb20-14"><a href="21-Wikidata.html#cb20-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-15"><a href="21-Wikidata.html#cb20-15" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Extract item properties</span></span>
+<span id="cb20-16"><a href="21-Wikidata.html#cb20-16" aria-hidden="true" tabindex="-1"></a>    item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(item[i])[[<span class="dv">1</span>]]</span>
+<span id="cb20-17"><a href="21-Wikidata.html#cb20-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-18"><a href="21-Wikidata.html#cb20-18" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb20-19"><a href="21-Wikidata.html#cb20-19" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Loop  of language</span></span>
+<span id="cb20-20"><a href="21-Wikidata.html#cb20-20" aria-hidden="true" tabindex="-1"></a>     p<span class="ot">&lt;-</span><span class="fu">length</span>(langs)</span>
+<span id="cb20-21"><a href="21-Wikidata.html#cb20-21" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p) {</span>
+<span id="cb20-22"><a href="21-Wikidata.html#cb20-22" aria-hidden="true" tabindex="-1"></a>        id <span class="ot">&lt;-</span> item[i]</span>
+<span id="cb20-23"><a href="21-Wikidata.html#cb20-23" aria-hidden="true" tabindex="-1"></a>        lang  <span class="ot">&lt;-</span> langs[j]</span>
+<span id="cb20-24"><a href="21-Wikidata.html#cb20-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {label <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value}</span>
+<span id="cb20-25"><a href="21-Wikidata.html#cb20-25" aria-hidden="true" tabindex="-1"></a>           <span class="cf">else</span> { label <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
+<span id="cb20-26"><a href="21-Wikidata.html#cb20-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {desc <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value}</span>
+<span id="cb20-27"><a href="21-Wikidata.html#cb20-27" aria-hidden="true" tabindex="-1"></a>           <span class="cf">else</span> { desc <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
+<span id="cb20-28"><a href="21-Wikidata.html#cb20-28" aria-hidden="true" tabindex="-1"></a>        add <span class="ot">&lt;-</span><span class="fu">data.frame</span>(id,lang,label,desc)</span>
+<span id="cb20-29"><a href="21-Wikidata.html#cb20-29" aria-hidden="true" tabindex="-1"></a>        res<span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,add) </span>
+<span id="cb20-30"><a href="21-Wikidata.html#cb20-30" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb20-31"><a href="21-Wikidata.html#cb20-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-32"><a href="21-Wikidata.html#cb20-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-33"><a href="21-Wikidata.html#cb20-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Export result</span></span>
+<span id="cb20-34"><a href="21-Wikidata.html#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(res)</span>
+<span id="cb20-35"><a href="21-Wikidata.html#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-36"><a href="21-Wikidata.html#cb20-36" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The function works proprerly as long as the entities are available in all languages. It should be adapted to prevent errors when an entity is not available in one language.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="21-Wikidata.html#cb117-1" aria-hidden="true" tabindex="-1"></a>entit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q4412&quot;</span>,<span class="st">&quot;Q132959&quot;</span>, <span class="st">&quot;Q27394&quot;</span>,<span class="st">&quot;Q27407&quot;</span>,<span class="st">&quot;Q27381&quot;</span>,<span class="st">&quot;Q27433&quot;</span>,<span class="st">&quot;Q258&quot;</span>)</span>
-<span id="cb117-2"><a href="21-Wikidata.html#cb117-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-3"><a href="21-Wikidata.html#cb117-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-4"><a href="21-Wikidata.html#cb117-4" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span><span class="fu">extract_def</span>(entit,<span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;ar&quot;</span>))</span>
-<span id="cb117-5"><a href="21-Wikidata.html#cb117-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="21-Wikidata.html#cb21-1" aria-hidden="true" tabindex="-1"></a>entit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q4412&quot;</span>,<span class="st">&quot;Q132959&quot;</span>, <span class="st">&quot;Q27394&quot;</span>,<span class="st">&quot;Q27407&quot;</span>,<span class="st">&quot;Q27381&quot;</span>,<span class="st">&quot;Q27433&quot;</span>,<span class="st">&quot;Q258&quot;</span>)</span>
+<span id="cb21-2"><a href="21-Wikidata.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="21-Wikidata.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="21-Wikidata.html#cb21-4" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span><span class="fu">extract_def</span>(entit,<span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;ar&quot;</span>))</span>
+<span id="cb21-5"><a href="21-Wikidata.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="5%" />
@@ -1102,99 +1080,99 @@ $aliases[[1]]
 </tbody>
 </table>
 </div>
-<div id="extraction-of-aliases" class="section level3" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Extraction of aliases</h3>
+<div id="extraction-of-aliases" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Extraction of aliases<a href="21-Wikidata.html#extraction-of-aliases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now we have to extract the <em>aliases</em> which are two texts corresponding to the same entity in a given,language. For example, the Q27394 which correspond to the southern part of Africa (a subregion, not a country) is associated in spanish language to one main label and three equivalenbt alisases</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="21-Wikidata.html#cb118-1" aria-hidden="true" tabindex="-1"></a>item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(<span class="st">&quot;Q27394&quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb118-2"><a href="21-Wikidata.html#cb118-2" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>labels<span class="sc">$</span>es<span class="sc">$</span>value</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="21-Wikidata.html#cb22-1" aria-hidden="true" tabindex="-1"></a>item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(<span class="st">&quot;Q27394&quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb22-2"><a href="21-Wikidata.html#cb22-2" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>labels<span class="sc">$</span>es<span class="sc">$</span>value</span></code></pre></div>
 <pre><code>[1] &quot;África austral&quot;</code></pre>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="21-Wikidata.html#cb120-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>aliases<span class="sc">$</span>es</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="21-Wikidata.html#cb24-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>aliases<span class="sc">$</span>es</span></code></pre></div>
 <pre><code>  language               value
 1       es      África del Sur
 2       es       sur de África
 3       es África de l sureste</code></pre>
 <p>But in french language, no aliases are mentioned :</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="21-Wikidata.html#cb122-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>labels<span class="sc">$</span>fr<span class="sc">$</span>value</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="21-Wikidata.html#cb26-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>labels<span class="sc">$</span>fr<span class="sc">$</span>value</span></code></pre></div>
 <pre><code>[1] &quot;Afrique australe&quot;</code></pre>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="21-Wikidata.html#cb124-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>aliases<span class="sc">$</span>fr</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="21-Wikidata.html#cb28-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>aliases<span class="sc">$</span>fr</span></code></pre></div>
 <pre><code>NULL</code></pre>
 <p>The fact that no aliases are mentioned in french language can be considered as non logical as compared to spanish language. And we could certainly imagine to add in french the translation of two spanish aliases: “<em>Afrique méridionale</em>”, “<em>Sud de l’Afrique</em>”. But we can not add “<em>Afrique du Sud</em>” because it is related in french to the state and not to the subregion.</p>
 <p>Despite the fact that they are not complete, the aliases are certainly a good solution when we want to obtain more efficient dictionaries. For example, if we want to obtain the state of southern Africa (Q258), we can complete the official label by 4 alias in french language and 3 aliases in spanish, taking into account the fact that the text is in upper orlowercase, withor without accent, …</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="21-Wikidata.html#cb126-1" aria-hidden="true" tabindex="-1"></a>item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(<span class="st">&quot;Q258&quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb126-2"><a href="21-Wikidata.html#cb126-2" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>labels<span class="sc">$</span>es<span class="sc">$</span>value</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="21-Wikidata.html#cb30-1" aria-hidden="true" tabindex="-1"></a>item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(<span class="st">&quot;Q258&quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb30-2"><a href="21-Wikidata.html#cb30-2" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>labels<span class="sc">$</span>es<span class="sc">$</span>value</span></code></pre></div>
 <pre><code>[1] &quot;Sudáfrica&quot;</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="21-Wikidata.html#cb128-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>aliases<span class="sc">$</span>es</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="21-Wikidata.html#cb32-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>aliases<span class="sc">$</span>es</span></code></pre></div>
 <pre><code>  language                  value
 1       es República de Sudáfrica
 2       es              Sudafrica
 3       es Republica de Sudafrica</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="21-Wikidata.html#cb130-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>labels<span class="sc">$</span>fr<span class="sc">$</span>value</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="21-Wikidata.html#cb34-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>labels<span class="sc">$</span>fr<span class="sc">$</span>value</span></code></pre></div>
 <pre><code>[1] &quot;Afrique du Sud&quot;</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="21-Wikidata.html#cb132-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>aliases<span class="sc">$</span>fr</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="21-Wikidata.html#cb36-1" aria-hidden="true" tabindex="-1"></a>item_prop<span class="sc">$</span>aliases<span class="sc">$</span>fr</span></code></pre></div>
 <pre><code>  language                       value
 1       fr    République sud-africaine
 2       fr République d’Afrique du Sud
 3       fr    république sud-africaine
 4       fr république d’Afrique du Sud</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="21-Wikidata.html#cb134-1" aria-hidden="true" tabindex="-1"></a>lang<span class="ot">=</span><span class="st">&quot;fr&quot;</span></span>
-<span id="cb134-2"><a href="21-Wikidata.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.null</span>(item_prop[[<span class="st">&quot;aliases&quot;</span>]][[lang]])<span class="sc">!=</span>F</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="21-Wikidata.html#cb38-1" aria-hidden="true" tabindex="-1"></a>lang<span class="ot">=</span><span class="st">&quot;fr&quot;</span></span>
+<span id="cb38-2"><a href="21-Wikidata.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.null</span>(item_prop[[<span class="st">&quot;aliases&quot;</span>]][[lang]])<span class="sc">!=</span>F</span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="21-Wikidata.html#cb136-1" aria-hidden="true" tabindex="-1"></a>ali <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;aliases&quot;</span>]][[lang]]<span class="sc">$</span>value</span>
-<span id="cb136-2"><a href="21-Wikidata.html#cb136-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">length</span>(ali)</span>
-<span id="cb136-3"><a href="21-Wikidata.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) { <span class="fu">print</span>(ali[i])}</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="21-Wikidata.html#cb40-1" aria-hidden="true" tabindex="-1"></a>ali <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;aliases&quot;</span>]][[lang]]<span class="sc">$</span>value</span>
+<span id="cb40-2"><a href="21-Wikidata.html#cb40-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">length</span>(ali)</span>
+<span id="cb40-3"><a href="21-Wikidata.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) { <span class="fu">print</span>(ali[i])}</span></code></pre></div>
 <pre><code>[1] &quot;République sud-africaine&quot;
 [1] &quot;République d’Afrique du Sud&quot;
 [1] &quot;république sud-africaine&quot;
 [1] &quot;république d’Afrique du Sud&quot;</code></pre>
 <p>We propose therefore a function called <code>extract_alias</code> which propose for each entity of interest a list of texts and aliases adapte to each language. We do not store the definition which has been otained previously with the function <code>extract_def</code> :</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="21-Wikidata.html#cb138-1" aria-hidden="true" tabindex="-1"></a>extract_alias <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">items =</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q258&quot;</span>),</span>
-<span id="cb138-2"><a href="21-Wikidata.html#cb138-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">langs =</span> <span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>)) {</span>
-<span id="cb138-3"><a href="21-Wikidata.html#cb138-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create empty dataset</span></span>
-<span id="cb138-4"><a href="21-Wikidata.html#cb138-4" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb138-5"><a href="21-Wikidata.html#cb138-5" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>id    <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb138-6"><a href="21-Wikidata.html#cb138-6" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>lang  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb138-7"><a href="21-Wikidata.html#cb138-7" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
-<span id="cb138-8"><a href="21-Wikidata.html#cb138-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-9"><a href="21-Wikidata.html#cb138-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb138-10"><a href="21-Wikidata.html#cb138-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop of items</span></span>
-<span id="cb138-11"><a href="21-Wikidata.html#cb138-11" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(items)</span>
-<span id="cb138-12"><a href="21-Wikidata.html#cb138-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
-<span id="cb138-13"><a href="21-Wikidata.html#cb138-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb138-14"><a href="21-Wikidata.html#cb138-14" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Extract item properties</span></span>
-<span id="cb138-15"><a href="21-Wikidata.html#cb138-15" aria-hidden="true" tabindex="-1"></a>    item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(items[i])[[<span class="dv">1</span>]]</span>
-<span id="cb138-16"><a href="21-Wikidata.html#cb138-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb138-17"><a href="21-Wikidata.html#cb138-17" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb138-18"><a href="21-Wikidata.html#cb138-18" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Loop  of language</span></span>
-<span id="cb138-19"><a href="21-Wikidata.html#cb138-19" aria-hidden="true" tabindex="-1"></a>     p<span class="ot">&lt;-</span><span class="fu">length</span>(langs)</span>
-<span id="cb138-20"><a href="21-Wikidata.html#cb138-20" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p) {</span>
-<span id="cb138-21"><a href="21-Wikidata.html#cb138-21" aria-hidden="true" tabindex="-1"></a>        id <span class="ot">&lt;-</span> items[i]</span>
-<span id="cb138-22"><a href="21-Wikidata.html#cb138-22" aria-hidden="true" tabindex="-1"></a>        lang  <span class="ot">&lt;-</span> langs[j]</span>
-<span id="cb138-23"><a href="21-Wikidata.html#cb138-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {label <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value} <span class="cf">else</span> { label <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
-<span id="cb138-24"><a href="21-Wikidata.html#cb138-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {desc <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value}<span class="cf">else</span> { desc <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
-<span id="cb138-25"><a href="21-Wikidata.html#cb138-25" aria-hidden="true" tabindex="-1"></a>        add <span class="ot">&lt;-</span><span class="fu">data.frame</span>(id,lang,label)</span>
-<span id="cb138-26"><a href="21-Wikidata.html#cb138-26" aria-hidden="true" tabindex="-1"></a>        res<span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,add) </span>
-<span id="cb138-27"><a href="21-Wikidata.html#cb138-27" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Loop of aliases</span></span>
-<span id="cb138-28"><a href="21-Wikidata.html#cb138-28" aria-hidden="true" tabindex="-1"></a>              <span class="cf">if</span> (<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;aliases&quot;</span>]][[lang]])<span class="sc">==</span>F) {</span>
-<span id="cb138-29"><a href="21-Wikidata.html#cb138-29" aria-hidden="true" tabindex="-1"></a>                ali <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;aliases&quot;</span>]][[lang]]<span class="sc">$</span>value</span>
-<span id="cb138-30"><a href="21-Wikidata.html#cb138-30" aria-hidden="true" tabindex="-1"></a>                n<span class="ot">&lt;-</span><span class="fu">length</span>(ali)</span>
-<span id="cb138-31"><a href="21-Wikidata.html#cb138-31" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
-<span id="cb138-32"><a href="21-Wikidata.html#cb138-32" aria-hidden="true" tabindex="-1"></a>                        label <span class="ot">&lt;-</span> ali[k]</span>
-<span id="cb138-33"><a href="21-Wikidata.html#cb138-33" aria-hidden="true" tabindex="-1"></a>                        add <span class="ot">&lt;-</span><span class="fu">data.frame</span>(id,lang,label)</span>
-<span id="cb138-34"><a href="21-Wikidata.html#cb138-34" aria-hidden="true" tabindex="-1"></a>                        res<span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,add) </span>
-<span id="cb138-35"><a href="21-Wikidata.html#cb138-35" aria-hidden="true" tabindex="-1"></a>                  }</span>
-<span id="cb138-36"><a href="21-Wikidata.html#cb138-36" aria-hidden="true" tabindex="-1"></a>              }</span>
-<span id="cb138-37"><a href="21-Wikidata.html#cb138-37" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb138-38"><a href="21-Wikidata.html#cb138-38" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb138-39"><a href="21-Wikidata.html#cb138-39" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb138-40"><a href="21-Wikidata.html#cb138-40" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb138-41"><a href="21-Wikidata.html#cb138-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Export result</span></span>
-<span id="cb138-42"><a href="21-Wikidata.html#cb138-42" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(res)</span>
-<span id="cb138-43"><a href="21-Wikidata.html#cb138-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-44"><a href="21-Wikidata.html#cb138-44" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="21-Wikidata.html#cb42-1" aria-hidden="true" tabindex="-1"></a>extract_alias <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">items =</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q258&quot;</span>),</span>
+<span id="cb42-2"><a href="21-Wikidata.html#cb42-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">langs =</span> <span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>)) {</span>
+<span id="cb42-3"><a href="21-Wikidata.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create empty dataset</span></span>
+<span id="cb42-4"><a href="21-Wikidata.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  res<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb42-5"><a href="21-Wikidata.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>id    <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb42-6"><a href="21-Wikidata.html#cb42-6" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>lang  <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb42-7"><a href="21-Wikidata.html#cb42-7" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">as.character</span>()</span>
+<span id="cb42-8"><a href="21-Wikidata.html#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="21-Wikidata.html#cb42-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb42-10"><a href="21-Wikidata.html#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop of items</span></span>
+<span id="cb42-11"><a href="21-Wikidata.html#cb42-11" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(items)</span>
+<span id="cb42-12"><a href="21-Wikidata.html#cb42-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb42-13"><a href="21-Wikidata.html#cb42-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb42-14"><a href="21-Wikidata.html#cb42-14" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Extract item properties</span></span>
+<span id="cb42-15"><a href="21-Wikidata.html#cb42-15" aria-hidden="true" tabindex="-1"></a>    item_prop <span class="ot">&lt;-</span> <span class="fu">get_property</span>(items[i])[[<span class="dv">1</span>]]</span>
+<span id="cb42-16"><a href="21-Wikidata.html#cb42-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb42-17"><a href="21-Wikidata.html#cb42-17" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb42-18"><a href="21-Wikidata.html#cb42-18" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Loop  of language</span></span>
+<span id="cb42-19"><a href="21-Wikidata.html#cb42-19" aria-hidden="true" tabindex="-1"></a>     p<span class="ot">&lt;-</span><span class="fu">length</span>(langs)</span>
+<span id="cb42-20"><a href="21-Wikidata.html#cb42-20" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p) {</span>
+<span id="cb42-21"><a href="21-Wikidata.html#cb42-21" aria-hidden="true" tabindex="-1"></a>        id <span class="ot">&lt;-</span> items[i]</span>
+<span id="cb42-22"><a href="21-Wikidata.html#cb42-22" aria-hidden="true" tabindex="-1"></a>        lang  <span class="ot">&lt;-</span> langs[j]</span>
+<span id="cb42-23"><a href="21-Wikidata.html#cb42-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {label <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;labels&quot;</span>]][[lang]]<span class="sc">$</span>value} <span class="cf">else</span> { label <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
+<span id="cb42-24"><a href="21-Wikidata.html#cb42-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value)<span class="sc">==</span>F) {desc <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;descriptions&quot;</span>]][[lang]]<span class="sc">$</span>value}<span class="cf">else</span> { desc <span class="ot">&lt;-</span> <span class="cn">NA</span>}</span>
+<span id="cb42-25"><a href="21-Wikidata.html#cb42-25" aria-hidden="true" tabindex="-1"></a>        add <span class="ot">&lt;-</span><span class="fu">data.frame</span>(id,lang,label)</span>
+<span id="cb42-26"><a href="21-Wikidata.html#cb42-26" aria-hidden="true" tabindex="-1"></a>        res<span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,add) </span>
+<span id="cb42-27"><a href="21-Wikidata.html#cb42-27" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Loop of aliases</span></span>
+<span id="cb42-28"><a href="21-Wikidata.html#cb42-28" aria-hidden="true" tabindex="-1"></a>              <span class="cf">if</span> (<span class="fu">is.null</span>(item_prop[[<span class="st">&quot;aliases&quot;</span>]][[lang]])<span class="sc">==</span>F) {</span>
+<span id="cb42-29"><a href="21-Wikidata.html#cb42-29" aria-hidden="true" tabindex="-1"></a>                ali <span class="ot">&lt;-</span> item_prop[[<span class="st">&quot;aliases&quot;</span>]][[lang]]<span class="sc">$</span>value</span>
+<span id="cb42-30"><a href="21-Wikidata.html#cb42-30" aria-hidden="true" tabindex="-1"></a>                n<span class="ot">&lt;-</span><span class="fu">length</span>(ali)</span>
+<span id="cb42-31"><a href="21-Wikidata.html#cb42-31" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb42-32"><a href="21-Wikidata.html#cb42-32" aria-hidden="true" tabindex="-1"></a>                        label <span class="ot">&lt;-</span> ali[k]</span>
+<span id="cb42-33"><a href="21-Wikidata.html#cb42-33" aria-hidden="true" tabindex="-1"></a>                        add <span class="ot">&lt;-</span><span class="fu">data.frame</span>(id,lang,label)</span>
+<span id="cb42-34"><a href="21-Wikidata.html#cb42-34" aria-hidden="true" tabindex="-1"></a>                        res<span class="ot">&lt;-</span> <span class="fu">rbind</span>(res,add) </span>
+<span id="cb42-35"><a href="21-Wikidata.html#cb42-35" aria-hidden="true" tabindex="-1"></a>                  }</span>
+<span id="cb42-36"><a href="21-Wikidata.html#cb42-36" aria-hidden="true" tabindex="-1"></a>              }</span>
+<span id="cb42-37"><a href="21-Wikidata.html#cb42-37" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb42-38"><a href="21-Wikidata.html#cb42-38" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb42-39"><a href="21-Wikidata.html#cb42-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb42-40"><a href="21-Wikidata.html#cb42-40" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb42-41"><a href="21-Wikidata.html#cb42-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Export result</span></span>
+<span id="cb42-42"><a href="21-Wikidata.html#cb42-42" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(res)</span>
+<span id="cb42-43"><a href="21-Wikidata.html#cb42-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-44"><a href="21-Wikidata.html#cb42-44" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Let’s try the function on the case of the continent of “Africa” (Q15), the subregion “South of Africa” (Q27394) and the state of “Southern Africa” (Q258) in five languages :</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="21-Wikidata.html#cb139-1" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span> <span class="fu">extract_alias</span>(<span class="at">items =</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q27394&quot;</span>, <span class="st">&quot;Q258&quot;</span>),</span>
-<span id="cb139-2"><a href="21-Wikidata.html#cb139-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">langs =</span> <span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>))</span>
-<span id="cb139-3"><a href="21-Wikidata.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="21-Wikidata.html#cb43-1" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span> <span class="fu">extract_alias</span>(<span class="at">items =</span> <span class="fu">c</span>(<span class="st">&quot;Q15&quot;</span>, <span class="st">&quot;Q27394&quot;</span>, <span class="st">&quot;Q258&quot;</span>),</span>
+<span id="cb43-2"><a href="21-Wikidata.html#cb43-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">langs =</span> <span class="fu">c</span>(<span class="st">&quot;fr&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;en&quot;</span>,<span class="st">&quot;tr&quot;</span>,<span class="st">&quot;ar&quot;</span>))</span>
+<span id="cb43-3"><a href="21-Wikidata.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tab)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1403,8 +1381,8 @@ $aliases[[1]]
 </table>
 <p>The function works !</p>
 </div>
-<div id="conclusion" class="section level3" number="4.3.4">
-<h3><span class="header-section-number">4.3.4</span> Conclusion</h3>
+<div id="conclusion" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Conclusion<a href="21-Wikidata.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is now possible to develop a global research strategy for the analysis of world regions :</p>
 <p><strong>1. Define a set of target regions in one language</strong> : In our example, it was based on the use of the term “Afrique” in french language, but we can imagine a different list.</p>
 <p><strong>2. Identify the code of the wikidata entities associated to this target regions</strong> : We have generally a lot of entities of minor interest.</p>
