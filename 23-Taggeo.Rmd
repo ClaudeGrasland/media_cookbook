@@ -12,7 +12,7 @@ library(quanteda)
 The dictionnary elaboated by automatic procedures has been manually corrected and the new version is upload.
 
 ```{r}
-dict<-read.table("dict/worldgeo_dict_V4bis.csv", 
+dict<-read.table("dict/worldgeo_dict_V5.csv", 
                  header=T, 
                  sep=";",
                  encoding = "UTF-8",
@@ -338,10 +338,13 @@ qd <- readRDS("quanteda/ar_DZA_elkahb.RDS")
 docvars(qd)<-docvars(qd)[c("source","date")]
 qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
 
+# Sahara occidental
+arcomps=c("الصحراء الغربية")
 qd <- extract_tags (qd = qd,
                      lang="ar",
                      dict = dict,
                     code = "code",
+                    comps = arcomps,
                    split = c("'","’","-"),
                      tolow = FALSE)
 saveRDS(qd,"quanteda/ar_DZA_elkahb_geo.RDS")
@@ -363,6 +366,7 @@ qd <- extract_tags (qd = qd,
                      dict = dict,
                     code = "code",
                    split = c("'","’","-"),
+                    comps = arcomps,
                      tolow = FALSE)
 saveRDS(qd,"quanteda/ar_DZA_chorou_geo.RDS")
 
@@ -383,7 +387,7 @@ frcomps<-c("Europe 1", "Atlantic city",
            "Loire-Atlantique", "Pyrénées-Atlantique", "Pyrénées-Atlantiques",
            "Alpes-de-Haute-Provence", "Hautes-Alpes", "Rhöne-Alpes","Alpes-Maritimes",
            "Chantiers de l'Atlantique", "TGV Atlantique",
-           "Bourse de Paris", "Paris SG", "Ville de Paris", "Grand Paris")
+           "Bourse de Paris", "Paris SG", "Ville de Paris", "Grand Paris", "sahara occidental", "Sahara occidental", "Sahara Occidental")
 
 qd <- extract_tags (qd = qd,
                      lang="fr",

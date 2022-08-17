@@ -26,14 +26,10 @@ hc_reg<-left_join(hc_reg,wgt)
 hc_reg$news_wgt<-hc_reg$news*hc_reg$coeff
 
 # Load table of label and choose language
-reg_def<-readRDS("dict/worldgeo_def_V1.RDS")
+reg_def<-read.table("dict/worldgeo_def_V2.csv", sep=";",quote = '"', encoding = "UTF-8",header=T)
+
 tab_def<-reg_def %>% filter(lang=="fr") %>% select(code,type,label)
-tab_def$label[tab_def$code=="OR_NATO"]<-"OTAN"
-tab_def$label[tab_def$code=="OR_Merco"]<-"MERCOSUR"
-tab_def$label[tab_def$code=="LA_Mashr"]<-"Machrek"
-tab_def$label[tab_def$code=="LA_Maghr"]<-"Maghreb"
-tab_def$label[tab_def$code=="SE_china_south"]<-"Mer de Chine S."
-tab_def$label[tab_def$code=="SE_china_east"]<-"Mer de Chine O."
+tab_def<-tab_def[duplicated(tab_def$label)==F,]
 ```
 
 ## Top 50 regions in full corpus
@@ -264,14 +260,15 @@ reg_med <-hc_reg[where1 !="_no_",list(nb = sum(news_wgt)), list(where1, who)] %>
 mat<-as.matrix(reg_med[,-1])
 
 # Labels
-lab<-reg_med[,1] %>% rename(code=where1) %>% unique()
+lab<-data.frame(code=unique(reg_med[,1]))
+
 lab<-merge(lab,tab_def,all.x=T,all.y=F) %>% filter(duplicated(code)==F)
 # Row.names (choose the language you want !)
 row.names(mat)<-lab$label
 
 # Filter ambiguous units
-mat<-mat[row.names(mat) != "Sahara",]
-#mat<-mat[row.names(mat) != "Asia Minor",]
+#mat<-mat[row.names(mat) != "Sahara",]
+##mat<-mat[row.names(mat) != "Asia Minor",]
 #mat<-mat[row.names(mat) != "Southern Africa",]
 #mat<-mat[row.names(mat) != "Europe",]
 #mat<-mat[row.names(mat) != "European Union",]

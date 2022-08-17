@@ -12,8 +12,11 @@ library(tidytext, quiet=T)
 library(stringr)
 library(visNetwork, quietly = T)
 library(dplyr)
+library(reshape2)
+library(igraph)
 ```
 
+## All corpus
 
 ### Load Hypercube State x Regions
 
@@ -22,19 +25,17 @@ We load the hypercube describing the association between regions and states in t
 ```{r}
 hc_sta_reg<-readRDS("hypercube/hc_sta_reg.RDS") %>% filter(where1 !="_no_", where2 != "_no_")
 
+# Eliminate links related to the country
+
+
+
 # Load table of label and choose language
-tab_def<-readRDS("dict/worldgeo_def_V1.RDS")
-tab_def<-tab_def %>% filter(lang=="fr") %>% select(code,type,label)
 
-tab_def$label[tab_def$code=="OR_NATO"]<-"OTAN"
-tab_def$label[tab_def$code=="OR_Merco"]<-"MERCOSUR"
-tab_def$label[tab_def$code=="LA_Mashr"]<-"Machrek"
-tab_def$label[tab_def$code=="LA_Maghr"]<-"Maghreb"
-tab_def$label[tab_def$code=="SE_china_south"]<-"Mer de Chine S."
-tab_def$label[tab_def$code=="SE_china_east"]<-"Mer de Chine O."
-tab_def$label[tab_def$code=="OR_Asean"]<-"ASEAN"
-tab_def$label[tab_def$code=="OR_ECWAS"]<-"CEDEAO"
+reg_def<-read.table("dict/worldgeo_def_V2.csv", sep=";",quote = '"', encoding = "UTF-8",header=T)
+tab_def<-reg_def %>% filter(lang=="fr") %>% select(code,type,label)
+tab_def<-tab_def[duplicated(tab_def$label)==F,]
 
+# Adaft some long labels
 tab_def$label[tab_def$code=="ST_CHN"]<-"Chine"
 tab_def$label[tab_def$code=="ST_ARE"]<-"E.A.U."
 tab_def$label[tab_def$code=="ST_COD"]<-"RD Congo"
@@ -51,8 +52,9 @@ lab_reg<-tab_def %>% filter(substr(code,1,3) %in% c("ST_")) %>%
   select(where1,label1=label)
 hc_sta_reg<-left_join(hc_sta_reg,lab_reg)
 
-
-
+# Eliminate national links
+#hc_sta_reg<-hc_sta_reg[!(substr(who,4,6)== where1),]
+#hc_sta_reg<-hc_sta_reg[!(substr(who,4,6)== "NIR" & where1=="GBR"),]
 ```
 
 
@@ -89,26 +91,27 @@ hc_filter <- function(don = hc,
                    where1 = don[[where1]],
                    where2 = don[[where2]],
                    wgt = don[[wgt]])
-    
+
+
     # Select time period
-        if (is.na(when_start)==FALSE) { 
+        if (is.na(when_start[1])==FALSE) { 
         df <- df[when >= as.Date(when_start), ]}
-        if (is.na(when_end)==FALSE) { 
+        if (is.na(when_end[1])==FALSE) { 
         df <- df[when <= as.Date(when_end), ]}
     # Select who
-        if (is.na(who_exc)==FALSE) { 
+        if (is.na(who_exc[1])==FALSE) { 
         df <- df[!(who %in% who_exc), ]}
-        if (is.na(who_inc)==FALSE) { 
+        if (is.na(who_inc[1])==FALSE) { 
         df <- df[(who %in% who_inc), ]}
     # Select where1
-        if (is.na(where1_exc)==FALSE) { 
+        if (is.na(where1_exc[1])==FALSE) { 
         df <- df[!(where1 %in% where1_exc), ]}
-        if (is.na(where1_inc)==FALSE) { 
+        if (is.na(where1_inc[1])==FALSE) { 
         df <- df[(where1 %in% where1_inc), ]}
     # Select where2
-        if (is.na(where2_exc)==FALSE) { 
+        if (is.na(where2_exc[1])==FALSE) { 
         df <- df[!(where2 %in% where2_exc), ]}
-        if (is.na(where2_inc)==FALSE) { 
+        if (is.na(where2_inc[1])==FALSE) { 
         df <- df[(where2 %in% where2_inc), ]}
     # eliminate internal links
        if (self==FALSE) { 
@@ -125,8 +128,8 @@ hc<-hc_filter(don = hc_sta_reg,
               where1 = "label1",
               where2 = "label2",
 #              who_inc = c("fr_FRA_figaro", "fr_FRA_lmonde"),
-#              who_inc = c("de_DEU_frankf", "de_DEU_suddeu"),
-              who_inc = c("tr_TUR_cumhur", "tr_TUR_yenisa"),
+ #             who_inc = c("de_DEU_frankf", "de_DEU_suddeu"),
+ #             who_inc = c("tr_TUR_cumhur", "tr_TUR_yenisa"),
               wgt = "tags",
 #              where1_exc = c("_no_","FRA"),
               where2_exc = c("_no_"),
@@ -178,7 +181,7 @@ build_int <- function(don = don,       # a dataframe with columns i, j , Fij
   m0[m0<k]<-0
   m0[m0>=k]<-1
   mat<-mat[apply(m0,1,sum)>=n1,apply(m0,2,sum)>=n2 ]
-  int<-melt(mat)
+  int<-reshape2::melt(mat)
   names(int) <-c("i","j","Fij")
   return(int)
 }
@@ -188,6 +191,7 @@ build_int <- function(don = don,       # a dataframe with columns i, j , Fij
 In the case of our example, the links are not frequent. Therefore we use parameters a bit lower than default value
 
 ```{r}
+
 int <- build_int(don = hc,
                  i="where1",
                  j="where2",
@@ -277,19 +281,19 @@ We can have a look at the more important positive residuals in absolute value :
 ```{r}
 tab<-mod[order(-mod$Rabs_ij),]
 tab<-tab[(tab$i > tab$j),]
-kable(head(tab,10) , digits=2, caption = "Positive residuals")
+kable(head(tab,20) , digits=2, caption = "Positive residuals")
 ```
 
 
 
 
 
-## Visualization
+### Visualization
 
 
-### Function
+#### Function
 
-We have created a prototype of geonetwork visualization function with different parameters making possible to display different graphs. The function is specifically deidcated to the case of a matrix linking fifferent units in lines and columns (dual mode network).
+We have created a prototype of geonetwork visualization function with different parameters making possible to display different graphs. The function is specifically dedicated to the case of a matrix linking fifferent units in lines and columns (dual mode network).
 
 
 ```{r}
@@ -358,10 +362,10 @@ nodes<-rbind(nodesi,nodesj)
 
 
 # Adjust edge codes
-edges <- int %>% mutate(width = 5+30*size / max(size)) %>%
+edges <- int %>% mutate(width = 2+5*size / max(size)) %>%
                 left_join(nodes %>% select(i=code, from = id)) %>%  
                 left_join(nodes %>% select(j=code, to = id ))
-edges$color<-"black"
+edges$color<-"gray90"
 
 # compute nodesize
 #tot<-int %>% group_by(i) %>% summarize(size =sum (size)) %>% select (code=i,size)
@@ -381,8 +385,8 @@ net<- visNetwork(nodes,
                   main = title,
 height = "700px", 
                   width = "100%")   %>%   
-   visNodes(scaling =list(min =20, max=60, 
-                          label=list(min=20,max=80, 
+   visNodes(scaling =list(min =10, max=40, 
+                          label=list(min=20,max=40, 
                                     maxVisible = 20)))%>%
        visOptions(highlightNearest = TRUE,
      #               selectedBy = "group", 
@@ -400,33 +404,261 @@ net
 
 
 
-### Raw network
+#### Raw network
 
-We can firstly provide a basic view of the raw network  using links greater or equal to 2
+We can firstly provide a basic view of the raw network  using links greater or equal to 50
 
 ```{r}
 geo_network(mod,
             size = "Fij",
-            minsize = 10,
+            minsize = 20,
             test = "Fij",
-            mintest = 5)
+            mintest = 20)
 
 ```
 
 
-### Preferential links 
+#### Preferential links 
 
-But we can also visualize the most significant links by changing the criteria of size and introducing a test of significance :
+But we can also visualize the most significant links by changing the criteria of size (Fij >=5) and introducing a test of significance (p < 0.05)
 
 
 
 ```{r}
 geo_network(mod,
             size = "Rabs_ij",
-            minsize = 2,
+            minsize = 5,
+            test = "Rchi_ij",
+            mintest = 3.84)
+```
+
+## By country
+
+Now we extract the network of preferential links for each country separately, which is a good way to indify problems in the dictionary.
+
+### France
+
+```{r}
+hc<-hc_filter(don = hc_sta_reg,
+              where1 = "label1",
+              where2 = "label2",
+              who_inc = c("fr_FRA_figaro", "fr_FRA_lmonde"),
+              wgt = "tags",
+              self = FALSE
+)
+
+
+int <- build_int(don = hc,
+                 i="where1",
+                 j="where2",
+                 s1=3,
+                 s2=3,
+                 n1=1,
+                 n2=1,
+                 k=0)
+
+mod<-rand_int(int,
+              resid = TRUE,
+              diag = FALSE)
+
+tab<-mod[order(-mod$Rabs_ij),]
+tab<-tab[(tab$i > tab$j),]
+kable(head(tab,10) , digits=2, caption = "Positive residuals")
+
+geo_network(mod,
+            size = "Rabs_ij",
+            minsize = 3,
             test = "Rchi_ij",
             mintest = 2.71)
+
 ```
 
 
 
+
+### Germany
+
+```{r}
+hc<-hc_filter(don = hc_sta_reg,
+              where1 = "label1",
+              where2 = "label2",
+              who_inc = c("de_DEU_frankf", "de_DEU_suddeu"),
+ #             who_inc = c("tr_TUR_cumhur", "tr_TUR_yenisa"),
+              wgt = "tags",
+#              where1_exc = c("_no_","FRA"),
+              where2_exc = c("_no_"),
+              self = FALSE
+)
+
+int <- build_int(don = hc,
+                 i="where1",
+                 j="where2",
+                 s1=3,
+                 s2=3,
+                 n1=1,
+                 n2=1,
+                 k=0)
+
+mod<-rand_int(int,
+              resid = TRUE,
+              diag = FALSE)
+
+tab<-mod[order(-mod$Rabs_ij),]
+tab<-tab[(tab$i > tab$j),]
+kable(head(tab,10) , digits=2, caption = "Positive residuals")
+
+geo_network(mod,
+            size = "Rabs_ij",
+            minsize = 3,
+            test = "Rchi_ij",
+            mintest = 2.71)
+
+```
+
+### Turkey
+
+```{r}
+hc<-hc_filter(don = hc_sta_reg,
+              where1 = "label1",
+              where2 = "label2",
+             who_inc = c("tr_TUR_cumhur", "tr_TUR_yenisa"),
+              wgt = "tags",
+              where2_exc = c("_no_"),
+              self = FALSE
+)
+
+int <- build_int(don = hc,
+                 i="where1",
+                 j="where2",
+                 s1=3,
+                 s2=3,
+                 n1=1,
+                 n2=1,
+                 k=0)
+
+mod<-rand_int(int,
+              resid = TRUE,
+              diag = FALSE)
+
+tab<-mod[order(-mod$Rabs_ij),]
+tab<-tab[(tab$i > tab$j),]
+kable(head(tab,10) , digits=2, caption = "Positive residuals")
+
+geo_network(mod,
+            size = "Rabs_ij",
+            minsize = 3,
+            test = "Rchi_ij",
+            mintest = 2.71)
+
+```
+
+### United Kingdom (except Ulster)
+
+```{r}
+hc<-hc_filter(don = hc_sta_reg,
+              where1 = "label1",
+              where2 = "label2",
+             who_inc = c("en_GBR_guardi", "en_GBR_telegr"),
+              wgt = "tags",
+              where2_exc = c("_no_"),
+              self = FALSE
+)
+
+int <- build_int(don = hc,
+                 i="where1",
+                 j="where2",
+                 s1=3,
+                 s2=3,
+                 n1=1,
+                 n2=1,
+                 k=0)
+
+mod<-rand_int(int,
+              resid = TRUE,
+              diag = FALSE)
+
+tab<-mod[order(-mod$Rabs_ij),]
+tab<-tab[(tab$i > tab$j),]
+kable(head(tab,10) , digits=2, caption = "Positive residuals")
+
+geo_network(mod,
+            size = "Rabs_ij",
+            minsize = 3,
+            test = "Rchi_ij",
+            mintest = 2.71)
+
+```
+
+### Ireland & Ulster
+
+```{r}
+hc<-hc_filter(don = hc_sta_reg,
+              where1 = "label1",
+              where2 = "label2",
+             who_inc = c( "en_NIR_beltel", "en_IRL_irtime"),
+              wgt = "tags",
+              where2_exc = c("_no_"),
+              self = FALSE
+)
+
+int <- build_int(don = hc,
+                 i="where1",
+                 j="where2",
+                 s1=3,
+                 s2=3,
+                 n1=1,
+                 n2=1,
+                 k=0)
+
+mod<-rand_int(int,
+              resid = TRUE,
+              diag = FALSE)
+
+tab<-mod[order(-mod$Rabs_ij),]
+tab<-tab[(tab$i > tab$j),]
+kable(head(tab,10) , digits=2, caption = "Positive residuals")
+
+geo_network(mod,
+            size = "Rabs_ij",
+            minsize = 3,
+            test = "Rchi_ij",
+            mintest = 2.71)
+
+```
+
+### Algeria
+
+```{r}
+hc<-hc_filter(don = hc_sta_reg,
+              where1 = "label1",
+              where2 = "label2",
+             who_inc = c("fr_DZA_elwata", "ar_DZA_alnaha", "ar_DZA_chorou"),
+              wgt = "tags",
+              where2_exc = c("_no_"),
+              self = FALSE
+)
+
+int <- build_int(don = hc,
+                 i="where1",
+                 j="where2",
+                 s1=2,
+                 s2=2,
+                 n1=1,
+                 n2=1,
+                 k=0)
+
+mod<-rand_int(int,
+              resid = TRUE,
+              diag = FALSE)
+
+tab<-mod[order(-mod$Rabs_ij),]
+tab<-tab[(tab$i > tab$j),]
+kable(head(tab,10) , digits=2, caption = "Positive residuals")
+
+geo_network(mod,
+            size = "Rabs_ij",
+            minsize = 2,
+            test = "Rchi_ij",
+            mintest = 2.71)
+
+```
