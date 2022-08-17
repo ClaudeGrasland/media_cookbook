@@ -17,11 +17,45 @@ library(dplyr)
 
 ### Load Hypercube State x Regions
 
+We load the hypercube describing the association between regions and states in the same titles of news and we add the full names in french language.
+
 ```{r}
-hc_sta_reg<-readRDS("hypercube/hc_sta_reg.RDS")
+hc_sta_reg<-readRDS("hypercube/hc_sta_reg.RDS") %>% filter(where1 !="_no_", where2 != "_no_")
+
+# Load table of label and choose language
+tab_def<-readRDS("dict/worldgeo_def_V1.RDS")
+tab_def<-tab_def %>% filter(lang=="fr") %>% select(code,type,label)
+
+tab_def$label[tab_def$code=="OR_NATO"]<-"OTAN"
+tab_def$label[tab_def$code=="OR_Merco"]<-"MERCOSUR"
+tab_def$label[tab_def$code=="LA_Mashr"]<-"Machrek"
+tab_def$label[tab_def$code=="LA_Maghr"]<-"Maghreb"
+tab_def$label[tab_def$code=="SE_china_south"]<-"Mer de Chine S."
+tab_def$label[tab_def$code=="SE_china_east"]<-"Mer de Chine O."
+tab_def$label[tab_def$code=="OR_Asean"]<-"ASEAN"
+tab_def$label[tab_def$code=="OR_ECWAS"]<-"CEDEAO"
+
+tab_def$label[tab_def$code=="ST_CHN"]<-"Chine"
+tab_def$label[tab_def$code=="ST_ARE"]<-"E.A.U."
+tab_def$label[tab_def$code=="ST_COD"]<-"RD Congo"
+tab_def$label[tab_def$code=="ST_NLD"]<-"Pays-Bas"
+
+
+# Merge regional names
+lab_reg<-tab_def %>% filter(!substr(code,1,3) %in% c("ST_","CA_")) %>% select(where2=code,label2=label)
+hc_sta_reg<-left_join(hc_sta_reg,lab_reg)
+
+# Merge state names
+lab_reg<-tab_def %>% filter(substr(code,1,3) %in% c("ST_")) %>%
+  mutate(where1=substr(code,4,6))%>%
+  select(where1,label1=label)
+hc_sta_reg<-left_join(hc_sta_reg,lab_reg)
+
+
+
 ```
 
-We load the hypercube describing the association between regions and states in the same titles of news
+
 
 
 
@@ -84,13 +118,17 @@ hc_filter <- function(don = hc,
 }
 ```
 
-Application now: 
+As an example, we select here the links created by French newspapers between states (excluding France) and world regions.
 
 ```{r}
 hc<-hc_filter(don = hc_sta_reg,
-              who_inc = c("fr_FRA_figaro", "fr_FRA_lmonde"),
+              where1 = "label1",
+              where2 = "label2",
+#              who_inc = c("fr_FRA_figaro", "fr_FRA_lmonde"),
+#              who_inc = c("de_DEU_frankf", "de_DEU_suddeu"),
+              who_inc = c("tr_TUR_cumhur", "tr_TUR_yenisa"),
               wgt = "tags",
-              where1_exc = c("_no_"),
+#              where1_exc = c("_no_","FRA"),
               where2_exc = c("_no_"),
               self = FALSE
 )
@@ -104,7 +142,7 @@ hc<-hc_filter(don = hc_sta_reg,
 
 Now, we transform the data in a matrix of interaction (i,j,Fij) whre we fill with 0 the empty cells. After that we eliminate the lines and columns wich do not fulfill one of the two conditions of salience and diversity : 
 
-- **Salience (s1,s2)** : For example, we will eliminate a country that has not be mentioned at less 20 times in the news. To do that, we compute the marginal sums of the matrix in lines (1) and columns (2) and we check if the condition is fulfilled.  
+- **Salience (s1,s2)** : For example, we will eliminate a country/region that has not be mentioned at less 20 times in the news. To do that, we compute the marginal sums of the matrix in lines (1) and columns (2) and we check if the condition is fulfilled.  
 - **Diversity (n1,n2,k)** : We consider that a linkage between units i and j exist if Fij > k. Then we compute the number of links where the condition is verified in lines (1) and columns. To do that we compute a boolean matrix where the value are 0 if Fij < k and 1 if Fi >= k. And we verify if the marginal sums of the matrix verify the conditions n1 and n2.
 
 The default values are 
@@ -123,10 +161,10 @@ build_int <- function(don = don,       # a dataframe with columns i, j , Fij
                       i = "where1",
                       j = "where2",
                       Fij = "wgt",
-                      s1 = 3,
-                      s2 = 3,
-                      n1 = 1,
-                      n2 = 1,
+                      s1 = 5,
+                      s2 = 5,
+                      n1 = 3,
+                      n2 = 3,
                       k = 0)
 
 {  
@@ -147,14 +185,16 @@ build_int <- function(don = don,       # a dataframe with columns i, j , Fij
 
 ```
 
-Application now: 
+In the case of our example, the links are not frequent. Therefore we use parameters a bit lower than default value
 
 ```{r}
 int <- build_int(don = hc,
+                 i="where1",
+                 j="where2",
                  s1=3,
-                 s2=3,
-                 n1=1,
-                 n2=1,
+                 s2=2,
+                 n1=2,
+                 n2=2,
                  k=0)
 head(int)
 ```
@@ -249,7 +289,7 @@ kable(head(tab,10) , digits=2, caption = "Positive residuals")
 
 ### Function
 
-We have created a prototype of geonetwork visualization function with different parameters making possible to display different graphs.
+We have created a prototype of geonetwork visualization function with different parameters making possible to display different graphs. The function is specifically deidcated to the case of a matrix linking fifferent units in lines and columns (dual mode network).
 
 
 ```{r}
@@ -266,14 +306,16 @@ geo_network<- function(don = mod,
 
 {
   # check
- don<-mod 
- from<-"i"
- to<-"j"
- size<-"Fij"
- test<-"Fij"
- minsize<-5
- maxsize<-NA
- mintest<-1
+ #don<-mod[mod$i!="FRA",]
+ #from<-"i"
+ #to<-"j"
+ #size<-"Fij"
+ #test<-"Rchi_ij"
+ #minsize<-5
+ #maxsize<-NA
+ #mintest<-3.84
+ #title<-"Network"
+ #loops<-FALSE
   
   
 int<-data.frame(i = as.character(don[,from]),
@@ -294,17 +336,23 @@ nodesi<-data.frame(code = unique(c(int$i)))
 nodesi$code<-as.character(nodesi$code)
 nodesi$id<-1:length(nodesi$code)
 nodesi$label<-nodesi$code
+nodesi$color<-"blue"
+#nodesi$shape="square"
+#nodesi$group = "States"
 tot<-int %>% group_by(i) %>% summarize(size =sum (size)) %>% select (code=i,size)
 tot$code<-as.factor(tot$code)
-nodesi <- left_join(nodesi,tot) %>% mutate(value = sqrt(2+10 *size/max(size)))
+nodesi <- left_join(nodesi,tot) %>% mutate(value = sqrt(1+5 *size/max(size)))
 
 nodesj<-data.frame(code = unique(c(int$j)))
 nodesj$code<-as.character(nodesj$code)
 nodesj$id<-1:length(nodesj$code)+length(nodesi$code)
 nodesj$label<-nodesj$code
+nodesj$color<-"red"
+#nodesj$shape="circle"
+#nodesj$group="region"
 tot<-int %>% group_by(j) %>% summarize(size =sum (size)) %>% select (code=j,size)
 tot$code<-as.factor(tot$code)
-nodesj <- left_join(nodesj,tot) %>% mutate(value = sqrt(1+10 *size/max(size)))
+nodesj <- left_join(nodesj,tot) %>% mutate(value = sqrt(1+5 *size/max(size)))
 
 nodes<-rbind(nodesi,nodesj)
 
@@ -312,10 +360,11 @@ nodes<-rbind(nodesi,nodesj)
 # Adjust edge codes
 edges <- int %>% mutate(width = 5+30*size / max(size)) %>%
                 left_join(nodes %>% select(i=code, from = id)) %>%  
-                left_join(nodes %>% select(j=code, to = id )) 
+                left_join(nodes %>% select(j=code, to = id ))
+edges$color<-"black"
 
 # compute nodesize
-tot<-int %>% group_by(i) %>% summarize(size =sum (size)) %>% select (code=i,size)
+#tot<-int %>% group_by(i) %>% summarize(size =sum (size)) %>% select (code=i,size)
 #tot$code<-as.factor(tot$code)
 #nodes <- left_join(nodes,tot) %>% mutate(value = sqrt(10 *size/max(size)))
 
@@ -323,6 +372,7 @@ tot<-int %>% group_by(i) %>% summarize(size =sum (size)) %>% select (code=i,size
 #sel_nodes <-nodes %>% filter(code %in% unique(c(sel_edges$i,sel_edges$j)))
 
 # eliminate loops
+
 
 if(loops == FALSE) {edges <- edges[edges$from < edges$to,]}
 
@@ -339,7 +389,7 @@ height = "700px",
     #               manipulation = TRUE,
                   nodesIdSelection = TRUE) %>%
         visInteraction(navigationButtons = TRUE) %>%
-         visLegend() %>%
+   #      visLegend() %>%
       visIgraphLayout(layout ="layout.fruchterman.reingold",smooth = TRUE)
 
 net
@@ -352,14 +402,12 @@ net
 
 ### Raw network
 
-We can firstly provide a basic view of the network using the default parameters wich visualize all connections greater to zero.
-
-#### With France
+We can firstly provide a basic view of the raw network  using links greater or equal to 2
 
 ```{r}
 geo_network(mod,
             size = "Fij",
-            minsize = 2,
+            minsize = 10,
             test = "Fij",
             mintest = 5)
 
@@ -370,23 +418,15 @@ geo_network(mod,
 
 But we can also visualize the most significant links by changing the criteria of size and introducing a test of significance :
 
-#### With France
+
 
 ```{r}
 geo_network(mod,
             size = "Rabs_ij",
             minsize = 2,
             test = "Rchi_ij",
-            mintest = 3.84)
+            mintest = 2.71)
 ```
 
 
-#### Without France
 
-```{r}
-geo_network(mod2,
-            size = "Rabs_ij",
-            minsize = 2,
-            test = "Rchi_ij",
-            mintest = 3.84)
-```
