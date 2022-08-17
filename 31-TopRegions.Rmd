@@ -27,7 +27,6 @@ hc_reg$news_wgt<-hc_reg$news*hc_reg$coeff
 
 # Load table of label and choose language
 reg_def<-read.table("dict/worldgeo_def_V2.csv", sep=";",quote = '"', encoding = "UTF-8",header=T)
-
 tab_def<-reg_def %>% filter(lang=="fr") %>% select(code,type,label)
 tab_def<-tab_def[duplicated(tab_def$label)==F,]
 ```
