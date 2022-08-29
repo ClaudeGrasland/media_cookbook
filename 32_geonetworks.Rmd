@@ -23,8 +23,9 @@ library(igraph)
 We load the hypercube describing the association between regions and states in the same titles of news and we add the full names in french language.
 
 ```{r}
-hc_sta_reg<-readRDS("hypercube/hc_sta_reg.RDS") %>% filter(where1 !="_no_", where2 != "_no_")
-
+hc_sta_reg<-readRDS("hypercube/hc_sta_reg.RDS") %>% 
+  filter(where1 !="_no_", where2 != "_no_") %>% 
+  filter(is.na(when)==F, when < as.Date("2021-01-01"))
 # Eliminate links related to the country
 
 
@@ -411,9 +412,9 @@ We can firstly provide a basic view of the raw network  using links greater or e
 ```{r}
 geo_network(mod,
             size = "Fij",
-            minsize = 20,
+            minsize = 10,
             test = "Fij",
-            mintest = 20)
+            mintest = 10)
 
 ```
 
@@ -546,7 +547,7 @@ kable(head(tab,10) , digits=2, caption = "Positive residuals")
 
 geo_network(mod,
             size = "Rabs_ij",
-            minsize = 3,
+            minsize = 2,
             test = "Rchi_ij",
             mintest = 2.71)
 

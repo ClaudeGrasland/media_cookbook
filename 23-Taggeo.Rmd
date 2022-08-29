@@ -7,7 +7,7 @@ library(WikidataR)
 library(quanteda)
 ```
 
-## Manual correctio n of dictionnary
+## Manual correction of dictionnary
 
 The dictionnary elaboated by automatic procedures has been manually corrected and the new version is upload.
 
@@ -289,7 +289,7 @@ qd <- readRDS("quanteda/tr_TUR_cumhur.RDS")
 docvars(qd)<-docvars(qd)[c("source","date")]
 qd<-corpus_subset(qd,duplicated(as.character(qd))==FALSE)
 
-trcomps <- c("Cathay Pacific", "Avrupa Ligi")
+trcomps <- c("Cathay Pacific")
 
 qd <- extract_tags (qd = qd,
                      lang="tr",
@@ -418,11 +418,10 @@ qd7<-readRDS("quanteda/en_NIR_beltel_geo.RDS")
 qd8<-readRDS("quanteda/en_IRL_irtime_geo.RDS")
 qd9<-readRDS("quanteda/tr_TUR_cumhur_geo.RDS")
 qd10<-readRDS("quanteda/tr_TUR_yenisa_geo.RDS")
-qd11<-readRDS("quanteda/fr_DZA_elwata_geo.RDS")
-qd12<-readRDS("quanteda/ar_DZA_alnaha_geo.RDS")
-qd13<-readRDS("quanteda/ar_DZA_chorou_geo.RDS")
+qd11<-readRDS("quanteda/ar_DZA_elkahb_geo.RDS")
+qd12<-readRDS("quanteda/ar_DZA_chorou_geo.RDS")
 
-qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12,qd13)
+qd <- c(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12)
 saveRDS(qd,"quanteda/corpus_worldgeo_V3.RDS")
 table(qd$nbtags)
 

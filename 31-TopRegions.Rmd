@@ -15,12 +15,12 @@ We laod an **hypercube** where the text of news has been removed and where we ke
 
 ```{r}
 # Load Hypercube and select period
-hc_reg<-readRDS("hypercube/hc_reg.RDS")
+hc_reg<-readRDS("hypercube/hc_reg.RDS") %>% filter(where1 !="_no_")
 hc_reg %>% filter(is.na(when)==F, when < as.Date("2021-01-01"))
 
 
 # Define weights correction for equal contribution of media
-wgt<-hc_reg[,list(coeff = sum(news)), list(who)]  %>% 
+wgt<-hc_reg[,list(coeff = sum(tags)), list(who)]  %>% 
       mutate(coeff=mean(coeff)/coeff)
 hc_reg<-left_join(hc_reg,wgt)
 hc_reg$news_wgt<-hc_reg$news*hc_reg$coeff
@@ -230,15 +230,14 @@ res<-res[order(res$who, res$rnk),]
 tab1<-res[1:10,2]
 names(tab1) <- c("Rank")
 tab2<-res[1:10,c(3,4)]
-names(tab2)<-c("Al Chorouk (ar)","pct1")
-tab3<-res[12:21,c(3,4)]
-names(tab3)<-c("El Kahbar (ar)","pct2")
-tab4<-res[22:31,c(3,4)]
-names(tab4)<-c("ElWatan (fr)","pct3")
+names(tab2)<-c("Al Chorouk ","pct1")
+tab3<-res[11:20,c(3,4)]
+names(tab3)<-c("El Kahbar","pct2")
 
-tab<-cbind(tab1,tab2,tab3,tab4)
 
-kable(tab,digits=c(0,1,1,1,1,1,1,1), row.names = F)
+tab<-cbind(tab1,tab2,tab3)
+
+kable(tab,digits=c(0,1,1,1,1,1), row.names = F)
 
 ```
 
@@ -255,15 +254,11 @@ The synthesis is realized with regions
 ```{r}
 # Matrix
 reg_med <-hc_reg[where1 !="_no_",list(nb = sum(news_wgt)), list(where1, who)] %>%
-  dcast(formula = where1~who, value.var = "nb",fill = 0) %>% filter(where1 !="CO_AFR_south")
-mat<-as.matrix(reg_med[,-1])
-
-# Labels
-lab<-data.frame(code=unique(reg_med[,1]))
-
-lab<-merge(lab,tab_def,all.x=T,all.y=F) %>% filter(duplicated(code)==F)
-# Row.names (choose the language you want !)
-row.names(mat)<-lab$label
+  dcast(formula = where1~who, value.var = "nb",fill = 0) 
+reg_med<-merge(reg_med,tab_def, by.x="where1",by.y="code",all.x=T,all.y=F)
+reg_med$label[reg_med$label=="Machrek"]<-"Maghreb"
+mat<-as.matrix(reg_med[,2:13])
+row.names(mat)<-reg_med$label
 
 # Filter ambiguous units
 #mat<-mat[row.names(mat) != "Sahara",]
@@ -274,7 +269,7 @@ row.names(mat)<-lab$label
 
 
 # Select units > 40
-sel<-mat[apply(mat,1,sum)>20,]
+sel<-mat[apply(mat,1,sum)>10,]
 
 # Exclude units mentionned by less than 3 media
 sel <- sel[apply(sel>3,1,sum)>2,]
@@ -330,16 +325,12 @@ library(pheatmap)
 x<-chisq.test(sel)
 res<-as.matrix(x$residuals)
 exp<-as.matrix(x$expected)
-res[exp<0.5]<-0
+res[exp<2]<-0
 res[res>3]<-2
 res[res< -3]<- -2
 
 pheatmap(res, cutree_rows = 6,cutree_cols = 5)
 
-# save pdf
-pdf(file = "test.pdf")
-  pheatmap(res, cutree_rows = 6,cutree_cols = 5)
-dev.off()
 
 ```
 

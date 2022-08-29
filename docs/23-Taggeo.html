@@ -6,10 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Geographical tags | The media cookbook</title>
   <meta name="description" content="A reminder of some experiments made in 2021" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Geographical tags | The media cookbook" />
   <meta property="og:type" content="book" />
+  
   
   <meta property="og:description" content="A reminder of some experiments made in 2021" />
   
@@ -23,7 +24,7 @@
 <meta name="author" content="Claude Grasland" />
 
 
-<meta name="date" content="2022-08-17" />
+<meta name="date" content="2022-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,6 +33,7 @@
   
 <link rel="prev" href="22-Dicogeo.html"/>
 <link rel="next" href="24-Corpus.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,9 +51,8 @@
 
 
 
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -226,7 +227,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="6" data-path="23-Taggeo.html"><a href="23-Taggeo.html"><i class="fa fa-check"></i><b>6</b> Geographical tags</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="23-Taggeo.html"><a href="23-Taggeo.html#manual-correctio-n-of-dictionnary"><i class="fa fa-check"></i><b>6.1</b> Manual correctio n of dictionnary</a></li>
+<li class="chapter" data-level="6.1" data-path="23-Taggeo.html"><a href="23-Taggeo.html#manual-correction-of-dictionnary"><i class="fa fa-check"></i><b>6.1</b> Manual correction of dictionnary</a></li>
 <li class="chapter" data-level="6.2" data-path="23-Taggeo.html"><a href="23-Taggeo.html#detection-of-geographical-entities"><i class="fa fa-check"></i><b>6.2</b> Detection of geographical entities</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="23-Taggeo.html"><a href="23-Taggeo.html#le-figaro-fra"><i class="fa fa-check"></i><b>6.2.1</b> Le Figaro (FRA)</a></li>
@@ -317,14 +318,14 @@ code span.wa { color: #bf0303; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="c23_taggeo" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Geographical tags<a href="23-Taggeo.html#c23_taggeo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="c23_taggeo" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Geographical tags</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="23-Taggeo.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-2"><a href="23-Taggeo.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="23-Taggeo.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WikidataR)</span>
 <span id="cb1-4"><a href="23-Taggeo.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code></pre></div>
-<div id="manual-correctio-n-of-dictionnary" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Manual correctio n of dictionnary<a href="23-Taggeo.html#manual-correctio-n-of-dictionnary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="manual-correction-of-dictionnary" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Manual correction of dictionnary</h2>
 <p>The dictionnary elaboated by automatic procedures has been manually corrected and the new version is upload.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="23-Taggeo.html#cb2-1" aria-hidden="true" tabindex="-1"></a>dict<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;dict/worldgeo_dict_V5.csv&quot;</span>, </span>
 <span id="cb2-2"><a href="23-Taggeo.html#cb2-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">header=</span>T, </span>
@@ -332,8 +333,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb2-4"><a href="23-Taggeo.html#cb2-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>,</span>
 <span id="cb2-5"><a href="23-Taggeo.html#cb2-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">quote =</span> <span class="st">&#39;&quot;&#39;</span>)</span></code></pre></div>
 </div>
-<div id="detection-of-geographical-entities" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Detection of geographical entities<a href="23-Taggeo.html#detection-of-geographical-entities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="detection-of-geographical-entities" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Detection of geographical entities</h2>
 <p>We have elaborated a function for the extraction of geographical units based on the dictionary elaborated in previous section (dict) according to the language (lang), the decision to split some tokens (split) to move or not to lower case (tolow) and the possibility to add a list of compounds to be realized (comps) in order to eliminate ambiguities.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="23-Taggeo.html#cb3-1" aria-hidden="true" tabindex="-1"></a>extract_tags <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">qd =</span> qd,                      <span class="co"># the corpus of interest</span></span>
 <span id="cb3-2"><a href="23-Taggeo.html#cb3-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">lang =</span> <span class="st">&quot;fr&quot;</span>,                  <span class="co"># the language to be used</span></span>
@@ -393,8 +394,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb3-56"><a href="23-Taggeo.html#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Export results</span></span>
 <span id="cb3-57"><a href="23-Taggeo.html#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(qd)</span>
 <span id="cb3-58"><a href="23-Taggeo.html#cb3-58" aria-hidden="true" tabindex="-1"></a> }</span></code></pre></div>
-<div id="le-figaro-fra" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Le Figaro (FRA)<a href="23-Taggeo.html#le-figaro-fra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="le-figaro-fra" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Le Figaro (FRA)</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="23-Taggeo.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dict&lt;-readRDS(&quot;dict/worldgeo_dict_V4.RDS&quot;)</span></span>
 <span id="cb4-2"><a href="23-Taggeo.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="23-Taggeo.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -421,8 +422,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb4-24"><a href="23-Taggeo.html#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb4-25"><a href="23-Taggeo.html#cb4-25" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">regs=</span>qd<span class="sc">$</span>tags,<span class="at">nbregs=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="le-monde-1" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Le Monde<a href="23-Taggeo.html#le-monde-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="le-monde-1" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Le Monde</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="23-Taggeo.html#cb5-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_lmonde.RDS&quot;</span>)</span>
 <span id="cb5-2"><a href="23-Taggeo.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb5-3"><a href="23-Taggeo.html#cb5-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -440,8 +441,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb5-15"><a href="23-Taggeo.html#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb5-16"><a href="23-Taggeo.html#cb5-16" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="faz" class="section level3 hasAnchor" number="6.2.3">
-<h3><span class="header-section-number">6.2.3</span> FAZ<a href="23-Taggeo.html#faz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="faz" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> FAZ</h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="23-Taggeo.html#cb6-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/de_DEU_frankf.RDS&quot;</span>)</span>
 <span id="cb6-2"><a href="23-Taggeo.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb6-3"><a href="23-Taggeo.html#cb6-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -459,8 +460,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb6-15"><a href="23-Taggeo.html#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb6-16"><a href="23-Taggeo.html#cb6-16" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="süddeutsche-zeitung-1" class="section level3 hasAnchor" number="6.2.4">
-<h3><span class="header-section-number">6.2.4</span> Süddeutsche Zeitung<a href="23-Taggeo.html#süddeutsche-zeitung-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="süddeutsche-zeitung-1" class="section level3" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Süddeutsche Zeitung</h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="23-Taggeo.html#cb7-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/de_DEU_suddeu.RDS&quot;</span>)</span>
 <span id="cb7-2"><a href="23-Taggeo.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb7-3"><a href="23-Taggeo.html#cb7-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -477,8 +478,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb7-14"><a href="23-Taggeo.html#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb7-15"><a href="23-Taggeo.html#cb7-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="guardian" class="section level3 hasAnchor" number="6.2.5">
-<h3><span class="header-section-number">6.2.5</span> Guardian<a href="23-Taggeo.html#guardian" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="guardian" class="section level3" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> Guardian</h3>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="23-Taggeo.html#cb8-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_GBR_guardi.RDS&quot;</span>)</span>
 <span id="cb8-2"><a href="23-Taggeo.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb8-3"><a href="23-Taggeo.html#cb8-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -497,8 +498,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb8-16"><a href="23-Taggeo.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb8-17"><a href="23-Taggeo.html#cb8-17" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="daily-telegraph" class="section level3 hasAnchor" number="6.2.6">
-<h3><span class="header-section-number">6.2.6</span> Daily Telegraph<a href="23-Taggeo.html#daily-telegraph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="daily-telegraph" class="section level3" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Daily Telegraph</h3>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="23-Taggeo.html#cb9-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_GBR_telegr.RDS&quot;</span>)</span>
 <span id="cb9-2"><a href="23-Taggeo.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb9-3"><a href="23-Taggeo.html#cb9-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -515,8 +516,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb9-14"><a href="23-Taggeo.html#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb9-15"><a href="23-Taggeo.html#cb9-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="belfast-telegraph" class="section level3 hasAnchor" number="6.2.7">
-<h3><span class="header-section-number">6.2.7</span> Belfast Telegraph<a href="23-Taggeo.html#belfast-telegraph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="belfast-telegraph" class="section level3" number="6.2.7">
+<h3><span class="header-section-number">6.2.7</span> Belfast Telegraph</h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="23-Taggeo.html#cb10-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_NIR_beltel.RDS&quot;</span>)</span>
 <span id="cb10-2"><a href="23-Taggeo.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb10-3"><a href="23-Taggeo.html#cb10-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -533,8 +534,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb10-14"><a href="23-Taggeo.html#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb10-15"><a href="23-Taggeo.html#cb10-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="irish-times" class="section level3 hasAnchor" number="6.2.8">
-<h3><span class="header-section-number">6.2.8</span> Irish Times<a href="23-Taggeo.html#irish-times" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="irish-times" class="section level3" number="6.2.8">
+<h3><span class="header-section-number">6.2.8</span> Irish Times</h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="23-Taggeo.html#cb11-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_IRL_irtime.RDS&quot;</span>)</span>
 <span id="cb11-2"><a href="23-Taggeo.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb11-3"><a href="23-Taggeo.html#cb11-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -551,8 +552,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb11-14"><a href="23-Taggeo.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb11-15"><a href="23-Taggeo.html#cb11-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="cumhuryet-1" class="section level3 hasAnchor" number="6.2.9">
-<h3><span class="header-section-number">6.2.9</span> Cumhuryet<a href="23-Taggeo.html#cumhuryet-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cumhuryet-1" class="section level3" number="6.2.9">
+<h3><span class="header-section-number">6.2.9</span> Cumhuryet</h3>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="23-Taggeo.html#cb12-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_cumhur.RDS&quot;</span>)</span>
 <span id="cb12-2"><a href="23-Taggeo.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb12-3"><a href="23-Taggeo.html#cb12-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -571,8 +572,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb12-16"><a href="23-Taggeo.html#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb12-17"><a href="23-Taggeo.html#cb12-17" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="yeni-safak" class="section level3 hasAnchor" number="6.2.10">
-<h3><span class="header-section-number">6.2.10</span> Yeni Safak<a href="23-Taggeo.html#yeni-safak" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="yeni-safak" class="section level3" number="6.2.10">
+<h3><span class="header-section-number">6.2.10</span> Yeni Safak</h3>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="23-Taggeo.html#cb13-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_yenisa.RDS&quot;</span>)</span>
 <span id="cb13-2"><a href="23-Taggeo.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb13-3"><a href="23-Taggeo.html#cb13-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -589,8 +590,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb13-14"><a href="23-Taggeo.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb13-15"><a href="23-Taggeo.html#cb13-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="el-khabar-dza" class="section level3 hasAnchor" number="6.2.11">
-<h3><span class="header-section-number">6.2.11</span> El Khabar (DZA)<a href="23-Taggeo.html#el-khabar-dza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="el-khabar-dza" class="section level3" number="6.2.11">
+<h3><span class="header-section-number">6.2.11</span> El Khabar (DZA)</h3>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="23-Taggeo.html#cb14-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/ar_DZA_elkahb.RDS&quot;</span>)</span>
 <span id="cb14-2"><a href="23-Taggeo.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb14-3"><a href="23-Taggeo.html#cb14-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -609,8 +610,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb14-16"><a href="23-Taggeo.html#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb14-17"><a href="23-Taggeo.html#cb14-17" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="al-chorouk-dza" class="section level3 hasAnchor" number="6.2.12">
-<h3><span class="header-section-number">6.2.12</span> Al Chorouk (DZA)<a href="23-Taggeo.html#al-chorouk-dza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="al-chorouk-dza" class="section level3" number="6.2.12">
+<h3><span class="header-section-number">6.2.12</span> Al Chorouk (DZA)</h3>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="23-Taggeo.html#cb15-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/ar_DZA_chorou.RDS&quot;</span>)</span>
 <span id="cb15-2"><a href="23-Taggeo.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb15-3"><a href="23-Taggeo.html#cb15-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -627,8 +628,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb15-14"><a href="23-Taggeo.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb15-15"><a href="23-Taggeo.html#cb15-15" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="el-watan-1" class="section level3 hasAnchor" number="6.2.13">
-<h3><span class="header-section-number">6.2.13</span> El Watan<a href="23-Taggeo.html#el-watan-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="el-watan-1" class="section level3" number="6.2.13">
+<h3><span class="header-section-number">6.2.13</span> El Watan</h3>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="23-Taggeo.html#cb16-1" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_DZA_elwata.RDS&quot;</span>)</span>
 <span id="cb16-2"><a href="23-Taggeo.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">docvars</span>(qd)<span class="ot">&lt;-</span><span class="fu">docvars</span>(qd)[<span class="fu">c</span>(<span class="st">&quot;source&quot;</span>,<span class="st">&quot;date&quot;</span>)]</span>
 <span id="cb16-3"><a href="23-Taggeo.html#cb16-3" aria-hidden="true" tabindex="-1"></a>qd<span class="ot">&lt;-</span><span class="fu">corpus_subset</span>(qd,<span class="fu">duplicated</span>(<span class="fu">as.character</span>(qd))<span class="sc">==</span><span class="cn">FALSE</span>)</span>
@@ -652,8 +653,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb16-21"><a href="23-Taggeo.html#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span>
 <span id="cb16-22"><a href="23-Taggeo.html#cb16-22" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">text=</span><span class="fu">as.character</span>(qd),<span class="at">tags=</span>qd<span class="sc">$</span>tags,<span class="at">nbtags=</span>qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 </div>
-<div id="global-corpus" class="section level3 hasAnchor" number="6.2.14">
-<h3><span class="header-section-number">6.2.14</span> Global corpus<a href="23-Taggeo.html#global-corpus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="global-corpus" class="section level3" number="6.2.14">
+<h3><span class="header-section-number">6.2.14</span> Global corpus</h3>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="23-Taggeo.html#cb17-1" aria-hidden="true" tabindex="-1"></a>qd1<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_figaro_geo.RDS&quot;</span>)</span>
 <span id="cb17-2"><a href="23-Taggeo.html#cb17-2" aria-hidden="true" tabindex="-1"></a>qd2<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_FRA_lmonde_geo.RDS&quot;</span>)</span>
 <span id="cb17-3"><a href="23-Taggeo.html#cb17-3" aria-hidden="true" tabindex="-1"></a>qd3<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/de_DEU_suddeu_geo.RDS&quot;</span>)</span>
@@ -664,13 +665,12 @@ code span.wa { color: #bf0303; } /* Warning */
 <span id="cb17-8"><a href="23-Taggeo.html#cb17-8" aria-hidden="true" tabindex="-1"></a>qd8<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/en_IRL_irtime_geo.RDS&quot;</span>)</span>
 <span id="cb17-9"><a href="23-Taggeo.html#cb17-9" aria-hidden="true" tabindex="-1"></a>qd9<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_cumhur_geo.RDS&quot;</span>)</span>
 <span id="cb17-10"><a href="23-Taggeo.html#cb17-10" aria-hidden="true" tabindex="-1"></a>qd10<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/tr_TUR_yenisa_geo.RDS&quot;</span>)</span>
-<span id="cb17-11"><a href="23-Taggeo.html#cb17-11" aria-hidden="true" tabindex="-1"></a>qd11<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/fr_DZA_elwata_geo.RDS&quot;</span>)</span>
-<span id="cb17-12"><a href="23-Taggeo.html#cb17-12" aria-hidden="true" tabindex="-1"></a>qd12<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/ar_DZA_alnaha_geo.RDS&quot;</span>)</span>
-<span id="cb17-13"><a href="23-Taggeo.html#cb17-13" aria-hidden="true" tabindex="-1"></a>qd13<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/ar_DZA_chorou_geo.RDS&quot;</span>)</span>
-<span id="cb17-14"><a href="23-Taggeo.html#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-15"><a href="23-Taggeo.html#cb17-15" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">c</span>(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12,qd13)</span>
-<span id="cb17-16"><a href="23-Taggeo.html#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/corpus_worldgeo_V3.RDS&quot;</span>)</span>
-<span id="cb17-17"><a href="23-Taggeo.html#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span></code></pre></div>
+<span id="cb17-11"><a href="23-Taggeo.html#cb17-11" aria-hidden="true" tabindex="-1"></a>qd11<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/ar_DZA_elkahb_geo.RDS&quot;</span>)</span>
+<span id="cb17-12"><a href="23-Taggeo.html#cb17-12" aria-hidden="true" tabindex="-1"></a>qd12<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;quanteda/ar_DZA_chorou_geo.RDS&quot;</span>)</span>
+<span id="cb17-13"><a href="23-Taggeo.html#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="23-Taggeo.html#cb17-14" aria-hidden="true" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="fu">c</span>(qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12)</span>
+<span id="cb17-15"><a href="23-Taggeo.html#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(qd,<span class="st">&quot;quanteda/corpus_worldgeo_V3.RDS&quot;</span>)</span>
+<span id="cb17-16"><a href="23-Taggeo.html#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(qd<span class="sc">$</span>nbtags)</span></code></pre></div>
 
 </div>
 </div>
