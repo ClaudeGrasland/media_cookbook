@@ -1,0 +1,244 @@
+# Corpus {#c24_corpus}
+
+```{r}
+library(knitr)
+library(dplyr)
+library(quanteda)
+library(data.table)
+library(tidytext)
+library(ggplot2)
+library(readr)
+library(stringr)
+```
+
+## Objectives
+
+The aim of this section is to separate states and world region and to evaluate the relative frequencies of world regions by media an through time.
+
+
+
+## Prepare data
+
+
+```{r, warning=F, eval=FALSE}
+qd<-readRDS("data/google/fr_FRA_google_int_geo.RDS")
+
+# Extract regs
+qd$regs<-qd$tags
+qd$regs<-gsub("ST_...","",qd$tags)
+qd$regs<-gsub("CA_...","",qd$regs)
+qd$nbregs<-ntoken(tokens(as.character(qd$regs)))
+
+# Extract states
+qd$sta<-qd$tags
+qd$sta<-str_replace_all(qd$sta, "RE_[[:alpha:]_]+", "")
+qd$sta<-str_replace_all(qd$sta, "CO_[[:alpha:]_]+", "")
+qd$sta<-str_replace_all(qd$sta, "OR_[[:alpha:]_]+", "")
+qd$sta<-str_replace_all(qd$sta, "LA_[[:alpha:]_]+", "")
+qd$sta<-str_replace_all(qd$sta, "SE_[[:alpha:]_]+", "")
+qd$sta<-str_replace_all(qd$sta, "ST_", "")
+qd$sta<-str_replace_all(qd$sta, "CA_", "")
+
+qd$nbsta<-ntoken(tokens(as.character(qd$sta)))
+td<-tidy(qd)
+
+
+hypercube <-function(qd = qd,
+                     when = "date",
+                     when_cut = "year",
+                     who = "source",
+                     where1 = "tags",
+                     where2 = "tags")
+                     
+  {   
+
+# create data.table accroding to parameter chosen
+  don<-docvars(qd)
+
+  df<-data.table(id = docid(qd),
+                 who = don[,who],
+                 when = as.character(cut(don[,when],breaks=when_cut)),
+                 where1 = don[,where1],
+                 where2 = don[,where2])
+
+
+
+# add code _no_ for empty fields
+df$where1[df$where1==""]<-"_no_"
+df$where2[df$where2==""]<-"_no_"
+
+
+# unnest where1
+  df<-unnest_tokens(df,where1,where1,to_lower=F)
+  
+# unnest where2
+  df<-unnest_tokens(df,where2,where2,to_lower=F)  
+  
+# define number of occurence by id
+  nb<-df[,.N,list(id)] %>%  mutate(wgt = 1/N) %>% select(-N)
+  df<-df %>% left_join(nb) 
+  
+  rm(nb)
+ 
+# Aggregate
+  hc<- df[,.( tags = .N, news=sum(wgt)) ,.(who, when,where1,where2)]
+  
+# Convert date to time
+  hc$when<-as.Date(hc$when)
+  
+# return hypercube
+  return(hc)
+
+}
+# Create Regional hypercube
+hc_reg <- hypercube(qd = qd,
+                     when = "date",
+                     when_cut = "months",
+                     who = "source",
+                     where1 = "regs",
+                     where2 = "regs")
+
+saveRDS(hc_reg,"data/google/hc_reg.RDS")
+
+# Create State hypercube
+hc_sta <- hypercube(qd = qd,
+                     when = "date",
+                     when_cut = "months",
+                     who = "source",
+                     where1 = "sta",
+                     where2 = "sta")
+
+saveRDS(hc_sta,"data/google/hc_sta.RDS")
+
+# Create State x Reg hypercube
+hc_sta_reg <- hypercube(qd = qd,
+                     when = "date",
+                     when_cut = "months",
+                     who = "source",
+                     where1 = "sta",
+                     where2 = "regs")
+
+saveRDS(hc_sta_reg,"data/google/hc_sta_reg.RDS")
+
+
+
+
+```
+
+## Distribution des nouvelles par média au cours du temps
+
+```{r, warnings=F, message=FALSE}
+hc<-readRDS("data/google/hc_reg.RDS")
+
+hc$OK<-as.factor(hc$where1!="_no_") 
+levels(hc$OK)<-c("Non","Oui")
+
+month<-hc[,.(nb<-sum(news)),.(when,who,OK)] %>%
+  dcast(formula = who+when~OK, value.var = "V1",fill = 0) %>%
+  mutate(Media=who,
+         Date = when,
+         Total=Non+Oui,
+         Frequence = Oui,
+         Pourcentage = 100*Frequence/Total) %>%
+  select(Media,Date, Total,Frequence, Pourcentage) %>%
+  filter(is.na(Date)==F, Date < as.Date("2021-07-01"))
+
+
+#kable(month,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant une macro-région")
+
+ggplot(month,aes(x=Date,y=Total,color=Media)) + 
+       geom_line(lwd=0.5) +
+
+ggtitle("Nombre de nouvelles par média (Jan. 2019-  Juin 2021)",
+               subtitle = "source : Mediacloud)" )
+```
+
+
+
+
+
+## Fréquences des macro-régions par journal
+
+```{r, warnings=F, message=FALSE}
+hc<-readRDS("data/google/hc_reg.RDS")
+
+hc$OK<-as.factor(hc$where1!="_no_") 
+levels(hc$OK)<-c("Non","Oui")
+
+med<-hc[,.(nb<-sum(news)),.(who,OK)] %>%
+  dcast(formula = who~OK, value.var = "V1") %>% 
+  mutate(Media = who,
+         Total=Non+Oui,
+         Frequence = Oui,
+         Pourcentage = 100*Frequence/Total) %>%
+  select(Media, Total,Frequence, Pourcentage)
+
+tot<-med[1,]
+tot$Media<-"Total"
+tot$Total<-sum(med$Total)
+tot$Frequence<-sum(med$Frequence)
+tot$Pourcentage<-100*tot$Frequence/tot$Total
+
+tabres<-rbind(med,tot)
+kable(tabres,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant une macro-région")
+```
+
+ 
+
+
+
+## Fréquences des mentions de pays étrangers par journal
+
+```{r, warnings=F, message=FALSE}
+hc<-readRDS("data/google/hc_sta.RDS")
+
+hc$OK<-as.factor(hc$where1!="_no_" & substr(hc$who,4,6)!=hc$where1) 
+levels(hc$OK)<-c("Non","Oui")
+
+med<-hc[,.(nb<-sum(news)),.(who,OK)] %>%
+  dcast(formula = who~OK, value.var = "V1") %>% 
+  mutate(Media = who,
+         Total=Non+Oui,
+         Frequence = Oui,
+         Pourcentage = 100*Frequence/Total) %>%
+  select(Media, Total,Frequence, Pourcentage)
+
+tot<-med[1,]
+tot$Media<-"Total"
+tot$Total<-sum(med$Total)
+tot$Frequence<-sum(med$Frequence)
+tot$Pourcentage<-100*tot$Frequence/tot$Total
+
+tabres<-rbind(med,tot)
+kable(tabres,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant un pays étranger")
+```
+
+
+## Fréquences des mentions simaultanées d'états et de région par journal
+
+```{r, warnings=F, message=FALSE}
+hc<-readRDS("data/google/hc_sta_reg.RDS")
+
+hc$OK<-as.factor(hc$where1!="_no_" & hc$where2!="_no_" ) 
+levels(hc$OK)<-c("Non","Oui")
+
+med<-hc[,.(nb<-sum(news)),.(who,OK)] %>%
+  dcast(formula = who~OK, value.var = "V1") %>% 
+  mutate(Media = who,
+         Total=Non+Oui,
+         Frequence = Oui,
+         Pourcentage = 100*Frequence/Total) %>%
+  select(Media, Total,Frequence, Pourcentage)
+
+tot<-med[1,]
+tot$Media<-"Total"
+tot$Total<-sum(med$Total)
+tot$Frequence<-sum(med$Frequence)
+tot$Pourcentage<-100*tot$Frequence/tot$Total
+
+tabres<-rbind(med,tot)
+kable(tabres,digits=c(0,0,0,2),caption = "Parts des nouvelles mentionnant à la fois un pays (étranger ou non) et une macro-région")
+```
+
+
+

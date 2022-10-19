@@ -1,0 +1,70 @@
+# Top World regions {#c31_cybergeo}
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
+library(knitr)
+library(dplyr, quietly=TRUE)
+library(data.table)
+library(FactoMineR)
+```
+
+
+## Data
+
+We laod an **hypercube** where the text of news has been removed and where we keep only the number of *tags* or proportion of *news* speaking from one or several regions (*where1*, *where2*), by media (*who*) and by time period (*when*)
+
+```{r}
+# Load Hypercube and select period
+hc_reg<-readRDS("data/google/hc_reg.RDS") %>% filter(where1 !="_no_")
+hc_reg %>% filter(is.na(when)==F, when < as.Date("2016-07-01"))
+
+
+# Define weights correction for equal contribution of media
+wgt<-hc_reg[,list(coeff = sum(tags)), list(who)]  %>% 
+      mutate(coeff=mean(coeff)/coeff)
+hc_reg<-left_join(hc_reg,wgt)
+hc_reg$news_wgt<-hc_reg$news*hc_reg$coeff
+
+# Load table of label and choose language
+reg_def<-read.table("dict/worldgeo_def_V2.csv", sep=";",quote = '"', encoding = "UTF-8",header=T)
+tab_def<-reg_def %>% filter(lang=="fr") %>% select(code,type,label)
+tab_def<-tab_def[duplicated(tab_def$label)==F,]
+```
+
+## Top 50 regions in full corpus
+
+
+### Unweighted
+
+We can propose firstly a table of top entities in the whole corpus of newspapers with index 100 for the first entity.
+
+```{r}
+# Compute
+df<-hc_reg[where1 !="_no_",list(nb = sum(news)), list(where1)] 
+df<-merge(tab_def,df,by.x="code",by.y="where1",all.x=F,all.y=T)
+df<-df[order(df$nb, decreasing = T),]
+row.names(df)<-1:dim(df)[1]
+df$index<-100*df$nb/max(df$nb)
+
+kable(head(df,50), digits=c(NA,NA,NA,0,2),row.names = T)
+```
+
+### Weighted
+
+
+```{r}
+df<-hc_reg[where1 !="_no_",list(nb = sum(news_wgt)), list(where1)] 
+df<-merge(tab_def,df,by.x="code",by.y="where1",all.x=F,all.y=T)
+df<-df[order(df$nb, decreasing = T),]
+row.names(df)<-1:dim(df)[1]
+df$index<-100*df$nb/max(df$nb)
+
+kable(head(df,50), digits=c(NA,NA,NA,0,2),row.names = T)
+```
+
+
+
+
+
+
+

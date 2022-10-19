@@ -1,0 +1,185 @@
+# quanteda corpus {#c12_geomedia_to_quanteda}
+
+```{r}
+library(quanteda)
+library(dplyr)
+library(ggplot2)
+library(tidytext)
+library(knitr)
+library(readtext)
+
+knitr::opts_chunk$set(cache = TRUE,
+                      echo = TRUE,
+                      comment = "")
+
+
+```
+
+
+### Importation of text to R
+
+
+```{r loadcsv, echo=TRUE}
+store <- "data/google/"
+media <- "fr_FRA_google_int"
+type <-".csv"
+
+fic <- paste(store,media,type,sep="")
+
+df<-read.csv(fic,
+             sep="\t",
+             header=T,
+             encoding = "UTF-8",
+             stringsAsFactors = F)
+head(df)
+str(df)
+```
+
+
+## Extraction of texts and sources
+```{r}
+
+
+library(stringr)
+
+mytext<-function(ti){ 
+   x<-unlist(str_split(ti,"\\-"))
+   k<-length(x)
+   text<-paste(x[1:k-1],collapse = "-")
+   return(text)
+}
+
+mysource<-function(ti){ 
+   x<-unlist(str_split(ti,"\\-"))
+   k<-length(x)
+   text<-paste(x[1:k-1],collapse = "-")
+   source<-x[k]
+   return(source)
+}
+
+
+df$text<-unlist(lapply(df$Titre,mytext))
+df$source<-unlist(lapply(df$Titre,mysource))
+
+
+
+
+
+
+```
+
+ 
+### encoding problems
+
+It is sometime possible to adapt manually the encoding problem whan they are not too much as in present example. 
+
+```{r}
+# standardize apostrophe
+df$text<-gsub("&#8217;","'",df$text)
+
+# standardize punct
+df$text<-gsub('&#8230;','.',df$text)
+
+# standardize hyphens
+df$text<-gsub('&#8211;','-',df$text)
+
+# Remove quotation marks
+df$text<-gsub('&#171;&#160;','',df$text)
+df$text<-gsub('&#160;&#187;','',df$text)
+df$text<-gsub('&#8220;','',df$text)
+df$text<-gsub('&#8221;','',df$text)
+df$text<-gsub('&#8216;','',df$text)
+df$text<-gsub('&#8243;','',df$text)
+
+```
+
+
+We can introduce othr cleaning procedures here or keep it for later analysis
+
+
+### Transformation in quanteda format
+
+We propose  a storage based on `quanteda` format by just transforming the data that has been produced by readtext. We keep only the name of the source and the date of publication. 
+
+```{r create quanteda, echo=T}
+
+# Create Quanteda corpus
+qd<-corpus(df,docid_field = "ID_Item",text_field = "text")
+
+
+# Select docvar fields and rename media
+qd$date <-as.Date(qd$Date_Recup)
+docvars(qd)<-docvars(qd)[,c("source","date")]
+
+
+
+
+# Add global meta
+meta(qd,"meta_source")<-"Media Cloud "
+meta(qd,"meta_time")<-"Download the 2021-09-30"
+meta(qd,"meta_author")<-"Elaborated by Claude Grasland"
+meta(qd,"project")<-"ANR-DFG Project IMAGEUN"
+
+```
+
+
+We have created a quanteda object with a lot of information stored in various fields. The structure of the object is the following one
+
+```{r, echo=TRUE}
+str(qd)
+```
+
+We can look at the first titles with *head()*
+
+```{r, echo=TRUE}
+kable(head(qd,3))
+```
+
+
+We can get meta information on each stories with *summary()*
+
+```{r, echo=TRUE}
+summary(head(qd,3))
+```
+
+We can get meta information about the full document
+
+```{r, echo=TRUE}
+meta(qd)
+```
+
+
+
+### Storage of the quanteda object
+
+We can finally save the object in .RDS format in a directory dedicated to our quanteda files. It can be usefull to give some information in the name of the file
+
+```{r, echo=TRUE}
+store <- "data/google/"
+type<- ".RDS"
+myfile <- paste(store,media,type,sep="")
+myfile
+saveRDS(qd,myfile)
+qd[1:3]
+summary(qd,3)
+
+```
+
+We have kept all the information present in the initial file, but also added specific metadata of interest for us. The size of the storage is now equal to 0.6 Mb which means a division by 6 as compared to the initial .csv file downloaded from Media Cloud.
+
+### Backtransformation of quanteda to data.table or tibble
+
+In the following steps, we will make an intensive use of quanteda, but sometimes it can be usefull to export the results in a more practical format or to use other packages. For this reasons, it is important to know that the `tidytext`package can easily transform quanteda object in tibbles which are more classical and easy to manage 
+
+```{r}
+td <- tidy(qd)
+head(td)
+str(td)
+x<-table(td$source)
+x<-x[order(-x)]
+head(x,20)
+```
+
+
+
+
